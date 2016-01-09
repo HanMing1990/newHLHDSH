@@ -19,8 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    
     //0. 获取当前的计划信息
     CurrentPlan * currentPlan = [CurrentPlan new];
     NSLog(@"sleepLevel : %@",currentPlan.type1);
@@ -45,8 +43,10 @@
     }
     else if ([infoType isEqualToString:@"plan4"])
     {
-        NSLog(@"plan4");
+        NSLog(@"plan4!!!");
         //修改plan显示的信息
+        
+        
         
     }
     

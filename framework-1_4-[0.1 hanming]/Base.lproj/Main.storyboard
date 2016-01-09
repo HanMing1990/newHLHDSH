@@ -328,7 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REJ-iZ-zZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="1210"/>
+            <point key="canvasLocation" x="-118" y="1250"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="WrG-JI-AgW">
@@ -457,8 +457,8 @@
         <image name="zhu" width="2096" height="1139"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="KDZ-eE-6Fv"/>
         <segue reference="1TT-3d-wGq"/>
-        <segue reference="EvA-0x-heC"/>
-        <segue reference="qyc-Tg-tUI"/>
+        <segue reference="UbG-3G-SMb"/>
     </inferredMetricsTieBreakers>
 </document>
