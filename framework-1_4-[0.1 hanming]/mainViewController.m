@@ -33,8 +33,6 @@
     self.rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
-    
-    
     //0. 获取用户的属性
     CurrentLevel * currentLevel = [CurrentLevel new];
     NSLog(@"sleepLevel : %@",currentLevel.sleepLevel);

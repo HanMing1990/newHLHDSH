@@ -44,7 +44,6 @@
 
 
 
-
 - (IBAction)plan1BtnClicked:(id)sender {
     [self recordBtnTypeAndPresentNewExeVC:@"plan1"];
 }
@@ -57,8 +56,6 @@
 - (IBAction)plan4BtnClicked:(id)sender {
     [self recordBtnTypeAndPresentNewExeVC:@"plan4"];
 }
-
-
 
 
 
