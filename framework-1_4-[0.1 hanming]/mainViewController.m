@@ -42,7 +42,7 @@
     
     //2. 右上角的提示文字,如今天情绪很好哦，花也格外旺盛呢
     self.mainTopLabel.text = @"今天心情不错，继续保持哦～！";
-    //xieyihangzhushi
+    //hello
 }
 
 
