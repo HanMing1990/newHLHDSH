@@ -9,6 +9,7 @@
 #import "mainViewController.h"
 #import "historyViewController.h"
 #import "CurrentLevel.h"
+#import "InitSqlite3.h"
 
 @interface mainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
@@ -31,6 +32,11 @@
     self.rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
+    
+    
+    //初始化数据库
+    //InitSqlite3 *initsqlite3 = [InitSqlite3 new];
+    //[initsqlite3 createDataBase];
     
     
     //0. 获取用户的属性
