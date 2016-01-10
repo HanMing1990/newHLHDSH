@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    
+    //this is a 
     //滑动手势
     self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
@@ -33,16 +33,20 @@
     self.rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
+    
+    
     //0. 获取用户的属性
     CurrentLevel * currentLevel = [CurrentLevel new];
-    NSLog(@"sleepLevel : %@",currentLevel.sleepLevel);
+    
+    NSLog(@"%@", currentLevel.stressLevel);
+    
     
     //1. 左上角天气，取决于用户当前的压力值，压力小天气好
-    self.weatherImage.image = [UIImage imageNamed:@"zhe"];
+    self.weatherImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",currentLevel.stressLevel]];
     
     //2. 右上角的提示文字,如今天情绪很好哦，花也格外旺盛呢
     self.mainTopLabel.text = @"今天心情不错，继续保持哦～！";
-    //hello
+    //sdfasdfasdf
 }
 
 
