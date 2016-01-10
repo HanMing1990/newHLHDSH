@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E55F1CC1C3F5D730027AC6F /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1CB1C3F5D730027AC6F /* Plan.m */; };
-		2E55F1CF1C3F5D7B0027AC6F /* CurrentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1CE1C3F5D7B0027AC6F /* CurrentPlan.m */; };
-		2E55F1D21C3F5DB40027AC6F /* CurrentLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1D11C3F5DB40027AC6F /* CurrentLevel.m */; };
+		105F14341C42475C0039B8E7 /* CurrentLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14291C42475C0039B8E7 /* CurrentLevel.m */; };
+		105F14351C42475C0039B8E7 /* CurrentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142B1C42475C0039B8E7 /* CurrentPlan.m */; };
+		105F14361C42475C0039B8E7 /* InitSqlite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142D1C42475C0039B8E7 /* InitSqlite3.m */; };
+		105F14371C42475C0039B8E7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142F1C42475C0039B8E7 /* Item.m */; };
+		105F14381C42475C0039B8E7 /* KCDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14311C42475C0039B8E7 /* KCDbManager.m */; };
+		105F14391C42475C0039B8E7 /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14331C42475C0039B8E7 /* Plan.m */; };
 		2E55F2001C3F97AE0027AC6F /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DD1C3F97AE0027AC6F /* PNBar.m */; };
 		2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DF1C3F97AE0027AC6F /* PNBarChart.m */; };
 		2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E31C3F97AE0027AC6F /* PNChartLabel.m */; };
@@ -42,12 +45,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E55F1CA1C3F5D730027AC6F /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
-		2E55F1CB1C3F5D730027AC6F /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
-		2E55F1CD1C3F5D7B0027AC6F /* CurrentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPlan.h; sourceTree = "<group>"; };
-		2E55F1CE1C3F5D7B0027AC6F /* CurrentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPlan.m; sourceTree = "<group>"; };
-		2E55F1D01C3F5DB40027AC6F /* CurrentLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentLevel.h; sourceTree = "<group>"; };
-		2E55F1D11C3F5DB40027AC6F /* CurrentLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLevel.m; sourceTree = "<group>"; };
+		105F14281C42475C0039B8E7 /* CurrentLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentLevel.h; sourceTree = "<group>"; };
+		105F14291C42475C0039B8E7 /* CurrentLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLevel.m; sourceTree = "<group>"; };
+		105F142A1C42475C0039B8E7 /* CurrentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPlan.h; sourceTree = "<group>"; };
+		105F142B1C42475C0039B8E7 /* CurrentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPlan.m; sourceTree = "<group>"; };
+		105F142C1C42475C0039B8E7 /* InitSqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitSqlite3.h; sourceTree = "<group>"; };
+		105F142D1C42475C0039B8E7 /* InitSqlite3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitSqlite3.m; sourceTree = "<group>"; };
+		105F142E1C42475C0039B8E7 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		105F142F1C42475C0039B8E7 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		105F14301C42475C0039B8E7 /* KCDbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCDbManager.h; sourceTree = "<group>"; };
+		105F14311C42475C0039B8E7 /* KCDbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCDbManager.m; sourceTree = "<group>"; };
+		105F14321C42475C0039B8E7 /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
+		105F14331C42475C0039B8E7 /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
 		2E55F1DC1C3F97AE0027AC6F /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
 		2E55F1DD1C3F97AE0027AC6F /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
 		2E55F1DE1C3F97AE0027AC6F /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
@@ -183,6 +192,18 @@
 		2EFBE3431C3A8392009BCDED /* framework-1_4-[0.1 hanming] */ = {
 			isa = PBXGroup;
 			children = (
+				105F14281C42475C0039B8E7 /* CurrentLevel.h */,
+				105F14291C42475C0039B8E7 /* CurrentLevel.m */,
+				105F142A1C42475C0039B8E7 /* CurrentPlan.h */,
+				105F142B1C42475C0039B8E7 /* CurrentPlan.m */,
+				105F142C1C42475C0039B8E7 /* InitSqlite3.h */,
+				105F142D1C42475C0039B8E7 /* InitSqlite3.m */,
+				105F142E1C42475C0039B8E7 /* Item.h */,
+				105F142F1C42475C0039B8E7 /* Item.m */,
+				105F14301C42475C0039B8E7 /* KCDbManager.h */,
+				105F14311C42475C0039B8E7 /* KCDbManager.m */,
+				105F14321C42475C0039B8E7 /* Plan.h */,
+				105F14331C42475C0039B8E7 /* Plan.m */,
 				2EFBE3471C3A8392009BCDED /* AppDelegate.h */,
 				2EFBE3481C3A8392009BCDED /* AppDelegate.m */,
 				2EFBE34D1C3A8392009BCDED /* Main.storyboard */,
@@ -195,12 +216,6 @@
 				2EFBE3611C3BA56E009BCDED /* planViewController.h */,
 				2EFBE3621C3BA56E009BCDED /* planViewController.m */,
 				2E8E064A1C3BB3390034A854 /* historyViewController.h */,
-				2E55F1CA1C3F5D730027AC6F /* Plan.h */,
-				2E55F1CB1C3F5D730027AC6F /* Plan.m */,
-				2E55F1CD1C3F5D7B0027AC6F /* CurrentPlan.h */,
-				2E55F1CE1C3F5D7B0027AC6F /* CurrentPlan.m */,
-				2E55F1D01C3F5DB40027AC6F /* CurrentLevel.h */,
-				2E55F1D11C3F5DB40027AC6F /* CurrentLevel.m */,
 				2E8E064B1C3BB3390034A854 /* historyViewController.m */,
 				2E8E064D1C3BB37E0034A854 /* analysisViewController.h */,
 				2E8E064E1C3BB37E0034A854 /* analysisViewController.m */,
@@ -290,18 +305,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E55F1CF1C3F5D7B0027AC6F /* CurrentPlan.m in Sources */,
 				2E55F2081C3F97AE0027AC6F /* PNLineChartDataItem.m in Sources */,
+				105F14361C42475C0039B8E7 /* InitSqlite3.m in Sources */,
 				2E55F2041C3F97AE0027AC6F /* PNColor.m in Sources */,
 				2E55F2051C3F97AE0027AC6F /* PNGenericChart.m in Sources */,
 				2E55F20C1C3F97AE0027AC6F /* PNRadarChartDataItem.m in Sources */,
+				105F14391C42475C0039B8E7 /* Plan.m in Sources */,
 				2EB9D6BC1C3D477D0076381A /* exeViewController.m in Sources */,
 				2E8E064F1C3BB37E0034A854 /* analysisViewController.m in Sources */,
 				2E55F20E1C3F97AE0027AC6F /* PNScatterChartData.m in Sources */,
 				2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */,
 				2EFBE3601C3BA545009BCDED /* mainViewController.m in Sources */,
-				2E55F1CC1C3F5D730027AC6F /* Plan.m in Sources */,
 				2E55F2071C3F97AE0027AC6F /* PNLineChartData.m in Sources */,
+				105F14371C42475C0039B8E7 /* Item.m in Sources */,
 				2E55F2061C3F97AE0027AC6F /* PNLineChart.m in Sources */,
 				2EFBE3631C3BA56E009BCDED /* planViewController.m in Sources */,
 				2E55F20A1C3F97AE0027AC6F /* PNPieChartDataItem.m in Sources */,
@@ -310,13 +326,15 @@
 				2E55F2101C3F97AE0027AC6F /* UICountingLabel.m in Sources */,
 				2E55F20D1C3F97AE0027AC6F /* PNScatterChart.m in Sources */,
 				2E8E064C1C3BB3390034A854 /* historyViewController.m in Sources */,
+				105F14351C42475C0039B8E7 /* CurrentPlan.m in Sources */,
 				2E55F2091C3F97AE0027AC6F /* PNPieChart.m in Sources */,
 				2EFBE3491C3A8392009BCDED /* AppDelegate.m in Sources */,
+				105F14381C42475C0039B8E7 /* KCDbManager.m in Sources */,
 				2E55F2001C3F97AE0027AC6F /* PNBar.m in Sources */,
 				2E55F20B1C3F97AE0027AC6F /* PNRadarChart.m in Sources */,
-				2E55F1D21C3F5DB40027AC6F /* CurrentLevel.m in Sources */,
 				2E55F2031C3F97AE0027AC6F /* PNCircleChart.m in Sources */,
 				2E55F20F1C3F97AE0027AC6F /* PNScatterChartDataItem.m in Sources */,
+				105F14341C42475C0039B8E7 /* CurrentLevel.m in Sources */,
 				2EFBE3461C3A8392009BCDED /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

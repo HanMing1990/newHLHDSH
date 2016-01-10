@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <sqlite3.h>
+#import "KCDbManager.h"
 #import "Plan.h"
 
 #define DONE           @"DONE"
@@ -43,6 +43,7 @@
 
 @synthesize done;
 @synthesize have;
+@synthesize number;
 @synthesize currentNumber;
 @synthesize id1;
 @synthesize id2;
@@ -69,45 +70,22 @@
 @synthesize stress5;
 @synthesize effect;
 
-- (NSString *) filePath{
-    NSArray * path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    NSString * documentsDirectory = [path objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:FileName];
-}
 - (void) store{
-    
     [self recordStress5];
     [self calcEffect];
     [self update];
-    
-    sqlite3 *database;
-    
-
-    
-    if(![[NSFileManager defaultManager] fileExistsAtPath:[self filePath]]) {
-        NSLog(@"no such file at currentplan.m");
-        sqlite3_open([[self filePath] UTF8String], &database);
-        char* error;
-        const char *createSql = "create table FIELDS (ROW integer, FIELD_DATA integer)";
-        if(sqlite3_exec(database, createSql, nil, nil, &error)!= SQLITE_OK){
-            NSLog(@"create sql failed1 %s",error);
-        }else{
-            NSLog(@"create sql succeed1 ");
-        }
-    }else{
-        if(sqlite3_open([[self filePath] UTF8String], &database) != SQLITE_OK) {
-            sqlite3_close(database);
-            NSAssert(0, @"Failed to open database");
-        }
-    }
-    char* error1;
-    const char *update = "INSERT INTO FIELDS (ROW, FIELD_DATA) VALUES (1, 1);";
-    if(sqlite3_exec(database, update, nil, nil, &error1)!= SQLITE_OK){
-        NSLog(@"insert failed2 %s",error1);
-    }else{
-        NSLog(@"insert succeed");
-    }
-    sqlite3_close(database);
+    NSString *sql=[NSString stringWithFormat:@"INSERT INTO History \
+    (done, have, number, currentNumber, id1, id2, id3, id4, type1, type2, type3, type4, time0, time1, time2, time3 ,time4 ,fin1, fin2, fin3, fin4,\
+    stress1, stress2, stress3, stress4, stress5, effect) VALUES \
+    ('%@',  '%@','%@',   '%@',         '%@', '%@','%@','%@','%@',  '%@',  '%@',  '%@',  '%@',  '%@',  '%@',  '%@',  '%@', '%@', '%@',  '%@', '%@',\
+    '%@',    '%@',    '%@',   '%@',    '%@',    '%@');",
+     done, have, number, currentNumber, id1, id2, id3, id4, type1, type2, type3, type4, time0, time1, time2, time3 ,time4 ,fin1, fin2, fin3, fin4,
+    stress1, stress2, stress3, stress4, stress5, effect];
+                   
+    KCDbManager *manager = [KCDbManager new];
+    [manager openDb:FileName];
+    [manager executeNonQuery:sql];
+    [manager close];
 }
 - (void) calcEffect{
     

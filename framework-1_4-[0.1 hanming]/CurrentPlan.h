@@ -36,7 +36,6 @@
     NSString* stress5;  //3 day after last day
     NSString* effect;   //
 }
-
 @property(retain,nonatomic)    NSNumber* done;
 @property(retain,nonatomic)    NSNumber* have;
 @property(retain,nonatomic)    NSNumber* currentNumber;

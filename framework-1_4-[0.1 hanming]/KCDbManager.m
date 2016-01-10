@@ -32,6 +32,8 @@
     //单步执行sql语句，用于插入、修改、删除
     if (SQLITE_OK!=sqlite3_exec(_database, sql.UTF8String, NULL, NULL,&error)) {
         NSLog(@"执行SQL语句过程中发生错误！错误信息：%s",error);
+    }else{
+        NSLog(@"执行SQL语句过程成功");
     }
 }
 
