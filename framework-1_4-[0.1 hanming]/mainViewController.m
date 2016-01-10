@@ -23,9 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // last try
     // Do any additional setup after loading the view.
-    //this is second line
     //滑动手势
     //YES HanMing
     self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
