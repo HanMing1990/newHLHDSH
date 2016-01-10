@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    //this is a 
+    //this is a test line
     //滑动手势
     self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
