@@ -36,14 +36,32 @@
     //0. 获取用户的属性
     CurrentLevel * currentLevel = [CurrentLevel new];
     
-    NSLog(@"%@", currentLevel.stressLevel);
-    
     
     //1. 左上角天气，取决于用户当前的压力值，压力小天气好
-    self.weatherImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",currentLevel.stressLevel]];
-    
+    NSString * weatherImgeName;
+    NSString * topLabelText;
     //2. 右上角的提示文字,如今天情绪很好哦，花也格外旺盛呢
-    self.mainTopLabel.text = @"今天心情不错，继续保持哦～！";
+    NSLog(@"current level %i", currentLevel.stressLevel.intValue);
+    switch (currentLevel.stressLevel.intValue) {
+        case 2:
+            weatherImgeName = @"sun";
+            topLabelText = @"今天心情不错，继续保持哦～";
+            break;
+        case 1:
+            weatherImgeName = @"cloudy";
+            topLabelText = @"今天心情一般，试着做点开心的事情吧~";
+            break;
+        case 3:
+            weatherImgeName = @"rain";
+            topLabelText = @"今天心情有点低沉，要多多照顾下自己的心情哦~";
+            break;
+        default:
+            weatherImgeName = @"snow";
+            topLabelText = @"今天心情很差，注意调节啊~";
+            break;
+    }
+    self.weatherImage.image = [UIImage imageNamed:weatherImgeName];
+    self.mainTopLabel.text = topLabelText;
     //sdfasdfasdf
 }
 

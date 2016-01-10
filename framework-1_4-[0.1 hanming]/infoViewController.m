@@ -29,12 +29,10 @@
     NSLog(@"sleepLevel : %@",currentLevel.sleepLevel);
     
     
-    
     //1. 判断是由哪个按钮跳转过来的
     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"infoType"];
     if ([infoType isEqualToString:@"sleep"]) {
         NSLog(@"sleep");
-        
         
         
         //修改info显示的信息
