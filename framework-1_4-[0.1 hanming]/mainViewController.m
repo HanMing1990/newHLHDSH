@@ -10,6 +10,7 @@
 #import "historyViewController.h"
 #import "CurrentLevel.h"
 #import "InitSqlite3.h"
+#import "PNChart.h"
 
 @interface mainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
@@ -68,6 +69,19 @@
     }
     self.weatherImage.image = [UIImage imageNamed:weatherImgeName];
     self.mainTopLabel.text = topLabelText;
+    
+    // stress
+    self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,450.0, SCREEN_WIDTH*0.4, 80.0)
+                                                      total:@100
+                                                    current:@60
+                                                  clockwise:YES];
+    self.circleChartStress.backgroundColor = [UIColor clearColor];
+    
+    [self.circleChartStress setStrokeColor:[UIColor clearColor]];
+    [self.circleChartStress setStrokeColorGradientStart:[UIColor blueColor]];
+    [self.circleChartStress strokeChart];
+    
+    [self.view addSubview:self.circleChartStress];
     //sdfasdfasdf
 }
 
