@@ -10,13 +10,14 @@
 #import <Foundation/NSArray.h>
 #import "InitSqlite3.h"
 #import "KCDbManager.h"
+#import "Item.h"
 #define FileName @"plan.sqlite3"
 @implementation InitSqlite3
 - (void) createDataBase{
     NSString *key=@"IsCreatedDb";
     NSUserDefaults *defaults=[[NSUserDefaults alloc]init];
     
-    [defaults setValue:@0 forKey:key];
+    //[defaults setValue:@0 forKey:key];
     
     if ([[defaults valueForKey:key] intValue]!=1) {
         NSLog(@"we create the world!!!");
@@ -25,6 +26,7 @@
         [self createPlanHistoryTable];
         [defaults setValue:@1 forKey:key];
     }
+    [self outputTable];
 }
 - (void) insertPlanItem{
     NSString* content1 = @"hello";
@@ -59,7 +61,6 @@
     for(loop = 0; loop < 10; loop ++){
         [manager executeNonQuery:sql];
     }
-    
     [manager close];
 }
 - (void) outputTable{
@@ -68,8 +69,22 @@
     [manager openDb:FileName];
     NSArray * all = [manager executeQuery:sql];
     for(int i=0;i<all.count;i++){
-        
-            NSLog([NSString stringWithFormat:@"output item %@",all[i]]);
+        NSLog(@"output item %i ",i);
+        Item *item = [Item new];
+        item.content1 = [all[i] objectForKey:@"content1"];
+        item.content2 = [all[i] objectForKey:@"content2"];
+        item.content3 = [all[i] objectForKey:@"content3"];
+        item.info = [all[i] objectForKey:@"info"];
+        item.pref = [all[i] objectForKey:@"pref"];
+        item.effe = [all[i] objectForKey:@"effe"];
+        item.diff = [all[i] objectForKey:@"diff"];
+        item.inte = [all[i] objectForKey:@"inte"];
+        item.chan = [all[i] objectForKey:@"chan"];
+        item.sour = [all[i] objectForKey:@"sour"];
+        item.numb = [all[i] objectForKey:@"numb"];
+        item.clus = [all[i] objectForKey:@"clus"];
+        NSLog(@"succeed output a value:");
+        NSLog(@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@",item.content1,item.content2,item.content3,item.info, item.pref, item.effe, item.diff, item.inte, item.chan, item.sour, item.numb, item.clus);
     }
     [manager close];
 }
