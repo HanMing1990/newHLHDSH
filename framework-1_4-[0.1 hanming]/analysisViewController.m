@@ -16,8 +16,10 @@
 
 
 //显示第三方库
-- (void) showPNLineChart{
-    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];
+- (void) showLineChart{
+    //self.titleLabel.text = @"Line Chart";
+    
+    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(20, 350.0, SCREEN_WIDTH*0.85, 200.0)];
     self.lineChart.yLabelFormat = @"%1.1f";
     self.lineChart.backgroundColor = [UIColor clearColor];
     [self.lineChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5",@"SEP 6",@"SEP 7"]];
@@ -28,16 +30,18 @@
     self.lineChart.yFixedValueMax = 300.0;
     self.lineChart.yFixedValueMin = 0.0;
     
+    //Y Labels
     [self.lineChart setYLabels:@[
-                                 @"0 min",
-                                 @"50 min",
-                                 @"100 min",
-                                 @"150 min",
-                                 @"200 min",
-                                 @"250 min",
-                                 @"300 min",
+                                 @"0",
+                                 @"50",
+                                 @"100",
+                                 @"150",
+                                 @"200",
+                                 @"250",
+                                 @"300",
                                  ]
      ];
+    
     
     // Line Chart #1
     NSArray * data01Array = @[@60.1, @160.1, @126.4, @0.0, @186.2, @127.2, @176.2];
@@ -66,26 +70,29 @@
     };
     
     self.lineChart.chartData = @[data01, data02];
-    [self.lineChart strokeChart];
-    self.lineChart.delegate = self;
-    
     
     [self.view addSubview:self.lineChart];
     
+    //显示动画效果
+     [self.lineChart strokeChart];
+    
+    //设置图例格式
     self.lineChart.legendStyle = PNLegendItemStyleStacked;
     self.lineChart.legendFont = [UIFont boldSystemFontOfSize:12.0f];
-    self.lineChart.legendFontColor = [UIColor redColor];
+    self.lineChart.legendFontColor = [UIColor blackColor];
     
     UIView *legend = [self.lineChart getLegendWithMaxWidth:320];
-    [legend setFrame:CGRectMake(30, 340, legend.frame.size.width, legend.frame.size.width)];
+    [legend setFrame:CGRectMake(50, 340, legend.frame.size.width, legend.frame.size.width)];
     [self.view addSubview:legend];
     
+    NSLog(@"I'm here~!");
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self showPNLineChart];
+    [self showLineChart];
 }
 
 - (void)didReceiveMemoryWarning {

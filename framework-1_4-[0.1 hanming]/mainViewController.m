@@ -44,9 +44,9 @@
     
     
     //1. 左上角天气，取决于用户当前的压力值，压力小天气好
+    //2. 右上角的提示文字,如今天情绪很好哦，花也格外旺盛呢
     NSString * weatherImgeName;
     NSString * topLabelText;
-    //2. 右上角的提示文字,如今天情绪很好哦，花也格外旺盛呢
     NSLog(@"current level %i", currentLevel.stressLevel.intValue);
     switch (currentLevel.stressLevel.intValue) {
         case 2:
@@ -68,7 +68,12 @@
     }
     self.weatherImage.image = [UIImage imageNamed:weatherImgeName];
     self.mainTopLabel.text = topLabelText;
-    //sdfasdfasdf
+    
+    
+    
+    //3. 当前花的状态
+    
+    
 }
 
 

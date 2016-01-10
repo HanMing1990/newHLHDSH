@@ -11,5 +11,4 @@
 @interface analysisViewController : UIViewController
 
 @property (nonatomic) PNLineChart * lineChart;//数据可视化
-
 @end
