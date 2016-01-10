@@ -84,8 +84,6 @@
     UIView *legend = [self.lineChart getLegendWithMaxWidth:320];
     [legend setFrame:CGRectMake(50, 340, legend.frame.size.width, legend.frame.size.width)];
     [self.view addSubview:legend];
-    
-    NSLog(@"I'm here~!");
 
 }
 
