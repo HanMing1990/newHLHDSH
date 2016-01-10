@@ -69,6 +69,7 @@
     NSArray * all = [manager executeQuery:sql];
     for(int i=0;i<all.count;i++){
         
+            NSLog([NSString stringWithFormat:@"output item %@",all[i]]);
     }
     [manager close];
 }
