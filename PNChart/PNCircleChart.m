@@ -68,12 +68,13 @@ displayCountingLabel:(BOOL)displayCountingLabel
         _current = current;
         _strokeColor = PNFreshGreen;
         _duration = 1.0;
-        _chartType = PNChartFormatTypePercent;
-        
+        //_chartType = PNChartFormatTypePercent;
+        _chartType = PNChartFormatTypeDecimal;
         _displayCountingLabel = displayCountingLabel;
 
-        CGFloat startAngle = clockwise ? -90.0f : 270.0f;
-        CGFloat endAngle = clockwise ? -90.01f : 270.01f;
+        // EXCITING
+        CGFloat startAngle = clockwise ? -225.0f : 180.0f;
+        CGFloat endAngle = clockwise ? 45.01f : 180.01f;
 
         _lineWidth = overrideLineWidth;
         
@@ -162,9 +163,10 @@ displayCountingLabel:(BOOL)displayCountingLabel
     pathAnimation.toValue = @([_current floatValue] / [_total floatValue]);
     [_circle addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
     _circle.strokeEnd   = [_current floatValue] / [_total floatValue];
-
-    [_countingLabel countFrom:0 to:[_current floatValue]/([_total floatValue]/100.0) withDuration:self.duration];
-
+    //yangj
+    //[_countingLabel countFrom:0 to:[_current floatValue]/([_total floatValue]/100.0) withDuration:self.duration];
+    [_countingLabel countFrom:0 to:[_current floatValue] withDuration:self.duration];
+    
 
     // Check if user wants to add a gradient from the start color to the bar color
     if (_strokeColorGradientStart) {
@@ -183,7 +185,8 @@ displayCountingLabel:(BOOL)displayCountingLabel
         gradientLayer.startPoint = CGPointMake(0.5,1.0);
         gradientLayer.endPoint = CGPointMake(0.5,0.0);
         gradientLayer.frame = gradientFrame;
-        UIColor *endColor = (_strokeColor ? _strokeColor : [UIColor greenColor]);
+        //yangj
+        UIColor *endColor = (_strokeColor ? _strokeColor : [UIColor redColor]);
         NSArray *colors = @[
                             (id)endColor.CGColor,
                             (id)_strokeColorGradientStart.CGColor

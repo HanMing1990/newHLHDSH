@@ -10,6 +10,7 @@
 #import "historyViewController.h"
 #import "CurrentLevel.h"
 #import "InitSqlite3.h"
+#import "PNChart.h"
 
 @interface mainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
@@ -24,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     //滑动手势
     self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
@@ -69,11 +69,64 @@
     self.weatherImage.image = [UIImage imageNamed:weatherImgeName];
     self.mainTopLabel.text = topLabelText;
     
+
+    // stress
+    self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,450.0, SCREEN_WIDTH*0.45, 80.0)
+                                                      total:@14.0
+                                                    current:@12.0
+                                                  clockwise:YES];
+    self.circleChartStress.backgroundColor = [UIColor clearColor];
+    [self.circleChartStress setStrokeColor:[UIColor clearColor]];
+    // change color according to the stress lever
+    [self.circleChartStress setStrokeColorGradientStart:[UIColor redColor]];
+    [self.circleChartStress strokeChart];
+    [self.view addSubview:self.circleChartStress];
+    
+    // sleep
+    self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.55,450.0, SCREEN_WIDTH*0.45, 80.0)
+                                                            total:@14.0
+                                                          current:@12.0
+                                                        clockwise:YES];
+    self.circleChartSleep.backgroundColor = [UIColor clearColor];
+    [self.circleChartSleep setStrokeColor:[UIColor clearColor]];
+    // change color according to the stress lever
+    [self.circleChartSleep setStrokeColorGradientStart:[UIColor redColor]];
+    [self.circleChartSleep strokeChart];
+    [self.view addSubview:self.circleChartSleep];
+    
+    // step
+    self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,600.0, SCREEN_WIDTH*0.45, 80.0)
+                                                           total:@14.0
+                                                         current:@12.0
+                                                       clockwise:YES];
+    self.circleChartStep.backgroundColor = [UIColor clearColor];
+    [self.circleChartStep setStrokeColor:[UIColor clearColor]];
+    // change color according to the stress lever
+    [self.circleChartStep setStrokeColorGradientStart:[UIColor redColor]];
+    [self.circleChartStep strokeChart];
+    [self.view addSubview:self.circleChartStep];
+    
+    // calorie
+    self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.55,600.0, SCREEN_WIDTH*0.45, 80.0)
+                                                           total:@14.0
+                                                         current:@12.0
+                                                       clockwise:YES];
+    self.circleChartCalorie.backgroundColor = [UIColor clearColor];
+    [self.circleChartCalorie setStrokeColor:[UIColor clearColor]];
+    // change color according to the stress lever
+    [self.circleChartCalorie setStrokeColorGradientStart:[UIColor redColor]];
+    [self.circleChartCalorie strokeChart];
+    [self.view addSubview:self.circleChartCalorie];
+    
+    
+    
+    //sdfasdfasdf
+
     
     
     //3. 当前花的状态
     
-    
+
 }
 
 

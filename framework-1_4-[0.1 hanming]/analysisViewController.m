@@ -74,7 +74,7 @@
     [self.view addSubview:self.lineChart];
     
     //显示动画效果
-     [self.lineChart strokeChart];
+    [self.lineChart strokeChart];
     
     //设置图例格式
     self.lineChart.legendStyle = PNLegendItemStyleStacked;

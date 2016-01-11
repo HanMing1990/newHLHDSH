@@ -14,4 +14,8 @@
 @property (nonatomic, strong) UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
 @property (nonatomic, strong) UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
 
+@property (nonatomic) PNCircleChart * circleChartStress;
+@property (nonatomic) PNCircleChart * circleChartSleep;
+@property (nonatomic) PNCircleChart * circleChartStep;
+@property (nonatomic) PNCircleChart * circleChartCalorie;
 @end

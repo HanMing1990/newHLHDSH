@@ -314,6 +314,7 @@
 
 - (void)strokeChart
 {
+    NSLog(@"start animatation of charline");
     _chartPath = [[NSMutableArray alloc] init];
     _pointPath = [[NSMutableArray alloc] init];
     _gradeStringPaths = [NSMutableArray array];
@@ -364,6 +365,7 @@
 
         UIGraphicsEndImageContext();
     }
+    NSLog(@"end animatation of charline");
 }
 
 
