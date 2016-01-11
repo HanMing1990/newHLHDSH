@@ -15,6 +15,8 @@
 @interface mainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
 @property (weak, nonatomic) IBOutlet UITextView *mainTopLabel;
+@property (weak, nonatomic) IBOutlet UIButton *flowerBtn;
+
 
 @end
 
@@ -49,7 +51,7 @@
     NSString * topLabelText;
     NSLog(@"current level %i", currentLevel.stressLevel.intValue);
     switch (currentLevel.stressLevel.intValue) {
-        case 2:
+        case 0:
             weatherImgeName = @"sun";
             topLabelText = @"今天心情不错，继续保持哦～";
             break;
@@ -57,7 +59,7 @@
             weatherImgeName = @"cloudy";
             topLabelText = @"今天心情一般，试着做点开心的事情吧~";
             break;
-        case 3:
+        case 2:
             weatherImgeName = @"rain";
             topLabelText = @"今天心情有点低沉，要多多照顾下自己的心情哦~";
             break;
@@ -69,7 +71,8 @@
     self.weatherImage.image = [UIImage imageNamed:weatherImgeName];
     self.mainTopLabel.text = topLabelText;
     
-
+    
+    /* 以下是杨俊写的圆圈显示数值的代码（暂时不用了）
     // stress
     self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,450.0, SCREEN_WIDTH*0.45, 80.0)
                                                       total:@14.0
@@ -117,14 +120,43 @@
     [self.circleChartCalorie setStrokeColorGradientStart:[UIColor redColor]];
     [self.circleChartCalorie strokeChart];
     [self.view addSubview:self.circleChartCalorie];
+    */
     
     
     
-    //sdfasdfasdf
-
+    //3. 显示当前花的状态
+    //3.1 根据历史完成情况获取花的状态名字 xxx
+    int flowerState;
+    flowerState = 0;
     
     
-    //3. 当前花的状态
+    //3.2 获取花的名字
+    NSString *flowerImageName;
+    switch (flowerState) {
+        case 0:
+            flowerImageName = @"zhongzi";
+            break;
+        case 1:
+            flowerImageName = @"youmiao";
+            break;
+        case 2:
+            flowerImageName = @"xiaohua";
+            break;
+        case 3:
+            flowerImageName = @"dahua";
+            break;
+        default:
+            flowerImageName = @"guoshi";
+            break;
+    }
+    [self.flowerBtn setImage:[UIImage imageNamed:flowerImageName] forState:UIControlStateNormal];
+    
+    
+    NSString *flowerStateStr = [NSString stringWithFormat:@"%d", flowerState];
+    //存花的状态以备后面页面使用
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: flowerStateStr forKey:@"flowerState"];
+    [defaults synchronize];
     
 
 }

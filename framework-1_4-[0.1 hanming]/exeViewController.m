@@ -29,7 +29,6 @@
     if ([infoType isEqualToString:@"plan1"]) {
         NSLog(@"plan1");
         //修改plan显示的信息
-        
     }
     else if ([infoType isEqualToString:@"plan2"])
     {
@@ -45,8 +44,6 @@
     {
         NSLog(@"plan4!!!");
         //修改plan显示的信息
-        
-        
     }
     
     
