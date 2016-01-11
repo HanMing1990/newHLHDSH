@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PNChart.h" //数据可视化
+
 
 @interface infoViewController : UIViewController
+@property (nonatomic) PNBarChart * barChart;
+
 
 @end
