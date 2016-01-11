@@ -122,13 +122,13 @@
     [self.view addSubview:self.circleChartCalorie];
     */
     
-    
+
     
     //3. 显示当前花的状态
     //3.1 根据历史完成情况获取花的状态名字 xxx
     int flowerState;
     flowerState = 0;
-    
+
     
     //3.2 获取花的名字
     NSString *flowerImageName;
