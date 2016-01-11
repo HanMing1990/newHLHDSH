@@ -8,6 +8,10 @@
 
 #import "planViewController.h"
 #import "exeViewController.h"
+#import "exe1ViewController.h"
+#import "exe2ViewController.h"
+#import "exe3ViewController.h"
+#import "exe4ViewController.h"
 #import "CurrentPlan.h"
 
 @interface planViewController ()
@@ -185,7 +189,6 @@
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
     
     
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -199,22 +202,66 @@
 
 //4个button的点击
 - (IBAction)plan1BtnClicked:(id)sender {
-    [self recordBtnTypeAndPresentNewExeVC:@"plan1"];
+    //得到plan的type,用以决定要跳转到哪种类型的exeVC, xxx
+    int planType;
+    planType = 1;
+    [self presentExeVC:planType];
 }
+
+
 - (IBAction)plan2BtnClicked:(id)sender {
-    [self recordBtnTypeAndPresentNewExeVC:@"plan2"];
+    //得到plan的type,用以决定要跳转到哪种类型的exeVC, xxx
+    int planType;
+    planType = 3;
+    [self presentExeVC:planType];
 }
+
+
 - (IBAction)plan3BtnClicked:(id)sender {
-    [self recordBtnTypeAndPresentNewExeVC:@"plan3"];
+    //得到plan的type,用以决定要跳转到哪种类型的exeVC, xxx
+    int planType;
+    planType = 2;
+    [self presentExeVC:planType];
 }
+
 - (IBAction)plan4BtnClicked:(id)sender {
-    [self recordBtnTypeAndPresentNewExeVC:@"plan4"];
+    //得到plan的type,用以决定要跳转到哪种类型的exeVC, xxx
+    int planType;
+    planType = 4;
+    [self presentExeVC:planType];
 }
 
 
 
+- (void) presentExeVC:(int) planType{
+    UIStoryboard *mainStoryboard = self.storyboard;
+    exeViewController *SVC;
+    switch (planType) {
+        case 0:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
+            break;
+        case 1:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
+            break;
+        case 2:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe2ViewController"];
+            break;
+        case 3:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe3ViewController"];
+            break;
+        case 4:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
+            break;
+        default:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
+            break;
+    }
+    //设置翻页效果
+    [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController: SVC animated:YES completion:nil];
+}
 
-
+/*
 
 //记录点击的按钮信息和翻页到info页面
 - (void)recordBtnTypeAndPresentNewExeVC:(NSString *) BtnType{
@@ -222,8 +269,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: BtnType forKey:@"planType"];
     [defaults synchronize];
-    
-    
+
     //2.切换页面，记得先修修改要切换的页面的storyboard id
     //2.1 判断要调到哪种类型的页面
     NSString *whichVCtoJump;
@@ -235,8 +281,7 @@
     [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentViewController: SVC animated:YES completion:nil];
 }
-
-
+*/
 
 
 

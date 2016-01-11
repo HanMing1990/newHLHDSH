@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-118" y="468"/>
+            <point key="canvasLocation" x="-112" y="448"/>
         </scene>
         <!--Plan View Controller-->
         <scene sceneID="xCe-FN-hMv">
@@ -359,6 +359,10 @@
                                     <segue destination="BYZ-38-t0r" kind="modal" id="gJH-nF-Tsg"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhe" id="tKl-tQ-vE6">
+                                <rect key="frame" x="20" y="304" width="266" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -741,8 +745,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士" textAlignment="natural" id="uhn-f5-1PX">
-                                <rect key="frame" x="29" y="376" width="240" height="49"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士" textAlignment="natural" id="mqV-2G-jAW">
+                                <rect key="frame" x="29" y="316" width="240" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -775,8 +779,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士" textAlignment="natural" id="mqV-2G-jAW">
-                                <rect key="frame" x="29" y="316" width="240" height="52"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士" textAlignment="natural" id="uhn-f5-1PX">
+                                <rect key="frame" x="29" y="370" width="240" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -801,11 +805,12 @@
         <image name="planType4" width="650" height="454"/>
         <image name="run" width="220" height="220"/>
         <image name="sun" width="978" height="1000"/>
+        <image name="zhe" width="538" height="316"/>
         <image name="zhongzi" width="391" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gBI-pE-Adn"/>
         <segue reference="EvA-0x-heC"/>
-        <segue reference="cb3-Iu-1Zj"/>
+        <segue reference="gJH-nF-Tsg"/>
     </inferredMetricsTieBreakers>
 </document>
