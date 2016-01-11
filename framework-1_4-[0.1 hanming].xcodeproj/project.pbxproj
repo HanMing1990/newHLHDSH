@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		104A8FD11C4348EE005E40D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD01C4348EE005E40D4 /* QuartzCore.framework */; };
+		104A8FD31C4348FD005E40D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD21C4348FD005E40D4 /* Foundation.framework */; };
+		104A8FD51C434913005E40D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD41C434913005E40D4 /* CoreGraphics.framework */; };
+		104A8FD71C43491C005E40D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD61C43491C005E40D4 /* UIKit.framework */; };
 		105F14341C42475C0039B8E7 /* CurrentLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14291C42475C0039B8E7 /* CurrentLevel.m */; };
 		105F14351C42475C0039B8E7 /* CurrentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142B1C42475C0039B8E7 /* CurrentPlan.m */; };
 		105F14361C42475C0039B8E7 /* InitSqlite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142D1C42475C0039B8E7 /* InitSqlite3.m */; };
@@ -45,6 +49,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		104A8FD01C4348EE005E40D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		104A8FD21C4348FD005E40D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		104A8FD41C434913005E40D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		104A8FD61C43491C005E40D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		105F14281C42475C0039B8E7 /* CurrentLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentLevel.h; sourceTree = "<group>"; };
 		105F14291C42475C0039B8E7 /* CurrentLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLevel.m; sourceTree = "<group>"; };
 		105F142A1C42475C0039B8E7 /* CurrentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPlan.h; sourceTree = "<group>"; };
@@ -121,6 +129,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				104A8FD71C43491C005E40D4 /* UIKit.framework in Frameworks */,
+				104A8FD51C434913005E40D4 /* CoreGraphics.framework in Frameworks */,
+				104A8FD31C4348FD005E40D4 /* Foundation.framework in Frameworks */,
+				104A8FD11C4348EE005E40D4 /* QuartzCore.framework in Frameworks */,
 				2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +186,10 @@
 		2EFBE3381C3A8392009BCDED = {
 			isa = PBXGroup;
 			children = (
+				104A8FD61C43491C005E40D4 /* UIKit.framework */,
+				104A8FD41C434913005E40D4 /* CoreGraphics.framework */,
+				104A8FD21C4348FD005E40D4 /* Foundation.framework */,
+				104A8FD01C4348EE005E40D4 /* QuartzCore.framework */,
 				2E55F1DB1C3F97AE0027AC6F /* PNChart */,
 				2EB9D7031C3F5C580076381A /* libsqlite3.tbd */,
 				2EFBE3431C3A8392009BCDED /* framework-1_4-[0.1 hanming] */,

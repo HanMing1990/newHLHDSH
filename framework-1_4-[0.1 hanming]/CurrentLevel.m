@@ -17,6 +17,8 @@
 #define STEPTIME    @"STEPTIME"
 #define SLEEPLEVEL  @"SLEEPLEVEL"
 #define SLEEPTIME   @"SLEEPTIME"
+#define CALORIELEVEL @"CALORIELEVEL"
+#define CALORIETIME  @"CALORIETIME"
 #define FLOWERLEVEL @"FLOWERLEVEL"
 #define FLOWERTIME  @"FLOWERTIME"
 
@@ -30,6 +32,8 @@
 @synthesize stepTime;
 @synthesize sleepLevel;
 @synthesize sleepTime;
+@synthesize calorieLevel;
+@synthesize calorieTime;
 @synthesize flowerLevel;
 @synthesize flowerTime;
 
@@ -53,6 +57,8 @@
                 stepTime = [NSDate date];
                 sleepLevel = @"80";
                 sleepTime = [NSDate date];
+                calorieLevel = @"80";
+                calorieTime = [NSDate date];
                 flowerLevel = @"60";
                 flowerTime  = [NSDate date];
                 
@@ -62,6 +68,8 @@
                 [dic setObject:stepTime forKey:STEPTIME];
                 [dic setObject:sleepTime forKey:SLEEPTIME];
                 [dic setObject:sleepLevel forKey:SLEEPLEVEL];
+                [dic setObject:calorieTime forKey:CALORIETIME];
+                [dic setObject:calorieLevel forKey:CALORIELEVEL];
                 [dic setObject:flowerTime forKey:FLOWERTIME];
                 [dic setObject:flowerLevel forKey:FLOWERLEVEL];
                 
@@ -83,6 +91,8 @@
         stepTime    = [dictionary objectForKey:STEPTIME];
         sleepLevel  = [dictionary objectForKey:SLEEPLEVEL];
         sleepTime   = [dictionary objectForKey:SLEEPTIME];
+        calorieTime = [dictionary objectForKey:CALORIETIME];
+        calorieLevel = [dictionary objectForKey:CALORIELEVEL];
         flowerLevel = [dictionary objectForKey:FLOWERLEVEL];
         flowerTime  = [dictionary objectForKey:FLOWERTIME];
         
@@ -98,6 +108,8 @@
         [dic setObject:stepTime forKey:STEPTIME];
         [dic setObject:sleepTime forKey:SLEEPTIME];
         [dic setObject:sleepLevel forKey:SLEEPLEVEL];
+        [dic setObject:calorieTime forKey:CALORIETIME];
+        [dic setObject:calorieLevel forKey:CALORIELEVEL];
         [dic setObject:flowerTime forKey:FLOWERTIME];
         [dic setObject:flowerLevel forKey:FLOWERLEVEL];
         
@@ -113,6 +125,8 @@
             NSLog(@"%@",stepTime);
             NSLog(@"%@",sleepLevel);
             NSLog(@"%@",sleepTime);
+            NSLog(@"%@",calorieLevel);
+            NSLog(@"%@",calorieTime);
             NSLog(@"%@",flowerLevel);
             NSLog(@"%@",flowerTime);
         }else{

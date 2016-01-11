@@ -41,7 +41,7 @@
 
 @implementation Plan
 
-@synthesize done;
+@synthesize done; //是否完成，1:完成 0:不完成
 @synthesize have;
 @synthesize number;
 @synthesize currentNumber;

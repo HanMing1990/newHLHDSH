@@ -119,7 +119,6 @@
     [self.view addSubview:self.circleChartCalorie];
     
     
-    
     //sdfasdfasdf
 
     
