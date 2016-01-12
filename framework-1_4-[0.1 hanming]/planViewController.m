@@ -201,11 +201,10 @@
 - (IBAction)plan1BtnClicked:(id)sender {
     //记录当前plan的信息，以备后面执行界面显示
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: self.plan1Date forKey:@"currentPlanDate"];
-    [defaults setObject: self.plan1Text forKey:@"currentPlanText"];
-    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan1Type] forKey:@"currentPlanDate"];
+    [defaults setObject: self.plan1Date.text forKey:@"currentPlanDate"];
+    [defaults setObject: self.plan1Text.text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan1Type] forKey:@"currentPlanType"];
     [defaults synchronize];
-    
 
     //跳转到执行页面
     [self presentExeVC:self.plan1Type];
@@ -217,7 +216,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: self.plan2Date forKey:@"currentPlanDate"];
     [defaults setObject: self.plan2Text forKey:@"currentPlanText"];
-    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan2Type] forKey:@"currentPlanDate"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan2Type] forKey:@"currentPlanType"];
     [defaults synchronize];
     
 
