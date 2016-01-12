@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
+
 @interface Plan : NSObject{
     NSNumber* done;  //是否已经完成，1:已经完成 2:没有完成
     NSNumber* have;  //是否有计划，1:有，2:没有
@@ -73,4 +75,5 @@
 - (void) recordStress5;            //store调用，内部函数
 - (void) calcEffect;               //store调用，内部函数
 - (void) update;                   //store调用，内部函数
+- (Item *) getItemById:(NSNumber* )newId;
 @end
