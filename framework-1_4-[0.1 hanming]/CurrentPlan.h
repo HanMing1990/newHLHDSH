@@ -10,6 +10,7 @@
 @interface  CurrentPlan : NSObject{
     NSNumber* done;
     NSNumber* have;
+    NSNumber* number;
     NSNumber* currentNumber;
     NSNumber* id1;
     NSNumber* id2;
@@ -38,6 +39,7 @@
 }
 @property(retain,nonatomic)    NSNumber* done;
 @property(retain,nonatomic)    NSNumber* have;
+@property(retain,nonatomic)    NSNumber* number;
 @property(retain,nonatomic)    NSNumber* currentNumber;
 @property(retain,nonatomic)    NSNumber* id1;
 @property(retain,nonatomic)    NSNumber* id2;

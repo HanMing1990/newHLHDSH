@@ -14,6 +14,7 @@
 
 #define DONE           @"DONE"
 #define HAVE           @"HAVE"
+#define NUMBER         @"NUMBER"
 #define CURRENTNUMBER  @"CURRENTNUMBER"
 #define ID1            @"ID1"
 #define ID2            @"ID2"
@@ -45,6 +46,7 @@
 
 @synthesize done;
 @synthesize have;
+@synthesize number;
 @synthesize currentNumber;
 @synthesize id1;
 @synthesize id2;
@@ -84,16 +86,17 @@
             NSLog(@"no such file at currentplan.m");
             do{
                 NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-                have = [NSNumber numberWithBool:0];
+                have = [NSNumber numberWithBool:1];
                 done = [NSNumber numberWithBool:0];
-                currentNumber = [NSNumber numberWithInt:0];
-                id1 = [NSNumber numberWithInt:0];
-                id2 = [NSNumber numberWithInt:0];
-                id3 = [NSNumber numberWithInt:0];
+                number = [NSNumber numberWithInt:0];
+                currentNumber = [NSNumber numberWithInt:3];
+                id1 = [NSNumber numberWithInt:3];
+                id2 = [NSNumber numberWithInt:5];
+                id3 = [NSNumber numberWithInt:6];
                 id4 = [NSNumber numberWithInt:0];
-                type1 = [NSNumber numberWithInt:0];
-                type2 = [NSNumber numberWithInt:0];
-                type3 = [NSNumber numberWithInt:0];
+                type1 = [NSNumber numberWithInt:2];
+                type2 = [NSNumber numberWithInt:3];
+                type3 = [NSNumber numberWithInt:4];
                 type4 = [NSNumber numberWithInt:0];
                 time0 = [NSDate date];
                 time1 = [NSDate date];
@@ -113,6 +116,7 @@
                 effect = @"0";
                 [dic setObject:have forKey:HAVE];
                 [dic setObject:done forKey:DONE];
+                [dic setObject:number forKey:NUMBER];
                 [dic setObject:currentNumber forKey:CURRENTNUMBER];
                 [dic setObject:id1  forKey:ID1];
                 [dic setObject:id2 forKey:ID2];
@@ -152,6 +156,7 @@
         
         done = [dictionary objectForKey:DONE];
         have  = [dictionary objectForKey:HAVE];
+        number = [dictionary objectForKey:NUMBER];
         currentNumber   = [dictionary objectForKey:CURRENTNUMBER];
         id1    = [dictionary objectForKey:ID1];
         id2  = [dictionary objectForKey:ID2];
@@ -185,6 +190,7 @@
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         [dic setObject:have forKey:HAVE];
         [dic setObject:done forKey:DONE];
+        [dic setObject:number forKey:NUMBER];
         [dic setObject:currentNumber forKey:CURRENTNUMBER];
         [dic setObject:id1  forKey:ID1];
         [dic setObject:id2 forKey:ID2];

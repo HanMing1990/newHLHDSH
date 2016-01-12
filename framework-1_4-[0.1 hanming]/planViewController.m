@@ -46,15 +46,23 @@
     // Do any additional setup after loading the view.
 
     //0. 获取当前的计划信息 xxx
+    CurrentPlan * currentPlan = [CurrentPlan new];
+    if (currentPlan.have.boolValue == 1) {
+        //还没有计划，当然需要有一个张图片显示说没有计划啦
+        
+    }else if(currentPlan.done.boolValue == 1){
+        //计划已经做完啦，所以呢，显示你已经完成计划的提示啦
+    }
     
     //1. 修改四个plan的显示信息
     //1.1 plan1
+    //if(currentPlan.num)
     self.plan1Date.text = @"Jan 1";
     self.plan1Text.text = @"运动下";
     self.plan1Type = 0;
     
     
-     NSString *plan1BtnImageName;
+    NSString *plan1BtnImageName;
     switch (self.plan1Type) {
         case 0:
             plan1BtnImageName = @"planType0";
