@@ -10,6 +10,9 @@
 #import "CurrentPlan.h"
 
 @interface exeViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *currentPlanDate;
+@property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
+@property (weak, nonatomic) IBOutlet UILabel *currentPlanText;
 
 @end
 
@@ -19,11 +22,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //0. 获取当前的计划信息
-    CurrentPlan * currentPlan = [CurrentPlan new];
-    NSLog(@"sleepLevel : %@",currentPlan.type1);
+    //0. 获取当前的计划信息(存在静态变量里)
+    self.currentPlanDate = [[NSUserDefaults standardUserDefaults] valueForKey:@"current"];
     
     
+    /*
     //1. 判断是由哪个按钮跳转过来的
     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"planType"];
     if ([infoType isEqualToString:@"plan1"]) {
@@ -45,6 +48,8 @@
         NSLog(@"plan4!!!");
         //修改plan显示的信息
     }
+     */
+    
     
     
 }

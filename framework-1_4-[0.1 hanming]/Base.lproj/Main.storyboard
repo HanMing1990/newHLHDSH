@@ -442,7 +442,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="换一个"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="run" id="mSX-2q-nrw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planType2" id="mSX-2q-nrw">
                                 <rect key="frame" x="37" y="59" width="70" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -483,6 +483,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="currentPlanDate" destination="doQ-ck-zUR" id="m1c-Wn-oQs"/>
+                        <outlet property="currentPlanImage" destination="mSX-2q-nrw" id="afc-Nu-oEc"/>
+                        <outlet property="currentPlanText" destination="6de-qa-fcx" id="coV-tb-Id8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IM-GK-1kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -574,7 +579,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="换一个"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="run" id="xFu-gA-pfI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planType1" id="xFu-gA-pfI">
                                 <rect key="frame" x="29" y="58" width="70" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -647,7 +652,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="换一个"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="run" id="QeI-nF-4BX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planType1" id="QeI-nF-4BX">
                                 <rect key="frame" x="49" y="51" width="70" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -727,7 +732,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="换一个"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="run" id="BRX-Ir-8Y5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planType4" id="BRX-Ir-8Y5">
                                 <rect key="frame" x="29" y="51" width="70" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -809,8 +814,8 @@
         <image name="zhongzi" width="391" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gBI-pE-Adn"/>
-        <segue reference="EvA-0x-heC"/>
         <segue reference="gJH-nF-Tsg"/>
+        <segue reference="gBI-pE-Adn"/>
+        <segue reference="KDZ-eE-6Fv"/>
     </inferredMetricsTieBreakers>
 </document>

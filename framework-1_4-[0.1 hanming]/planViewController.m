@@ -32,6 +32,10 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
 
+@property int plan1Type;
+@property int plan2Type;
+@property int plan3Type;
+@property int plan4Type;
 
 @end
 
@@ -47,12 +51,11 @@
     //1.1 plan1
     self.plan1Date.text = @"Jan 1";
     self.plan1Text.text = @"运动下";
-    int plan1Type;
-    plan1Type = 0;
+    self.plan1Type = 0;
     
     
      NSString *plan1BtnImageName;
-    switch (plan1Type) {
+    switch (self.plan1Type) {
         case 0:
             plan1BtnImageName = @"planType0";
             break;
@@ -76,12 +79,11 @@
     //1.2 plan2
     self.plan2Date.text = @"Jan 2";
     self.plan2Text.text = @"写点东西";
-    int plan2Type;
-    plan2Type = 1;
+    self.plan2Type = 1;
     
     
     NSString *plan2BtnImageName;
-    switch (plan2Type) {
+    switch (self.plan2Type) {
         case 0:
             plan2BtnImageName = @"planType0";
             break;
@@ -106,11 +108,10 @@
     
     self.plan3Date.text = @"Jan 3";
     self.plan3Text.text = @"日记";
-    int plan3Type;
-    plan3Type = 3;
+    self.plan3Type = 3;
     
     NSString *plan3BtnImageName;
-    switch (plan3Type) {
+    switch (self.plan3Type) {
         case 0:
             plan3BtnImageName = @"planType0";
             break;
@@ -134,12 +135,11 @@
     //1.4 plan4
     self.plan4Date.text = @"Jan 4";
     self.plan4Text.text = @"感恩";
-    int plan4Type;
-    plan4Type = 4;
+    self.plan4Type = 4;
     
     
     NSString *plan4BtnImageName;
-    switch (plan4Type) {
+    switch (self.plan4Type) {
         case 0:
             plan4BtnImageName = @"planType0";
             break;
@@ -188,8 +188,8 @@
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
     
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -197,40 +197,61 @@
 }
 
 
-
-
-
 //4个button的点击
 - (IBAction)plan1BtnClicked:(id)sender {
-    //得到plan的type,用以决定要跳转到哪种类型的exeVC, xxx
-    int planType;
-    planType = 1;
-    [self presentExeVC:planType];
+    //记录当前plan的信息，以备后面执行界面显示
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: self.plan1Date forKey:@"currentPlanDate"];
+    [defaults setObject: self.plan1Text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan1Type] forKey:@"currentPlanDate"];
+    [defaults synchronize];
+    
+
+    //跳转到执行页面
+    [self presentExeVC:self.plan1Type];
 }
 
 
 - (IBAction)plan2BtnClicked:(id)sender {
-    //得到plan的type,用以决定要跳转到哪种类型的exeVC, xxx
-    int planType;
-    planType = 3;
-    [self presentExeVC:planType];
+    //记录当前plan的信息，以备后面执行界面显示
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: self.plan2Date forKey:@"currentPlanDate"];
+    [defaults setObject: self.plan2Text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan2Type] forKey:@"currentPlanDate"];
+    [defaults synchronize];
+    
+
+    //跳转到执行页面
+    [self presentExeVC:self.plan2Type];
 }
 
 
 - (IBAction)plan3BtnClicked:(id)sender {
-    //得到plan的type,用以决定要跳转到哪种类型的exeVC, xxx
-    int planType;
-    planType = 2;
-    [self presentExeVC:planType];
+    
+    //记录当前plan的信息，以备后面执行界面显示
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: self.plan3Date forKey:@"currentPlanDate"];
+    [defaults setObject: self.plan3Text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan3Type] forKey:@"currentPlanDate"];
+    [defaults synchronize];
+    
+    
+    //跳转到执行页面
+    [self presentExeVC:self.plan3Type];
 }
 
 - (IBAction)plan4BtnClicked:(id)sender {
-    //得到plan的type,用以决定要跳转到哪种类型的exeVC, xxx
-    int planType;
-    planType = 4;
-    [self presentExeVC:planType];
+    
+    //记录当前plan的信息，以备后面执行界面显示
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: self.plan4Date forKey:@"currentPlanDate"];
+    [defaults setObject: self.plan4Text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan4Type] forKey:@"currentPlanDate"];
+    [defaults synchronize];
+    
+    //跳转到执行页面
+    [self presentExeVC:self.plan3Type];
 }
-
 
 
 - (void) presentExeVC:(int) planType{
