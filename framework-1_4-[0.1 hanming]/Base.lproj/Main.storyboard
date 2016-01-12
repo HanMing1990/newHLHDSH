@@ -494,7 +494,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0XA-dH-0pX">
-                                <rect key="frame" x="214" y="447" width="60" height="30"/>
+                                <rect key="frame" x="220" y="445" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="确认完成"/>
@@ -513,6 +513,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aV2-xv-6oa">
+                                <rect key="frame" x="37" y="445" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="以后再说吧"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -871,8 +877,8 @@
         <image name="zhongzi" width="391" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="KDZ-eE-6Fv"/>
         <segue reference="gBI-pE-Adn"/>
-        <segue reference="6Ou-Ct-fYh"/>
         <segue reference="gJH-nF-Tsg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
 @property (weak, nonatomic) IBOutlet UILabel *currentPlanText;
 
-@property int currentPlanType;
+@property long currentPlanType;
 @end
 
 @implementation exeViewController
@@ -25,10 +25,34 @@
     // Do any additional setup after loading the view.
     
     //0. 获取当前的计划信息(存在静态变量里)
-    //记录当前plan的信息，以备后面执行界面显示
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentPlanDate.text = [defaults valueForKey:@"currentPlanDate"];
     self.currentPlanText.text = [defaults valueForKey:@"currentPlanText"];
+    self.currentPlanType = [[defaults valueForKey:@"currentPlanType"] integerValue];
+    
+    NSString *planImageName;
+    switch (self.currentPlanType) {
+        case 0:
+            planImageName = @"planType0";
+            break;
+        case 1:
+            planImageName = @"planType1";
+            break;
+        case 2:
+            planImageName = @"planType2";
+            break;
+        case 3:
+            planImageName = @"planType3";
+            break;
+        case 4:
+            planImageName = @"planType4";
+            break;
+        default:
+            planImageName = @"planType0";
+            break;
+    }
+    
+    self.currentPlanImage.image = [UIImage imageNamed: planImageName];
 
     /*
     //1. 判断是由哪个按钮跳转过来的
