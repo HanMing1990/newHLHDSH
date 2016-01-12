@@ -134,14 +134,12 @@
      [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
      [self presentViewController: SVC animated:YES completion:nil];
     
-    
 }
 
 
 
 - (IBAction)finishBtnClicked:(id)sender {
     //1. 这人完成了当前的计划，记录到数据库里 xxx
-    
     
     //2. 跳转到planVC中
     UIStoryboard *mainStoryboard = self.storyboard;
