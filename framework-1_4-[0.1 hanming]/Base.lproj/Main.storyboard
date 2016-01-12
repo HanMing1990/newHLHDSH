@@ -204,7 +204,7 @@
         <!--Plan View Controller-->
         <scene sceneID="xCe-FN-hMv">
             <objects>
-                <viewController id="TH4-Od-wIf" customClass="planViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="planViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TH4-Od-wIf" customClass="planViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EI7-Lk-OO0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -499,7 +499,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="确认完成"/>
                                 <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="KDZ-eE-6Fv"/>
+                                    <action selector="finishBtnClicked:" destination="m6t-oF-sG9" eventType="touchUpInside" id="VL3-PY-uJq"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="p0j-Be-qQk">
@@ -518,6 +518,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="以后再说吧"/>
+                                <connections>
+                                    <action selector="laterBtnClicked:" destination="m6t-oF-sG9" eventType="touchUpInside" id="Jn1-V8-za8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -526,6 +529,9 @@
                         <outlet property="currentPlanDate" destination="bmk-EK-q0I" id="EuB-qA-cuP"/>
                         <outlet property="currentPlanImage" destination="mSX-2q-nrw" id="afc-Nu-oEc"/>
                         <outlet property="currentPlanText" destination="6de-qa-fcx" id="coV-tb-Id8"/>
+                        <outlet property="finishBtn" destination="0XA-dH-0pX" id="BJw-4I-okn"/>
+                        <outlet property="flowerImage" destination="p0j-Be-qQk" id="J95-d7-7AT"/>
+                        <outlet property="showTextView" destination="8nb-2p-D5n" id="Zem-WI-gPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IM-GK-1kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -582,9 +588,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="确认完成"/>
-                                <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="1VB-d6-pnr"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="WVZ-bX-vQa">
                                 <rect key="frame" x="166" y="114" width="101" height="89"/>
@@ -647,9 +650,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="以后再说吧"/>
-                                <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="qxb-y9-JlJ"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="bfP-Wy-7Rm">
                                 <rect key="frame" x="171" y="113" width="101" height="89"/>
@@ -733,9 +733,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="确认完成"/>
-                                <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="cAm-Rs-rTh"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="sdS-a2-Khb">
                                 <rect key="frame" x="191" y="106" width="101" height="89"/>
@@ -826,9 +823,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="确认完成"/>
-                                <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="6Ou-Ct-fYh"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="PvX-jP-kgX">
                                 <rect key="frame" x="171" y="106" width="101" height="89"/>
@@ -877,7 +871,6 @@
         <image name="zhongzi" width="391" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KDZ-eE-6Fv"/>
         <segue reference="gBI-pE-Adn"/>
         <segue reference="gJH-nF-Tsg"/>
     </inferredMetricsTieBreakers>
