@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    /*
     //0. 获取当前的计划信息(存在静态变量里)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentPlanDate.text = [defaults valueForKey:@"currentPlanDate"];
@@ -80,7 +80,7 @@
     
     //2. 显示plan的内容， xxx
     self.showTextView.text = @"显示plan的内容";
-    
+    */
     
     
     
