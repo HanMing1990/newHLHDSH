@@ -58,15 +58,16 @@
     
     //设置日期格式啦
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-    fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    //fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    fmt.dateFormat = @"MM月dd日HH点";
     //1. 修改四个plan的显示信息
     //1.1 plan1
     if(currentPlan.number > 0){
         Item * item = [[Plan new] getItemById:currentPlan.id1];
         NSString *time1 = [fmt stringFromDate:currentPlan.time1];
         self.plan1Date.text = time1;
-        self.plan1Text.text = @"运动下";
-        self.plan1Type = 0;
+        self.plan1Text.text = item.info;
+        self.plan1Type = item.inte.intValue;
     
     
         NSString *plan1BtnImageName;
@@ -95,9 +96,11 @@
     }
     //1.2 plan2
     if(currentPlan.number.intValue > 1){
-        self.plan2Date.text = @"Jan 2";
-        self.plan2Text.text = @"写点东西";
-        self.plan2Type = 1;
+        Item * item = [[Plan new] getItemById:currentPlan.id2];
+        NSString *time2 = [fmt stringFromDate:currentPlan.time2];
+        self.plan2Date.text = time2;
+        self.plan2Text.text = item.info;
+        self.plan2Type = item.inte.intValue;
         
         
         NSString *plan2BtnImageName;
@@ -125,10 +128,12 @@
         //不显示
     }
     //1.3 plan3
-    if(currentPlan.number.intValue > 1){
-        self.plan3Date.text = @"Jan 3";
-        self.plan3Text.text = @"日记";
-        self.plan3Type = 3;
+    if(currentPlan.number.intValue > 2){
+        Item * item = [[Plan new] getItemById:currentPlan.id3];
+        NSString *time3 = [fmt stringFromDate:currentPlan.time3];
+        self.plan3Date.text = time3;
+        self.plan3Text.text = item.info;
+        self.plan3Type = item.inte.intValue;
         
         NSString *plan3BtnImageName;
         switch (self.plan3Type) {
@@ -155,10 +160,12 @@
         //不显示
     }
     //1.4 plan4
-    if(currentPlan.number.intValue > 1){
-        self.plan4Date.text = @"Jan 4";
-        self.plan4Text.text = @"感恩";
-        self.plan4Type = 4;
+    if(currentPlan.number.intValue > 3){
+        Item * item = [[Plan new] getItemById:currentPlan.id4];
+        NSString *time4 = [fmt stringFromDate:currentPlan.time4];
+        self.plan4Date.text = time4;
+        self.plan4Text.text = item.info;
+        self.plan4Type = item.inte.intValue;
         
         
         NSString *plan4BtnImageName;
@@ -213,6 +220,13 @@
             break;
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
+    
+    //上面的代码呀，都是设置值的，下面来调调大小呀，设置美化呀等等
+    //那个字太大了，给它弄小点
+    self.plan1Date.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
+    self.plan2Date.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
+    self.plan3Date.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
+    self.plan4Date.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
     
 }
 
