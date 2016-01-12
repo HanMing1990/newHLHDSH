@@ -11,11 +11,16 @@
 #import "CurrentLevel.h"
 #import "InitSqlite3.h"
 #import "PNChart.h"
+#import "CurrentLevel.h"
 
 @interface mainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
 @property (weak, nonatomic) IBOutlet UITextView *mainTopLabel;
 @property (weak, nonatomic) IBOutlet UIButton *flowerBtn;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
+@property (weak, nonatomic) IBOutlet UILabel *label4;
 
 
 @end
@@ -49,6 +54,8 @@
     //2. 右上角的提示文字,如今天情绪很好哦，花也格外旺盛呢
     NSString * weatherImgeName;
     NSString * topLabelText;
+    //streeLevel还没确定时int还是float，如果时float，则需要将float映射成0～2再进行显示
+    //yangj
     NSLog(@"current level %i", currentLevel.stressLevel.intValue);
     switch (currentLevel.stressLevel.intValue) {
         case 0:
@@ -71,7 +78,18 @@
     self.weatherImage.image = [UIImage imageNamed:weatherImgeName];
     self.mainTopLabel.text = topLabelText;
     
-    
+    //压力值赋值 不一定是int
+    NSLog(@"current level %f", currentLevel.stressLevel.floatValue);
+    self.label1.text = currentLevel.stressLevel;
+    //睡眠赋值 不一定是int
+    NSLog(@"current level %f", currentLevel.sleepLevel.floatValue);
+    self.label2.text = currentLevel.sleepLevel;
+    //计步赋值 不一定是int
+    NSLog(@"current level %f", currentLevel.stepLevel.floatValue);
+    self.label3.text = currentLevel.stepLevel;
+    //卡路里赋值 不一定是int
+    NSLog(@"current level %f", currentLevel.calorieLevel.floatValue);
+    self.label4.text = currentLevel.calorieLevel;
     /* 以下是杨俊写的圆圈显示数值的代码（暂时不用了）
     // stress
     self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,450.0, SCREEN_WIDTH*0.45, 80.0)
