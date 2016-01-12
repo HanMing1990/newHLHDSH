@@ -88,8 +88,8 @@
                 NSMutableDictionary * dic = [NSMutableDictionary dictionary];
                 have = [NSNumber numberWithBool:1];
                 done = [NSNumber numberWithBool:0];
-                number = [NSNumber numberWithInt:0];
-                currentNumber = [NSNumber numberWithInt:3];
+                number = [NSNumber numberWithInt:3];
+                currentNumber = [NSNumber numberWithInt:0];
                 id1 = [NSNumber numberWithInt:3];
                 id2 = [NSNumber numberWithInt:5];
                 id3 = [NSNumber numberWithInt:6];

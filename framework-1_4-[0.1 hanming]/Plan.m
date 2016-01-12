@@ -96,4 +96,33 @@
 - (void) update{
     
 }
+- (Item *) getItemById:(NSNumber* )newId{
+    NSLog(@"in the getitembyid %@",newId);
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:FileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PlanList WHERE ID=%i;",newId.intValue];
+    NSArray * array = [manager executeQuery:sql];
+    Item * item = nil;
+    NSLog(@"get item by id %@",array);
+    if(array.count){
+           item  = [[Item alloc] initWithcontent1:[array[0] objectForKey:@"content1"]
+                                                content2:[array[0] objectForKey:@"content2"]
+                                                content3:[array[0] objectForKey:@"content3"]
+                                                    info:[array[0] objectForKey:@"info"]
+                                                    pref:[array[0] objectForKey:@"pref"]
+                                                    effe:[array[0] objectForKey:@"effe"]
+                                                    diff:[array[0] objectForKey:@"diff"]
+                                                    inte:[array[0] objectForKey:@"inte"]
+                                                    chan:[array[0] objectForKey:@"chan"]
+                                                    sour:[array[0] objectForKey:@"sour"]
+                                                    numb:[array[0] objectForKey:@"numb"]
+                                                    clus:[array[0] objectForKey:@"clus"]
+                           ];
+        NSLog(@"get item by id %i succeed!",newId.intValue);
+    }else{
+        NSLog(@"get item by id %i failed!",newId.intValue);
+    }
+
+    return item;
+}
 @end
