@@ -204,7 +204,7 @@
         <!--Plan View Controller-->
         <scene sceneID="xCe-FN-hMv">
             <objects>
-                <viewController id="TH4-Od-wIf" customClass="planViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="planViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TH4-Od-wIf" customClass="planViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EI7-Lk-OO0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,31 +494,44 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0XA-dH-0pX">
-                                <rect key="frame" x="214" y="447" width="60" height="30"/>
+                                <rect key="frame" x="220" y="445" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="确认完成"/>
                                 <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="KDZ-eE-6Fv"/>
+                                    <action selector="finishBtnClicked:" destination="m6t-oF-sG9" eventType="touchUpInside" id="VL3-PY-uJq"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="p0j-Be-qQk">
                                 <rect key="frame" x="179" y="114" width="101" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bmk-EK-q0I">
-                                <rect key="frame" x="37" y="28" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bmk-EK-q0I">
+                                <rect key="frame" x="37" y="28" width="82" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aV2-xv-6oa">
+                                <rect key="frame" x="37" y="445" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="以后再说吧"/>
+                                <connections>
+                                    <action selector="laterBtnClicked:" destination="m6t-oF-sG9" eventType="touchUpInside" id="Jn1-V8-za8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="currentPlanDate" destination="bmk-EK-q0I" id="EuB-qA-cuP"/>
                         <outlet property="currentPlanImage" destination="mSX-2q-nrw" id="afc-Nu-oEc"/>
                         <outlet property="currentPlanText" destination="6de-qa-fcx" id="coV-tb-Id8"/>
+                        <outlet property="finishBtn" destination="0XA-dH-0pX" id="BJw-4I-okn"/>
+                        <outlet property="flowerImage" destination="p0j-Be-qQk" id="J95-d7-7AT"/>
+                        <outlet property="showTextView" destination="8nb-2p-D5n" id="Zem-WI-gPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IM-GK-1kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -533,12 +546,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GQg-2c-yZm">
-                                <rect key="frame" x="24" y="28" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="JAN 2"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ydo-JI-wK1">
                                 <rect key="frame" x="208" y="28" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -557,7 +564,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士（1: 只显示文字，让用户做  ）" textAlignment="natural" id="aat-fI-p2o">
-                                <rect key="frame" x="27" y="202" width="240" height="214"/>
+                                <rect key="frame" x="24" y="202" width="243" height="214"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -571,21 +578,44 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IHk-Jn-Lc7">
-                                <rect key="frame" x="201" y="447" width="60" height="30"/>
+                                <rect key="frame" x="193" y="447" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="确认完成"/>
                                 <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="1VB-d6-pnr"/>
+                                    <action selector="finishBtnClicked:" destination="zpj-bl-YS9" eventType="touchUpInside" id="te6-pD-P03"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="WVZ-bX-vQa">
                                 <rect key="frame" x="166" y="114" width="101" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ppq-34-4Bq">
+                                <rect key="frame" x="36" y="447" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="以后再说吧"/>
+                                <connections>
+                                    <action selector="laterBtnClicked:" destination="zpj-bl-YS9" eventType="touchUpInside" id="JEJ-pc-3kf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="42X-jx-8hG">
+                                <rect key="frame" x="24" y="28" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="currentPlanDate" destination="42X-jx-8hG" id="CeM-CY-C0Q"/>
+                        <outlet property="currentPlanImage" destination="kbW-1l-A93" id="1fm-pE-81O"/>
+                        <outlet property="currentPlanText" destination="pYh-aD-mED" id="ChF-O7-gyr"/>
+                        <outlet property="flowerImage" destination="WVZ-bX-vQa" id="VTd-PP-cje"/>
+                        <outlet property="showTextView" destination="aat-fI-p2o" id="c9Z-Re-OvM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aeh-9g-4RF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -599,12 +629,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W3r-uK-aEM">
-                                <rect key="frame" x="29" y="27" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="JAN 2"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CpB-d3-wkM">
                                 <rect key="frame" x="213" y="27" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -630,12 +654,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QDy-sQ-S5R">
-                                <rect key="frame" x="206" y="446" width="60" height="30"/>
+                                <rect key="frame" x="29" y="446" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="确认完成"/>
+                                <state key="normal" title="以后再说吧"/>
                                 <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="qxb-y9-JlJ"/>
+                                    <action selector="laterBtnClicked:" destination="Qw2-HZ-YX1" eventType="touchUpInside" id="Jge-Vm-g7K"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="bfP-Wy-7Rm">
@@ -656,9 +680,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hnv-3Z-fqK">
+                                <rect key="frame" x="212" y="446" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="确认完成"/>
+                                <connections>
+                                    <action selector="finishBtnClicked:" destination="Qw2-HZ-YX1" eventType="touchUpInside" id="zaV-Ta-dJX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qdJ-bR-dQA">
+                                <rect key="frame" x="29" y="29" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="currentPlanDate" destination="qdJ-bR-dQA" id="zqa-wL-MbW"/>
+                        <outlet property="currentPlanImage" destination="xFu-gA-pfI" id="oOc-S0-msn"/>
+                        <outlet property="currentPlanText" destination="vyp-fv-k68" id="DaM-RA-9kX"/>
+                        <outlet property="flowerImage" destination="bfP-Wy-7Rm" id="n2Y-BW-Adj"/>
+                        <outlet property="inputTextView" destination="tpc-zT-U5U" id="4vA-Bo-RTf"/>
+                        <outlet property="showTextView" destination="xcA-RV-NEV" id="UxP-4J-DcB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyl-ch-13p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -672,12 +720,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ksb-7x-ofZ">
-                                <rect key="frame" x="49" y="20" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="JAN 2"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L2G-kN-Zet">
                                 <rect key="frame" x="233" y="20" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -695,13 +737,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士" textAlignment="natural" id="hvC-X7-3v5">
-                                <rect key="frame" x="46" y="273" width="240" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是鼓励的文字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rbb-5m-ZkJ">
                                 <rect key="frame" x="40" y="495" width="280" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -715,11 +750,11 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="确认完成"/>
                                 <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="cAm-Rs-rTh"/>
+                                    <action selector="finishBtnClicked:" destination="Ttz-yP-nHn" eventType="touchUpInside" id="JOS-19-DZ5"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="sdS-a2-Khb">
-                                <rect key="frame" x="191" y="106" width="101" height="89"/>
+                                <rect key="frame" x="185" y="106" width="101" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="写下一个误解的事" textAlignment="natural" id="Im2-S7-2gQ">
@@ -736,9 +771,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pvl-3i-rMc">
+                                <rect key="frame" x="46" y="439" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="以后再说吧"/>
+                                <connections>
+                                    <action selector="laterBtnClicked:" destination="Ttz-yP-nHn" eventType="touchUpInside" id="LtG-Wv-Qix"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzW-LC-vOe">
+                                <rect key="frame" x="49" y="24" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="写点东西~" textAlignment="natural" id="hvC-X7-3v5">
+                                <rect key="frame" x="46" y="273" width="240" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="currentPlanDate" destination="dzW-LC-vOe" id="tdf-Ju-qk9"/>
+                        <outlet property="currentPlanImage" destination="QeI-nF-4BX" id="9Mm-CC-dyn"/>
+                        <outlet property="currentPlanText" destination="sZz-8J-3h9" id="n7O-t3-JXH"/>
+                        <outlet property="flowerImage" destination="sdS-a2-Khb" id="g7g-To-rP3"/>
+                        <outlet property="inputTextView" destination="hvC-X7-3v5" id="ORR-hF-n9l"/>
+                        <outlet property="showTextView1" destination="Im2-S7-2gQ" id="uKC-kM-BXj"/>
+                        <outlet property="showTextView2" destination="bJ9-Wc-XuJ" id="FDS-Oe-hbK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOc-L0-feQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -752,12 +819,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hhs-xI-VDT">
-                                <rect key="frame" x="29" y="20" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="JAN 2"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="487-oW-Fvm">
                                 <rect key="frame" x="213" y="20" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -775,15 +836,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士" textAlignment="natural" id="M46-iv-4l1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1" textAlignment="natural" id="M46-iv-4l1">
                                 <rect key="frame" x="29" y="262" width="240" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士" textAlignment="natural" id="mqV-2G-jAW">
-                                <rect key="frame" x="29" y="316" width="240" height="52"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="2" textAlignment="natural" id="mqV-2G-jAW">
+                                <rect key="frame" x="29" y="315" width="240" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -796,15 +857,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Fk-CF-dr0">
-                                <rect key="frame" x="206" y="439" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="确认完成"/>
-                                <connections>
-                                    <segue destination="TH4-Od-wIf" kind="modal" id="6Ou-Ct-fYh"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="PvX-jP-kgX">
                                 <rect key="frame" x="171" y="106" width="101" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -816,16 +868,52 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="关于运动的小贴士" textAlignment="natural" id="uhn-f5-1PX">
-                                <rect key="frame" x="29" y="370" width="240" height="49"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="3" textAlignment="natural" id="uhn-f5-1PX">
+                                <rect key="frame" x="29" y="369" width="240" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cXS-It-otO">
+                                <rect key="frame" x="29" y="439" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="以后再说吧"/>
+                                <connections>
+                                    <action selector="laterBtnClicked:" destination="Nyl-Hk-D8J" eventType="touchUpInside" id="JTc-DA-zGx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cCO-lC-Yo7">
+                                <rect key="frame" x="35" y="20" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Fk-CF-dr0">
+                                <rect key="frame" x="205" y="439" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="确认完成"/>
+                                <connections>
+                                    <action selector="finishBtnClicked:" destination="Nyl-Hk-D8J" eventType="touchUpInside" id="yoh-Vm-ewM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="InputTextView1" destination="M46-iv-4l1" id="wlF-DQ-iOB"/>
+                        <outlet property="currentPlanDate" destination="cCO-lC-Yo7" id="tzp-5v-ubc"/>
+                        <outlet property="currentPlanImage" destination="BRX-Ir-8Y5" id="LEh-uB-wBI"/>
+                        <outlet property="currentPlanText" destination="gVY-xk-IMO" id="VGd-gV-qUN"/>
+                        <outlet property="flowerImage" destination="PvX-jP-kgX" id="Lqc-5D-4oq"/>
+                        <outlet property="inputTextView1" destination="M46-iv-4l1" id="KM0-IY-Arj"/>
+                        <outlet property="inputTextView2" destination="mqV-2G-jAW" id="8Or-CQ-q3E"/>
+                        <outlet property="inputTextView3" destination="uhn-f5-1PX" id="9Qk-JN-eqY"/>
+                        <outlet property="showTextView" destination="cjd-dt-K5J" id="tP0-az-SpK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2t-sx-ec5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -846,7 +934,7 @@
         <image name="zhongzi" width="391" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KDZ-eE-6Fv"/>
+        
         <segue reference="gBI-pE-Adn"/>
         <segue reference="gJH-nF-Tsg"/>
     </inferredMetricsTieBreakers>

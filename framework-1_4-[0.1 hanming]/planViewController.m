@@ -38,6 +38,7 @@
 @property int plan3Type;
 @property int plan4Type;
 
+@property CurrentPlan* currentPlan;
 @end
 
 @implementation planViewController
@@ -47,11 +48,11 @@
     // Do any additional setup after loading the view.
 
     //0. 获取当前的计划信息 xxx
-    CurrentPlan * currentPlan = [CurrentPlan new];
-    if (currentPlan.have.boolValue == 1) {
+    self.currentPlan = [CurrentPlan new];
+    if (self.currentPlan.have.boolValue == 1) {
         //还没有计划，当然需要有一个张图片显示说没有计划啦
         
-    }else if(currentPlan.done.boolValue == 1){
+    }else if(self.currentPlan.done.boolValue == 1){
         //计划已经做完啦，所以呢，显示你已经完成计划的提示啦
         
     }
@@ -62,9 +63,9 @@
     fmt.dateFormat = @"MM月dd日HH点";
     //1. 修改四个plan的显示信息
     //1.1 plan1
-    if(currentPlan.number > 0){
-        Item * item = [[Plan new] getItemById:currentPlan.id1];
-        NSString *time1 = [fmt stringFromDate:currentPlan.time1];
+    if(self.currentPlan.number > 0){
+        Item * item = [[Plan new] getItemById:self.currentPlan.id1];
+        NSString *time1 = [fmt stringFromDate:self.currentPlan.time1];
         self.plan1Date.text = time1;
         self.plan1Text.text = item.info;
         self.plan1Type = item.inte.intValue;
@@ -95,9 +96,9 @@
        //不显示
     }
     //1.2 plan2
-    if(currentPlan.number.intValue > 1){
-        Item * item = [[Plan new] getItemById:currentPlan.id2];
-        NSString *time2 = [fmt stringFromDate:currentPlan.time2];
+    if(self.currentPlan.number.intValue > 1){
+        Item * item = [[Plan new] getItemById:self.currentPlan.id2];
+        NSString *time2 = [fmt stringFromDate:self.currentPlan.time2];
         self.plan2Date.text = time2;
         self.plan2Text.text = item.info;
         self.plan2Type = item.inte.intValue;
@@ -128,9 +129,9 @@
         //不显示
     }
     //1.3 plan3
-    if(currentPlan.number.intValue > 2){
-        Item * item = [[Plan new] getItemById:currentPlan.id3];
-        NSString *time3 = [fmt stringFromDate:currentPlan.time3];
+    if(self.currentPlan.number.intValue > 2){
+        Item * item = [[Plan new] getItemById:self.currentPlan.id3];
+        NSString *time3 = [fmt stringFromDate:self.currentPlan.time3];
         self.plan3Date.text = time3;
         self.plan3Text.text = item.info;
         self.plan3Type = item.inte.intValue;
@@ -160,9 +161,9 @@
         //不显示
     }
     //1.4 plan4
-    if(currentPlan.number.intValue > 3){
-        Item * item = [[Plan new] getItemById:currentPlan.id4];
-        NSString *time4 = [fmt stringFromDate:currentPlan.time4];
+    if(self.currentPlan.number.intValue > 3){
+        Item * item = [[Plan new] getItemById:self.currentPlan.id4];
+        NSString *time4 = [fmt stringFromDate:self.currentPlan.time4];
         self.plan4Date.text = time4;
         self.plan4Text.text = item.info;
         self.plan4Type = item.inte.intValue;
@@ -243,9 +244,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: self.plan1Date.text forKey:@"currentPlanDate"];
     [defaults setObject: self.plan1Text.text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id1] forKey:@"currentPlanId"];
     [defaults setObject: [NSString stringWithFormat:@"%i",self.plan1Type] forKey:@"currentPlanType"];
     [defaults synchronize];
-
     //跳转到执行页面
     [self presentExeVC:self.plan1Type];
 }
@@ -256,10 +257,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: self.plan2Date.text forKey:@"currentPlanDate"];
     [defaults setObject: self.plan2Text.text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id2] forKey:@"currentPlanId"];
     [defaults setObject: [NSString stringWithFormat:@"%i",self.plan2Type] forKey:@"currentPlanType"];
     [defaults synchronize];
-    
-
     //跳转到执行页面
     [self presentExeVC:self.plan2Type];
 }
@@ -271,10 +271,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: self.plan3Date.text forKey:@"currentPlanDate"];
     [defaults setObject: self.plan3Text.text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id3] forKey:@"currentPlanId"];
     [defaults setObject: [NSString stringWithFormat:@"%i",self.plan3Type] forKey:@"currentPlanType"];
     [defaults synchronize];
-    
-    
     //跳转到执行页面
     [self presentExeVC:self.plan3Type];
 }
@@ -285,11 +284,11 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: self.plan4Date.text forKey:@"currentPlanDate"];
     [defaults setObject: self.plan4Text.text forKey:@"currentPlanText"];
+    [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id4] forKey:@"currentPlanId"];
     [defaults setObject: [NSString stringWithFormat:@"%i",self.plan4Type] forKey:@"currentPlanType"];
     [defaults synchronize];
-    
     //跳转到执行页面
-    [self presentExeVC:self.plan3Type];
+    [self presentExeVC:self.plan4Type];
 }
 
 
@@ -298,7 +297,7 @@
     exeViewController *SVC;
     switch (planType) {
         case 0:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
             break;
         case 1:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
