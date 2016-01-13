@@ -674,7 +674,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="写下一个高兴地事" textAlignment="natural" id="xcA-RV-NEV">
-                                <rect key="frame" x="29" y="210" width="240" height="62"/>
+                                <rect key="frame" x="32" y="210" width="240" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.45841039300501385" green="0.63250314842896505" blue="0.66426701570680624" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
