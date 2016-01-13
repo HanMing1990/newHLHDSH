@@ -179,7 +179,6 @@
 
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -197,7 +196,6 @@
         //切换页面，记得先修修改要切换的页面的storyboard id
         UIStoryboard *mainStoryboard = self.storyboard;
         historyViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyViewController"];
-        
         
         //设置翻页效果
         [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
@@ -244,8 +242,9 @@
     UIStoryboard *mainStoryboard = self.storyboard;
     historyViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"infoViewController"];
     //设置翻页效果
+   
     [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-    [self presentViewController: SVC animated:YES completion:nil];
+    [self presentViewController: SVC animated:NO completion:nil];
 }
 
 
