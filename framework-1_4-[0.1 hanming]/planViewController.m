@@ -46,7 +46,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     //0. 获取当前的计划信息 xxx
     self.currentPlan = [CurrentPlan new];
     if (self.currentPlan.have.boolValue == 1) {
