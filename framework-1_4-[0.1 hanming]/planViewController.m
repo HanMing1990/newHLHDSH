@@ -227,7 +227,6 @@
     self.plan2Date.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
     self.plan3Date.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
     self.plan4Date.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
-    
 }
 
 
@@ -244,7 +243,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: self.plan1Date.text forKey:@"currentPlanDate"];
         [defaults setObject: self.plan1Text.text forKey:@"currentPlanText"];
-        [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id1] forKey:@"currentPlanId"];
+        [defaults setObject: self.currentPlan.id1 forKey:@"currentPlanId"];
         [defaults setObject: [NSString stringWithFormat:@"%i",self.plan1Type] forKey:@"currentPlanType"];
         [defaults synchronize];
         //跳转到执行页面
@@ -261,7 +260,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: self.plan2Date.text forKey:@"currentPlanDate"];
         [defaults setObject: self.plan2Text.text forKey:@"currentPlanText"];
-        [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id2] forKey:@"currentPlanId"];
+        [defaults setObject: self.currentPlan.id2 forKey:@"currentPlanId"];
         [defaults setObject: [NSString stringWithFormat:@"%i",self.plan2Type] forKey:@"currentPlanType"];
         [defaults synchronize];
         //跳转到执行页面
@@ -278,7 +277,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: self.plan3Date.text forKey:@"currentPlanDate"];
         [defaults setObject: self.plan3Text.text forKey:@"currentPlanText"];
-        [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id3] forKey:@"currentPlanId"];
+        [defaults setObject: self.currentPlan.id3 forKey:@"currentPlanId"];
         [defaults setObject: [NSString stringWithFormat:@"%i",self.plan3Type] forKey:@"currentPlanType"];
         [defaults synchronize];
         //跳转到执行页面
@@ -294,7 +293,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: self.plan4Date.text forKey:@"currentPlanDate"];
         [defaults setObject: self.plan4Text.text forKey:@"currentPlanText"];
-        [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id4] forKey:@"currentPlanId"];
+        [defaults setObject: self.currentPlan.id4 forKey:@"currentPlanId"];
         [defaults setObject: [NSString stringWithFormat:@"%i",self.plan4Type] forKey:@"currentPlanType"];
         [defaults synchronize];
         //跳转到执行页面

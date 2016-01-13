@@ -22,6 +22,8 @@
 
 
 @property long currentPlanType;
+@property Item* currentItem;
+@property NSNumber* currentId;
 @end
 
 @implementation exeViewController
@@ -35,7 +37,7 @@
     self.currentPlanDate.text = [defaults valueForKey:@"currentPlanDate"];
     self.currentPlanText.text = [defaults valueForKey:@"currentPlanText"];
     self.currentPlanType = [[defaults valueForKey:@"currentPlanType"] integerValue];
-    
+    self.currentId = [defaults valueForKey:@"currentPlanId"];
     NSString *planImageName;
     switch (self.currentPlanType) {
         case 0:
@@ -89,8 +91,13 @@
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
     
+    //通过当前id得到事件实体
+    Plan * plan = [Plan new];
+    self.currentItem = [plan getItemById:self.currentId];
+    
+    
     //2. 显示plan的内容， xxx
-    self.showTextView.text = @"显示plan的内容";
+    self.showTextView.text = self.currentItem.content1;
     
     
     /*
@@ -158,6 +165,10 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentPlanDate.text = [defaults valueForKey:@"currentPlanDate"];
     //1. 需要从数据库里再取出来一个新的plan，xxx
+    
+    Plan *plan = [Plan new];
+    self.currentItem = [plan chengeItemById:self.currentId];
+    
     self.currentPlanText.text = @"需要从数据库里再取";
     self.currentPlanType = 3;
     NSString *planImageName;

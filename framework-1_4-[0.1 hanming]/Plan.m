@@ -125,4 +125,31 @@
 
     return item;
 }
+- (Item *) chengeItemById:(NSNumber* )newId{
+    /*
+       content1:
+       content2:
+       content3:
+           info:
+           pref:
+           effe:
+           diff:
+           inte:
+           chan:
+           sour:
+           numb:
+           clus:
+    */
+    
+    
+    
+    /*
+     
+     以旧换新啦
+     
+     */
+    Item *item = [self getItemById:[[NSNumber alloc] initWithInt:1]];
+    return item;
+}
+
 @end

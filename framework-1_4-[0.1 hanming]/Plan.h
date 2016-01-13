@@ -76,4 +76,5 @@
 - (void) calcEffect;               //store调用，内部函数
 - (void) update;                   //store调用，内部函数
 - (Item *) getItemById:(NSNumber* )newId;
+- (Item *) chengeItemById:(NSNumber* )newId;
 @end
