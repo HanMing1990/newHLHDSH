@@ -102,8 +102,7 @@
         self.plan2Date.text = time2;
         self.plan2Text.text = item.info;
         self.plan2Type = item.inte.intValue;
-        
-        
+
         NSString *plan2BtnImageName;
         switch (self.plan2Type) {
             case 0:
@@ -240,55 +239,70 @@
 
 //4个button的点击
 - (IBAction)plan1BtnClicked:(id)sender {
-    //记录当前plan的信息，以备后面执行界面显示
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: self.plan1Date.text forKey:@"currentPlanDate"];
-    [defaults setObject: self.plan1Text.text forKey:@"currentPlanText"];
-    [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id1] forKey:@"currentPlanId"];
-    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan1Type] forKey:@"currentPlanType"];
-    [defaults synchronize];
-    //跳转到执行页面
-    [self presentExeVC:self.plan1Type];
+    if (self.currentPlan.number.intValue > 0) {
+        //记录当前plan的信息，以备后面执行界面显示
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: self.plan1Date.text forKey:@"currentPlanDate"];
+        [defaults setObject: self.plan1Text.text forKey:@"currentPlanText"];
+        [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id1] forKey:@"currentPlanId"];
+        [defaults setObject: [NSString stringWithFormat:@"%i",self.plan1Type] forKey:@"currentPlanType"];
+        [defaults synchronize];
+        //跳转到执行页面
+        [self presentExeVC:self.plan1Type];
+    }else{
+        //do nothing because don't have this item
+    }
 }
 
 
 - (IBAction)plan2BtnClicked:(id)sender {
-    //记录当前plan的信息，以备后面执行界面显示
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: self.plan2Date.text forKey:@"currentPlanDate"];
-    [defaults setObject: self.plan2Text.text forKey:@"currentPlanText"];
-    [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id2] forKey:@"currentPlanId"];
-    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan2Type] forKey:@"currentPlanType"];
-    [defaults synchronize];
-    //跳转到执行页面
-    [self presentExeVC:self.plan2Type];
+    if (self.currentPlan.number.intValue > 1) {
+        //记录当前plan的信息，以备后面执行界面显示
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: self.plan2Date.text forKey:@"currentPlanDate"];
+        [defaults setObject: self.plan2Text.text forKey:@"currentPlanText"];
+        [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id2] forKey:@"currentPlanId"];
+        [defaults setObject: [NSString stringWithFormat:@"%i",self.plan2Type] forKey:@"currentPlanType"];
+        [defaults synchronize];
+        //跳转到执行页面
+        [self presentExeVC:self.plan2Type];
+    }else{
+        //do nothing because don't have this item
+    }
 }
 
 
 - (IBAction)plan3BtnClicked:(id)sender {
-    
-    //记录当前plan的信息，以备后面执行界面显示
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: self.plan3Date.text forKey:@"currentPlanDate"];
-    [defaults setObject: self.plan3Text.text forKey:@"currentPlanText"];
-    [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id3] forKey:@"currentPlanId"];
-    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan3Type] forKey:@"currentPlanType"];
-    [defaults synchronize];
-    //跳转到执行页面
-    [self presentExeVC:self.plan3Type];
+    if (self.currentPlan.number.intValue > 2) {
+        //记录当前plan的信息，以备后面执行界面显示
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: self.plan3Date.text forKey:@"currentPlanDate"];
+        [defaults setObject: self.plan3Text.text forKey:@"currentPlanText"];
+        [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id3] forKey:@"currentPlanId"];
+        [defaults setObject: [NSString stringWithFormat:@"%i",self.plan3Type] forKey:@"currentPlanType"];
+        [defaults synchronize];
+        //跳转到执行页面
+        [self presentExeVC:self.plan3Type];
+    }else{
+        //do nothing because don't have this item
+    }
 }
 
 - (IBAction)plan4BtnClicked:(id)sender {
-    
-    //记录当前plan的信息，以备后面执行界面显示
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: self.plan4Date.text forKey:@"currentPlanDate"];
-    [defaults setObject: self.plan4Text.text forKey:@"currentPlanText"];
-    [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id4] forKey:@"currentPlanId"];
-    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan4Type] forKey:@"currentPlanType"];
-    [defaults synchronize];
-    //跳转到执行页面
-    [self presentExeVC:self.plan4Type];
+    if (self.currentPlan.number.intValue > 2) {
+        //记录当前plan的信息，以备后面执行界面显示
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: self.plan4Date.text forKey:@"currentPlanDate"];
+        [defaults setObject: self.plan4Text.text forKey:@"currentPlanText"];
+        [defaults setObject: [NSString stringWithFormat:@"%@",self.currentPlan.id4] forKey:@"currentPlanId"];
+        [defaults setObject: [NSString stringWithFormat:@"%i",self.plan4Type] forKey:@"currentPlanType"];
+        [defaults synchronize];
+        //跳转到执行页面
+        [self presentExeVC:self.plan4Type];
+    }else{
+        //do nothing because don't have this item
+
+    }
 }
 
 
