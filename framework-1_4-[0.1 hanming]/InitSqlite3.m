@@ -357,7 +357,7 @@
     KCDbManager *manager = [KCDbManager new];
     [manager openDb:FileName];
     int loop;
-    for(loop = 0; loop < 100; loop ++){
+    for(loop = 0; loop < SUM_OF_ITEM; loop ++){
         NSArray* array = [[NSArray alloc] initWithObjects:content1[loop], content2[loop], content3[loop], info[loop], pref, effe, diff[loop], inte[loop], chan[loop], sour[loop], numb, clus[loop], nil];
         NSString * sql = [NSString stringWithFormat:@"INSERT INTO PlanList (\
                           content1 ,content2 , content3 ,info ,pref , effe ,\

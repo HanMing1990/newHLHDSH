@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Item.h"
+#import "InitSqlite3.h"
+#import "CurrentLevel.h"
 
 @interface Plan : NSObject{
-    NSNumber* done;  //是否已经完成，1:已经完成 2:没有完成
-    NSNumber* have;  //是否有计划，1:有，2:没有
+    NSNumber* done;  //是否已经完成，1:已经完成 0:没有完成
+    NSNumber* have;  //是否有计划，1:有，0:没有
     NSNumber* number; //一个计划含有的事件，一般为3
     NSNumber* id1;    //事件1的id
     NSNumber* id2;    //事件2的id
@@ -64,6 +66,10 @@
 @property(retain,nonatomic)    NSNumber* fin2;
 @property(retain,nonatomic)    NSNumber* fin3;
 @property(retain,nonatomic)    NSNumber* fin4;
+@property(retain,nonatomic)    NSString* content1;
+@property(retain,nonatomic)    NSString* content2;
+@property(retain,nonatomic)    NSString* content3;
+@property(retain,nonatomic)    NSString* content4;
 @property(retain,nonatomic)    NSString* stress0;
 @property(retain,nonatomic)    NSString* stress1;
 @property(retain,nonatomic)    NSString* stress2;
@@ -73,8 +79,10 @@
 @property(retain,nonatomic)    NSString* effect;
 - (void) store;                    //当计划完成之后（或者到最后一个ddl之后），需要将计划完成情况存储到数据库中
 - (void) recordStress5;            //store调用，内部函数
-- (void) calcEffect;               //store调用，内部函数
 - (void) update;                   //store调用，内部函数
 - (Item *) getItemById:(NSNumber* )newId;
-- (Item *) chengeItemById:(NSNumber* )newId;
+- (Item *) changeItemById:(NSNumber* )newId;
+- (void) createNewPlan;
+- (Item *) selectItemRandomly;
+- (BOOL) judge:(int) newId round:(int) newRound;
 @end

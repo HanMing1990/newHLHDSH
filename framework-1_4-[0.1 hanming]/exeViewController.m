@@ -167,7 +167,7 @@
     //1. 需要从数据库里再取出来一个新的plan，xxx
     
     Plan *plan = [Plan new];
-    self.currentItem = [plan chengeItemById:self.currentId];
+    self.currentItem = [plan changeItemById:self.currentId];
     
     self.currentPlanText.text = @"需要从数据库里再取";
     self.currentPlanType = 3;
