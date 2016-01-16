@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#define SUM_OF_ITEM 100
+
 @interface InitSqlite3 : NSObject{
     
 }
