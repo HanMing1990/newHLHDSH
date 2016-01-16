@@ -76,9 +76,38 @@
 @synthesize stress4;
 @synthesize stress5;
 @synthesize effect;
-
+@synthesize currentPlan;
 - (void) store{
     NSLog(@"inter function store");
+    //用currentplan的值给这个类赋值
+    currentPlan = [CurrentPlan new];
+    self.done = currentPlan.done;
+    self.have = currentPlan.have;
+    self.number = currentPlan.number;
+    self.currentNumber = currentPlan.currentNumber;
+    self.id1 = currentPlan.id1;
+    self.id2 = currentPlan.id2;
+    self.id3 = currentPlan.id3;
+    self.id4 = currentPlan.id4;
+    self.type1 = currentPlan.type1;
+    self.type2 = currentPlan.type2;
+    self.type3 = currentPlan.type3;
+    self.type4 = currentPlan.type4;
+    self.time0 = currentPlan.time0;
+    self.time1 = currentPlan.time1;
+    self.time2 = currentPlan.time2;
+    self.time3 = currentPlan.time3;
+    self.time4 = currentPlan.time4;
+    self.fin1 = currentPlan.fin1;
+    self.fin2 = currentPlan.fin2;
+    self.fin3 = currentPlan.fin3;
+    self.fin4 = currentPlan.fin4;
+    self.stress0 = currentPlan.stress0;
+    self.stress1 = currentPlan.stress1;
+    self.stress2 = currentPlan.stress2;
+    self.stress3 = currentPlan.stress3;
+    self.stress4 = currentPlan.stress4;
+    
     [self recordStress5];
     [self update];
     NSString *sql=[NSString stringWithFormat:@"INSERT INTO History \
@@ -96,6 +125,7 @@
 - (void) recordStress5{
     //记录这个计划完成的时候的情况
     self.stress5 = [NSString stringWithFormat:@"%f",2.0];
+    currentPlan.stress5 = self.stress5;
 }
 - (void) update{
     NSLog(@"inter function update weight of pref and effe and so on");
@@ -105,6 +135,7 @@
     float promote = stress0.floatValue - stress4.floatValue;
     //这里计算出一个效果的比例啦,这个数字5呢，需要调整的，因为压力值是0～5的整型，所以就用5啦
     self.effect = [NSString stringWithFormat:@"%f",(promote+ EFFECT_BIAS )/ EFFECT_BIAS ];
+    [currentPlan save];
     //将这个效果的比值更新到减压时间数据库里面啦，这个效果呢，就乘以这个比值就好啦～
     KCDbManager *manager = [KCDbManager new];
     [manager openDb:FileName];
@@ -168,6 +199,7 @@
         [manager executeNonQuery:sql];
     }
     [manager close];
+    
 }
 - (Item *) getItemById:(NSNumber* )newId{
     NSLog(@"in the getitembyid %@",newId);
@@ -202,6 +234,8 @@
     NSLog(@"inter function createNewPlan");
     //0.来，搞个随机数种子
     srandom(time(NULL));
+    //0.1 准备实例化currentplan
+    currentPlan = [CurrentPlan new];
     //1. 我们先根据当前的压力源来选择大类（这个大类呢，对应item.sour, 就是根据压力来源，选择一些优先的类并且设置权重
     //1.1 special[a][b] 表示呀，这个a类型的压力情况下减压类型b的权重
     float special_type_weight[6][10]= {//0    1    2    3    4    5    6    7    8    9
@@ -316,6 +350,25 @@
         self.time3 = [[NSDate alloc] initWithTimeInterval: (120 + 18)*60*60+interval_second sinceDate:self.time0];
         self.time4 = [[NSDate alloc] initWithTimeInterval: (168 + 8)*60*60+interval_second sinceDate:self.time0];
     }
+    //5. 赋值到currentplan中去
+    currentPlan.done = self.done;
+    currentPlan.have = self.have;
+    currentPlan.number = self.number;
+    currentPlan.currentNumber = self.currentNumber;
+    currentPlan.id1 = self.id1;
+    currentPlan.id2 = self.id2;
+    currentPlan.id3 = self.id3;
+    currentPlan.id4 = self.id4;
+    currentPlan.type1 = self.type1;
+    currentPlan.type2 = self.type2;
+    currentPlan.type3 = self.type3;
+    currentPlan.type4 = self.type4;
+    currentPlan.time0 = self.time0;
+    currentPlan.time1 = self.time1;
+    currentPlan.time2 = self.time2;
+    currentPlan.time3 = self.time3;
+    currentPlan.time4 = self.time4;
+    [currentPlan save];
 }
 
 - (BOOL) judge:(int)newId round:(int) newRound{
