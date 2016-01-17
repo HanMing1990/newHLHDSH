@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Item : NSObject{
+    NSNumber* ID;          // id
     NSString* content1;    // 第一个字段
     NSString* content2;    // 第二个字段
     NSString* content3;    // 第三个字段
@@ -51,6 +52,7 @@
     NSNumber* numb;        //这个item做过几次，初始值为0
     NSNumber* clus;        //cluster，表示相近的类型，替换的时候首先考虑相同cluster的
 }
+@property(retain,nonatomic)    NSNumber* ID;
 @property(retain,nonatomic)    NSString* content1;
 @property(retain,nonatomic)    NSString* content2;
 @property(retain,nonatomic)    NSString* content3;
@@ -74,5 +76,6 @@
              chan:(NSNumber* )newChan
              sour:(NSNumber* )newSour
              numb:(NSNumber* )newNumb
-             clus:(NSNumber* )newClus;
+             clus:(NSNumber* )newClus
+               ID:(NSNumber* )newID;
 @end

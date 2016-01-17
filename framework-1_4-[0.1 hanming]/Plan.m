@@ -133,6 +133,7 @@
                                             sour:[array[0] objectForKey:@"sour"]
                                             numb:[array[0] objectForKey:@"numb"]
                                             clus:[array[0] objectForKey:@"clus"]
+                                              ID:[array[0] objectForKey:@"id"]
                            ];
         NSLog(@"get item by id %i succeed!",newId.intValue);
     }else{
@@ -314,6 +315,7 @@
                                           sour:[array[rand] objectForKey:@"sour"]
                                           numb:[array[rand] objectForKey:@"numb"]
                                           clus:[array[rand] objectForKey:@"clus"]
+                                            ID:[array[rand] objectForKey:@"id"]
                  ];
         NSLog(@"select similar item by  id %i succeed!",newId.intValue);
     }else{
