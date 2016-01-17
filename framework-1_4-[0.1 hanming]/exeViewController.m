@@ -161,43 +161,57 @@
 
 - (IBAction)changePlanBtnClicked:(id)sender {
     //更换计划
-    //0. 获取当前的计划信息(存在静态变量里) xxx
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.currentPlanDate.text = [defaults valueForKey:@"currentPlanDate"];
-    //1. 需要从数据库里再取出来一个新的plan，xxx
     
+    //1. 从数据库里再取出来一个新的plan
     Plan *plan = [Plan new];
     self.currentItem = [plan changeItemById:self.currentId];
     
-    self.currentPlanText.text = @"需要从数据库里再取";
-    self.currentPlanType = 3;
-    NSString *planImageName;
-    switch (self.currentPlanType) {
-        case 0:
-            planImageName = @"planType0";
-            break;
-        case 1:
-            planImageName = @"planType1";
-            break;
-        case 2:
-            planImageName = @"planType2";
-            break;
-        case 3:
-            planImageName = @"planType3";
-            break;
-        case 4:
-            planImageName = @"planType4";
-            break;
-        default:
-            planImageName = @"planType0";
-            break;
-    }
+    //2. 记录新plan到静态变量中，以备跳转的时候显示 xxx
     
-    self.currentPlanImage.image = [UIImage imageNamed: planImageName];
-    //2. 需要从数据库里再取出来一个新的plan内容，xxx
-    self.showTextView.text = @"显示plan的内容";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: self.currentItem forKey:@"currentPlanDate"];
+    [defaults setObject: self.plan3Text.text forKey:@"currentPlanText"];
+    [defaults setObject: self.currentPlan.id3 forKey:@"currentPlanId"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan3Type] forKey:@"currentPlanType"];
+    [defaults synchronize];
+    
+    
+    //跳转到执行页面
+    [self presentExeVC:self.currentItem.];
     
 }
+
+
+
+- (void) presentExeVC:(int) planType{
+    UIStoryboard *mainStoryboard = self.storyboard;
+    exeViewController *SVC;
+    switch (planType) {
+        case 0:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
+            break;
+        case 1:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
+            break;
+        case 2:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe2ViewController"];
+            break;
+        case 3:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe3ViewController"];
+            break;
+        case 4:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
+            break;
+        default:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
+            break;
+    }
+    //设置翻页效果
+    [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController: SVC animated:YES completion:nil];
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {

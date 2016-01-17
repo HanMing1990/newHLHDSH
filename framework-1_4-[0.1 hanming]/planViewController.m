@@ -46,7 +46,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     //0. 获取当前的计划信息 xxx
     self.currentPlan = [CurrentPlan new];
     if (self.currentPlan.have.boolValue == 1) {
@@ -238,7 +237,7 @@
 
 //4个button的点击
 - (IBAction)plan1BtnClicked:(id)sender {
-    if (self.currentPlan.number.intValue > 0) {
+   // if (self.currentPlan.number.intValue > 0) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: self.plan1Date.text forKey:@"currentPlanDate"];
@@ -248,14 +247,14 @@
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan1Type];
-    }else{
+    //}else{
         //do nothing because don't have this item
-    }
+    //}
 }
 
 
 - (IBAction)plan2BtnClicked:(id)sender {
-    if (self.currentPlan.number.intValue > 1) {
+    //if (self.currentPlan.number.intValue > 1) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: self.plan2Date.text forKey:@"currentPlanDate"];
@@ -265,14 +264,14 @@
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan2Type];
-    }else{
+    //}else{
         //do nothing because don't have this item
-    }
+    //}
 }
 
 
 - (IBAction)plan3BtnClicked:(id)sender {
-    if (self.currentPlan.number.intValue > 2) {
+    //if (self.currentPlan.number.intValue > 2) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: self.plan3Date.text forKey:@"currentPlanDate"];
@@ -282,13 +281,13 @@
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan3Type];
-    }else{
+    //}else{
         //do nothing because don't have this item
-    }
+    //}
 }
 
 - (IBAction)plan4BtnClicked:(id)sender {
-    if (self.currentPlan.number.intValue > 2) {
+    //if (self.currentPlan.number.intValue > 2) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: self.plan4Date.text forKey:@"currentPlanDate"];
@@ -298,10 +297,10 @@
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan4Type];
-    }else{
+    //}else{
         //do nothing because don't have this item
 
-    }
+    //}
 }
 
 

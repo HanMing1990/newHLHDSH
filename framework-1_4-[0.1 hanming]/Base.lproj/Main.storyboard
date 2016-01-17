@@ -608,13 +608,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="# 看则笑话吧：话说有一天｀｀｀｀（ 0: 只显示文字，让用户看，没有任何其他的交互  ）" textAlignment="natural" id="8nb-2p-D5n">
-                                <rect key="frame" x="40" y="202" width="240" height="214"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是鼓励的文字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ph1-G7-Fhe">
                                 <rect key="frame" x="28" y="503" width="280" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -651,6 +644,13 @@
                                     <action selector="laterBtnClicked:" destination="m6t-oF-sG9" eventType="touchUpInside" id="Jn1-V8-za8"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="# 看则笑话吧：话说有一天｀｀｀｀（ 0: 只显示文字，让用户看，没有任何其他的交互  ）" textAlignment="natural" id="8nb-2p-D5n">
+                                <rect key="frame" x="40" y="202" width="240" height="214"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1076,6 +1076,7 @@
         <image name="zhuce" width="870" height="630"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="snF-Qu-DYz"/>
+        <segue reference="gBI-pE-Adn"/>
+        <segue reference="qyc-Tg-tUI"/>
     </inferredMetricsTieBreakers>
 </document>
