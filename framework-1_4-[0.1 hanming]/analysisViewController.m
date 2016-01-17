@@ -24,7 +24,6 @@
 
     //[self showLineChart];
 
-   
 }
 
 - (void) viewDidAppear:(BOOL)animated{
