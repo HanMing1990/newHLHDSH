@@ -6,7 +6,7 @@
 //  Copyright © 2016年 yangjun. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#define FileName @"plan.plist"
+#import "static.h"
 
 @interface  CurrentPlan : NSObject{
     NSNumber* done;

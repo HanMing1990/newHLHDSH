@@ -54,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1003837A1C4BCD6700181713 /* static.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = static.h; sourceTree = "<group>"; };
 		104A8FD01C4348EE005E40D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		104A8FD21C4348FD005E40D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		104A8FD41C434913005E40D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -227,6 +228,7 @@
 				104A8FD91C4A62E0005E40D4 /* LogicController.m */,
 				105F14281C42475C0039B8E7 /* CurrentLevel.h */,
 				105F14291C42475C0039B8E7 /* CurrentLevel.m */,
+				1003837A1C4BCD6700181713 /* static.h */,
 				105F142A1C42475C0039B8E7 /* CurrentPlan.h */,
 				105F142B1C42475C0039B8E7 /* CurrentPlan.m */,
 				105F142C1C42475C0039B8E7 /* InitSqlite3.h */,
