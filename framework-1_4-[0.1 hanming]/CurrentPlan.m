@@ -33,6 +33,10 @@
 #define FIN2    @"FIN2"
 #define FIN3    @"FIN3"
 #define FIN4    @"FIN4"
+#define CONTENT1 @"CONTENT1"
+#define CONTENT2 @"CONTENT2"
+#define CONTENT3 @"CONTENT3"
+#define CONTENT4 @"CONTENT4"
 #define STRESS0 @"STRESS0"
 #define STRESS1 @"STRESS1"
 #define STRESS2 @"STRESS2"
@@ -40,7 +44,7 @@
 #define STRESS4 @"STRESS4"
 #define STRESS5 @"STRESS5"
 #define EFFECT  @"EFFECT"
-#define FileName @"plan.plist"
+
 
 @implementation CurrentPlan
 
@@ -65,6 +69,10 @@
 @synthesize fin2;
 @synthesize fin3;
 @synthesize fin4;
+@synthesize content1;
+@synthesize content2;
+@synthesize content3;
+@synthesize content4;
 @synthesize stress0;
 @synthesize stress1;
 @synthesize stress2;
@@ -107,6 +115,10 @@
                 fin2 = [NSNumber numberWithBool:0];
                 fin3 = [NSNumber numberWithBool:0];
                 fin4 = [NSNumber numberWithBool:0];
+                content1 = @"";
+                content2 = @"";
+                content3 = @"";
+                content4 = @"";
                 stress0 = @"0";
                 stress1 = @"0";
                 stress2 = @"0";
@@ -135,6 +147,10 @@
                 [dic setObject:fin2 forKey:FIN2];
                 [dic setObject:fin3 forKey:FIN3];
                 [dic setObject:fin4 forKey:FIN4];
+                [dic setObject:content1 forKey:CONTENT1];
+                [dic setObject:content2 forKey:CONTENT2];
+                [dic setObject:content3 forKey:CONTENT3];
+                [dic setObject:content4 forKey:CONTENT4];
                 [dic setObject:stress0 forKey:STRESS0];
                 [dic setObject:stress1 forKey:STRESS1];
                 [dic setObject:stress2 forKey:STRESS2];
@@ -175,6 +191,10 @@
         fin2 = [dictionary objectForKey:FIN2];
         fin3 = [dictionary objectForKey:FIN3];
         fin4 = [dictionary objectForKey:FIN4];
+        content1 = [dictionary objectForKey:CONTENT1];
+        content2 = [dictionary objectForKey:CONTENT2];
+        content3 = [dictionary objectForKey:CONTENT3];
+        content4 = [dictionary objectForKey:CONTENT4];
         stress0 = [dictionary objectForKey:STRESS0];
         stress1 = [dictionary objectForKey:STRESS1];
         stress2 = [dictionary objectForKey:STRESS2];
@@ -209,6 +229,10 @@
         [dic setObject:fin2 forKey:FIN2];
         [dic setObject:fin3 forKey:FIN3];
         [dic setObject:fin4 forKey:FIN4];
+        [dic setObject:content1 forKey:CONTENT1];
+        [dic setObject:content2 forKey:CONTENT2];
+        [dic setObject:content3 forKey:CONTENT3];
+        [dic setObject:content4 forKey:CONTENT4];
         [dic setObject:stress0 forKey:STRESS0];
         [dic setObject:stress1 forKey:STRESS1];
         [dic setObject:stress2 forKey:STRESS2];
