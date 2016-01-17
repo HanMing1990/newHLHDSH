@@ -42,8 +42,8 @@
     
     
     //初始化数据库
-    InitSqlite3 *initsqlite3 = [InitSqlite3 new];
-    [initsqlite3 createDataBase];
+    //InitSqlite3 *initsqlite3 = [InitSqlite3 new];
+    //[initsqlite3 createDataBase];
     
     
     //0. 获取用户的属性

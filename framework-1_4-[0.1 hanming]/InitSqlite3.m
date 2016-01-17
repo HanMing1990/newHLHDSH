@@ -18,7 +18,7 @@
     NSString *key=@"IsCreatedDb";
     NSUserDefaults *defaults=[[NSUserDefaults alloc]init];
     
-    [defaults setValue:@0 forKey:key];
+    //[defaults setValue:@0 forKey:key];
     
     if ([[defaults valueForKey:key] intValue]!=1) {
         NSLog(@"we create the world!!!");
