@@ -10,6 +10,7 @@
 #import "Item.h"
 #import "InitSqlite3.h"
 #import "CurrentLevel.h"
+#import "CurrentPlan.h"
 
 @interface Plan : NSObject{
     NSNumber* done;  //是否已经完成，1:已经完成 0:没有完成
@@ -44,6 +45,8 @@
     
     NSString* stress5;  //? 计划4执行后3天的压力值，因为呀，据有关调查显示，这个压力值过一段时间才会降下来
     NSString* effect;   //? 评估整个计划的效果，评估效果作为反馈来更新每一个item的内容
+    
+    CurrentPlan* currentPlan;
 }
 @property(retain,nonatomic)    NSNumber* done;
 @property(retain,nonatomic)    NSNumber* have;
@@ -77,6 +80,7 @@
 @property(retain,nonatomic)    NSString* stress4;
 @property(retain,nonatomic)    NSString* stress5;
 @property(retain,nonatomic)    NSString* effect;
+@property(retain,nonatomic)    CurrentPlan* currentPlan;
 - (void) store;                    //当计划完成之后（或者到最后一个ddl之后），需要将计划完成情况存储到数据库中
 - (void) recordStress5;            //store调用，内部函数
 - (void) update;                   //store调用，内部函数
