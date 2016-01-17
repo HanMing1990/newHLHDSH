@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Item : NSObject{
+    NSNumber* ID;          // id
     NSString* content1;    // 第一个字段
     NSString* content2;    // 第二个字段
     NSString* content3;    // 第三个字段
@@ -25,7 +26,8 @@
                             2: 显示文字，文字下面有输入框                  # 写下一个高兴的事［］
                             3: 显示文字，文字下面有输入框，输入框下面有文字   ＃写下一个误解的事［］现在试着做出一些改变
                             4: 显示文字＋三个输入框                       ＃记录下三个开心的事
-                            5. 显示文字＋输入框＋显示文字＋输入框＋显示文字   ＃写下一件事［］从好的角度想［］现在好一些了吧～
+                            5: 显示文字＋输入框＋显示文字＋输入框           ＃文字＋［］＋文字＋［］
+                            6: 显示文字＋笑话（从数据库中获得）             ＃文字＋文字
                             
                             */
     NSNumber* chan;        //是否可替换
@@ -50,6 +52,7 @@
     NSNumber* numb;        //这个item做过几次，初始值为0
     NSNumber* clus;        //cluster，表示相近的类型，替换的时候首先考虑相同cluster的
 }
+@property(retain,nonatomic)    NSNumber* ID;
 @property(retain,nonatomic)    NSString* content1;
 @property(retain,nonatomic)    NSString* content2;
 @property(retain,nonatomic)    NSString* content3;
@@ -73,5 +76,6 @@
              chan:(NSNumber* )newChan
              sour:(NSNumber* )newSour
              numb:(NSNumber* )newNumb
-             clus:(NSNumber* )newClus;
+             clus:(NSNumber* )newClus
+               ID:(NSNumber* )newID;
 @end

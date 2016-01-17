@@ -170,14 +170,14 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: self.currentItem forKey:@"currentPlanDate"];
-    [defaults setObject: self.plan3Text.text forKey:@"currentPlanText"];
-    [defaults setObject: self.currentPlan.id3 forKey:@"currentPlanId"];
-    [defaults setObject: [NSString stringWithFormat:@"%i",self.plan3Type] forKey:@"currentPlanType"];
+    [defaults setObject: self.currentItem.content1 forKey:@"currentPlanText"];
+    [defaults setObject: self.currentItem.ID forKey:@"currentPlanId"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.currentItem.inte.intValue] forKey:@"currentPlanType"];
     [defaults synchronize];
     
     
     //跳转到执行页面
-    [self presentExeVC:self.currentItem.];
+    [self presentExeVC:self.currentItem.inte.intValue];
     
 }
 

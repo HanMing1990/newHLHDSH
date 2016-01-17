@@ -10,6 +10,8 @@
 #import "Item.h"
 
 @implementation Item
+
+@synthesize ID;
 @synthesize content1;
 @synthesize content2;
 @synthesize content3;
@@ -33,7 +35,8 @@
               chan:(NSNumber* )newChan
               sour:(NSNumber* )newSour
               numb:(NSNumber* )newNumb
-              clus:(NSNumber* )newClus{
+              clus:(NSNumber* )newClus
+                ID:(NSNumber* )newID{
     if(self = [super init]){
         self.content1 = newContent1;
         self.content2 = newContent2;
@@ -47,6 +50,7 @@
         self.sour = newSour;
         self.numb = newNumb;
         self.clus = newClus;
+        self.ID = newID;
     }
     return self;
 }
