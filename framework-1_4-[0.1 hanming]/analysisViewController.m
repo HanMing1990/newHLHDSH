@@ -20,11 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-<<<<<<< HEAD
     //得到历史数据xxx
-=======
-    [self showLineChart];
->>>>>>> 749f6a7419ac20c58a7052d8d352dea9f47c8734
+
+    //[self showLineChart];
+
    
 }
 
