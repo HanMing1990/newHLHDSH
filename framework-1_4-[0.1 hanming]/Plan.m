@@ -171,82 +171,86 @@
     [manager close];
     //1.5 item权重赋值
     for(int i=0;i<all.count;i++){
-        NSLog(@"output item %i ",i);
-        /*
-        [all[i] objectForKey:@"id"];
-        [all[i] objectForKey:@"pref"];
-        [all[i] objectForKey:@"effe"];
-        [all[i] objectForKey:@"diff"];
-        [all[i] objectForKey:@"sour"];
-         */
         item_weight[i] = [[all[i] objectForKey:@"pref"] floatValue] * [[all[i] objectForKey:@"effe"] floatValue] * type_weight[[[all[i] objectForKey:@"sour"] intValue]];
     }
     // 1.5 item累计权重分布计算
     for (int i=1; i<all.count; i++) {
         item_weight[i] = item_weight[i-1] + item_weight[i];
+        NSLog(@"weight: %f",item_weight[i]);
     }
+    NSLog(@"fit number: %i",all.count);
     // 2 根据item的权重分布选择item
     int plan_item_number = 3;
     int selected_id[4] = {0};
     for (int i=0; i < plan_item_number; i++) {
         int flag = random() % all.count;
         for (int k=0; k<3; k++) {
-            float  rand = random() % (all.count * 10000);
-            rand = rand / 10000.0;
+            float  rand = random() % 10000;
+            rand = item_weight[all.count - 1] * rand / 10000.0;
+            NSLog(@"random %f",rand);
             for (int j=0; j < all.count; j++) {
-                if (type_weight[j] > rand) {
+                if (item_weight[j] > rand) {
                     flag = j;
                     break;
                 }
             }
             if ([self judge:flag round:k] == YES) {
                 //fit, just break
+                NSLog(@"select id: %i",flag);
                 break;
             }else if(k == 2){
                 // not fit, select another one
                 flag = random() % all.count;
+                NSLog(@"select id: %i",flag);
             }
+            
         }
         selected_id[i] = [[all[flag] objectForKey:@"id"] intValue];
     }
     // 3. 根据item制订计划, done,id,type 字段首先很容易确定
-    currentPlan.done = 0;
-    currentPlan.have = 0;
+    currentPlan.done = [NSNumber numberWithBool:NO];
+    currentPlan.have = [NSNumber numberWithBool:YES];
     currentPlan.stress0 = [[CurrentLevel new] stressLevel];
     Item *selected_item[4];
     if (plan_item_number > 0) {
-        currentPlan.id1 = [NSNumber numberWithInt:selected_id[1]];
+        currentPlan.id1 = [NSNumber numberWithInt:selected_id[0]];
         selected_item[0] = [self getItemById:currentPlan.id1];
         currentPlan.type1 = selected_item[0].inte ;
         currentPlan.content1 = selected_item[0].content1;
         currentPlan.info1 = selected_item[0].info;
+        currentPlan.sour1 = selected_item[0].sour;
     }
     if (plan_item_number > 1) {
-        currentPlan.id2 = [NSNumber numberWithInt:selected_id[2]];
+        currentPlan.id2 = [NSNumber numberWithInt:selected_id[1]];
         selected_item[1] = [self getItemById:currentPlan.id2];
         currentPlan.type2 = selected_item[1].inte ;
         currentPlan.content2 = selected_item[1].content1;
         currentPlan.info2 = selected_item[1].info;
+        currentPlan.sour2 = selected_item[1].sour;
     }
     if (plan_item_number > 2) {
-        currentPlan.id3 = [NSNumber numberWithInt:selected_id[3]];
+        currentPlan.id3 = [NSNumber numberWithInt:selected_id[2]];
         selected_item[2] = [self getItemById:currentPlan.id3];
         currentPlan.type3 = selected_item[2].inte ;
         currentPlan.content3 = selected_item[2].content1;
         currentPlan.info3 = selected_item[2].info;
+        currentPlan.sour3 = selected_item[2].sour;
     }
     if (plan_item_number > 3) {
-        currentPlan.id4 = [NSNumber numberWithInt:selected_id[4]];
+        currentPlan.id4 = [NSNumber numberWithInt:selected_id[3]];
         selected_item[3] = [self getItemById:currentPlan.id4];
         currentPlan.type4 = selected_item[3].inte ;
         currentPlan.content4 = selected_item[3].content1;
         currentPlan.info4 = selected_item[3].info;
+        currentPlan.sour4 = selected_item[3].sour;
     }
+    NSLog(@"debug flag 1");
     // 4. 但是这个时间就需要精心策划啦
     currentPlan.time0 = [NSDate date];
     NSTimeInterval interval = [NSDate timeIntervalSinceReferenceDate];
     int day_since_2000 = (int) (interval / 3600 /24);
     //interval(second format) to the o'clock of next day
+    NSLog(@"debug flag 2");
     int interval_second = (int) ((day_since_2000 + 1) * 3600 * 24 - interval);
     if (plan_item_number == 1) {
         currentPlan.time1 = [[NSDate alloc] initWithTimeInterval: (8)*60*60+interval_second sinceDate:currentPlan.time0];
@@ -266,6 +270,7 @@
     }
     //5. 赋值到currentplan中去
     [currentPlan save];
+     NSLog(@"debug flag 3");
 }
 
 - (BOOL) judge:(int)newId round:(int) newRound{

@@ -36,10 +36,15 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
 
-@property int plan1Type;
+@property int plan1Type; // 跳转所用的交互类型，由item的inte决定
 @property int plan2Type;
 @property int plan3Type;
 @property int plan4Type;
+
+@property int plan1Sour; // 显示的类别，比如是感恩还是运动，由item的sour决定
+@property int plan2Sour;
+@property int plan3Sour;
+@property int plan4Sour;
 
 @property CurrentPlan* currentPlan;
 @end
@@ -66,131 +71,199 @@
     //1. 修改四个plan的显示信息
     //1.1 plan1
     if(self.currentPlan.number > 0){
-        Item * item = [[Plan new] getItemById:self.currentPlan.id1];
-        NSString *time1 = [fmt stringFromDate:self.currentPlan.time1];
-        self.plan1Date.text = time1;
-        self.plan1Text.text = item.info;
-        self.plan1Type = item.inte.intValue;
-    
-    
+        self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
+        self.plan1Text.text = self.currentPlan.info1;
+        self.plan1Type = self.currentPlan.type1.intValue;
+        self.plan1Sour = self.currentPlan.sour1.intValue;
         NSString *plan1BtnImageName;
-        switch (self.plan1Type) {
+        switch (self.plan1Sour) {
             case 0:
-                plan1BtnImageName = @"planType0";
+                plan1BtnImageName = PLANSOURCE0;
                 break;
             case 1:
-                plan1BtnImageName = @"planType1";
+                plan1BtnImageName = PLANSOURCE1;
                 break;
             case 2:
-                plan1BtnImageName = @"planType2";
+                plan1BtnImageName = PLANSOURCE2;
                 break;
             case 3:
-                plan1BtnImageName = @"planType3";
+                plan1BtnImageName = PLANSOURCE3;
                 break;
             case 4:
-                plan1BtnImageName = @"planType4";
+                plan1BtnImageName = PLANSOURCE4;
+                break;
+            case 5:
+                plan1BtnImageName = PLANSOURCE5;
+                break;
+            case 6:
+                plan1BtnImageName = PLANSOURCE6;
+                break;
+            case 7:
+                plan1BtnImageName = PLANSOURCE7;
+                break;
+            case 8:
+                plan1BtnImageName = PLANSOURCE8;
+                break;
+            case 9:
+                plan1BtnImageName = PLANSOURCE9;
+                break;
+            case 10:
+                plan1BtnImageName = PLANSOURCE10;
                 break;
             default:
-                plan1BtnImageName = @"planType0";
+                plan1BtnImageName = PLANSOURCE0;
                 break;
         }
+        [self.plan1Btn setImage:[UIImage imageNamed:plan1BtnImageName] forState:UIControlStateNormal];
     }else{
        //不显示
     }
     //1.2 plan2
     if(self.currentPlan.number.intValue > 1){
-        Item * item = [[Plan new] getItemById:self.currentPlan.id2];
-        NSString *time2 = [fmt stringFromDate:self.currentPlan.time2];
-        self.plan2Date.text = time2;
-        self.plan2Text.text = item.info;
-        self.plan2Type = item.inte.intValue;
-
+        self.plan2Date.text = [fmt stringFromDate:self.currentPlan.time2];
+        self.plan2Text.text = self.currentPlan.info2;
+        self.plan2Type = self.currentPlan.type2.intValue;
+        self.plan2Sour = self.currentPlan.sour2.intValue;
         NSString *plan2BtnImageName;
-        switch (self.plan2Type) {
+        switch (self.plan2Sour) {
             case 0:
-                plan2BtnImageName = @"planType0";
+                plan2BtnImageName = PLANSOURCE0;
                 break;
             case 1:
-                plan2BtnImageName = @"planType1";
+                plan2BtnImageName = PLANSOURCE1;
                 break;
             case 2:
-                plan2BtnImageName = @"planType2";
+                plan2BtnImageName = PLANSOURCE2;
                 break;
             case 3:
-                plan2BtnImageName = @"planType3";
+                plan2BtnImageName = PLANSOURCE3;
                 break;
             case 4:
-                plan2BtnImageName = @"planType4";
+                plan2BtnImageName = PLANSOURCE4;
+                break;
+            case 5:
+                plan2BtnImageName = PLANSOURCE5;
+                break;
+            case 6:
+                plan2BtnImageName = PLANSOURCE6;
+                break;
+            case 7:
+                plan2BtnImageName = PLANSOURCE7;
+                break;
+            case 8:
+                plan2BtnImageName = PLANSOURCE8;
+                break;
+            case 9:
+                plan2BtnImageName = PLANSOURCE9;
+                break;
+            case 10:
+                plan2BtnImageName = PLANSOURCE10;
                 break;
             default:
-                plan2BtnImageName = @"planType0";
+                plan2BtnImageName = PLANSOURCE0;
                 break;
         }
+        [self.plan2Btn setImage:[UIImage imageNamed:plan2BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
     }
     //1.3 plan3
     if(self.currentPlan.number.intValue > 2){
-        Item * item = [[Plan new] getItemById:self.currentPlan.id3];
-        NSString *time3 = [fmt stringFromDate:self.currentPlan.time3];
-        self.plan3Date.text = time3;
-        self.plan3Text.text = item.info;
-        self.plan3Type = item.inte.intValue;
-        
+        self.plan3Date.text = [fmt stringFromDate:self.currentPlan.time3];
+        self.plan3Text.text = self.currentPlan.info3;
+        self.plan3Type = self.currentPlan.type3.intValue;
+        self.plan3Sour = self.currentPlan.sour3.intValue;
         NSString *plan3BtnImageName;
-        switch (self.plan3Type) {
+        switch (self.plan3Sour) {
             case 0:
-                plan3BtnImageName = @"planType0";
+                plan3BtnImageName = PLANSOURCE0;
                 break;
             case 1:
-                plan3BtnImageName = @"planType1";
+                plan3BtnImageName = PLANSOURCE1;
                 break;
             case 2:
-                plan3BtnImageName = @"planType2";
+                plan3BtnImageName = PLANSOURCE2;
                 break;
             case 3:
-                plan3BtnImageName = @"planType3";
+                plan3BtnImageName = PLANSOURCE3;
                 break;
             case 4:
-                plan3BtnImageName = @"planType4";
+                plan3BtnImageName = PLANSOURCE4;
+                break;
+            case 5:
+                plan3BtnImageName = PLANSOURCE5;
+                break;
+            case 6:
+                plan3BtnImageName = PLANSOURCE6;
+                break;
+            case 7:
+                plan3BtnImageName = PLANSOURCE7;
+                break;
+            case 8:
+                plan3BtnImageName = PLANSOURCE8;
+                break;
+            case 9:
+                plan3BtnImageName = PLANSOURCE9;
+                break;
+            case 10:
+                plan3BtnImageName = PLANSOURCE10;
                 break;
             default:
-                plan3BtnImageName = @"planType0";
+                plan3BtnImageName = PLANSOURCE0;
                 break;
+
         }
+        [self.plan3Btn setImage:[UIImage imageNamed:plan3BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
     }
     //1.4 plan4
     if(self.currentPlan.number.intValue > 3){
-        Item * item = [[Plan new] getItemById:self.currentPlan.id4];
-        NSString *time4 = [fmt stringFromDate:self.currentPlan.time4];
-        self.plan4Date.text = time4;
-        self.plan4Text.text = item.info;
-        self.plan4Type = item.inte.intValue;
-        
-        
+        self.plan4Date.text =  [fmt stringFromDate:self.currentPlan.time4];
+        self.plan4Text.text = self.currentPlan.info1;
+        self.plan4Type = self.currentPlan.type4.intValue;
+        self.plan4Sour = self.currentPlan.sour4.intValue;
         NSString *plan4BtnImageName;
-        switch (self.plan4Type) {
+        switch (self.plan4Sour) {
             case 0:
-                plan4BtnImageName = @"planType0";
+                plan4BtnImageName = PLANSOURCE0;
                 break;
             case 1:
-                plan4BtnImageName = @"planType1";
+                plan4BtnImageName = PLANSOURCE1;
                 break;
             case 2:
-                plan4BtnImageName = @"planType2";
+                plan4BtnImageName = PLANSOURCE2;
                 break;
             case 3:
-                plan4BtnImageName = @"planType3";
+                plan4BtnImageName = PLANSOURCE3;
                 break;
             case 4:
-                plan4BtnImageName = @"planType4";
+                plan4BtnImageName = PLANSOURCE4;
+                break;
+            case 5:
+                plan4BtnImageName = PLANSOURCE5;
+                break;
+            case 6:
+                plan4BtnImageName = PLANSOURCE6;
+                break;
+            case 7:
+                plan4BtnImageName = PLANSOURCE7;
+                break;
+            case 8:
+                plan4BtnImageName = PLANSOURCE8;
+                break;
+            case 9:
+                plan4BtnImageName = PLANSOURCE9;
+                break;
+            case 10:
+                plan4BtnImageName = PLANSOURCE10;
                 break;
             default:
-                plan4BtnImageName = @"planType0";
+                plan4BtnImageName = PLANSOURCE0;
                 break;
+
         }
+        [self.plan4Btn setImage:[UIImage imageNamed:plan4BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
     }
@@ -198,9 +271,7 @@
     //2. 右上角花的状态（同mainVC中的花的状态）
     //2.1 根据历史完成情况获取花的状态名字
     
-    NSString *flowerStateStr = [[NSUserDefaults standardUserDefaults] valueForKey:@"flowerState"];
-    int flowerState;
-    flowerState = [flowerStateStr intValue];
+    int flowerState = [[[NSUserDefaults standardUserDefaults] valueForKey:@"flowerState"] intValue];
     
     //2.2 获取花的名字
     NSString *flowerImageName;
@@ -243,10 +314,11 @@
    // if (self.currentPlan.number.intValue > 0) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject: self.plan1Date.text forKey:@"currentPlanDate"];
-        [defaults setObject: self.plan1Text.text forKey:@"currentPlanText"];
-        [defaults setObject: self.currentPlan.id1 forKey:@"currentPlanId"];
-        [defaults setObject: [NSString stringWithFormat:@"%i",self.plan1Type] forKey:@"currentPlanType"];
+        [defaults setObject: self.currentPlan.id1      forKey:PLANID];
+        [defaults setObject: self.currentPlan.time1    forKey:PLANDATE];
+        [defaults setObject: self.currentPlan.content1 forKey:PLANTEXT];
+        [defaults setObject: self.currentPlan.info1    forKey:PLANINFO];
+        [defaults setObject: self.currentPlan.type1    forKey:PLANTYPE];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan1Type];
@@ -260,10 +332,11 @@
     //if (self.currentPlan.number.intValue > 1) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject: self.plan2Date.text forKey:@"currentPlanDate"];
-        [defaults setObject: self.plan2Text.text forKey:@"currentPlanText"];
-        [defaults setObject: self.currentPlan.id2 forKey:@"currentPlanId"];
-        [defaults setObject: [NSString stringWithFormat:@"%i",self.plan2Type] forKey:@"currentPlanType"];
+        [defaults setObject: self.currentPlan.id2      forKey:PLANID];
+        [defaults setObject: self.currentPlan.time2    forKey:PLANDATE];
+        [defaults setObject: self.currentPlan.content2 forKey:PLANTEXT];
+        [defaults setObject: self.currentPlan.info2    forKey:PLANINFO];
+        [defaults setObject: self.currentPlan.type2    forKey:PLANTYPE];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan2Type];
@@ -277,10 +350,11 @@
     //if (self.currentPlan.number.intValue > 2) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject: self.plan3Date.text forKey:@"currentPlanDate"];
-        [defaults setObject: self.plan3Text.text forKey:@"currentPlanText"];
-        [defaults setObject: self.currentPlan.id3 forKey:@"currentPlanId"];
-        [defaults setObject: [NSString stringWithFormat:@"%i",self.plan3Type] forKey:@"currentPlanType"];
+        [defaults setObject: self.currentPlan.id3      forKey:PLANID];
+        [defaults setObject: self.currentPlan.time3    forKey:PLANDATE];
+        [defaults setObject: self.currentPlan.content3 forKey:PLANTEXT];
+        [defaults setObject: self.currentPlan.info3    forKey:PLANINFO];
+        [defaults setObject: self.currentPlan.type3    forKey:PLANTYPE];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan3Type];
@@ -293,10 +367,11 @@
     //if (self.currentPlan.number.intValue > 2) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject: self.plan4Date.text forKey:@"currentPlanDate"];
-        [defaults setObject: self.plan4Text.text forKey:@"currentPlanText"];
-        [defaults setObject: self.currentPlan.id4 forKey:@"currentPlanId"];
-        [defaults setObject: [NSString stringWithFormat:@"%i",self.plan4Type] forKey:@"currentPlanType"];
+        [defaults setObject: self.currentPlan.id4      forKey:PLANID];
+        [defaults setObject: self.currentPlan.time4    forKey:PLANDATE];
+        [defaults setObject: self.currentPlan.content4 forKey:PLANTEXT];
+        [defaults setObject: self.currentPlan.info4    forKey:PLANINFO];
+        [defaults setObject: self.currentPlan.type4    forKey:PLANTYPE];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan4Type];
@@ -311,7 +386,7 @@
     UIStoryboard *mainStoryboard = self.storyboard;
     exe1ViewController *SVC;
     NSLog(@"to %i", planType);
-    planType = 5;
+
     switch (planType) {
         case 0:
         case 1:
@@ -342,6 +417,15 @@
     //设置翻页效果
     [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentViewController: SVC animated:YES completion:nil];
+}
+- (IBAction)finishBtnClicked:(id)sender {
+    
+    UIStoryboard *mainStoryboard = self.storyboard;
+    exe1ViewController *SVC;
+    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
+    
+    
+
 }
 
 /*

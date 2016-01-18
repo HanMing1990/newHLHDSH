@@ -28,7 +28,7 @@
 
 
 - (void) viewDidAppear:(BOOL)animated{
-    [self.lineChart strokeChart];
+    //[self.lineChart strokeChart];
 }
 
 - (void)didReceiveMemoryWarning {

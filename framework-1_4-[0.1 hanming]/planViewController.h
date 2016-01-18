@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Plan.h"
 #import "Item.h"
+#import "static.h"
 
 @interface planViewController : UIViewController
 
