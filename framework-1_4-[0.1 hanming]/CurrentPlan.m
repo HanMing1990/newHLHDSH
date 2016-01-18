@@ -37,6 +37,10 @@
 #define INFO2   @"INFO2"
 #define INFO3   @"INFO3"
 #define INFO4   @"INFO4"
+#define SOUR1   @"SOUR1"
+#define SOUR2   @"SOUR2"
+#define SOUR3   @"SOUR3"
+#define SOUR4   @"SOUR4"
 #define CONTENT1 @"CONTENT1"
 #define CONTENT2 @"CONTENT2"
 #define CONTENT3 @"CONTENT3"
@@ -77,6 +81,10 @@
 @synthesize info2;
 @synthesize info3;
 @synthesize info4;
+@synthesize sour1;
+@synthesize sour2;
+@synthesize sour3;
+@synthesize sour4;
 @synthesize content1;
 @synthesize content2;
 @synthesize content3;
@@ -123,14 +131,18 @@
                 fin2 = [NSNumber numberWithBool:0];
                 fin3 = [NSNumber numberWithBool:0];
                 fin4 = [NSNumber numberWithBool:0];
-                info1 = @"";
-                info2 = @"";
-                info3 = @"";
-                info4 = @"";
-                content1 = @"";
-                content2 = @"";
-                content3 = @"";
-                content4 = @"";
+                info1 = @"default";
+                info2 = @"default";
+                info3 = @"default";
+                info4 = @"default";
+                sour1 = [NSNumber numberWithInt:1];
+                sour2 = [NSNumber numberWithInt:2];
+                sour3 = [NSNumber numberWithInt:3];
+                sour4 = [NSNumber numberWithInt:4];
+                content1 = @"default";
+                content2 = @"default";
+                content3 = @"default";
+                content4 = @"default";
                 stress0 = @"0";
                 stress1 = @"0";
                 stress2 = @"0";
@@ -159,6 +171,14 @@
                 [dic setObject:fin2 forKey:FIN2];
                 [dic setObject:fin3 forKey:FIN3];
                 [dic setObject:fin4 forKey:FIN4];
+                [dic setObject:info1 forKey:INFO1];
+                [dic setObject:info2 forKey:INFO2];
+                [dic setObject:info3 forKey:INFO3];
+                [dic setObject:info4 forKey:INFO4];
+                [dic setObject:sour1 forKey:SOUR1];
+                [dic setObject:sour2 forKey:SOUR2];
+                [dic setObject:sour3 forKey:SOUR3];
+                [dic setObject:sour4 forKey:SOUR4];
                 [dic setObject:content1 forKey:CONTENT1];
                 [dic setObject:content2 forKey:CONTENT2];
                 [dic setObject:content3 forKey:CONTENT3];
@@ -207,6 +227,10 @@
         info2 = [dictionary objectForKey:INFO2];
         info3 = [dictionary objectForKey:INFO3];
         info4 = [dictionary objectForKey:INFO4];
+        sour1 = [dictionary objectForKey:SOUR1];
+        sour2 = [dictionary objectForKey:SOUR2];
+        sour3 = [dictionary objectForKey:SOUR3];
+        sour4 = [dictionary objectForKey:SOUR4];
         content1 = [dictionary objectForKey:CONTENT1];
         content2 = [dictionary objectForKey:CONTENT2];
         content3 = [dictionary objectForKey:CONTENT3];
@@ -249,6 +273,10 @@
         [dic setObject:info2 forKey:INFO2];
         [dic setObject:info3 forKey:INFO3];
         [dic setObject:info4 forKey:INFO4];
+        [dic setObject:sour1 forKey:SOUR1];
+        [dic setObject:sour2 forKey:SOUR2];
+        [dic setObject:sour3 forKey:SOUR3];
+        [dic setObject:sour4 forKey:SOUR4];
         [dic setObject:content1 forKey:CONTENT1];
         [dic setObject:content2 forKey:CONTENT2];
         [dic setObject:content3 forKey:CONTENT3];

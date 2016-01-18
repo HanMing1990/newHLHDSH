@@ -20,17 +20,17 @@
  @property (weak, nonatomic) IBOutlet UIButton *finishBtn;
  */
 
-@property (weak, nonatomic) IBOutlet UILabel *currentPlanDate;
-@property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
-@property (weak, nonatomic) IBOutlet UILabel *currentPlanText;
-@property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
-@property (weak, nonatomic) IBOutlet UITextView *showTextView;
-@property (weak, nonatomic) IBOutlet UITextView *inputTextView1;
-@property (weak, nonatomic) IBOutlet UITextView *inputTextView2;
-@property (weak, nonatomic) IBOutlet UITextView *inputTextView3;
+@property (weak, nonatomic) IBOutlet UILabel     *currentPlanDate;  //时间
+@property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage; //事件类型：运动，感恩 等
+@property (weak, nonatomic) IBOutlet UILabel     *currentPlanText;  //事件的简称
+@property (weak, nonatomic) IBOutlet UIImageView *flowerImage;      //花的图片
+@property (weak, nonatomic) IBOutlet UITextView  *showTextView;     //事件显示的文字
+@property (weak, nonatomic) IBOutlet UITextView  *inputTextView1;    //输入的第一个字段
+@property (weak, nonatomic) IBOutlet UITextView  *inputTextView2;    //输入的第二个字段
+@property (weak, nonatomic) IBOutlet UITextView  *inputTextView3;    //输入的第三个字段
 
 
-@property long currentPlanType;
+@property NSNumber*  currentPlanType;
 @property Item* currentItem;
 @property NSNumber* currentId;
 
@@ -41,32 +41,53 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    //fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    fmt.dateFormat = @"MM月dd日HH点";
     //0. 获取当前的计划信息(存在静态变量里)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.currentPlanDate.text = [defaults valueForKey:@"currentPlanDate"];
-    self.currentPlanText.text = [defaults valueForKey:@"currentPlanText"];
-    self.currentPlanType = [[defaults valueForKey:@"currentPlanType"] integerValue];
-    
+    self.currentId            = [defaults valueForKey:PLANID];
+    self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
+    self.currentPlanText.text = [defaults valueForKey:PLANINFO];
+    self.showTextView.text    = [defaults valueForKey:PLANTEXT];
+    self.currentPlanType      = [defaults valueForKey:PLANTYPE];
     NSString *planImageName;
-    switch (self.currentPlanType) {
+    switch (self.currentPlanType.intValue) {
         case 0:
-            planImageName = @"planType0";
+            planImageName = PLANSOURCE0;
             break;
         case 1:
-            planImageName = @"planType1";
+            planImageName = PLANSOURCE1;
             break;
         case 2:
-            planImageName = @"planType2";
+            planImageName = PLANSOURCE2;
             break;
         case 3:
-            planImageName = @"planType3";
+            planImageName = PLANSOURCE3;
             break;
         case 4:
-            planImageName = @"planType4";
+            planImageName = PLANSOURCE4;
+            break;
+        case 5:
+            planImageName = PLANSOURCE5;
+            break;
+        case 6:
+            planImageName = PLANSOURCE6;
+            break;
+        case 7:
+            planImageName = PLANSOURCE7;
+            break;
+        case 8:
+            planImageName = PLANSOURCE8;
+            break;
+        case 9:
+            planImageName = PLANSOURCE9;
+            break;
+        case 10:
+            planImageName = PLANSOURCE10;
             break;
         default:
-            planImageName = @"planType0";
+            planImageName = PLANSOURCE0;
             break;
     }
     
@@ -76,9 +97,7 @@
     //1. 右上角花的状态（同mainVC中的花的状态）
     //1.1 根据历史完成情况获取花的状态名字
     
-    NSString *flowerStateStr = [[NSUserDefaults standardUserDefaults] valueForKey:@"flowerState"];
-    int flowerState;
-    flowerState = [flowerStateStr intValue];
+    int flowerState = [[[NSUserDefaults standardUserDefaults] valueForKey:@"flowerState"] intValue];
     
     //1.2 获取花的名字
     NSString *flowerImageName;
@@ -100,14 +119,6 @@
             break;
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
-    
-    //通过当前id得到事件实体
-    Plan * plan = [Plan new];
-    self.currentItem = [plan getItemById:self.currentId];
-    
-    
-    //2. 显示plan的内容
-    self.showTextView.text = self.currentItem.content1;
     
     
     /*
@@ -177,10 +188,11 @@
     
     //2. 记录新plan到静态变量中，以备跳转的时候显示
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: self.currentItem.ID       forKey:PLANID];
     //[defaults setObject: forKey:@"currentPlanDate"]; //don't need to set because  there is no change
-    [defaults setObject: self.currentItem.content1 forKey:@"currentPlanText"];
-    [defaults setObject: self.currentItem.ID forKey:@"currentPlanId"];
-    [defaults setObject: [NSString stringWithFormat:@"%i",self.currentItem.inte.intValue] forKey:@"currentPlanType"];
+    [defaults setObject: self.currentItem.content1 forKey:PLANTEXT];
+    [defaults setObject: self.currentItem.info     forKey:PLANINFO];
+    [defaults setObject: self.currentItem.inte     forKey:PLANTYPE];
     [defaults synchronize];
     //跳转到执行页面
     [self presentExeVC:self.currentItem.inte.intValue];

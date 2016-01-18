@@ -10,6 +10,7 @@
 #import "historyViewController.h"
 #import "CurrentLevel.h"
 #import "InitSqlite3.h"
+#import "Plan.h"
 #import "PNChart.h"
 #import "CurrentLevel.h"
 
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UILabel *label3;
 @property (weak, nonatomic) IBOutlet UILabel *label4;
+- (IBAction)createPlan:(id)sender;
 
 
 @end
@@ -260,7 +262,8 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
-
+- (IBAction)createPlan:(id)sender {
+    Plan *plan = [Plan new];
+    [plan createNewPlan];
+}
 @end
