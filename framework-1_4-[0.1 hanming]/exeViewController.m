@@ -202,9 +202,6 @@
         case 4:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
             break;
-        default:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
-            break;
     }
     //设置翻页效果
     [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];

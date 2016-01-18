@@ -679,6 +679,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="换一个"/>
+                                <connections>
+                                    <action selector="changePlanBtnClicked:" destination="zpj-bl-YS9" eventType="touchUpInside" id="VbY-qb-wF1"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="run" id="kbW-1l-A93">
                                 <rect key="frame" x="24" y="59" width="70" height="74"/>

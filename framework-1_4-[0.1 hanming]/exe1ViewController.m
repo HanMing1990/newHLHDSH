@@ -28,6 +28,10 @@
 
 
 @property long currentPlanType;
+@property Item* currentItem;
+@property NSNumber* currentId;
+
+
 @end
 
 @implementation exe1ViewController
@@ -95,8 +99,13 @@
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
     
+    //通过当前id得到事件实体
+    Plan * plan = [Plan new];
+    self.currentItem = [plan getItemById:self.currentId];
+    
+    
     //2. 显示plan的内容， xxx
-    self.showTextView.text = @"显示plan的内容";
+    self.showTextView.text = self.currentItem.content1;
     
     
     /*
@@ -153,40 +162,59 @@
     NSLog(@"finish Btn clicked");
 }
 
-- (IBAction)changeBtnClicked:(id)sender {
+
+- (IBAction)changePlanBtnClicked:(id)sender {
     //更换计划
-    //0. 获取当前的计划信息(存在静态变量里) xxx
+    
+    NSLog(@" in change plan function");
+    //1. 从数据库里再取出来一个新的plan
+    Plan *plan = [Plan new];
+    self.currentItem = [plan changeItemById:self.currentId];
+    
+    //2. 记录新plan到静态变量中，以备跳转的时候显示
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.currentPlanDate.text = [defaults valueForKey:@"currentPlanDate"];
-    //1. 需要从数据库里再取出来一个新的plan，xxx
-    self.currentPlanText.text = @"需要从数据库里再取";
-    self.currentPlanType = 3;
-    NSString *planImageName;
-    switch (self.currentPlanType) {
+    //[defaults setObject: forKey:@"currentPlanDate"]; //don't need to set because  there is no change
+    [defaults setObject: self.currentItem.content1 forKey:@"currentPlanText"];
+    [defaults setObject: self.currentItem.ID forKey:@"currentPlanId"];
+    [defaults setObject: [NSString stringWithFormat:@"%i",self.currentItem.inte.intValue] forKey:@"currentPlanType"];
+    [defaults synchronize];
+    //跳转到执行页面
+    [self presentExeVC:self.currentItem.inte.intValue];
+    
+}
+
+
+- (void) presentExeVC:(int) planType{
+    UIStoryboard *mainStoryboard = self.storyboard;
+    exe1ViewController *SVC;
+    
+    NSLog(@"要跳转到%i", planType);
+    
+    switch (planType) {
         case 0:
-            planImageName = @"planType0";
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
             break;
         case 1:
-            planImageName = @"planType1";
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
             break;
         case 2:
-            planImageName = @"planType2";
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe2ViewController"];
             break;
         case 3:
-            planImageName = @"planType3";
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe3ViewController"];
             break;
         case 4:
-            planImageName = @"planType4";
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
             break;
-        default:
-            planImageName = @"planType0";
-            break;
+
     }
-    
-    self.currentPlanImage.image = [UIImage imageNamed: planImageName];
-    //2. 需要从数据库里再取出来一个新的plan内容，xxx
-    self.showTextView.text = @"显示plan的内容";
+    //设置翻页效果
+    [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController: SVC animated:YES completion:nil];
 }
+
+
+
 
 
 - (void)didReceiveMemoryWarning {

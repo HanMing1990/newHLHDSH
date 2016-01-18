@@ -314,7 +314,7 @@
             NSLog(@"jump to page: exe");
             break;
         case 1:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
             NSLog(@"jump to page: exe ");
             break;
         case 2:
@@ -328,10 +328,6 @@
         case 4:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
             NSLog(@"jump to page: exe4 ");
-            break;
-        default:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
-            NSLog(@"jump to page: exe ");
             break;
     }
     //设置翻页效果
