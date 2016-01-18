@@ -11,8 +11,6 @@
 #import "Plan.h"
 
 
-#define EFFECT_BIAS     1.0   //用来计算effect，计算公式暂时定位  （ effe + EFFECT_BIAS ）／ EFFECT_BIAS
-#define PREFERENCE_BIAS 0.6   //这个是用来更新这个 pref 滴，如果他做啦就除以这个值（变大啦），如果没做，就乘上这个值（变小啦）
 @implementation Plan
 
 @synthesize currentPlan;
@@ -31,7 +29,7 @@
      currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.currentNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, currentPlan.time0, currentPlan.time1, currentPlan.time2, currentPlan.time3 ,currentPlan.time4 ,currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4,
     currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect];
     KCDbManager *manager = [KCDbManager new];
-    [manager openDb:FileName];
+    [manager openDb:sqlFileName];
     [manager executeNonQuery:sql];
     [manager close];
 }
@@ -49,7 +47,7 @@
     currentPlan.effect = [NSString stringWithFormat:@"%f",(promote+ EFFECT_BIAS )/ EFFECT_BIAS ];
     //将这个效果的比值更新到减压时间数据库里面啦，这个效果呢，就乘以这个比值就好啦～
     KCDbManager *manager = [KCDbManager new];
-    [manager openDb:FileName];
+    [manager openDb:sqlFileName];
     float effe,pref;
     int numb;
     Item *currentItem;
@@ -63,7 +61,7 @@
             //不错，这个家伙做啦～
             pref = currentItem.pref.floatValue / PREFERENCE_BIAS;
         }
-        NSString * sql = [NSString stringWithFormat:@"UPDATE PlanList SET effe = %@ pref = %@ numb = %@ WHERE ID = %@;",
+        NSString * sql = [NSString stringWithFormat:@"UPDATE PlanList SET effe = %@ pref = %@ numb = %@ WHERE id = %@;",
                          [NSString stringWithFormat:@"%f",effe],[NSString stringWithFormat:@"%f",pref],[NSString stringWithFormat:@"%i",numb],currentPlan.id1];
         [manager executeNonQuery:sql];
     }
@@ -77,7 +75,7 @@
             //不错，这个家伙做啦～
             pref = currentItem.pref.floatValue / PREFERENCE_BIAS;
         }
-        NSString * sql = [NSString stringWithFormat:@"UPDATE PlanList SET effe = %@ pref = %@ numb = %@ WHERE ID = %@;",
+        NSString * sql = [NSString stringWithFormat:@"UPDATE PlanList SET effe = %@ pref = %@ numb = %@ WHERE id = %@;",
                           [NSString stringWithFormat:@"%f",effe],[NSString stringWithFormat:@"%f",pref],[NSString stringWithFormat:@"%i",numb],currentPlan.id2];
         [manager executeNonQuery:sql];
     }
@@ -91,7 +89,7 @@
             //不错，这个家伙做啦～
             pref = currentItem.pref.floatValue / PREFERENCE_BIAS;
         }
-        NSString * sql = [NSString stringWithFormat:@"UPDATE PlanList SET effe = %@ pref = %@ numb = %@ WHERE ID = %@;",
+        NSString * sql = [NSString stringWithFormat:@"UPDATE PlanList SET effe = %@ pref = %@ numb = %@ WHERE id = %@;",
                           [NSString stringWithFormat:@"%f",effe],[NSString stringWithFormat:@"%f",pref],[NSString stringWithFormat:@"%i",numb],currentPlan.id3];
         [manager executeNonQuery:sql];
     }
@@ -105,7 +103,7 @@
             //不错，这个家伙做啦～
             pref = currentItem.pref.floatValue / PREFERENCE_BIAS;
         }
-        NSString * sql = [NSString stringWithFormat:@"UPDATE PlanList SET effe = %@ pref = %@ numb = %@ WHERE ID = %@;",
+        NSString * sql = [NSString stringWithFormat:@"UPDATE PlanList SET effe = %@ pref = %@ numb = %@ WHERE id = %@;",
                           [NSString stringWithFormat:@"%f",effe],[NSString stringWithFormat:@"%f",pref],[NSString stringWithFormat:@"%i",numb],currentPlan.id4];
         [manager executeNonQuery:sql];
     }
@@ -113,13 +111,13 @@
     
 }
 - (Item *) getItemById:(NSNumber* )newId{
-    NSLog(@"in the getitembyid %@",newId);
+    NSLog(@"in the get item by id %i",newId.intValue);
     KCDbManager* manager = [KCDbManager new];
-    [manager openDb:FileName];
-    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PlanList WHERE ID=%i;",newId.intValue];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PlanList WHERE id = %i;",newId.intValue];
     NSArray * array = [manager executeQuery:sql];
     Item * item = nil;
-    NSLog(@"get item by id %@",array);
+    //NSLog(@"get item by id %@ OUTPUT is %@",newId,array);
     if(array.count){
            item  = [[Item alloc] initWithcontent1:[array[0] objectForKey:@"content1"]
                                         content2:[array[0] objectForKey:@"content2"]
@@ -166,9 +164,9 @@
     }
     //1.4 每个条目的权重的声明
     float item_weight[SUM_OF_ITEM] = {0};
-    NSString *sql= @"SELECT id, pref, effe, diff, sour FROM PlanList ORDER BY ID";
+    NSString *sql= @"SELECT id, pref, effe, diff, sour FROM PlanList ORDER BY id";
     KCDbManager* manager = [KCDbManager new];
-    [manager openDb:FileName];
+    [manager openDb:sqlFileName];
     NSArray * all = [manager executeQuery:sql];
     [manager close];
     //1.5 item权重赋值
@@ -295,11 +293,11 @@
     Item * oldItem = [self getItemById:newId];
     
     KCDbManager* manager = [KCDbManager new];
-    [manager openDb:FileName];
-    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PlanList WHERE clus =%@;",oldItem.clus];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PlanList WHERE clus = %@;",oldItem.clus];
     NSArray * array = [manager executeQuery:sql];
     Item * item = nil;
-    NSLog(@"get item by id %@",array);
+    NSLog(@"change item by id %@",newId);
     if(array.count){
         int  rand = random() % array.count;
         NSLog(@"random select row %i form the all sum %i",rand,array.count);

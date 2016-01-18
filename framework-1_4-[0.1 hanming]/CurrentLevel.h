@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "static.h"
 
 @interface  CurrentLevel : NSObject{
     NSString* stressLevel;           //当前压力值

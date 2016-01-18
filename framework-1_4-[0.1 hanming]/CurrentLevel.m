@@ -22,7 +22,7 @@
 #define FLOWERLEVEL @"FLOWERLEVEL"
 #define FLOWERTIME  @"FLOWERTIME"
 
-#define FileName @"level.plist"
+
 
 @implementation CurrentLevel
 
@@ -40,7 +40,7 @@
 - (NSString *) filePath{
     NSArray * path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString * documentsDirectory = [path objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:FileName];
+    return [documentsDirectory stringByAppendingPathComponent:levelFileName];
 }
 
 - (id) init{

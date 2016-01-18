@@ -84,7 +84,7 @@
 - (NSString *) filePath{
     NSArray * path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString * documentsDirectory = [path objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:FileName];
+    return [documentsDirectory stringByAppendingPathComponent:planFileName];
 }
 
 - (id) init{

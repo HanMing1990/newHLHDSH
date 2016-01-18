@@ -11,6 +11,7 @@
 #import "InitSqlite3.h"
 #import "CurrentLevel.h"
 #import "CurrentPlan.h"
+#import "static.h"
 
 @interface Plan : NSObject{
     CurrentPlan* currentPlan;

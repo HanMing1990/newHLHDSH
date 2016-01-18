@@ -11,7 +11,7 @@
 #import "InitSqlite3.h"
 #import "KCDbManager.h"
 #import "Item.h"
-#define FileName @"plan.sqlite3"
+#define sqlFileName @"plan.sqlite3"
 
 @implementation InitSqlite3
 - (void) createDataBase{
@@ -361,7 +361,7 @@
                                                       @"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",
                                                       nil];
     KCDbManager *manager = [KCDbManager new];
-    [manager openDb:FileName];
+    [manager openDb:sqlFileName];
     int loop;
     for(loop = 0; loop < SUM_OF_ITEM; loop ++){
         NSArray* array = [[NSArray alloc] initWithObjects:content1[loop], content2[loop], content3[loop], info[loop], pref, effe, diff[loop], inte[loop], chan[loop], sour[loop], numb, clus[loop], nil];
@@ -376,7 +376,7 @@
 - (void) outputTable{
     NSString *sql= @"SELECT * FROM PlanList ORDER BY ID";
     KCDbManager* manager = [KCDbManager new];
-    [manager openDb:FileName];
+    [manager openDb:sqlFileName];
     NSArray * all = [manager executeQuery:sql];
     for(int i=0;i<all.count;i++){
         NSLog(@"output item %i ",i);
@@ -400,25 +400,25 @@
 }
 - (void) createPlanItemTable{
     NSString *drop_if_exists = @"DROP TABLE IF EXISTS PlanList;";
-    NSString *sql=      @"CREATE TABLE PlanList (Id integer PRIMARY KEY AUTOINCREMENT,\
+    NSString *sql=      @"CREATE TABLE PlanList (id integer PRIMARY KEY AUTOINCREMENT,\
          content1 text,content2 text, content3 text,info text,pref text, effe text,\
     diff text, inte integer, chan integer, sour integer, numb integer, clus integer\
     )";
     
     KCDbManager* manager = [KCDbManager new];
-    [manager openDb:FileName];
+    [manager openDb:sqlFileName];
     [manager executeNonQuery:drop_if_exists];
     [manager executeNonQuery:sql];
     [manager close];
 }
 - (void) createPlanHistoryTable{
-    NSString *sql=@"CREATE TABLE History (Id integer PRIMARY KEY AUTOINCREMENT,\
+    NSString *sql=@"CREATE TABLE History (id integer PRIMARY KEY AUTOINCREMENT,\
     done integer,have integer, currentNumber integer, id1 integer, id2 integer, \
     id3 integer, id4 integer, type1 integer, type2 integer, type3 integer, type4 integer, \
     time0 text, time1 text,time2 text,time3 text,time4 text, fin1 integer, fin2 integer, \
     fin3 integer, fin4 integer, stress0 text, stress1 text, stress2 text,stress3 text, stress4 text, stress5 text,effect text)";
     KCDbManager* manager = [KCDbManager new];
-    [manager openDb:FileName];
+    [manager openDb:sqlFileName];
     [manager executeNonQuery:sql];
     [manager close];
 }

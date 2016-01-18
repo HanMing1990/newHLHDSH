@@ -54,8 +54,9 @@
             }
             [rows addObject:dic];
         }
+    }else{
+        NSLog(@"sql sentence is not right, reason: %s",sqlite3_errmsg(_database));
     }
-    
     //释放句柄
     sqlite3_finalize(stmt);
     return rows;
