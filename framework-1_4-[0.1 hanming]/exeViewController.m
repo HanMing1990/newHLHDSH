@@ -161,26 +161,23 @@
 
 - (IBAction)changePlanBtnClicked:(id)sender {
     //更换计划
+    NSLog(@"this is from changebtn");
     
     //1. 从数据库里再取出来一个新的plan
     Plan *plan = [Plan new];
     self.currentItem = [plan changeItemById:self.currentId];
     
-    //2. 记录新plan到静态变量中，以备跳转的时候显示 xxx
-    
+    //2. 记录新plan到静态变量中，以备跳转的时候显示
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: self.currentItem forKey:@"currentPlanDate"];
     [defaults setObject: self.currentItem.content1 forKey:@"currentPlanText"];
     [defaults setObject: self.currentItem.ID forKey:@"currentPlanId"];
     [defaults setObject: [NSString stringWithFormat:@"%i",self.currentItem.inte.intValue] forKey:@"currentPlanType"];
     [defaults synchronize];
-    
-    
     //跳转到执行页面
-    [self presentExeVC:self.currentItem.inte.intValue];
+    //[self presentExeVC:self.currentItem.inte.intValue];
     
 }
-
 
 
 - (void) presentExeVC:(int) planType{

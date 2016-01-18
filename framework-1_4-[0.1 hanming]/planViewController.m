@@ -307,9 +307,10 @@
 - (void) presentExeVC:(int) planType{
     UIStoryboard *mainStoryboard = self.storyboard;
     exeViewController *SVC;
+    NSLog(@"to %i", planType);
     switch (planType) {
         case 0:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
             break;
         case 1:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
