@@ -580,92 +580,6 @@
             </objects>
             <point key="canvasLocation" x="444" y="1210"/>
         </scene>
-        <!--Exe View Controller-->
-        <scene sceneID="B7g-H2-Pfc">
-            <objects>
-                <viewController storyboardIdentifier="exeViewController" id="m6t-oF-sG9" customClass="exeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="31j-if-viZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planType2" id="mSX-2q-nrw">
-                                <rect key="frame" x="37" y="59" width="70" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="轻松一刻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6de-qa-fcx">
-                                <rect key="frame" x="198" y="85" width="68" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是鼓励的文字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ph1-G7-Fhe">
-                                <rect key="frame" x="28" y="503" width="280" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0XA-dH-0pX">
-                                <rect key="frame" x="220" y="445" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="确认完成"/>
-                                <connections>
-                                    <action selector="finishBtnClicked:" destination="m6t-oF-sG9" eventType="touchUpInside" id="VL3-PY-uJq"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="p0j-Be-qQk">
-                                <rect key="frame" x="179" y="114" width="101" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bmk-EK-q0I">
-                                <rect key="frame" x="37" y="28" width="82" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aV2-xv-6oa">
-                                <rect key="frame" x="37" y="445" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="以后再说吧"/>
-                                <connections>
-                                    <action selector="laterBtnClicked:" destination="m6t-oF-sG9" eventType="touchUpInside" id="Jn1-V8-za8"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="# 看则笑话吧：话说有一天｀｀｀｀（ 0: 只显示文字，让用户看，没有任何其他的交互  ）" textAlignment="natural" id="8nb-2p-D5n">
-                                <rect key="frame" x="40" y="202" width="240" height="214"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kA2-02-UBh">
-                                <rect key="frame" x="228" y="28" width="45" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="换一个"/>
-                                <connections>
-                                    <action selector="changePlanBtnClicked:" destination="m6t-oF-sG9" eventType="touchUpInside" id="TnI-za-r9l"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="currentPlanDate" destination="bmk-EK-q0I" id="EuB-qA-cuP"/>
-                        <outlet property="currentPlanImage" destination="mSX-2q-nrw" id="afc-Nu-oEc"/>
-                        <outlet property="currentPlanText" destination="6de-qa-fcx" id="coV-tb-Id8"/>
-                        <outlet property="finishBtn" destination="0XA-dH-0pX" id="BJw-4I-okn"/>
-                        <outlet property="flowerImage" destination="p0j-Be-qQk" id="J95-d7-7AT"/>
-                        <outlet property="showTextView" destination="8nb-2p-D5n" id="Zem-WI-gPa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5IM-GK-1kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="969" y="-290"/>
-        </scene>
         <!--Exe1 View Controller-->
         <scene sceneID="46L-aG-xeG">
             <objects>
@@ -1062,7 +976,7 @@
         <!--Exe5 View Controller-->
         <scene sceneID="ksn-3b-8zc">
             <objects>
-                <viewController storyboardIdentifier="exe4ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4ra-Lo-hJt" customClass="exe5ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exe5ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4ra-Lo-hJt" customClass="exe5ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qsQ-Sg-fbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

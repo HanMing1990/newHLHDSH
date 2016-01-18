@@ -7,11 +7,14 @@
 //
 
 #import "planViewController.h"
-#import "exeViewController.h"
 #import "exe1ViewController.h"
 #import "exe2ViewController.h"
 #import "exe3ViewController.h"
 #import "exe4ViewController.h"
+#import "exe5ViewController.h"
+#import "exe6ViewController.h"
+
+
 #import "CurrentPlan.h"
 
 
@@ -306,8 +309,9 @@
 
 - (void) presentExeVC:(int) planType{
     UIStoryboard *mainStoryboard = self.storyboard;
-    exeViewController *SVC;
+    exe1ViewController *SVC;
     NSLog(@"to %i", planType);
+    planType = 5;//为了测试，暂定个数
     switch (planType) {
         case 0:
         case 1:
@@ -325,6 +329,14 @@
         case 4:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
             NSLog(@"jump to page: exe4 ");
+            break;
+        case 5:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe5ViewController"];
+            NSLog(@"jump to page: exe5 ");
+            break;
+        case 6:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe6ViewController"];
+            NSLog(@"jump to page: exe6 ");
             break;
     }
     //设置翻页效果
