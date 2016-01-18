@@ -33,6 +33,10 @@
 #define FIN2    @"FIN2"
 #define FIN3    @"FIN3"
 #define FIN4    @"FIN4"
+#define INFO1   @"INFO1"
+#define INFO2   @"INFO2"
+#define INFO3   @"INFO3"
+#define INFO4   @"INFO4"
 #define CONTENT1 @"CONTENT1"
 #define CONTENT2 @"CONTENT2"
 #define CONTENT3 @"CONTENT3"
@@ -69,6 +73,10 @@
 @synthesize fin2;
 @synthesize fin3;
 @synthesize fin4;
+@synthesize info1;
+@synthesize info2;
+@synthesize info3;
+@synthesize info4;
 @synthesize content1;
 @synthesize content2;
 @synthesize content3;
@@ -115,6 +123,10 @@
                 fin2 = [NSNumber numberWithBool:0];
                 fin3 = [NSNumber numberWithBool:0];
                 fin4 = [NSNumber numberWithBool:0];
+                info1 = @"";
+                info2 = @"";
+                info3 = @"";
+                info4 = @"";
                 content1 = @"";
                 content2 = @"";
                 content3 = @"";
@@ -191,6 +203,10 @@
         fin2 = [dictionary objectForKey:FIN2];
         fin3 = [dictionary objectForKey:FIN3];
         fin4 = [dictionary objectForKey:FIN4];
+        info1 = [dictionary objectForKey:INFO1];
+        info2 = [dictionary objectForKey:INFO2];
+        info3 = [dictionary objectForKey:INFO3];
+        info4 = [dictionary objectForKey:INFO4];
         content1 = [dictionary objectForKey:CONTENT1];
         content2 = [dictionary objectForKey:CONTENT2];
         content3 = [dictionary objectForKey:CONTENT3];
@@ -229,6 +245,10 @@
         [dic setObject:fin2 forKey:FIN2];
         [dic setObject:fin3 forKey:FIN3];
         [dic setObject:fin4 forKey:FIN4];
+        [dic setObject:info1 forKey:INFO1];
+        [dic setObject:info2 forKey:INFO2];
+        [dic setObject:info3 forKey:INFO3];
+        [dic setObject:info4 forKey:INFO4];
         [dic setObject:content1 forKey:CONTENT1];
         [dic setObject:content2 forKey:CONTENT2];
         [dic setObject:content3 forKey:CONTENT3];

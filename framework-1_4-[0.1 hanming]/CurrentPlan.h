@@ -30,6 +30,10 @@
     NSNumber* fin2;
     NSNumber* fin3;
     NSNumber* fin4;
+    NSString* info1;
+    NSString* info2;
+    NSString* info3;
+    NSString* info4;
     NSString* content1;  //计划1的内容，由于篇幅限制，只取要显示的第一个内容
     NSString* content2;  //计划2的内容，由于篇幅限制，只取要显示的第一个内容
     NSString* content3;  //计划3的内容，由于篇幅限制，只取要显示的第一个内容
@@ -63,6 +67,10 @@
 @property(retain,nonatomic)    NSNumber* fin2;
 @property(retain,nonatomic)    NSNumber* fin3;
 @property(retain,nonatomic)    NSNumber* fin4;
+@property(retain,nonatomic)    NSString* info1;
+@property(retain,nonatomic)    NSString* info2;
+@property(retain,nonatomic)    NSString* info3;
+@property(retain,nonatomic)    NSString* info4;
 @property(retain,nonatomic)    NSString* content1;
 @property(retain,nonatomic)    NSString* content2;
 @property(retain,nonatomic)    NSString* content3;

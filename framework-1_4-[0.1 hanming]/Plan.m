@@ -219,24 +219,28 @@
         selected_item[0] = [self getItemById:currentPlan.id1];
         currentPlan.type1 = selected_item[0].inte ;
         currentPlan.content1 = selected_item[0].content1;
+        currentPlan.info1 = selected_item[0].info;
     }
     if (plan_item_number > 1) {
         currentPlan.id2 = [NSNumber numberWithInt:selected_id[2]];
         selected_item[1] = [self getItemById:currentPlan.id2];
         currentPlan.type2 = selected_item[1].inte ;
         currentPlan.content2 = selected_item[1].content1;
+        currentPlan.info2 = selected_item[1].info;
     }
     if (plan_item_number > 2) {
         currentPlan.id3 = [NSNumber numberWithInt:selected_id[3]];
         selected_item[2] = [self getItemById:currentPlan.id3];
         currentPlan.type3 = selected_item[2].inte ;
         currentPlan.content3 = selected_item[2].content1;
+        currentPlan.info3 = selected_item[2].info;
     }
     if (plan_item_number > 3) {
         currentPlan.id4 = [NSNumber numberWithInt:selected_id[4]];
         selected_item[3] = [self getItemById:currentPlan.id4];
         currentPlan.type4 = selected_item[3].inte ;
         currentPlan.content4 = selected_item[3].content1;
+        currentPlan.info4 = selected_item[3].info;
     }
     // 4. 但是这个时间就需要精心策划啦
     currentPlan.time0 = [NSDate date];
