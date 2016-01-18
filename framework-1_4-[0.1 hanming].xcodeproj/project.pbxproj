@@ -35,6 +35,8 @@
 		2E55F20E1C3F97AE0027AC6F /* PNScatterChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1FB1C3F97AE0027AC6F /* PNScatterChartData.m */; };
 		2E55F20F1C3F97AE0027AC6F /* PNScatterChartDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1FD1C3F97AE0027AC6F /* PNScatterChartDataItem.m */; };
 		2E55F2101C3F97AE0027AC6F /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1FF1C3F97AE0027AC6F /* UICountingLabel.m */; };
+		2E7A14721C4CC5DF0066CBBA /* exe6ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7A14711C4CC5DF0066CBBA /* exe6ViewController.m */; };
+		2E7A14751C4CC6950066CBBA /* exe5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7A14741C4CC6950066CBBA /* exe5ViewController.m */; };
 		2E8E064C1C3BB3390034A854 /* historyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8E064B1C3BB3390034A854 /* historyViewController.m */; };
 		2E8E064F1C3BB37E0034A854 /* analysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8E064E1C3BB37E0034A854 /* analysisViewController.m */; };
 		2E913D741C451A44008CE648 /* exe1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D731C451A44008CE648 /* exe1ViewController.m */; };
@@ -109,6 +111,10 @@
 		2E55F1FD1C3F97AE0027AC6F /* PNScatterChartDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNScatterChartDataItem.m; sourceTree = "<group>"; };
 		2E55F1FE1C3F97AE0027AC6F /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		2E55F1FF1C3F97AE0027AC6F /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
+		2E7A14701C4CC5DF0066CBBA /* exe6ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe6ViewController.h; sourceTree = "<group>"; };
+		2E7A14711C4CC5DF0066CBBA /* exe6ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe6ViewController.m; sourceTree = "<group>"; };
+		2E7A14731C4CC6950066CBBA /* exe5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe5ViewController.h; sourceTree = "<group>"; };
+		2E7A14741C4CC6950066CBBA /* exe5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe5ViewController.m; sourceTree = "<group>"; };
 		2E8E064A1C3BB3390034A854 /* historyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyViewController.h; sourceTree = "<group>"; };
 		2E8E064B1C3BB3390034A854 /* historyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = historyViewController.m; sourceTree = "<group>"; };
 		2E8E064D1C3BB37E0034A854 /* analysisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = analysisViewController.h; sourceTree = "<group>"; };
@@ -266,6 +272,10 @@
 				2E913D791C451A7A008CE648 /* exe3ViewController.m */,
 				2E913D7B1C451A89008CE648 /* exe4ViewController.h */,
 				2E913D7C1C451A89008CE648 /* exe4ViewController.m */,
+				2E7A14701C4CC5DF0066CBBA /* exe6ViewController.h */,
+				2E7A14711C4CC5DF0066CBBA /* exe6ViewController.m */,
+				2E7A14731C4CC6950066CBBA /* exe5ViewController.h */,
+				2E7A14741C4CC6950066CBBA /* exe5ViewController.m */,
 			);
 			path = "framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
@@ -363,9 +373,11 @@
 				2EFBE3601C3BA545009BCDED /* mainViewController.m in Sources */,
 				2E55F2071C3F97AE0027AC6F /* PNLineChartData.m in Sources */,
 				104A8FDA1C4A62E0005E40D4 /* LogicController.m in Sources */,
+				2E7A14721C4CC5DF0066CBBA /* exe6ViewController.m in Sources */,
 				2E913D771C451A6A008CE648 /* exe2ViewController.m in Sources */,
 				105F14371C42475C0039B8E7 /* Item.m in Sources */,
 				2E55F2061C3F97AE0027AC6F /* PNLineChart.m in Sources */,
+				2E7A14751C4CC6950066CBBA /* exe5ViewController.m in Sources */,
 				2EFBE3631C3BA56E009BCDED /* planViewController.m in Sources */,
 				2E55F20A1C3F97AE0027AC6F /* PNPieChartDataItem.m in Sources */,
 				2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */,
