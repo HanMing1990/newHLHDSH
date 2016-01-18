@@ -44,7 +44,6 @@
 		2E913D7A1C451A7A008CE648 /* exe3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D791C451A7A008CE648 /* exe3ViewController.m */; };
 		2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D7C1C451A89008CE648 /* exe4ViewController.m */; };
 		2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9D6B81C3D47570076381A /* infoViewController.m */; };
-		2EB9D6BC1C3D477D0076381A /* exeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9D6BB1C3D477D0076381A /* exeViewController.m */; };
 		2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB9D7031C3F5C580076381A /* libsqlite3.tbd */; };
 		2EFBE3461C3A8392009BCDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3451C3A8392009BCDED /* main.m */; };
 		2EFBE3491C3A8392009BCDED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3481C3A8392009BCDED /* AppDelegate.m */; };
@@ -129,8 +128,6 @@
 		2E913D7C1C451A89008CE648 /* exe4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe4ViewController.m; sourceTree = "<group>"; };
 		2EB9D6B71C3D47570076381A /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		2EB9D6B81C3D47570076381A /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
-		2EB9D6BA1C3D477D0076381A /* exeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exeViewController.h; sourceTree = "<group>"; };
-		2EB9D6BB1C3D477D0076381A /* exeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exeViewController.m; sourceTree = "<group>"; };
 		2EB9D7031C3F5C580076381A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2EFBE3411C3A8392009BCDED /* framework-1_4-[0.1 hanming].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "framework-1_4-[0.1 hanming].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFBE3451C3A8392009BCDED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -262,8 +259,6 @@
 				2E8E064E1C3BB37E0034A854 /* analysisViewController.m */,
 				2EB9D6B71C3D47570076381A /* infoViewController.h */,
 				2EB9D6B81C3D47570076381A /* infoViewController.m */,
-				2EB9D6BA1C3D477D0076381A /* exeViewController.h */,
-				2EB9D6BB1C3D477D0076381A /* exeViewController.m */,
 				2E913D721C451A44008CE648 /* exe1ViewController.h */,
 				2E913D731C451A44008CE648 /* exe1ViewController.m */,
 				2E913D751C451A6A008CE648 /* exe2ViewController.h */,
@@ -365,7 +360,6 @@
 				2E55F2051C3F97AE0027AC6F /* PNGenericChart.m in Sources */,
 				2E55F20C1C3F97AE0027AC6F /* PNRadarChartDataItem.m in Sources */,
 				105F14391C42475C0039B8E7 /* Plan.m in Sources */,
-				2EB9D6BC1C3D477D0076381A /* exeViewController.m in Sources */,
 				2E8E064F1C3BB37E0034A854 /* analysisViewController.m in Sources */,
 				2E55F20E1C3F97AE0027AC6F /* PNScatterChartData.m in Sources */,
 				2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */,

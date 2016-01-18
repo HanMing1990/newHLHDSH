@@ -26,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
 @property (weak, nonatomic) IBOutlet UITextView *showTextView;
 @property (weak, nonatomic) IBOutlet UITextView *inputTextView1;
-@property (weak, nonatomic) IBOutlet UITextView *inputTextView2;
 @property (weak, nonatomic) IBOutlet UITextView *inputTextView3;
 
 
@@ -153,7 +152,7 @@
 - (IBAction)finishBtnClicked:(id)sender {
     //1. 这人完成了当前的计划，记录到数据库里 xxx
     NSLog(@"%@", self.inputTextView1.text);//把这个存到数据库里
-    NSLog(@"%@", self.inputTextView2.text);//把这个存到数据库里
+    //NSLog(@"%@", self.inputTextView2.text);//把这个存到数据库里
     NSLog(@"%@", self.inputTextView3.text);//把这个存到数据库里
     //2. 跳转到planVC中
     UIStoryboard *mainStoryboard = self.storyboard;
@@ -196,20 +195,31 @@
     
     switch (planType) {
         case 0:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
-            break;
         case 1:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
+            NSLog(@"jump to page: exe1 ");
             break;
         case 2:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe2ViewController"];
+            NSLog(@"jump to page: exe2 ");
             break;
         case 3:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe3ViewController"];
+            NSLog(@"jump to page: exe3 ");
             break;
         case 4:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
+            NSLog(@"jump to page: exe4 ");
             break;
+        case 5:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe5ViewController"];
+            NSLog(@"jump to page: exe5 ");
+            break;
+        case 6:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe6ViewController"];
+            NSLog(@"jump to page: exe6 ");
+            break;
+        
             
     }
     //设置翻页效果
