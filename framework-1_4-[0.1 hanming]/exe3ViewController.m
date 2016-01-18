@@ -107,9 +107,9 @@
     self.currentItem = [plan getItemById:self.currentId];
     
     
-    //2. 显示plan的内容， xxx
+    //2. 显示plan的内容
     self.showTextView1.text = self.currentItem.content1;
-    
+    self.showTextView2.text = self.currentItem.content2;
     
     /*
      //1. 判断是由哪个按钮跳转过来的

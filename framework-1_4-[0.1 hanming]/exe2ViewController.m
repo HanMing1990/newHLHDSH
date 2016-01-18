@@ -105,7 +105,7 @@
     self.currentItem = [plan getItemById:self.currentId];
     
     
-    //2. 显示plan的内容， xxx
+    //2. 显示plan的内容
     self.showTextView.text = self.currentItem.content1;
     
     
