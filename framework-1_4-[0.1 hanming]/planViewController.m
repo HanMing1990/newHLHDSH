@@ -310,10 +310,8 @@
     NSLog(@"to %i", planType);
     switch (planType) {
         case 0:
-
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
-            NSLog(@"jump to page: exe4 ");
-
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
+            NSLog(@"jump to page: exe");
             break;
         case 1:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];

@@ -175,7 +175,7 @@
     [defaults setObject: [NSString stringWithFormat:@"%i",self.currentItem.inte.intValue] forKey:@"currentPlanType"];
     [defaults synchronize];
     //跳转到执行页面
-    //[self presentExeVC:self.currentItem.inte.intValue];
+    [self presentExeVC:self.currentItem.inte.intValue];
     
 }
 
@@ -183,9 +183,12 @@
 - (void) presentExeVC:(int) planType{
     UIStoryboard *mainStoryboard = self.storyboard;
     exeViewController *SVC;
+    
+    NSLog(@"要跳转到%i", planType);
+    
     switch (planType) {
         case 0:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe4ViewController"];
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exeViewController"];
             break;
         case 1:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
