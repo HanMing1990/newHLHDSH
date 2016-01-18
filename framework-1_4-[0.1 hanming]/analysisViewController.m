@@ -10,11 +10,10 @@
 
 @interface analysisViewController ()
 
+
 @end
 
 @implementation analysisViewController
-
-
 
 
 - (void)viewDidLoad {
@@ -24,7 +23,9 @@
 
     //[self showLineChart];
 
+
 }
+
 
 - (void) viewDidAppear:(BOOL)animated{
     [self.lineChart strokeChart];
@@ -37,6 +38,10 @@
 - (IBAction)backBtnClicked:(id)sender {
     NSLog(@"sssssss");
 }
+
+
+
+
 
 
 /*

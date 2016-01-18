@@ -517,14 +517,18 @@
                                     <segue destination="BYZ-38-t0r" kind="modal" id="snF-Qu-DYz"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhe" id="y4x-Ad-gJY">
-                                <rect key="frame" x="33" y="318" width="240" height="128"/>
+                            <webView contentMode="scaleToFill" id="dqi-kF-2PP" customClass="PYEchartsView">
+                                <rect key="frame" x="33" y="313" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="mrH-G1-eWC"/>
+                    <connections>
+                        <outlet property="kEchartView" destination="dqi-kF-2PP" id="Kzd-fU-ykc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REJ-iZ-zZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -664,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aeh-9g-4RF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1405" y="-290"/>
+            <point key="canvasLocation" x="969" y="-244"/>
         </scene>
         <!--Exe2 View Controller-->
         <scene sceneID="wRP-Gg-aTX">
@@ -1187,12 +1191,11 @@
         <image name="planType4" width="650" height="454"/>
         <image name="run" width="220" height="220"/>
         <image name="sun" width="978" height="1000"/>
-        <image name="zhe" width="538" height="316"/>
         <image name="zhongzi" width="391" height="220"/>
         <image name="zhuce" width="870" height="630"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="snF-Qu-DYz"/>
         <segue reference="gBI-pE-Adn"/>
-        <segue reference="qyc-Tg-tUI"/>
     </inferredMetricsTieBreakers>
 </document>

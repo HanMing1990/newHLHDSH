@@ -90,7 +90,9 @@
     //卡路里赋值 不一定是int
     NSLog(@"current level %f", currentLevel.calorieLevel.floatValue);
     self.label4.text = currentLevel.calorieLevel;
-    /* 以下是杨俊写的圆圈显示数值的代码（暂时不用了）
+    
+    
+    // 以下是杨俊写的圆圈显示数值的代码
     // stress
     self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,450.0, SCREEN_WIDTH*0.45, 80.0)
                                                       total:@14.0
@@ -138,9 +140,7 @@
     [self.circleChartCalorie setStrokeColorGradientStart:[UIColor redColor]];
     [self.circleChartCalorie strokeChart];
     [self.view addSubview:self.circleChartCalorie];
-    */
     
-
     
     //3. 显示当前花的状态
     //3.1 根据历史完成情况获取花的状态名字 xxx

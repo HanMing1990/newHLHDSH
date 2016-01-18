@@ -311,7 +311,7 @@
     UIStoryboard *mainStoryboard = self.storyboard;
     exe1ViewController *SVC;
     NSLog(@"to %i", planType);
-    planType = 5;//为了测试，暂定个数
+    planType = 5;
     switch (planType) {
         case 0:
         case 1:
