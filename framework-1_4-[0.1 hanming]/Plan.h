@@ -25,5 +25,5 @@
 - (void) createNewPlan;                           //生成一个新的plan并且赋值给currentPlan
 - (Item *) selectItemRandomly;                    //随机滴选一个item
 - (BOOL) judge:(int) newId round:(int) newRound;  //判断当前plan的第newRoundg个事件newid是否满足条件－》要考虑的就是一个月内不重复呀等等。
-- (void) finishItem:(BOOL) yesOrNo Content:(NSString* ) newContent;  //每个事件做完（或取消）之后，都要存储执行结果（是否完成fin字段以及反馈的内容）
+- (void) finishItem:(BOOL) yesOrNo forId:(NSNumber* ) newId Content:(NSString* ) newContent;  //每个事件做完（或取消）之后，都要存储执行结果（是否完成fin字段以及反馈的内容）
 @end

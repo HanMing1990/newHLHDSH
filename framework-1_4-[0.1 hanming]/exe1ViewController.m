@@ -11,14 +11,7 @@
 #import "planViewController.h"
 
 @interface exe1ViewController ()
-/*
-@property (weak, nonatomic) IBOutlet UILabel *currentPlanDate;
-@property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
-@property (weak, nonatomic) IBOutlet UILabel *currentPlanText;
-@property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
-@property (weak, nonatomic) IBOutlet UITextView *showTextView;
-@property (weak, nonatomic) IBOutlet UIButton *finishBtn;
-*/
+
 @property (weak, nonatomic) IBOutlet UILabel     *currentPlanDate;  //时间
 @property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage; //事件类型：运动，感恩 等
 @property (weak, nonatomic) IBOutlet UILabel     *currentPlanText;  //事件的简称
@@ -30,7 +23,7 @@
 @property NSNumber* currentPlanType;
 @property Item* currentItem;
 @property NSNumber* currentId;
-
+@property NSNumber* currentPlanState;
 
 @end
 
@@ -49,7 +42,7 @@
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
     self.showTextView.text    = [defaults valueForKey:PLANTEXT];
     self.currentPlanType      = [defaults valueForKey:PLANTYPE];
-    
+    self.currentPlanState     = [defaults valueForKey:PLANSTATE];
     
     NSString *planImageName;
     switch (self.currentPlanType.intValue) {
@@ -119,37 +112,14 @@
             break;
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
-
-    /*
-     //1. 判断是由哪个按钮跳转过来的
-     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"planType"];
-     if ([infoType isEqualToString:@"plan1"]) {
-     NSLog(@"plan1");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan2"])
-     {
-     NSLog(@"plan2");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan3"])
-     {
-     NSLog(@"plan3");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan4"])
-     {
-     NSLog(@"plan4!!!");
-     //修改plan显示的信息
-     }
-     */
     
-    
+    if (self.currentPlanState.intValue != 1) {
+        
+    }
 }
 - (IBAction)laterBtnClicked:(id)sender {
     //1. 这人取消了当前的计划，记录到数据库里 xxx
     NSLog(@"later Btn clicked");
-    
     //2. 跳转到planVC中
     UIStoryboard *mainStoryboard = self.storyboard;
     planViewController *SVC;
@@ -160,8 +130,9 @@
 }
 
 - (IBAction)finishBtnClicked:(id)sender {
-    
     //1. 这人完成了当前的计划，记录到数据库里 xxx
+    Plan *plan = [Plan new];
+    [plan finishItem:YES forId:self.currentId Content:@""];
     //2. 跳转到planVC中
     UIStoryboard *mainStoryboard = self.storyboard;
     planViewController *SVC;
@@ -175,8 +146,6 @@
 
 - (IBAction)changePlanBtnClicked:(id)sender {
     //更换计划
-    
-    NSLog(@" in change plan function");
     //1. 从数据库里再取出来一个新的plan
     Plan *plan = [Plan new];
     self.currentItem = [plan changeItemById:self.currentId];
@@ -187,7 +156,7 @@
     //[defaults setObject: forKey:@"currentPlanDate"]; //don't need to set because  there is no change
     [defaults setObject: self.currentItem.content1 forKey:PLANTEXT];
     [defaults setObject: self.currentItem.info     forKey:PLANINFO];
-    [defaults setObject: self.currentItem.inte     forKey:PLANTYPE];
+    [defaults setObject: self.currentItem.sour     forKey:PLANTYPE];
     [defaults synchronize];
     //跳转到执行页面
     [self presentExeVC:self.currentItem.inte.intValue];

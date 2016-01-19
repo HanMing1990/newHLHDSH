@@ -68,6 +68,9 @@
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     //fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     fmt.dateFormat = @"MM月dd日HH点";
+    //NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    //NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"America/New_York"];
+    //[fmt setTimeZone:timeZone];
     //1. 修改四个plan的显示信息
     //1.1 plan1
     if(self.currentPlan.number > 0){
@@ -266,6 +269,9 @@
         [self.plan4Btn setImage:[UIImage imageNamed:plan4BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
+        self.plan4Btn.hidden = YES;
+        self.plan4Date.hidden = YES;
+        self.plan4Text.hidden = YES;
     }
     
     //2. 右上角花的状态（同mainVC中的花的状态）
@@ -311,74 +317,111 @@
 
 //4个button的点击
 - (IBAction)plan1BtnClicked:(id)sender {
-   // if (self.currentPlan.number.intValue > 0) {
+    if (self.currentPlan.number.intValue > 0) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
+        if (interval > 24*3600) {          //一天以后
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else{                             //一天之前
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
         [defaults setObject: self.currentPlan.id1      forKey:PLANID];
         [defaults setObject: self.currentPlan.time1    forKey:PLANDATE];
         [defaults setObject: self.currentPlan.content1 forKey:PLANTEXT];
         [defaults setObject: self.currentPlan.info1    forKey:PLANINFO];
-        [defaults setObject: self.currentPlan.type1    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.sour1    forKey:PLANTYPE];
+        
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan1Type];
-    //}else{
+    }else{
         //do nothing because don't have this item
-    //}
+    }
 }
 
 
 - (IBAction)plan2BtnClicked:(id)sender {
-    //if (self.currentPlan.number.intValue > 1) {
+    if (self.currentPlan.number.intValue > 1) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
+        if (interval > 24*3600) {          //一天以后
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else{                             //一天之前
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
         [defaults setObject: self.currentPlan.id2      forKey:PLANID];
         [defaults setObject: self.currentPlan.time2    forKey:PLANDATE];
         [defaults setObject: self.currentPlan.content2 forKey:PLANTEXT];
         [defaults setObject: self.currentPlan.info2    forKey:PLANINFO];
-        [defaults setObject: self.currentPlan.type2    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.sour2    forKey:PLANTYPE];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan2Type];
-    //}else{
+    }else{
         //do nothing because don't have this item
-    //}
+    }
 }
 
 
 - (IBAction)plan3BtnClicked:(id)sender {
-    //if (self.currentPlan.number.intValue > 2) {
+    if (self.currentPlan.number.intValue > 2) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
+        if (interval > 24*3600) {          //一天以后
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else{                             //一天之前
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
         [defaults setObject: self.currentPlan.id3      forKey:PLANID];
         [defaults setObject: self.currentPlan.time3    forKey:PLANDATE];
         [defaults setObject: self.currentPlan.content3 forKey:PLANTEXT];
         [defaults setObject: self.currentPlan.info3    forKey:PLANINFO];
-        [defaults setObject: self.currentPlan.type3    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.sour3    forKey:PLANTYPE];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan3Type];
-    //}else{
+    }else{
         //do nothing because don't have this item
-    //}
+    }
 }
 
 - (IBAction)plan4BtnClicked:(id)sender {
-    //if (self.currentPlan.number.intValue > 2) {
+    if (self.currentPlan.number.intValue > 3) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
+        if (interval > 24*3600) {          //一天以后
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else{                             //一天之前
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
         [defaults setObject: self.currentPlan.id4      forKey:PLANID];
         [defaults setObject: self.currentPlan.time4    forKey:PLANDATE];
         [defaults setObject: self.currentPlan.content4 forKey:PLANTEXT];
         [defaults setObject: self.currentPlan.info4    forKey:PLANINFO];
-        [defaults setObject: self.currentPlan.type4    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.sour4    forKey:PLANTYPE];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan4Type];
-    //}else{
+    }else{
         //do nothing because don't have this item
 
-    //}
+    }
 }
 
 

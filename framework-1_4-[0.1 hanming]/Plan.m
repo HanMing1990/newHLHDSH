@@ -219,6 +219,8 @@
         currentPlan.content1 = selected_item[0].content1;
         currentPlan.info1 = selected_item[0].info;
         currentPlan.sour1 = selected_item[0].sour;
+        currentPlan.fin1 = [NSNumber numberWithBool:NO];
+        currentPlan.output1 = @"default";
     }
     if (plan_item_number > 1) {
         currentPlan.id2 = [NSNumber numberWithInt:selected_id[1]];
@@ -227,6 +229,8 @@
         currentPlan.content2 = selected_item[1].content1;
         currentPlan.info2 = selected_item[1].info;
         currentPlan.sour2 = selected_item[1].sour;
+        currentPlan.fin2 = [NSNumber numberWithBool:NO];
+        currentPlan.output2 = @"default";
     }
     if (plan_item_number > 2) {
         currentPlan.id3 = [NSNumber numberWithInt:selected_id[2]];
@@ -235,6 +239,8 @@
         currentPlan.content3 = selected_item[2].content1;
         currentPlan.info3 = selected_item[2].info;
         currentPlan.sour3 = selected_item[2].sour;
+        currentPlan.fin3 = [NSNumber numberWithBool:NO];
+        currentPlan.output3 = @"default";
     }
     if (plan_item_number > 3) {
         currentPlan.id4 = [NSNumber numberWithInt:selected_id[3]];
@@ -243,7 +249,10 @@
         currentPlan.content4 = selected_item[3].content1;
         currentPlan.info4 = selected_item[3].info;
         currentPlan.sour4 = selected_item[3].sour;
+        currentPlan.fin4 = [NSNumber numberWithBool:NO];
+        currentPlan.output4 = @"default";
     }
+    currentPlan.currentNumber = [NSNumber numberWithInt:0];
     NSLog(@"debug flag 1");
     // 4. 但是这个时间就需要精心策划啦
     currentPlan.time0 = [NSDate date];
@@ -251,13 +260,12 @@
     int day_since_2000 = (int) (interval / 3600 /24);
     //interval(second format) to the o'clock of next day
     NSLog(@"debug flag 2");
-    int interval_second = (int) ((day_since_2000 + 1) * 3600 * 24 - interval);
+    int interval_second = (int) ((day_since_2000 + 1) * 3600 * 24 - interval + 1);
     if (plan_item_number == 1) {
         currentPlan.time1 = [[NSDate alloc] initWithTimeInterval: (8)*60*60+interval_second sinceDate:currentPlan.time0];
     }else if(plan_item_number == 2){
         currentPlan.time1 = [[NSDate alloc] initWithTimeInterval: (12) * 60*60+interval_second sinceDate:currentPlan.time0];
         currentPlan.time2 = [[NSDate alloc] initWithTimeInterval: (48 + 18) * 60*60+interval_second sinceDate:currentPlan.time0];
-
     }else if(plan_item_number == 3){
         currentPlan.time1 = [[NSDate alloc] initWithTimeInterval: (8)*60*60+interval_second sinceDate:currentPlan.time0];
         currentPlan.time2 = [[NSDate alloc] initWithTimeInterval: (72 + 12)*60*60+interval_second sinceDate:currentPlan.time0];
@@ -330,27 +338,59 @@
         NSLog(@"let's just select it randomly!");
         item = [self selectItemRandomly];
     }
+    CurrentPlan * plan = [CurrentPlan new];
+    if (newId.intValue == plan.id1.intValue) {
+        plan.id1 = item.ID;
+        plan.type1 = item.inte;
+        plan.info1 = item.info;
+        plan.sour1 = item.sour;
+        plan.content1 = item.content1;
+    }else if (newId.intValue == plan.id2.intValue) {
+        plan.id2 = item.ID;
+        plan.type2 = item.inte;
+        plan.info2 = item.info;
+        plan.sour2 = item.sour;
+        plan.content2 = item.content1;
+    }else if (newId.intValue == plan.id3.intValue) {
+        plan.id3 = item.ID;
+        plan.type3 = item.inte;
+        plan.info3 = item.info;
+        plan.sour3 = item.sour;
+        plan.content3 = item.content1;
+    }else{
+        plan.id4 = item.ID;
+        plan.type4 = item.inte;
+        plan.info4 = item.info;
+        plan.sour4 = item.sour;
+        plan.content4 = item.content1;
+    }
+    [plan save];
     return item;
 }
-- (void) finishItem:(BOOL) yesOrNo Content:(NSString* ) newContent{
+- (void) finishItem:(BOOL) yesOrNo forId:(NSNumber* ) newId Content:(NSString* ) newContent{
     CurrentPlan * plan = [CurrentPlan new];
     //存储计划完成情况和完成后的内容
-    if (plan.currentNumber.intValue == 0) {
+    if (plan.id1.intValue == newId.intValue) {
         plan.fin1 = [NSNumber numberWithBool:yesOrNo];
-        plan.content1 = newContent;
+        plan.output1 = newContent;
+        plan.stress1 = [CurrentLevel new].stressLevel;
     }
-    if (plan.currentNumber.intValue == 1) {
+    if (plan.id2.intValue == newId.intValue) {
         plan.fin2 = [NSNumber numberWithBool:yesOrNo];
-        plan.content2 = newContent;
+        plan.output2 = newContent;
+        plan.stress2 = [CurrentLevel new].stressLevel;
     }
-    if (plan.currentNumber.intValue == 2) {
+    if (plan.id3.intValue == newId.intValue) {
         plan.fin3 = [NSNumber numberWithBool:yesOrNo];
-        plan.content3 = newContent;
+        plan.output3 = newContent;
+        plan.stress3 = [CurrentLevel new].stressLevel;
     }
-    if (plan.currentNumber.intValue == 3) {
+    if (plan.id4.intValue == newId.intValue) {
         plan.fin4 = [NSNumber numberWithBool:yesOrNo];
-        plan.content4 = newContent;
+        plan.output4 = newContent;
+        plan.stress4 = [CurrentLevel new].stressLevel;
     }
+    [plan save];
 }
 
 @end

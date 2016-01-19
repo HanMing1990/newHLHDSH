@@ -26,6 +26,10 @@
     NSDate* time2;
     NSDate* time3;
     NSDate* time4;
+    NSDate* fintime1;
+    NSDate* fintime2;
+    NSDate* fintime3;
+    NSDate* fintime4;
     NSNumber* fin1;
     NSNumber* fin2;
     NSNumber* fin3;
@@ -42,6 +46,10 @@
     NSString* content2;  //计划2的内容，由于篇幅限制，只取要显示的第一个内容
     NSString* content3;  //计划3的内容，由于篇幅限制，只取要显示的第一个内容
     NSString* content4;  //计划4的内容，由于篇幅限制，只取要显示的第一个内容
+    NSString* output1;
+    NSString* output2;
+    NSString* output3;
+    NSString* output4;
     NSString* stress0;
     NSString* stress1;
     NSString* stress2;
@@ -67,6 +75,10 @@
 @property(retain,nonatomic)    NSDate* time2;
 @property(retain,nonatomic)    NSDate* time3;
 @property(retain,nonatomic)    NSDate* time4;
+@property(retain,nonatomic)    NSDate* fintime1;
+@property(retain,nonatomic)    NSDate* fintime2;
+@property(retain,nonatomic)    NSDate* fintime3;
+@property(retain,nonatomic)    NSDate* fintime4;
 @property(retain,nonatomic)    NSNumber* fin1;
 @property(retain,nonatomic)    NSNumber* fin2;
 @property(retain,nonatomic)    NSNumber* fin3;
@@ -83,6 +95,10 @@
 @property(retain,nonatomic)    NSString* content2;
 @property(retain,nonatomic)    NSString* content3;
 @property(retain,nonatomic)    NSString* content4;
+@property(retain,nonatomic)    NSString* output1;
+@property(retain,nonatomic)    NSString* output2;
+@property(retain,nonatomic)    NSString* output3;
+@property(retain,nonatomic)    NSString* output4;
 @property(retain,nonatomic)    NSString* stress0;
 @property(retain,nonatomic)    NSString* stress1;
 @property(retain,nonatomic)    NSString* stress2;
