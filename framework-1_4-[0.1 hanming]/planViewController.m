@@ -36,6 +36,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;//计划的显示窗口（小）
+@property (weak, nonatomic) IBOutlet UIView *planCellView;//计划的内容（大）
+
 @property int plan1Type; // 跳转所用的交互类型，由item的inte决定
 @property int plan2Type;
 @property int plan3Type;
@@ -54,6 +57,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //-1. 使用实现滚动
+    [self.myScrollView addSubview:self.planCellView];
+    // 设置UIScrollView的滚动范围（内容大小）
+    self.myScrollView.contentSize = CGSizeMake(0, 1500);//只设置长度，这样就只能左右滑
+    
+    // 隐藏水平滚动条
+    self.myScrollView.showsHorizontalScrollIndicator = NO;
+    self.myScrollView.showsVerticalScrollIndicator = NO;
+    
+    
+    // 增加额外的滚动区域（逆时针，上、左、下、右）
+    // top  left  bottom  right
+    self.myScrollView.contentInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    
     //0. 获取当前的计划信息 xxx
     self.currentPlan = [CurrentPlan new];
     if (self.currentPlan.have.boolValue == 1) {
