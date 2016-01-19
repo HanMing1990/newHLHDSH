@@ -627,15 +627,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IHk-Jn-Lc7">
-                                <rect key="frame" x="193" y="447" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="确认完成"/>
-                                <connections>
-                                    <action selector="finishBtnClicked:" destination="zpj-bl-YS9" eventType="touchUpInside" id="te6-pD-P03"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="WVZ-bX-vQa">
                                 <rect key="frame" x="166" y="114" width="101" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -656,15 +647,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IHk-Jn-Lc7">
+                                <rect key="frame" x="208" y="447" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="确认完成"/>
+                                <connections>
+                                    <action selector="finishBtnClicked:" destination="zpj-bl-YS9" eventType="touchUpInside" id="te6-pD-P03"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="changeBtn" destination="ydo-JI-wK1" id="AWW-Lw-PoM"/>
                         <outlet property="currentPlanDate" destination="42X-jx-8hG" id="CeM-CY-C0Q"/>
                         <outlet property="currentPlanImage" destination="kbW-1l-A93" id="1fm-pE-81O"/>
                         <outlet property="currentPlanText" destination="pYh-aD-mED" id="ChF-O7-gyr"/>
                         <outlet property="flowerImage" destination="WVZ-bX-vQa" id="VTd-PP-cje"/>
+                        <outlet property="laterBtn" destination="ppq-34-4Bq" id="3WT-lM-Fao"/>
                         <outlet property="showTextView" destination="aat-fI-p2o" id="c9Z-Re-OvM"/>
+                        <outlet property="sureBtn" destination="IHk-Jn-Lc7" id="JTp-yI-5LX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aeh-9g-4RF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -753,6 +756,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="changeBtn" destination="CpB-d3-wkM" id="4tr-BD-gKJ"/>
                         <outlet property="currentPlanDate" destination="qdJ-bR-dQA" id="zqa-wL-MbW"/>
                         <outlet property="currentPlanImage" destination="xFu-gA-pfI" id="oOc-S0-msn"/>
                         <outlet property="currentPlanText" destination="vyp-fv-k68" id="DaM-RA-9kX"/>
@@ -854,13 +858,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="changeBtn" destination="L2G-kN-Zet" id="hwt-as-OEl"/>
                         <outlet property="currentPlanDate" destination="dzW-LC-vOe" id="tdf-Ju-qk9"/>
                         <outlet property="currentPlanImage" destination="QeI-nF-4BX" id="9Mm-CC-dyn"/>
                         <outlet property="currentPlanText" destination="sZz-8J-3h9" id="n7O-t3-JXH"/>
                         <outlet property="flowerImage" destination="sdS-a2-Khb" id="g7g-To-rP3"/>
                         <outlet property="inputTextView" destination="hvC-X7-3v5" id="ORR-hF-n9l"/>
+                        <outlet property="laterBtn" destination="Pvl-3i-rMc" id="VfO-ly-9bi"/>
                         <outlet property="showTextView1" destination="Im2-S7-2gQ" id="uKC-kM-BXj"/>
                         <outlet property="showTextView2" destination="bJ9-Wc-XuJ" id="FDS-Oe-hbK"/>
+                        <outlet property="sureBtn" destination="2Ci-1i-vry" id="Mqe-RV-FPo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOc-L0-feQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -927,6 +934,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="uhn-f5-1PX">
+                                <rect key="frame" x="29" y="369" width="240" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cXS-It-otO">
                                 <rect key="frame" x="29" y="439" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -952,18 +966,12 @@
                                     <action selector="finishBtnClicked:" destination="Nyl-Hk-D8J" eventType="touchUpInside" id="yoh-Vm-ewM"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="uhn-f5-1PX">
-                                <rect key="frame" x="29" y="369" width="240" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="InputTextView1" destination="M46-iv-4l1" id="wlF-DQ-iOB"/>
+                        <outlet property="changeBtn" destination="487-oW-Fvm" id="paM-xQ-4Aj"/>
                         <outlet property="currentPlanDate" destination="cCO-lC-Yo7" id="tzp-5v-ubc"/>
                         <outlet property="currentPlanImage" destination="BRX-Ir-8Y5" id="LEh-uB-wBI"/>
                         <outlet property="currentPlanText" destination="gVY-xk-IMO" id="VGd-gV-qUN"/>
@@ -971,7 +979,9 @@
                         <outlet property="inputTextView1" destination="M46-iv-4l1" id="KM0-IY-Arj"/>
                         <outlet property="inputTextView2" destination="mqV-2G-jAW" id="8Or-CQ-q3E"/>
                         <outlet property="inputTextView3" destination="uhn-f5-1PX" id="9Qk-JN-eqY"/>
+                        <outlet property="laterBtn" destination="cXS-It-otO" id="BN8-YY-q9a"/>
                         <outlet property="showTextView" destination="cjd-dt-K5J" id="tP0-az-SpK"/>
+                        <outlet property="sureBtn" destination="7Fk-CF-dr0" id="FmZ-6E-Ede"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2t-sx-ec5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1075,13 +1085,16 @@
                     </view>
                     <connections>
                         <outlet property="InputTextView1" destination="DZc-DY-52Y" id="Ifa-Nj-I6Q"/>
+                        <outlet property="changeBtn" destination="9I7-KG-cqG" id="sEE-1P-MiV"/>
                         <outlet property="currentPlanDate" destination="Qje-0K-4O0" id="3g1-xx-A3o"/>
                         <outlet property="currentPlanImage" destination="9AC-j6-z2O" id="bZA-QA-ikK"/>
                         <outlet property="currentPlanText" destination="isF-Zn-aG2" id="Oyl-T9-2yd"/>
                         <outlet property="flowerImage" destination="ARa-lH-3gb" id="C05-N7-Gw6"/>
                         <outlet property="inputTextView1" destination="DZc-DY-52Y" id="cMk-wP-xHp"/>
                         <outlet property="inputTextView3" destination="MWY-gE-cK8" id="RLk-51-vKY"/>
+                        <outlet property="laterBtn" destination="s8S-QR-5RV" id="MiE-RW-SUl"/>
                         <outlet property="showTextView" destination="VjX-CI-cax" id="F6H-jr-wl1"/>
+                        <outlet property="sureBtn" destination="Vb6-mM-pjJ" id="Y9l-2K-gQY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8f-7x-SMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1170,12 +1183,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="changeBtn" destination="WAv-m3-1LP" id="jxk-Sw-WQe"/>
                         <outlet property="currentPlanDate" destination="Fo3-qf-6dk" id="R59-Yn-48o"/>
                         <outlet property="currentPlanImage" destination="zTV-7R-tYM" id="2PQ-To-oLP"/>
                         <outlet property="currentPlanText" destination="4AB-G2-1Sd" id="Mfc-ig-wCc"/>
                         <outlet property="flowerImage" destination="oUs-Dh-2gL" id="LMu-gM-RFh"/>
+                        <outlet property="laterBtn" destination="jz8-TI-O2g" id="7zi-JV-FYb"/>
                         <outlet property="showTextView1" destination="uVr-pt-Byr" id="GZ0-Pd-4LD"/>
                         <outlet property="showTextView2" destination="4hf-hb-dYu" id="bci-oP-2zB"/>
+                        <outlet property="sureBtn" destination="dnj-kJ-6To" id="bjU-bW-wOr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr1-cg-TUh" userLabel="First Responder" sceneMemberID="firstResponder"/>

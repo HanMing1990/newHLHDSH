@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;       //花的图片
 @property (weak, nonatomic) IBOutlet UITextView  *showTextView;      //事件要显示的文字
 @property (weak, nonatomic) IBOutlet UITextView  *inputTextView;     //事件的输入框
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *laterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 
 

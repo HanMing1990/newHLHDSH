@@ -11,14 +11,6 @@
 #import "planViewController.h"
 
 @interface exe6ViewController ()
-/*
- @property (weak, nonatomic) IBOutlet UILabel *currentPlanDate;
- @property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
- @property (weak, nonatomic) IBOutlet UILabel *currentPlanText;
- @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
- @property (weak, nonatomic) IBOutlet UITextView *showTextView;
- @property (weak, nonatomic) IBOutlet UIButton *finishBtn;
- */
 
 @property (weak, nonatomic) IBOutlet UILabel     *currentPlanDate;
 @property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
@@ -26,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
 @property (weak, nonatomic) IBOutlet UITextView  *showTextView1;
 @property (weak, nonatomic) IBOutlet UITextView  *showTextView2;
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *laterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 
 

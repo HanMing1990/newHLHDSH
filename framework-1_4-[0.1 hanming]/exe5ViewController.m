@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextView  *showTextView;     //事件显示的文字
 @property (weak, nonatomic) IBOutlet UITextView  *inputTextView1;    //输入的第一个字段
 @property (weak, nonatomic) IBOutlet UITextView  *inputTextView3;    //输入的第二个字段
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *laterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 
 @property NSNumber* currentPlanType;

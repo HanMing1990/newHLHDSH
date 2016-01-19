@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel     *currentPlanText;  //事件的简称
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;      //花的图片
 @property (weak, nonatomic) IBOutlet UITextView  *showTextView;     //事件显示的文字
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *laterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 
 
@@ -114,11 +117,15 @@
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
     
     if (self.currentPlanState.intValue == 0) {
-        
+        self.laterBtn.hidden = YES;
+        self.changeBtn.hidden = YES;
+        self.sureBtn.hidden = YES;
     }else if(self.currentPlanState.intValue == 1){
         
     }else{
-        
+        self.laterBtn.hidden = YES;
+        self.changeBtn.hidden = YES;
+        self.sureBtn.hidden = YES;
     }
 }
 - (IBAction)laterBtnClicked:(id)sender {
