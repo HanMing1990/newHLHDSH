@@ -29,6 +29,10 @@
 #define TIME2   @"TIME2"
 #define TIME3   @"TIME3"
 #define TIME4   @"TIME4"
+#define FINTIME1 @"FINTIME1"
+#define FINTIME2 @"FINTIME2"
+#define FINTIME3 @"FINTIME3"
+#define FINTIME4 @"FINTIME4"
 #define FIN1    @"FIN1"
 #define FIN2    @"FIN2"
 #define FIN3    @"FIN3"
@@ -77,6 +81,10 @@
 @synthesize time2;
 @synthesize time3;
 @synthesize time4;
+@synthesize fintime1;
+@synthesize fintime2;
+@synthesize fintime3;
+@synthesize fintime4;
 @synthesize fin1;
 @synthesize fin2;
 @synthesize fin3;
@@ -135,6 +143,10 @@
                 time2 = [NSDate date];
                 time3 = [NSDate date];
                 time4 = [NSDate date];
+                fintime1 = [NSDate date];
+                fintime2 = [NSDate date];
+                fintime3 = [NSDate date];
+                fintime4 = [NSDate date];
                 fin1 = [NSNumber numberWithBool:0];
                 fin2 = [NSNumber numberWithBool:0];
                 fin3 = [NSNumber numberWithBool:0];
@@ -179,6 +191,10 @@
                 [dic setObject:time2 forKey:TIME2];
                 [dic setObject:time3 forKey:TIME3];
                 [dic setObject:time4 forKey:TIME4];
+                [dic setObject:fintime1 forKey:FINTIME1];
+                [dic setObject:fintime2 forKey:FINTIME2];
+                [dic setObject:fintime3 forKey:FINTIME3];
+                [dic setObject:fintime4 forKey:FINTIME4];
                 [dic setObject:fin1 forKey:FIN1];
                 [dic setObject:fin2 forKey:FIN2];
                 [dic setObject:fin3 forKey:FIN3];
@@ -235,6 +251,10 @@
         time2 = [dictionary objectForKey:TIME2];
         time3 = [dictionary objectForKey:TIME3];
         time4 = [dictionary objectForKey:TIME4];
+        fintime1 = [dictionary objectForKey:FINTIME1];
+        fintime2 = [dictionary objectForKey:FINTIME2];
+        fintime3 = [dictionary objectForKey:FINTIME3];
+        fintime4 = [dictionary objectForKey:FINTIME4];
         fin1 = [dictionary objectForKey:FIN1];
         fin2 = [dictionary objectForKey:FIN2];
         fin3 = [dictionary objectForKey:FIN3];
@@ -285,6 +305,10 @@
         [dic setObject:time2 forKey:TIME2];
         [dic setObject:time3 forKey:TIME3];
         [dic setObject:time4 forKey:TIME4];
+        [dic setObject:fintime1 forKey:FINTIME1];
+        [dic setObject:fintime2 forKey:FINTIME2];
+        [dic setObject:fintime3 forKey:FINTIME3];
+        [dic setObject:fintime4 forKey:FINTIME4];
         [dic setObject:fin1 forKey:FIN1];
         [dic setObject:fin2 forKey:FIN2];
         [dic setObject:fin3 forKey:FIN3];

@@ -321,6 +321,7 @@
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
         if (interval > 24*3600) {          //一天以后
             [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
         }else if (interval > - 24 * 3600){ //前后一天之内
@@ -348,6 +349,7 @@
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
         if (interval > 24*3600) {          //一天以后
             [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
         }else if (interval > - 24 * 3600){ //前后一天之内
@@ -374,6 +376,7 @@
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
         if (interval > 24*3600) {          //一天以后
             [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
         }else if (interval > - 24 * 3600){ //前后一天之内
@@ -399,6 +402,7 @@
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
         if (interval > 24*3600) {          //一天以后
             [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
         }else if (interval > - 24 * 3600){ //前后一天之内

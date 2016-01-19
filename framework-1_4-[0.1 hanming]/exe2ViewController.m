@@ -129,21 +129,6 @@
 }
 - (IBAction)finishBtnClicked:(id)sender {
     NSLog(@"finish Btn clicked");
-    if (self.currentPlanState.intValue == 0) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件已经过期啦" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];
-        return;
-    }else if(self.currentPlanState.intValue == 2){
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件还没到做的时间呢" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];
-        return;
-    }else{
-        
-    }
     NSLog(@"%@", self.inputTextView.text);//把这个存到数据库里
     //1. 这人完成了当前的计划，记录到数据库里 xxx
     NSString* str = [NSString stringWithFormat:@"@@%@@@",self.inputTextView.text];
@@ -163,21 +148,6 @@
     
     //更换计划
     NSLog(@" in change plan function");
-    if (self.currentPlanState.intValue == 0) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件已经过期啦" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];
-        return;
-    }else if(self.currentPlanState.intValue == 2){
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件还没到做的时间呢" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];
-        return;
-    }else{
-        
-    }
     //1. 从数据库里再取出来一个新的plan
     Plan *plan = [Plan new];
     self.currentItem = [plan changeItemById:self.currentId];

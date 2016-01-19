@@ -26,6 +26,10 @@
     NSDate* time2;
     NSDate* time3;
     NSDate* time4;
+    NSDate* fintime1;
+    NSDate* fintime2;
+    NSDate* fintime3;
+    NSDate* fintime4;
     NSNumber* fin1;
     NSNumber* fin2;
     NSNumber* fin3;
@@ -71,6 +75,10 @@
 @property(retain,nonatomic)    NSDate* time2;
 @property(retain,nonatomic)    NSDate* time3;
 @property(retain,nonatomic)    NSDate* time4;
+@property(retain,nonatomic)    NSDate* fintime1;
+@property(retain,nonatomic)    NSDate* fintime2;
+@property(retain,nonatomic)    NSDate* fintime3;
+@property(retain,nonatomic)    NSDate* fintime4;
 @property(retain,nonatomic)    NSNumber* fin1;
 @property(retain,nonatomic)    NSNumber* fin2;
 @property(retain,nonatomic)    NSNumber* fin3;
