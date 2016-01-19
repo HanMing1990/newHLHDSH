@@ -103,8 +103,8 @@
     self.circleChartStress.backgroundColor = [UIColor clearColor];
     [self.circleChartStress setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
-    [self.circleChartStress setStrokeColorGradientStart:[UIColor redColor]];
-    [self.circleChartStress strokeChart];
+    [self.circleChartStress setStrokeColorGradientStart:[UIColor greenColor]];
+    //[self.circleChartStress strokeChart];
     [self.view addSubview:self.circleChartStress];
     
     // sleep
@@ -116,7 +116,7 @@
     [self.circleChartSleep setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
     [self.circleChartSleep setStrokeColorGradientStart:[UIColor redColor]];
-    [self.circleChartSleep strokeChart];
+    //[self.circleChartSleep strokeChart];
     [self.view addSubview:self.circleChartSleep];
     
     // step
@@ -128,7 +128,7 @@
     [self.circleChartStep setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
     [self.circleChartStep setStrokeColorGradientStart:[UIColor redColor]];
-    [self.circleChartStep strokeChart];
+    //[self.circleChartStep strokeChart];
     [self.view addSubview:self.circleChartStep];
     
     // calorie
@@ -140,7 +140,7 @@
     [self.circleChartCalorie setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
     [self.circleChartCalorie setStrokeColorGradientStart:[UIColor redColor]];
-    [self.circleChartCalorie strokeChart];
+    //[self.circleChartCalorie strokeChart];
     [self.view addSubview:self.circleChartCalorie];
     
     
@@ -179,6 +179,12 @@
     [defaults synchronize];
     
 
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [self.circleChartCalorie strokeChart];
+    [self.circleChartStress strokeChart];
+    [self.circleChartSleep strokeChart];
+    [self.circleChartStep strokeChart];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -58,12 +58,14 @@
     self.barChart.isGradientShow = NO;
     self.barChart.isShowNumbers = NO;
     
-    [self.barChart strokeChart];
+    //[self.barChart strokeChart];
     
     [self.view addSubview:self.barChart];
     
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [self.barChart strokeChart];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
