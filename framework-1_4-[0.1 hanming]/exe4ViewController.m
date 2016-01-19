@@ -11,14 +11,6 @@
 #import "planViewController.h"
 
 @interface exe4ViewController ()
-/*
- @property (weak, nonatomic) IBOutlet UILabel *currentPlanDate;
- @property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
- @property (weak, nonatomic) IBOutlet UILabel *currentPlanText;
- @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
- @property (weak, nonatomic) IBOutlet UITextView *showTextView;
- @property (weak, nonatomic) IBOutlet UIButton *finishBtn;
- */
 
 @property (weak, nonatomic) IBOutlet UILabel     *currentPlanDate;  //时间
 @property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage; //事件类型：运动，感恩 等
@@ -33,6 +25,7 @@
 @property NSNumber*  currentPlanType;
 @property Item* currentItem;
 @property NSNumber* currentId;
+@property NSNumber* currentPlanState;
 
 @end
 
@@ -51,6 +44,8 @@
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
     self.showTextView.text    = [defaults valueForKey:PLANTEXT];
     self.currentPlanType      = [defaults valueForKey:PLANTYPE];
+    self.currentPlanState     = [defaults valueForKey:PLANSTATE];
+    
     NSString *planImageName;
     switch (self.currentPlanType.intValue) {
         case 0:
@@ -119,33 +114,6 @@
             break;
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
-    
-    
-    /*
-     //1. 判断是由哪个按钮跳转过来的
-     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"planType"];
-     if ([infoType isEqualToString:@"plan1"]) {
-     NSLog(@"plan1");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan2"])
-     {
-     NSLog(@"plan2");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan3"])
-     {
-     NSLog(@"plan3");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan4"])
-     {
-     NSLog(@"plan4!!!");
-     //修改plan显示的信息
-     }
-     */
-    
-    
 }
 - (IBAction)laterBtnClicked:(id)sender {
     //1. 这人取消了当前的计划，记录到数据库里 xxx
@@ -162,10 +130,29 @@
 
 
 - (IBAction)finishBtnClicked:(id)sender {
+    if (self.currentPlanState.intValue == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件已经过期啦" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }else if(self.currentPlanState.intValue == 2){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件还没到做的时间呢" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }else{
+        
+    }
     //1. 这人完成了当前的计划，记录到数据库里 xxx
     NSLog(@"%@", self.inputTextView1.text);//把这个存到数据库里
     NSLog(@"%@", self.inputTextView2.text);//把这个存到数据库里
     NSLog(@"%@", self.inputTextView3.text);//把这个存到数据库里
+    //1. 这人完成了当前的计划，记录到数据库里 xxx
+    NSString* str = [NSString stringWithFormat:@"@@%@@@%@@@%@@@",self.inputTextView1.text,self.inputTextView2.text,self.inputTextView3.text];
+    Plan *plan = [Plan new];
+    [plan finishItem:YES forId:self.currentId Content:str];
     //2. 跳转到planVC中
     UIStoryboard *mainStoryboard = self.storyboard;
     planViewController *SVC;
@@ -180,8 +167,22 @@
 
 - (IBAction)changeBtnClicked:(id)sender {
     //更换计划
-    
     NSLog(@" in change plan function");
+    if (self.currentPlanState.intValue == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件已经过期啦" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }else if(self.currentPlanState.intValue == 2){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件还没到做的时间呢" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }else{
+        
+    }
     //1. 从数据库里再取出来一个新的plan
     Plan *plan = [Plan new];
     self.currentItem = [plan changeItemById:self.currentId];
@@ -192,7 +193,7 @@
     //[defaults setObject: forKey:@"currentPlanDate"]; //don't need to set because  there is no change
     [defaults setObject: self.currentItem.content1 forKey:PLANTEXT];
     [defaults setObject: self.currentItem.info     forKey:PLANINFO];
-    [defaults setObject: self.currentItem.inte     forKey:PLANTYPE];
+    [defaults setObject: self.currentItem.sour     forKey:PLANTYPE];
     [defaults synchronize];
     //跳转到执行页面
     [self presentExeVC:self.currentItem.inte.intValue];

@@ -32,6 +32,7 @@
 @property NSNumber* currentPlanType;
 @property Item* currentItem;
 @property NSNumber* currentId;
+@property NSNumber* currentPlanState;
 
 @end
 
@@ -51,6 +52,7 @@
     self.showTextView1.text    = [defaults valueForKey:PLANTEXT];
     self.showTextView2.text = @"这个貌似需要单独滴从数据库拿耶～～～";
     self.currentPlanType      = [defaults valueForKey:PLANTYPE];
+    self.currentPlanState     = [defaults valueForKey:PLANSTATE];
     
     NSString *planImageName;
     switch (self.currentPlanType.intValue) {
@@ -121,33 +123,6 @@
             break;
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
-
-    
-    /*
-     //1. 判断是由哪个按钮跳转过来的
-     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"planType"];
-     if ([infoType isEqualToString:@"plan1"]) {
-     NSLog(@"plan1");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan2"])
-     {
-     NSLog(@"plan2");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan3"])
-     {
-     NSLog(@"plan3");
-     //修改plan显示的信息
-     }
-     else if ([infoType isEqualToString:@"plan4"])
-     {
-     NSLog(@"plan4!!!");
-     //修改plan显示的信息
-     }
-     */
-    
-    
 }
 - (IBAction)laterBtnClicked:(id)sender {
     //1. 这人取消了当前的计划，记录到数据库里 xxx
@@ -164,7 +139,24 @@
 
 
 - (IBAction)finishBtnClicked:(id)sender {
-
+    if (self.currentPlanState.intValue == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件已经过期啦" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }else if(self.currentPlanState.intValue == 2){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件还没到做的时间呢" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }else{
+        
+    }
+    //1. 这人完成了当前的计划，记录到数据库里 xxx
+    Plan *plan = [Plan new];
+    [plan finishItem:YES forId:self.currentId Content:@""];
     //2. 跳转到planVC中
     UIStoryboard *mainStoryboard = self.storyboard;
     planViewController *SVC;
@@ -178,8 +170,22 @@
 
 
 - (IBAction)changeBtnClicked:(id)sender {
+    if (self.currentPlanState.intValue == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件已经过期啦" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }else if(self.currentPlanState.intValue == 2){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨小提示" message:@"这个事件还没到做的时间呢" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }else{
+        
+    }
     //更换计划
-    
     NSLog(@" in change plan function");
     //1. 从数据库里再取出来一个新的plan
     Plan *plan = [Plan new];
@@ -191,7 +197,7 @@
     //[defaults setObject: forKey:@"currentPlanDate"]; //don't need to set because  there is no change
     [defaults setObject: self.currentItem.content1 forKey:PLANTEXT];
     [defaults setObject: self.currentItem.info     forKey:PLANINFO];
-    [defaults setObject: self.currentItem.inte     forKey:PLANTYPE];
+    [defaults setObject: self.currentItem.sour     forKey:PLANTYPE];
     [defaults synchronize];
     //跳转到执行页面
     [self presentExeVC:self.currentItem.inte.intValue];

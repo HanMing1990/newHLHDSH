@@ -35,4 +35,5 @@
 #define PLANID   @"currentPlanId"
 #define PLANSOUR @"currentPlanSour"
 #define PLANTYPE @"currentPlanType"
+#define PLANSTATE @"currentPlanState" //0:一天以前，不可以做，显示完成情况 1:一天之内 2:
 #endif /* static_h */

@@ -42,6 +42,10 @@
     NSString* content2;  //计划2的内容，由于篇幅限制，只取要显示的第一个内容
     NSString* content3;  //计划3的内容，由于篇幅限制，只取要显示的第一个内容
     NSString* content4;  //计划4的内容，由于篇幅限制，只取要显示的第一个内容
+    NSString* output1;
+    NSString* output2;
+    NSString* output3;
+    NSString* output4;
     NSString* stress0;
     NSString* stress1;
     NSString* stress2;
@@ -83,6 +87,10 @@
 @property(retain,nonatomic)    NSString* content2;
 @property(retain,nonatomic)    NSString* content3;
 @property(retain,nonatomic)    NSString* content4;
+@property(retain,nonatomic)    NSString* output1;
+@property(retain,nonatomic)    NSString* output2;
+@property(retain,nonatomic)    NSString* output3;
+@property(retain,nonatomic)    NSString* output4;
 @property(retain,nonatomic)    NSString* stress0;
 @property(retain,nonatomic)    NSString* stress1;
 @property(retain,nonatomic)    NSString* stress2;
