@@ -11,14 +11,6 @@
 #import "planViewController.h"
 
 @interface exe6ViewController ()
-/*
- @property (weak, nonatomic) IBOutlet UILabel *currentPlanDate;
- @property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
- @property (weak, nonatomic) IBOutlet UILabel *currentPlanText;
- @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
- @property (weak, nonatomic) IBOutlet UITextView *showTextView;
- @property (weak, nonatomic) IBOutlet UIButton *finishBtn;
- */
 
 @property (weak, nonatomic) IBOutlet UILabel     *currentPlanDate;
 @property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
@@ -26,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
 @property (weak, nonatomic) IBOutlet UITextView  *showTextView1;
 @property (weak, nonatomic) IBOutlet UITextView  *showTextView2;
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *laterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 
 
@@ -47,7 +42,11 @@
     //0. 获取当前的计划信息(存在静态变量里)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentId            = [defaults valueForKey:PLANID];
-    self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
+    if (self.currentPlanState.intValue == 0) {  //如果是已经完成的，则需要显示完成时间/内容，否则显示计划时间
+        self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANFINTIME]];
+    }else{
+        self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
+    }
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
     self.showTextView1.text    = [defaults valueForKey:PLANTEXT];
     self.showTextView2.text = @"这个貌似需要单独滴从数据库拿耶～～～";
@@ -123,6 +122,18 @@
             break;
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
+    
+    if (self.currentPlanState.intValue == 0) {
+        //self.laterBtn.hidden = YES;
+        self.changeBtn.hidden = YES;
+        self.sureBtn.hidden = YES;
+    }else if(self.currentPlanState.intValue == 1){
+        
+    }else{
+        //self.laterBtn.hidden = YES;
+        self.changeBtn.hidden = YES;
+        self.sureBtn.hidden = YES;
+    }
 }
 - (IBAction)laterBtnClicked:(id)sender {
     //1. 这人取消了当前的计划，记录到数据库里 xxx

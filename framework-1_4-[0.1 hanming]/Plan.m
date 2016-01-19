@@ -220,7 +220,7 @@
         currentPlan.info1 = selected_item[0].info;
         currentPlan.sour1 = selected_item[0].sour;
         currentPlan.fin1 = [NSNumber numberWithBool:NO];
-        currentPlan.output1 = @"default";
+        currentPlan.output1 = @"";
     }
     if (plan_item_number > 1) {
         currentPlan.id2 = [NSNumber numberWithInt:selected_id[1]];
@@ -230,7 +230,7 @@
         currentPlan.info2 = selected_item[1].info;
         currentPlan.sour2 = selected_item[1].sour;
         currentPlan.fin2 = [NSNumber numberWithBool:NO];
-        currentPlan.output2 = @"default";
+        currentPlan.output2 = @"";
     }
     if (plan_item_number > 2) {
         currentPlan.id3 = [NSNumber numberWithInt:selected_id[2]];
@@ -240,7 +240,7 @@
         currentPlan.info3 = selected_item[2].info;
         currentPlan.sour3 = selected_item[2].sour;
         currentPlan.fin3 = [NSNumber numberWithBool:NO];
-        currentPlan.output3 = @"default";
+        currentPlan.output3 = @"";
     }
     if (plan_item_number > 3) {
         currentPlan.id4 = [NSNumber numberWithInt:selected_id[3]];
@@ -250,7 +250,7 @@
         currentPlan.info4 = selected_item[3].info;
         currentPlan.sour4 = selected_item[3].sour;
         currentPlan.fin4 = [NSNumber numberWithBool:NO];
-        currentPlan.output4 = @"default";
+        currentPlan.output4 = @"";
     }
     currentPlan.currentNumber = [NSNumber numberWithInt:0];
     NSLog(@"debug flag 1");
@@ -374,21 +374,25 @@
         plan.fin1 = [NSNumber numberWithBool:yesOrNo];
         plan.output1 = newContent;
         plan.stress1 = [CurrentLevel new].stressLevel;
+        plan.fintime1 = [NSDate date];
     }
     if (plan.id2.intValue == newId.intValue) {
         plan.fin2 = [NSNumber numberWithBool:yesOrNo];
         plan.output2 = newContent;
         plan.stress2 = [CurrentLevel new].stressLevel;
+        plan.fintime2 = [NSDate date];
     }
     if (plan.id3.intValue == newId.intValue) {
         plan.fin3 = [NSNumber numberWithBool:yesOrNo];
         plan.output3 = newContent;
         plan.stress3 = [CurrentLevel new].stressLevel;
+        plan.fintime3 = [NSDate date];
     }
     if (plan.id4.intValue == newId.intValue) {
         plan.fin4 = [NSNumber numberWithBool:yesOrNo];
         plan.output4 = newContent;
         plan.stress4 = [CurrentLevel new].stressLevel;
+        plan.fintime4 = [NSDate date];
     }
     [plan save];
 }

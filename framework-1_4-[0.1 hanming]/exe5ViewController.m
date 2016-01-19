@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextView  *showTextView;     //事件显示的文字
 @property (weak, nonatomic) IBOutlet UITextView  *inputTextView1;    //输入的第一个字段
 @property (weak, nonatomic) IBOutlet UITextView  *inputTextView3;    //输入的第二个字段
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *laterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 
 @property NSNumber* currentPlanType;
@@ -37,7 +40,17 @@
     //0. 获取当前的计划信息(存在静态变量里)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentId            = [defaults valueForKey:PLANID];
-    self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
+    if (self.currentPlanState.intValue == 0) {  //如果是已经完成的，则需要显示完成时间/内容，否则显示计划时间
+        self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANFINTIME]];
+        NSArray * array = [[defaults valueForKey:PLANOUTPUT] componentsSeparatedByString:@"@@"];
+        NSLog(@" separated by string %@ ",array);
+        if (array.count > 1){
+            self.inputTextView1.text = array[1];
+            self.inputTextView3.text = array[2];
+        }
+    }else{
+        self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
+    }
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
     self.showTextView.text    = [defaults valueForKey:PLANTEXT];
     self.currentPlanType      = [defaults valueForKey:PLANTYPE];
@@ -110,6 +123,18 @@
             break;
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
+    
+    if (self.currentPlanState.intValue == 0) {
+        //self.laterBtn.hidden = YES;
+        self.changeBtn.hidden = YES;
+        self.sureBtn.hidden = YES;
+    }else if(self.currentPlanState.intValue == 1){
+        
+    }else{
+        //self.laterBtn.hidden = YES;
+        self.changeBtn.hidden = YES;
+        self.sureBtn.hidden = YES;
+    }
 }
 - (IBAction)laterBtnClicked:(id)sender {
     //1. 这人取消了当前的计划，记录到数据库里 xxx
