@@ -347,12 +347,17 @@
         }else{                             //一天之前
             [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
         }
+        if (self.currentPlan.fin1.boolValue == YES) {
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
         [defaults setObject: self.currentPlan.id1      forKey:PLANID];
         [defaults setObject: self.currentPlan.time1    forKey:PLANDATE];
         [defaults setObject: self.currentPlan.content1 forKey:PLANTEXT];
         [defaults setObject: self.currentPlan.info1    forKey:PLANINFO];
         [defaults setObject: self.currentPlan.sour1    forKey:PLANTYPE];
-        
+        [defaults setObject: self.currentPlan.fintime1 forKey:PLANFINTIME];
+        [defaults setObject: self.currentPlan.output1  forKey:PLANOUTPUT];
+        [defaults setObject: self.currentPlan.fin1     forKey:PLANFIN];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan1Type];
@@ -375,11 +380,17 @@
         }else{                             //一天之前
             [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
         }
+        if (self.currentPlan.fin2.boolValue == YES) {
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
         [defaults setObject: self.currentPlan.id2      forKey:PLANID];
         [defaults setObject: self.currentPlan.time2    forKey:PLANDATE];
         [defaults setObject: self.currentPlan.content2 forKey:PLANTEXT];
         [defaults setObject: self.currentPlan.info2    forKey:PLANINFO];
         [defaults setObject: self.currentPlan.sour2    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.fintime2 forKey:PLANFINTIME];
+        [defaults setObject: self.currentPlan.output2  forKey:PLANOUTPUT];
+        [defaults setObject: self.currentPlan.fin2     forKey:PLANFIN];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan2Type];
@@ -402,11 +413,17 @@
         }else{                             //一天之前
             [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
         }
+        if (self.currentPlan.fin3.boolValue == YES) {
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
         [defaults setObject: self.currentPlan.id3      forKey:PLANID];
         [defaults setObject: self.currentPlan.time3    forKey:PLANDATE];
         [defaults setObject: self.currentPlan.content3 forKey:PLANTEXT];
         [defaults setObject: self.currentPlan.info3    forKey:PLANINFO];
         [defaults setObject: self.currentPlan.sour3    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.fintime3 forKey:PLANFINTIME];
+        [defaults setObject: self.currentPlan.output3  forKey:PLANOUTPUT];
+        [defaults setObject: self.currentPlan.fin3     forKey:PLANFIN];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan3Type];
@@ -428,11 +445,17 @@
         }else{                             //一天之前
             [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
         }
+        if (self.currentPlan.fin4.boolValue == YES) {
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
         [defaults setObject: self.currentPlan.id4      forKey:PLANID];
         [defaults setObject: self.currentPlan.time4    forKey:PLANDATE];
         [defaults setObject: self.currentPlan.content4 forKey:PLANTEXT];
         [defaults setObject: self.currentPlan.info4    forKey:PLANINFO];
         [defaults setObject: self.currentPlan.sour4    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.fintime4 forKey:PLANFINTIME];
+        [defaults setObject: self.currentPlan.output4  forKey:PLANOUTPUT];
+        [defaults setObject: self.currentPlan.fin4     forKey:PLANFIN];
         [defaults synchronize];
         //跳转到执行页面
         [self presentExeVC:self.plan4Type];

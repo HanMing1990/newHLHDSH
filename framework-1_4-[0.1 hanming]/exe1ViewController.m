@@ -41,12 +41,15 @@
     //0. 获取当前的计划信息(存在静态变量里)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentId            = [defaults valueForKey:PLANID];
-    self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
     self.showTextView.text    = [defaults valueForKey:PLANTEXT];
     self.currentPlanType      = [defaults valueForKey:PLANTYPE];
     self.currentPlanState     = [defaults valueForKey:PLANSTATE];
-    
+    if (self.currentPlanState.intValue == 0) {  //如果是已经完成的，则需要显示完成时间/内容，否则显示计划时间
+        self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANFINTIME]];
+    }else{
+        self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
+    }
     NSString *planImageName;
     switch (self.currentPlanType.intValue) {
         case 0:
@@ -117,13 +120,13 @@
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
     
     if (self.currentPlanState.intValue == 0) {
-        self.laterBtn.hidden = YES;
+        //self.laterBtn.hidden = YES;
         self.changeBtn.hidden = YES;
         self.sureBtn.hidden = YES;
     }else if(self.currentPlanState.intValue == 1){
         
     }else{
-        self.laterBtn.hidden = YES;
+        //self.laterBtn.hidden = YES;
         self.changeBtn.hidden = YES;
         self.sureBtn.hidden = YES;
     }

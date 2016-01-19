@@ -163,10 +163,10 @@
                 content2 = @"default";
                 content3 = @"default";
                 content4 = @"default";
-                output1 = @"default";
-                output2 = @"default";
-                output3 = @"default";
-                output4 = @"default";
+                output1 = @"";
+                output2 = @"";
+                output3 = @"";
+                output4 = @"";
                 stress0 = @"0";
                 stress1 = @"0";
                 stress2 = @"0";

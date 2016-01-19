@@ -953,7 +953,9 @@
                         <outlet property="currentPlanText" destination="vyp-fv-k68" id="DaM-RA-9kX"/>
                         <outlet property="flowerImage" destination="bfP-Wy-7Rm" id="n2Y-BW-Adj"/>
                         <outlet property="inputTextView" destination="tpc-zT-U5U" id="4vA-Bo-RTf"/>
+                        <outlet property="laterBtn" destination="QDy-sQ-S5R" id="F8c-t3-vuM"/>
                         <outlet property="showTextView" destination="xcA-RV-NEV" id="UxP-4J-DcB"/>
+                        <outlet property="sureBtn" destination="hnv-3Z-fqK" id="wBF-e8-xNf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyl-ch-13p" userLabel="First Responder" sceneMemberID="firstResponder"/>

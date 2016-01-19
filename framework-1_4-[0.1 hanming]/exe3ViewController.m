@@ -42,7 +42,16 @@
     //0. 获取当前的计划信息(存在静态变量里)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentId            = [defaults valueForKey:PLANID];
-    self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
+    if (self.currentPlanState.intValue == 0) {  //如果是已经完成的，则需要显示完成时间/内容，否则显示计划时间
+        self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANFINTIME]];
+        NSArray * array = [[defaults valueForKey:PLANOUTPUT] componentsSeparatedByString:@"@@"];
+        NSLog(@" separated by string %@ ",array);
+        if (array.count > 1){
+            self.inputTextView.text = array[1];
+        }
+    }else{
+        self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
+    }
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
     self.showTextView1.text   = [defaults valueForKey:PLANTEXT];
     self.showTextView2.text   = [[Plan new] getItemById:self.currentId].content2;
@@ -118,6 +127,18 @@
             break;
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
+    
+    if (self.currentPlanState.intValue == 0) {
+        //self.laterBtn.hidden = YES;
+        self.changeBtn.hidden = YES;
+        self.sureBtn.hidden = YES;
+    }else if(self.currentPlanState.intValue == 1){
+        
+    }else{
+        //self.laterBtn.hidden = YES;
+        self.changeBtn.hidden = YES;
+        self.sureBtn.hidden = YES;
+    }
 }
 - (IBAction)laterBtnClicked:(id)sender {
     //1. 这人取消了当前的计划，记录到数据库里 xxx
