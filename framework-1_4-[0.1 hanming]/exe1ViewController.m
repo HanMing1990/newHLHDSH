@@ -113,7 +113,11 @@
     }
     self.flowerImage.image = [UIImage imageNamed: flowerImageName];//改变imageview的图标
     
-    if (self.currentPlanState.intValue != 1) {
+    if (self.currentPlanState.intValue == 0) {
+        
+    }else if(self.currentPlanState.intValue == 1){
+        
+    }else{
         
     }
 }
