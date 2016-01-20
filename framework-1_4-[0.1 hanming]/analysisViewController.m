@@ -42,7 +42,6 @@
                                  @"300 min",
                                  ]
      ];
-    
     // Line Chart #1
     NSArray * data01Array = @[@60.1, @160.1, @126.4, @0.0, @186.2, @127.2, @176.2];
     PNLineChartData *data01 = [PNLineChartData new];

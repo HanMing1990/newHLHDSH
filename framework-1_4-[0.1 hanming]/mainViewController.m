@@ -24,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *label4;
 - (IBAction)createPlan:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIView *stressCircleView;
+@property (weak, nonatomic) IBOutlet UIView *sleepCircleView;
+@property (weak, nonatomic) IBOutlet UIView *stepCircleView;
+@property (weak, nonatomic) IBOutlet UIView *calorieCircleView;
 
 @end
 
@@ -103,7 +107,7 @@
 
     // 以下是杨俊写的圆圈显示数值的代码
     // stress
-    self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,450.0, SCREEN_WIDTH*0.45, 80.0)
+    self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
                                                       total:@10
                                                     current:stressValue
                                                   clockwise:YES];
@@ -112,10 +116,10 @@
     // change color according to the stress lever
     [self.circleChartStress setStrokeColorGradientStart:[UIColor blueColor]];
     //[self.circleChartStress strokeChart];
-    [self.view addSubview:self.circleChartStress];
+    [self.stressCircleView addSubview:self.circleChartStress];
     
     // sleep
-    self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.55,450.0, SCREEN_WIDTH*0.45, 80.0)
+    self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
                                                             total:@100
                                                           current:sleepValue
                                                         clockwise:YES];
@@ -124,10 +128,10 @@
     // change color according to the stress lever
     [self.circleChartSleep setStrokeColorGradientStart:[UIColor redColor]];
     //[self.circleChartSleep strokeChart];
-    [self.view addSubview:self.circleChartSleep];
+    [self.sleepCircleView addSubview:self.circleChartSleep];
     
     // step
-    self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,600.0, SCREEN_WIDTH*0.45, 80.0)
+    self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
                                                            total:@8000
                                                          current:stepValue
                                                        clockwise:YES];
@@ -136,10 +140,10 @@
     // change color according to the stress lever
     [self.circleChartStep setStrokeColorGradientStart:[UIColor redColor]];
     //[self.circleChartStep strokeChart];
-    [self.view addSubview:self.circleChartStep];
+    [self.stepCircleView addSubview:self.circleChartStep];
     
     // calorie
-    self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.55,600.0, SCREEN_WIDTH*0.45, 80.0)
+    self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
                                                            total:@100
                                                          current:calorieValue
                                                        clockwise:YES];
@@ -148,7 +152,7 @@
     // change color according to the stress lever
     [self.circleChartCalorie setStrokeColorGradientStart:[UIColor redColor]];
     //[self.circleChartCalorie strokeChart];
-    [self.view addSubview:self.circleChartCalorie];
+    [self.calorieCircleView addSubview:self.circleChartCalorie];
     
     
     //3. 显示当前花的状态
