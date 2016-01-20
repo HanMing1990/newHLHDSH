@@ -23,8 +23,12 @@
     if ([[defaults valueForKey:key] intValue]!=1) {
         NSLog(@"we create the world!!!");
         [self createPlanItemTable];
-        [self insertPlanItem];
         [self createPlanHistoryTable];
+        [self createJokeItemTable];
+        [self createPictureItemTable];
+        [self insertPlanItem];
+        [self insertJokeItem];
+        [self insertPictureItem];
         [defaults setValue:@1 forKey:key];
     }
     [self outputTable];
@@ -453,7 +457,7 @@
     KCDbManager *manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     int loop;
-    for(loop = 0; loop < SUM_OF_ITEM; loop ++){
+    for(loop = 0; loop < SUM_OF_JOKE; loop ++){
         NSString * sql = [NSString stringWithFormat:@"INSERT INTO JokeList (sentence) VALUES ('%@')",joke[loop]];
         [manager executeNonQuery:sql];
     }
@@ -533,7 +537,7 @@
     NSString* pictureName;
     
     int type;
-    for(loop = 1; loop <= SUM_OF_ITEM; loop ++){
+    for(loop = 1; loop <= SUM_OF_PICTURE; loop ++){
 
         if (loop == 12 || loop > 50 || loop == 31) {
             type = 2;
