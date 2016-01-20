@@ -413,10 +413,11 @@
 }
 - (void) createPlanHistoryTable{
     NSString *sql=@"CREATE TABLE History (id integer PRIMARY KEY AUTOINCREMENT,\
-    done integer,have integer, currentNumber integer, id1 integer, id2 integer, \
-    id3 integer, id4 integer, type1 integer, type2 integer, type3 integer, type4 integer, \
-    time0 text, time1 text,time2 text,time3 text,time4 text, fin1 integer, fin2 integer, \
-    fin3 integer, fin4 integer, stress0 text, stress1 text, stress2 text,stress3 text, stress4 text, stress5 text,effect text)";
+    done integer,have integer,number integer, currentNumber integer, id1 integer, id2 integer,id3 integer,\
+    id4 integer, type1 integer, type2 integer, type3 integer, type4 integer,time0 text, time1 text,time2 \
+    text,time3 text,time4 text,fintime1 text, fintime2 text, fintime3 text, fintime4 text, fin1 integer,\
+    fin2 integer,fin3 integer, fin4 integer, output1 text, output2 text, output3 text, output4 text, \
+    stress0 text, stress1 text, stress2 text,stress3 text, stress4 text, stress5 text,effect text)";
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     [manager executeNonQuery:sql];

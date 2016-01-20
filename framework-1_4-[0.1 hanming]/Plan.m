@@ -22,12 +22,15 @@
     [self recordStress5];
     [self update];
     NSString *sql=[NSString stringWithFormat:@"INSERT INTO History \
-    (done, have, number, currentNumber, id1, id2, id3, id4, type1, type2, type3, type4, time0, time1, time2, time3 ,time4 ,fin1, fin2, fin3, fin4,\
-    stress1, stress2, stress3, stress4, stress5, effect) VALUES \
-    ('%@',  '%@','%@',   '%@',         '%@', '%@','%@','%@','%@',  '%@',  '%@',  '%@',  '%@',  '%@',  '%@',  '%@',  '%@', '%@', '%@',  '%@', '%@',\
-    '%@',    '%@',    '%@',   '%@',    '%@',    '%@');",
-     currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.currentNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, currentPlan.time0, currentPlan.time1, currentPlan.time2, currentPlan.time3 ,currentPlan.time4 ,currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4,
-    currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect];
+    (done, have, number, currentNumber, id1, id2, id3, id4, type1, type2, type3, \
+    type4, time0, time1, time2, time3 ,time4 ,fintime1 ,fintime2, fintime3, fintime4,\
+    fin1, fin2, fin3, fin4,output1 ,output2 ,output3 ,output4 ,stress0 ,stress1, stress2, \
+    stress3, stress4, stress5, effect) VALUES \
+    ('%@',  '%@','%@',   '%@',         '%@', '%@','%@','%@','%@',  '%@',  '%@', \
+    '%@', '%@',  '%@',  '%@',   '%@',  '%@',  '%@',    '%@',      '%@',    '%@', \
+    '%@', '%@', '%@', '%@','%@',    '%@',    '%@',    '%@',    '%@',    '%@',    '%@'\
+    ,'%@',   '%@',    '%@',    '%@');",
+     currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.currentNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, currentPlan.time0, currentPlan.time1, currentPlan.time2, currentPlan.time3 ,currentPlan.time4 ,currentPlan.fintime1,currentPlan.fintime2,currentPlan.fintime3,currentPlan.fintime4,currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4, currentPlan.output1, currentPlan.output2, currentPlan.output3, currentPlan.output4,currentPlan.stress0,currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect];
     KCDbManager *manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     [manager executeNonQuery:sql];
