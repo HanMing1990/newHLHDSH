@@ -29,4 +29,8 @@
 - (NSString* )getJokeItemRandomly;
 - (NSString* )getPictureItemRandomly;
 - (void) insertLevelItem;
+- (NSArray* )getStressLevel;
+- (NSArray* )getStepLevel;
+- (NSArray* )getSleepLevel;
+- (NSArray* )getCalorieLevel;
 @end

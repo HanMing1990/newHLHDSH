@@ -315,5 +315,7 @@
 - (IBAction)createPlan:(id)sender {
     Plan *plan = [Plan new];
     [plan createNewPlan];
+    
+    [plan getStepLevel];
 }
 @end
