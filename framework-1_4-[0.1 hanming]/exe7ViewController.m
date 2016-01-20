@@ -6,33 +6,32 @@
 //  Copyright © 2016年 韩明. All rights reserved.
 //
 
-#import "exe4ViewController.h"
+#import "exe7ViewController.h"
 #import "CurrentPlan.h"
 #import "planViewController.h"
 
-@interface exe4ViewController ()
+@interface exe7ViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel     *currentPlanDate;  //时间
-@property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage; //事件类型：运动，感恩 等
-@property (weak, nonatomic) IBOutlet UILabel     *currentPlanText;  //事件的简称
-@property (weak, nonatomic) IBOutlet UIImageView *flowerImage;      //花的图片
-@property (weak, nonatomic) IBOutlet UITextView  *showTextView;     //事件显示的文字
-@property (weak, nonatomic) IBOutlet UITextView  *inputTextView1;    //输入的第一个字段
-@property (weak, nonatomic) IBOutlet UITextView  *inputTextView2;    //输入的第二个字段
-@property (weak, nonatomic) IBOutlet UITextView  *inputTextView3;    //输入的第三个字段
+@property (weak, nonatomic) IBOutlet UILabel     *currentPlanDate;
+@property (weak, nonatomic) IBOutlet UIImageView *currentPlanImage;
+@property (weak, nonatomic) IBOutlet UILabel     *currentPlanText;
+@property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
+@property (weak, nonatomic) IBOutlet UITextView  *showTextView1;
+@property (weak, nonatomic) IBOutlet UIImageView *showImageView;
 @property (weak, nonatomic) IBOutlet UIButton *changeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *laterBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 
-@property NSNumber*  currentPlanType;
+
+@property NSNumber* currentPlanType;
 @property Item* currentItem;
 @property NSNumber* currentId;
 @property NSNumber* currentPlanState;
 
 @end
 
-@implementation exe4ViewController
+@implementation exe7ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,18 +44,16 @@
     self.currentId            = [defaults valueForKey:PLANID];
     if (self.currentPlanState.intValue == 0) {  //如果是已经完成的，则需要显示完成时间/内容，否则显示计划时间
         self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANFINTIME]];
-        NSArray * array = [[defaults valueForKey:PLANOUTPUT] componentsSeparatedByString:@"@@"];
-        NSLog(@" separated by string %@ ",array);
-        if (array.count > 1){
-            self.inputTextView1.text = array[1];
-            self.inputTextView2.text = array[2];
-            self.inputTextView3.text = array[3];
-        }
     }else{
         self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
     }
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
-    self.showTextView.text    = [defaults valueForKey:PLANTEXT];
+    self.showTextView1.text    = [defaults valueForKey:PLANTEXT];
+    
+    //显示搞笑的图片，xxx
+    NSString *showImageViewName = @"sun";
+    self.showImageView.image =[UIImage imageNamed: showImageViewName];
+    
     self.currentPlanType      = [defaults valueForKey:PLANTYPE];
     self.currentPlanState     = [defaults valueForKey:PLANSTATE];
     
@@ -98,6 +95,7 @@
         default:
             planImageName = PLANSOURCE0;
             break;
+            
     }
     
     self.currentPlanImage.image = [UIImage imageNamed: planImageName];
@@ -157,13 +155,8 @@
 
 - (IBAction)finishBtnClicked:(id)sender {
     //1. 这人完成了当前的计划，记录到数据库里 xxx
-    NSLog(@"%@", self.inputTextView1.text);//把这个存到数据库里
-    NSLog(@"%@", self.inputTextView2.text);//把这个存到数据库里
-    NSLog(@"%@", self.inputTextView3.text);//把这个存到数据库里
-    //1. 这人完成了当前的计划，记录到数据库里 xxx
-    NSString* str = [NSString stringWithFormat:@"@@%@@@%@@@%@@@",self.inputTextView1.text,self.inputTextView2.text,self.inputTextView3.text];
     Plan *plan = [Plan new];
-    [plan finishItem:YES forId:self.currentId Content:str];
+    [plan finishItem:YES forId:self.currentId Content:@""];
     //2. 跳转到planVC中
     UIStoryboard *mainStoryboard = self.storyboard;
     planViewController *SVC;
@@ -199,7 +192,7 @@
 
 - (void) presentExeVC:(int) planType{
     UIStoryboard *mainStoryboard = self.storyboard;
-    exe4ViewController *SVC;
+    exe7ViewController *SVC;
     
     NSLog(@"要跳转到%i", planType);
     
@@ -230,10 +223,10 @@
             NSLog(@"jump to page: exe6 ");
             break;
         case 7:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe6ViewController"];
-            NSLog(@"jump to page: exe6 ");
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe7ViewController"];
+            NSLog(@"jump to page: exe7 ");
             break;
-
+            
     }
     //设置翻页效果
     [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];

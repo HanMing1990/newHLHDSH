@@ -35,6 +35,7 @@
 		2E36BE2F1C4F6709004416AC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E36BE2E1C4F6709004416AC /* CFNetwork.framework */; };
 		2E36BE311C4F6723004416AC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E36BE301C4F6723004416AC /* Security.framework */; };
 		2E36BE331C4F672A004416AC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E36BE321C4F672A004416AC /* ImageIO.framework */; };
+		2E36BE391C4F7610004416AC /* exe7ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BE381C4F7610004416AC /* exe7ViewController.m */; };
 		2E55F2001C3F97AE0027AC6F /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DD1C3F97AE0027AC6F /* PNBar.m */; };
 		2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DF1C3F97AE0027AC6F /* PNBarChart.m */; };
 		2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E31C3F97AE0027AC6F /* PNChartLabel.m */; };
@@ -120,6 +121,8 @@
 		2E36BE2E1C4F6709004416AC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2E36BE301C4F6723004416AC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2E36BE321C4F672A004416AC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		2E36BE371C4F7610004416AC /* exe7ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe7ViewController.h; sourceTree = "<group>"; };
+		2E36BE381C4F7610004416AC /* exe7ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe7ViewController.m; sourceTree = "<group>"; };
 		2E55F1DC1C3F97AE0027AC6F /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
 		2E55F1DD1C3F97AE0027AC6F /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
 		2E55F1DE1C3F97AE0027AC6F /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				2E7A14741C4CC6950066CBBA /* exe5ViewController.m */,
 				2E36BD421C4F2AA4004416AC /* HMNetwork.h */,
 				2E36BD431C4F2ABB004416AC /* HMNetwork.m */,
+				2E36BE371C4F7610004416AC /* exe7ViewController.h */,
+				2E36BE381C4F7610004416AC /* exe7ViewController.m */,
 			);
 			path = "framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				2E36BE021C4F3B14004416AC /* UIImageView+MKNKAdditions.m in Sources */,
 				105F14351C42475C0039B8E7 /* CurrentPlan.m in Sources */,
 				2E55F2091C3F97AE0027AC6F /* PNPieChart.m in Sources */,
+				2E36BE391C4F7610004416AC /* exe7ViewController.m in Sources */,
 				2EFBE3491C3A8392009BCDED /* AppDelegate.m in Sources */,
 				2E36BDFE1C4F3B14004416AC /* NSHTTPURLResponse+MKNKAdditions.m in Sources */,
 				2E36BDFD1C4F3B14004416AC /* NSDictionary+MKNKAdditions.m in Sources */,
