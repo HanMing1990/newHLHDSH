@@ -23,7 +23,7 @@
 
 
 //显示第三方库
-- (void) showBarChart{
+- (void) showBarChart:(NSArray *) inputYValues{
     static NSNumberFormatter *barChartFormatter;
     if (!barChartFormatter){
         barChartFormatter = [[NSNumberFormatter alloc] init];
@@ -34,7 +34,7 @@
     
     //修改柱状图的位置
     self.barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, self.barChartView.frame.size.width, self.barChartView.frame.size.height)];
-    //        self.barChart.showLabel = NO;
+    // self.barChart.showLabel = NO;
     self.barChart.backgroundColor = [UIColor clearColor];
     
     
@@ -47,9 +47,9 @@
     self.barChart.labelMarginTop = 5.0;
     self.barChart.showChartBorder = YES;
     [self.barChart setXLabels:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"]];
-    
+
     //每个柱的取值
-    [self.barChart setYValues:@[@"1",@"2",@"3",@"4",@"5",@"9",@"7"]];
+    [self.barChart setYValues:inputYValues];
     
     
     //每个柱的颜色
@@ -79,6 +79,8 @@
     
     
     //1. 判断是由哪个按钮跳转过来的
+    
+    NSArray *showValues;
     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"infoType"];
     if ([infoType isEqualToString:@"sleep"]) {
         NSLog(@"sleep");
@@ -86,7 +88,11 @@
         self.infoTyepImage.image = [UIImage imageNamed:@"zhe"];
         self.infoTypeText.text = @"睡眠：";
         self.infoTypeNum.text = @"999999";
-        [self showBarChart];
+        
+        //xxx 取出最近一周的数据进行显示
+        showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
+        
+        [self showBarChart:showValues];
         
     }
     else if ([infoType isEqualToString:@"pressure"])
@@ -95,8 +101,15 @@
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"image"];
         self.infoTypeText.text = @"压力值：";
+        
+        //xxx
         self.infoTypeNum.text = @"999999";
-        [self showBarChart];
+        
+        //xxx 取出最近一周的数据进行显示
+        showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
+        
+        
+        [self showBarChart:showValues];
 
     }
     else if ([infoType isEqualToString:@"step"])
@@ -105,8 +118,15 @@
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"zhe"];
         self.infoTypeText.text = @"步数：";
+        
+        //xxx
         self.infoTypeNum.text = @"009099";
-        [self showBarChart];
+        
+        //xxx 取出最近一周的数据进行显示
+        showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
+        
+        
+        [self showBarChart:showValues];
         
 
     }
@@ -116,12 +136,17 @@
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"zhe"];
         self.infoTypeText.text = @"卡路里：";
+        
+        //xxx
         self.infoTypeNum.text = @"009099";
-        [self showBarChart];
+        
+        //xxx 取出最近一周的数据进行显示
+        showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
+        
+        
+        [self showBarChart:showValues];
 
     }
-    
-    
 }
 
 - (IBAction)backBtn:(id)sender {

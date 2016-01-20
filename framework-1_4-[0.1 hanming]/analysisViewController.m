@@ -20,7 +20,7 @@
 
 
 //显示第三方库
-- (void) showLineChart{
+- (void) showLineChart:inputYValues{
     
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
     self.lineChart.yLabelFormat = @"%1.1f";
@@ -44,7 +44,7 @@
                                  ]
      ];
     // Line Chart #1
-    NSArray * data01Array = @[@60.1, @160.1, @126.4, @0.0, @186.2, @127.2, @176.2];
+    NSArray * data01Array = inputYValues;
     PNLineChartData *data01 = [PNLineChartData new];
     data01.dataTitle = @"Alpha";
     data01.color = PNFreshGreen;
@@ -91,8 +91,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //得到历史数据xxx
-
-    [self showLineChart];
+    NSArray *showValues;
+    showValues = [[NSArray alloc] initWithObjects: @60., @60.1, @26.4, @20.0, @86.2, @27.2, @76.2, nil];
+    [self showLineChart:showValues];
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -106,7 +108,6 @@
 
 - (IBAction)backBtnClicked:(id)sender {
     
-
     UIStoryboard *mainStoryboard = self.storyboard;
     mainViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainViewController"];
     //设置翻页效果
