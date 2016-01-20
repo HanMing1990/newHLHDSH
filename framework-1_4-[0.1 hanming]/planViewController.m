@@ -472,7 +472,6 @@
     NSLog(@"to %i", planType);
 
     switch (planType) {
-        case 0:
         case 1:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
             NSLog(@"jump to page: exe1 ");
@@ -496,9 +495,14 @@
         case 6:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe6ViewController"];
             NSLog(@"jump to page: exe6 ");
+            break;
         case 7:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe7ViewController"];
-            NSLog(@"jump to page: exe6 ");
+            NSLog(@"jump to page: exe7 ");
+            break;
+        default:
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
+            NSLog(@"jump to page: exe1 ");
             break;
     }
     //设置翻页效果
@@ -506,6 +510,9 @@
     [self presentViewController: SVC animated:YES completion:nil];
 }
 - (IBAction)finishBtnClicked:(id)sender {
+    
+    Plan * plan = [Plan new];
+    [plan store];
     
     UIStoryboard *mainStoryboard = self.storyboard;
     exe1ViewController *SVC;

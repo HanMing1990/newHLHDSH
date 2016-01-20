@@ -9,6 +9,7 @@
 #import "exe6ViewController.h"
 #import "CurrentPlan.h"
 #import "planViewController.h"
+#import "Plan.h"
 
 @interface exe6ViewController ()
 
@@ -49,7 +50,9 @@
     }
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
     self.showTextView1.text    = [defaults valueForKey:PLANTEXT];
-    self.showTextView2.text = @"这个貌似需要单独滴从数据库拿耶～～～";
+    // 笑话的内容需要从数据库里拿
+    Plan *plan = [Plan new];
+    self.showTextView2.text = [plan getJokeItemRandomly];
     self.currentPlanType      = [defaults valueForKey:PLANTYPE];
     self.currentPlanState     = [defaults valueForKey:PLANSTATE];
     

@@ -399,4 +399,46 @@
     }
     [plan save];
 }
+- (NSString* )getJokeItemRandomly{
+    srandom(time(NULL));
+    int  rand = random() % SUM_OF_JOKE + 1;
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM JokeList WHERE id = %i",rand];
+    NSArray * array = [manager executeQuery:sql];
+    if(array.count){
+        NSLog(@"get joke: %@",[array[0] objectForKey:@"sentence"]);
+        return [array[0] objectForKey:@"sentence"];
+    }else{
+        return [self getJokeItemRandomly];
+    }
+}
+- (NSString* )getPictureItemRandomly{
+    srandom(time(NULL));
+    int  rand = random() % SUM_OF_PICTURE + 1;
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PictureList WHERE id = %i",rand];
+    NSArray * array = [manager executeQuery:sql];
+    if(array.count){
+        NSLog(@"get picture: %@",[array[0] objectForKey:@"sentence"]);
+        return [NSString stringWithFormat:@"@@%@@@%@@@%@@@",[array[0] objectForKey:@"sentence"],[array[0] objectForKey:@"pictureName"],[array[0] objectForKey:@"type"]];
+    }else{
+        return [self getPictureItemRandomly];
+    }
+}
+- (void) insertLevelItem{
+    CurrentLevel * currentLevel = [CurrentLevel new];
+    NSString * sql1 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stressLevel,[NSNumber numberWithInt:1],currentLevel.stressTime];
+    NSString * sql2 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.sleepLevel,[NSNumber numberWithInt:2],currentLevel.sleepTime];
+    NSString * sql3 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stepLevel,[NSNumber numberWithInt:3],currentLevel.stepTime];
+    NSString * sql4 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.calorieLevel,[NSNumber numberWithInt:4],currentLevel.calorieTime];
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    [manager executeNonQuery:sql1];
+    [manager executeNonQuery:sql2];
+    [manager executeNonQuery:sql3];
+    [manager executeNonQuery:sql4];
+    [manager close];
+}
 @end

@@ -10,7 +10,9 @@
 #import <Foundation/NSArray.h>
 #import "InitSqlite3.h"
 #import "KCDbManager.h"
+#import "CurrentLevel.h"
 #import "Item.h"
+
 #define sqlFileName @"plan.sqlite3"
 
 @implementation InitSqlite3
@@ -26,6 +28,7 @@
         [self createPlanHistoryTable];
         [self createJokeItemTable];
         [self createPictureItemTable];
+        [self createLevelItemTable];
         [self insertPlanItem];
         [self insertJokeItem];
         [self insertPictureItem];
@@ -76,7 +79,7 @@
       @"唱一首自己喜欢的歌曲",
       @"看一则笑话段子开心一下",        /* class 3 */
       @"试着做三件好事并记录下来",
-      @"做做家务",
+      @"看一些轻松的图片",
       @"给家人打个问候电话",
       @"给朋友发张电子贺卡",
       @"给最近要过生日的朋友准备一份礼物",
@@ -188,7 +191,7 @@
                                                       @"用歌声释放自己",
                                                       @"来看一则笑话吧",
                                                       @"做三件好事",       /* class 3 */
-                                                      @"动手做家务",
+                                                      @"看轻松的图片",
                                                       @"电话问候家人",
                                                       @"给朋友发电子贺卡",
                                                       @"给要过生日的朋友准备礼物",
@@ -305,7 +308,7 @@
     NSArray * inte = [[NSArray alloc] initWithObjects:
       @"2",@"1",@"1",@"1",@"1",@"1",@"2",@"2",@"2",@"3",
       @"4",@"2",@"1",@"4",@"1",@"2",@"1",@"1",@"1",@"1",
-      @"2",@"1",@"0",@"4",@"1",@"1",@"1",@"1",@"1",@"1",
+      @"2",@"1",@"6",@"4",@"7",@"1",@"1",@"1",@"1",@"1",
       @"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",
       @"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",@"5",@"1",
       
@@ -368,6 +371,12 @@
     [manager openDb:sqlFileName];
     int loop;
     for(loop = 0; loop < SUM_OF_ITEM; loop ++){
+        //给笑话和图片加上比较大的权重
+        if (loop == 22 || loop == 24) {
+            effe = @"20";
+        }else{
+            effe = @"1";
+        }
         NSArray* array = [[NSArray alloc] initWithObjects:content1[loop], content2[loop], content3[loop], info[loop], pref, effe, diff[loop], inte[loop], chan[loop], sour[loop], numb, clus[loop], nil];
         NSString * sql = [NSString stringWithFormat:@"INSERT INTO PlanList (\
                           content1 ,content2 , content3 ,info ,pref , effe ,\
@@ -446,6 +455,15 @@
     [manager executeNonQuery:sql];
     [manager close];
 }
+- (void) createLevelItemTable{
+    NSString *sql=      @"CREATE TABLE LevelList (id integer PRIMARY KEY AUTOINCREMENT,\
+    level text,type integer, time text)";
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    [manager executeNonQuery:sql];
+    [manager close];
+}
+
 - (void) insertJokeItem{
     NSString *joke[SUM_OF_JOKE]={
         @"上小学三年级时我总欺负同桌，直到有天她老爸来给她送伞，看她老爸光头纹身，一脸的横肉！\r\n我问她：“你老爸干嘛的？”\r\n她说贩毒的！\r\n从那以后再也不敢欺负她了！直到有一天，我看到她爸在街上卖老鼠药。。。",

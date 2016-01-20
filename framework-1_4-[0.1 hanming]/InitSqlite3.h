@@ -18,6 +18,7 @@
 - (void) createPlanHistoryTable;
 - (void) createJokeItemTable;
 - (void) createPictureItemTable;
+- (void) createLevelItemTable;
 - (void) insertPlanItem;
 - (void) insertJokeItem;
 - (void) insertPictureItem;
