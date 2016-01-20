@@ -691,7 +691,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是鼓励的文字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UnC-Fe-fkA">
-                                <rect key="frame" x="20" y="480" width="280" height="26"/>
+                                <rect key="frame" x="20" y="534" width="280" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -704,23 +704,30 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eg8-gf-rFm">
-                                <rect key="frame" x="234" y="503" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="返回"/>
-                                <connections>
-                                    <action selector="backBtnClicked:" destination="Kak-Th-o9d" eventType="touchUpInside" id="nte-3C-fY4"/>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="snF-Qu-DYz"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="F4X-bq-mjU">
                                 <rect key="frame" x="20" y="75" width="266" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" id="Gx1-Tc-Y0t">
+                                <rect key="frame" x="0.0" y="279" width="320" height="215"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eg8-gf-rFm">
+                                <rect key="frame" x="270" y="530" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="backBtnClicked:" destination="Kak-Th-o9d" eventType="touchUpInside" id="nte-3C-fY4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="mrH-G1-eWC"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="Gx1-Tc-Y0t" id="7a2-rb-1oX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REJ-iZ-zZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1406,7 +1413,7 @@
         <image name="zhuce" width="870" height="630"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="snF-Qu-DYz"/>
+        <segue reference="qyc-Tg-tUI"/>
         <segue reference="Jb0-SH-3Xe"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,7 @@
 		105F14371C42475C0039B8E7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142F1C42475C0039B8E7 /* Item.m */; };
 		105F14381C42475C0039B8E7 /* KCDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14311C42475C0039B8E7 /* KCDbManager.m */; };
 		105F14391C42475C0039B8E7 /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14331C42475C0039B8E7 /* Plan.m */; };
+		2E36BD411C4F2642004416AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E36BD3F1C4F2642004416AC /* Main.storyboard */; };
 		2E55F2001C3F97AE0027AC6F /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DD1C3F97AE0027AC6F /* PNBar.m */; };
 		2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DF1C3F97AE0027AC6F /* PNBarChart.m */; };
 		2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E31C3F97AE0027AC6F /* PNChartLabel.m */; };
@@ -47,7 +48,6 @@
 		2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB9D7031C3F5C580076381A /* libsqlite3.tbd */; };
 		2EFBE3461C3A8392009BCDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3451C3A8392009BCDED /* main.m */; };
 		2EFBE3491C3A8392009BCDED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3481C3A8392009BCDED /* AppDelegate.m */; };
-		2EFBE34F1C3A8392009BCDED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EFBE34D1C3A8392009BCDED /* Main.storyboard */; };
 		2EFBE3511C3A8392009BCDED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EFBE3501C3A8392009BCDED /* Assets.xcassets */; };
 		2EFBE3541C3A8392009BCDED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EFBE3521C3A8392009BCDED /* LaunchScreen.storyboard */; };
 		2EFBE3601C3BA545009BCDED /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE35F1C3BA544009BCDED /* mainViewController.m */; };
@@ -74,6 +74,7 @@
 		105F14311C42475C0039B8E7 /* KCDbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCDbManager.m; sourceTree = "<group>"; };
 		105F14321C42475C0039B8E7 /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
 		105F14331C42475C0039B8E7 /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
+		2E36BD401C4F2642004416AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E55F1DC1C3F97AE0027AC6F /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
 		2E55F1DD1C3F97AE0027AC6F /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
 		2E55F1DE1C3F97AE0027AC6F /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
@@ -133,7 +134,6 @@
 		2EFBE3451C3A8392009BCDED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2EFBE3471C3A8392009BCDED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2EFBE3481C3A8392009BCDED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2EFBE34E1C3A8392009BCDED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EFBE3501C3A8392009BCDED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EFBE3531C3A8392009BCDED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EFBE3551C3A8392009BCDED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -242,9 +242,9 @@
 				105F14311C42475C0039B8E7 /* KCDbManager.m */,
 				105F14321C42475C0039B8E7 /* Plan.h */,
 				105F14331C42475C0039B8E7 /* Plan.m */,
+				2E36BD3F1C4F2642004416AC /* Main.storyboard */,
 				2EFBE3471C3A8392009BCDED /* AppDelegate.h */,
 				2EFBE3481C3A8392009BCDED /* AppDelegate.m */,
-				2EFBE34D1C3A8392009BCDED /* Main.storyboard */,
 				2EFBE3501C3A8392009BCDED /* Assets.xcassets */,
 				2EFBE3521C3A8392009BCDED /* LaunchScreen.storyboard */,
 				2EFBE3551C3A8392009BCDED /* Info.plist */,
@@ -340,9 +340,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E36BD411C4F2642004416AC /* Main.storyboard in Resources */,
 				2EFBE3541C3A8392009BCDED /* LaunchScreen.storyboard in Resources */,
 				2EFBE3511C3A8392009BCDED /* Assets.xcassets in Resources */,
-				2EFBE34F1C3A8392009BCDED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,10 +396,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2EFBE34D1C3A8392009BCDED /* Main.storyboard */ = {
+		2E36BD3F1C4F2642004416AC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2EFBE34E1C3A8392009BCDED /* Base */,
+				2E36BD401C4F2642004416AC /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
