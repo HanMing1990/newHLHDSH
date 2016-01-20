@@ -1437,6 +1437,100 @@
             </objects>
             <point key="canvasLocation" x="969" y="1763"/>
         </scene>
+        <!--Exe7 View Controller-->
+        <scene sceneID="Hh4-lp-Fhh">
+            <objects>
+                <viewController storyboardIdentifier="exe7ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KqB-3M-XH8" customClass="exe7ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QYX-JP-fgd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YUO-IH-JgV">
+                                <rect key="frame" x="213" y="27" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="换一个"/>
+                                <connections>
+                                    <action selector="changeBtnClicked:" destination="KqB-3M-XH8" eventType="touchUpInside" id="rDw-0P-gzh"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plansource0" id="71f-9X-KSZ">
+                                <rect key="frame" x="29" y="58" width="70" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是鼓励的文字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VXA-c7-VxF">
+                                <rect key="frame" x="20" y="502" width="280" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" id="kBc-iz-PXc">
+                                <rect key="frame" x="171" y="113" width="101" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写下一个高兴的事" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6ff-64-Mrt">
+                                <rect key="frame" x="153" y="84" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="写下一个高兴地事" textAlignment="natural" id="T29-4N-qm5">
+                                <rect key="frame" x="32" y="210" width="240" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45841039300000003" green="0.63250314839999999" blue="0.66426701570000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ye3-NG-gjZ">
+                                <rect key="frame" x="212" y="446" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="确认完成"/>
+                                <connections>
+                                    <action selector="finishBtnClicked:" destination="KqB-3M-XH8" eventType="touchUpInside" id="7UG-L3-P5e"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="StB-S3-bMx">
+                                <rect key="frame" x="13" y="29" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0eD-Bg-MkG">
+                                <rect key="frame" x="29" y="446" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="以后再说吧"/>
+                                <connections>
+                                    <action selector="laterBtnClicked:" destination="KqB-3M-XH8" eventType="touchUpInside" id="Fkb-DP-X7H"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IJ7-6U-oCd">
+                                <rect key="frame" x="32" y="280" width="240" height="158"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="changeBtn" destination="YUO-IH-JgV" id="wQX-p2-PuP"/>
+                        <outlet property="currentPlanDate" destination="StB-S3-bMx" id="r9Y-Aj-tKK"/>
+                        <outlet property="currentPlanImage" destination="71f-9X-KSZ" id="oVH-XE-eaz"/>
+                        <outlet property="currentPlanText" destination="6ff-64-Mrt" id="Naf-Mw-YNO"/>
+                        <outlet property="flowerImage" destination="kBc-iz-PXc" id="saG-pp-J77"/>
+                        <outlet property="laterBtn" destination="0eD-Bg-MkG" id="fzL-SV-AlB"/>
+                        <outlet property="showImageView" destination="IJ7-6U-oCd" id="C8P-M2-c37"/>
+                        <outlet property="showTextView1" destination="T29-4N-qm5" id="OGN-Rl-gU6"/>
+                        <outlet property="sureBtn" destination="ye3-NG-gjZ" id="DDy-Hg-lNG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iev-Pt-D6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1405" y="1763"/>
+        </scene>
     </scenes>
     <resources>
         <image name="envelope" width="1001" height="1001"/>
