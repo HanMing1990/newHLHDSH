@@ -441,4 +441,52 @@
     [manager executeNonQuery:sql4];
     [manager close];
 }
+- (NSArray* )getStressLevel{
+    NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 1"];
+    NSArray * array = [manager executeQuery:sql];
+    NSLog(@"getStressLevel %@",array);
+    return array;
+}
+- (NSArray* )getSleepLevel{
+    NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 2"];
+    NSArray * array = [manager executeQuery:sql];
+    NSLog(@"getSleepLevel %@",array);
+    return array;
+}
+- (NSArray* )getStepLevel{
+    NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 3"];
+    NSArray * array = [manager executeQuery:sql];
+    /*
+    NSMutableArray * newArray = [NSMutableArray new];
+    NSLog(@"get all StepLevel %@",array);
+    for (int i=0; i<array.count; i++) {
+        NSDate * time1 = [array[i] objectForKey:@"time"];
+        NSLog(@"get time %@",time1);
+        if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
+            [newArray addObject:array[i]];
+        }
+    }
+    
+    NSLog(@"get fit StepLevel %@",newArray);
+      */
+    return array;
+}
+- (NSArray* )getCalorieLevel{
+    NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 4"];
+    NSArray * array = [manager executeQuery:sql];
+    NSLog(@"getCalorieLevel %@",array);
+    return array;
+}
 @end
