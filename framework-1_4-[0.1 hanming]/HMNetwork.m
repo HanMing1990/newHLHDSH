@@ -19,8 +19,15 @@
     return self;
 }
 -(void) sendData: (NSMutableDictionary *)param{
-    
-
+    //1. 初始化request
+    MKNetworkRequest *request = [engine requestWithPath: @"/" params:param httpMethod:@"POST"];
+    //回调函数
+    [request addCompletionHandler:^(MKNetworkRequest *operation){
+        NSString *data = [operation responseAsString];
+        NSLog(@"content is %@",data);
+    }];
+    //开始网络传输
+    [engine startRequest:request];
 }
 
 @end
