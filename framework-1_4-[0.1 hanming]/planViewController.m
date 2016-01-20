@@ -511,6 +511,9 @@
 }
 - (IBAction)finishBtnClicked:(id)sender {
     
+    Plan * plan = [Plan new];
+    [plan store];
+    
     UIStoryboard *mainStoryboard = self.storyboard;
     exe1ViewController *SVC;
     SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];

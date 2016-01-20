@@ -40,7 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //滑动手势
+    //滑动手势f
     self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -290,6 +290,16 @@
     NSLog(@"sleep %f", sleepValueRandom);
     NSLog(@"step %f", stepValueRandom);
     NSLog(@"calorie %f", calorieValueRandom);
+    
+    CurrentLevel * currentLevel = [CurrentLevel new];
+    currentLevel.stressLevel = [NSString stringWithFormat:@"%f",stressValueRandom];
+    currentLevel.stepLevel = [NSString stringWithFormat:@"%f",stepValueRandom];
+    currentLevel.sleepLevel = [NSString stringWithFormat:@"%f",sleepValueRandom];
+    currentLevel.calorieLevel = [NSString stringWithFormat:@"%f",calorieValueRandom];
+    currentLevel.stressTime = currentLevel.sleepTime = currentLevel.stepTime = currentLevel.calorieTime = [NSDate date];
+    [currentLevel save];
+    Plan *plan = [Plan new];
+    [plan insertLevelItem];
 }
 
 

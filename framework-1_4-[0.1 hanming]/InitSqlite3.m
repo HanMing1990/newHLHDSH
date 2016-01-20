@@ -10,7 +10,9 @@
 #import <Foundation/NSArray.h>
 #import "InitSqlite3.h"
 #import "KCDbManager.h"
+#import "CurrentLevel.h"
 #import "Item.h"
+
 #define sqlFileName @"plan.sqlite3"
 
 @implementation InitSqlite3
@@ -26,6 +28,7 @@
         [self createPlanHistoryTable];
         [self createJokeItemTable];
         [self createPictureItemTable];
+        [self createLevelItemTable];
         [self insertPlanItem];
         [self insertJokeItem];
         [self insertPictureItem];
@@ -452,6 +455,15 @@
     [manager executeNonQuery:sql];
     [manager close];
 }
+- (void) createLevelItemTable{
+    NSString *sql=      @"CREATE TABLE LevelList (id integer PRIMARY KEY AUTOINCREMENT,\
+    level text,type integer, time text)";
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    [manager executeNonQuery:sql];
+    [manager close];
+}
+
 - (void) insertJokeItem{
     NSString *joke[SUM_OF_JOKE]={
         @"上小学三年级时我总欺负同桌，直到有天她老爸来给她送伞，看她老爸光头纹身，一脸的横肉！\r\n我问她：“你老爸干嘛的？”\r\n她说贩毒的！\r\n从那以后再也不敢欺负她了！直到有一天，我看到她爸在街上卖老鼠药。。。",

@@ -427,4 +427,18 @@
         return [self getPictureItemRandomly];
     }
 }
+- (void) insertLevelItem{
+    CurrentLevel * currentLevel = [CurrentLevel new];
+    NSString * sql1 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stressLevel,[NSNumber numberWithInt:1],currentLevel.stressTime];
+    NSString * sql2 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.sleepLevel,[NSNumber numberWithInt:2],currentLevel.sleepTime];
+    NSString * sql3 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stepLevel,[NSNumber numberWithInt:3],currentLevel.stepTime];
+    NSString * sql4 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.calorieLevel,[NSNumber numberWithInt:4],currentLevel.calorieTime];
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    [manager executeNonQuery:sql1];
+    [manager executeNonQuery:sql2];
+    [manager executeNonQuery:sql3];
+    [manager executeNonQuery:sql4];
+    [manager close];
+}
 @end

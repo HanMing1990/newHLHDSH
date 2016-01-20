@@ -28,4 +28,5 @@
 - (void) finishItem:(BOOL) yesOrNo forId:(NSNumber* ) newId Content:(NSString* ) newContent;  //每个事件做完（或取消）之后，都要存储执行结果（是否完成fin字段以及反馈的内容）
 - (NSString* )getJokeItemRandomly;
 - (NSString* )getPictureItemRandomly;
+- (void) insertLevelItem;
 @end
