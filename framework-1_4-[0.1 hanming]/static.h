@@ -14,6 +14,8 @@
 #define sqlFileName     @"plan.sqlite3"
 
 #define SUM_OF_ITEM     100
+#define SUM_OF_JOKE     5
+#define SUM_OF_PICTURE  65
 #define EFFECT_BIAS     1.0   //用来计算effect，计算公式暂时定位  （ effe + EFFECT_BIAS ）／ EFFECT_BIAS
 #define PREFERENCE_BIAS 0.6   //这个是用来更新这个 pref 滴，如果他做啦就除以这个值（变大啦），如果没做，就乘上这个值（变小啦）
 

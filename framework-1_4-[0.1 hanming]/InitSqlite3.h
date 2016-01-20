@@ -13,8 +13,12 @@
     
 }
 - (void) createDataBase;
-- (void) createPlanItemTable;
 - (void) outputTable;
-- (void) insertPlanItem;
+- (void) createPlanItemTable;
 - (void) createPlanHistoryTable;
+- (void) createJokeItemTable;
+- (void) createPictureItemTable;
+- (void) insertPlanItem;
+- (void) insertJokeItem;
+- (void) insertPictureItem;
 @end

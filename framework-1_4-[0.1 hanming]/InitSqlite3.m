@@ -423,4 +423,132 @@
     [manager executeNonQuery:sql];
     [manager close];
 }
+- (void) createJokeItemTable{
+    NSString *drop_if_exists = @"DROP TABLE IF EXISTS JokeList;";
+    NSString *sql=      @"CREATE TABLE JokeList (id integer PRIMARY KEY AUTOINCREMENT,sentence text)";
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    [manager executeNonQuery:drop_if_exists];
+    [manager executeNonQuery:sql];
+    [manager close];
+}
+- (void) createPictureItemTable{
+    NSString *drop_if_exists = @"DROP TABLE IF EXISTS PictureList;";
+    NSString *sql=      @"CREATE TABLE PictureList (id integer PRIMARY KEY AUTOINCREMENT,\
+    sentence text,pictureName text, type text)";
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    [manager executeNonQuery:drop_if_exists];
+    [manager executeNonQuery:sql];
+    [manager close];
+}
+- (void) insertJokeItem{
+    NSString *joke[SUM_OF_JOKE]={
+        @"上小学三年级时我总欺负同桌，直到有天她老爸来给她送伞，看她老爸光头纹身，一脸的横肉！\r\n我问她：“你老爸干嘛的？”\r\n她说贩毒的！\r\n从那以后再也不敢欺负她了！直到有一天，我看到她爸在街上卖老鼠药。。。",
+        @"我学的美术，我问朋友能否画一张他的画象作为课堂作业。\r\n他同意了，我画好后交上，只得了个C。\r\n我问为什么给这么低的分，教授说我的画比例不对：“头太大，肩太宽，胳膊太细。”\r\n第二天，我带朋友去见教授。\r\n教授瞧了朋友一眼，说：“好吧，A。”",
+        @"上课的时候我正津津有味的玩手机，突然坐在窗子边的同学喊：注意了，校长来了。\r\n我连忙把手机藏好然后清了清嗓子说：同学们，今天我们讲第三章。",
+        @"这次的四级考试还不错，发货挺快的坐下就收到卷子了，试卷印刷很清晰，题型都全了，监考老师服务态度挺好给一个赞，唯一不好的就是都是回头客还不给优惠。总体五星好评，下次还会再来的。",
+        @"中学时的数学李老师特别能拖堂，有天漂亮的语文老师很奇怪的问：为什么你们总是管你们李老师叫托塔李天王呢？！\r\n同学说：老师，你听错了，是拖堂李天王。\r\n语文老师:噗。。。",
+    };
+    KCDbManager *manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    int loop;
+    for(loop = 0; loop < SUM_OF_ITEM; loop ++){
+        NSString * sql = [NSString stringWithFormat:@"INSERT INTO JokeList (sentence) VALUES ('%@')",joke[loop]];
+        [manager executeNonQuery:sql];
+    }
+    [manager close];
+}
+- (void) insertPictureItem{
+    NSString* sentence[SUM_OF_PICTURE] = {
+        @"要轻盈的像鸟，而不是羽毛。",
+        @"如果可以，请直视生活中不被阳光照耀的角落、 被压迫者的痛苦和我们自己的软弱。",
+        @"这世上一定还藏着很多很多只要坚持寻找，就能找到的东西。",
+        @"电脑前的取暖装备和姿势，你最适合哪一种？",
+        @"孤单是一种境界。",
+        @"永远不要认为我们可以逃避，我们的每一步都决定着最后的结局，我们的脚正在走向我们自己选定的终点。",
+        @"把我们带到过去的是回忆，将我们带向未来的是梦想。",
+        @"你看到什么样的世界，你就拥有什么样的内心。",
+        @"一个人路过晴天也好，穿行风雨也罢，希望你能接受，孤独才是人生常态。",
+        @"我们领教了世界是何等凶顽，同时又得知世界也可以变得温存和美好。——村上春树",
+        @"丢掉垃圾,保持好心情",
+        @"雪绒花，短暂而永恒的美丽，装点着这纯真的世界。",
+        @"生活中没有什么是一成不变的，我们只有一个选择：对生活充满希望，继续前进。",
+        @"别人不是你的彼岸",
+        @"可爱的食物",
+        @"可爱的食物",
+        @"永远不要拿你自己和任何人比，你是最美的。",
+        @"人的成长秘密，就是去不断淘汰自己，找到完美的路。",
+        @"很希望自己是一棵树，守静，向光，安然，敏感的神经末梢，触着流云和微风，窃窃的欢喜。脚下踩着最卑贱的泥，很踏实。还有，每一天都在隐秘成长。——黎戈",
+        @"就算生活有一些挫折，还是要对自己微笑。",
+        @"一万个美丽的未来，抵不上一个温暖的现在。加油！",
+        @"桃红复含宿雨，柳绿更带春烟。花落家童未扫，莺啼山客犹眠。",
+        @"偶尔要回头看看，否则永远都在追寻，而不知道自己失去了什么。",
+        @"你能留给岁月的，岁月能留给你的，除了一个最好的自己，别无他物。",
+        @"生命中，有些人即使不在你身边也能让你微笑，这样真好。",
+        @"一家人就是应该一起吃饭",
+        @"当你在清晨醒来，想想活着是一种多么珍贵的权利：你还能呼吸，还能思考，还能享受，还能去爱。",
+        @"有时可以静下来，看看这个世界，看看晒着阳光的苔藓们，看看这一丛丛鲜活的碧绿。",
+        @"我们总能在最深的绝望里，看到最美的风景。",
+        @"愿你被很多人爱。如果没有，愿你在寂寞中学会宽容。",
+        @"所有的喵星人都拥有软糯糯的爪子和软绵绵的肉垫 ，如果我肯把爪子给你，是因为我信任和喜欢你",
+        @"这是你的人生，你必须为之奋斗。为你认为对的事情奋斗，为那些对于你来说重要的东西而奋斗，为你爱的人而奋斗。",
+        @"有时候，你需要走出去，呼吸呼吸新鲜空气，提醒自己你是谁，你想要成为谁。",
+        @"有些事，与其花时间逃避，不如早一点面对。",
+        @"生活处处是快乐，只要有一颗善良细腻的心，那么一切都会是幸福的源泉",
+        @"最温暖的事，莫过于陪伴。",
+        @"成长会让人明白，唯一后悔的只是那些自己不曾尝试的事。",
+        @"向日葵的理想，是伴随着太阳起落，用自己沉默的爱，去追求自己想要的幸福。",
+        @"有一条路，每个人非走不可，那就是年轻时候的弯路。——张爱玲",
+        @"假如我们把自己力所能及的事都完成了，我们会真的令自己大吃一惊。",
+        @"知识永远是我们的小伙伴。",
+        @"身是菩提树，心如明镜台。时时勤拂拭，莫使惹尘埃。",
+        @"是不是坐久了感觉全身硬邦邦，有时候腰酸背痛。教大家三个动作，让大家摆脱头晕，背痛困扰。",
+        @"用一杯水的单纯，面对一辈子的复杂。",
+        @"每一个今日，都是你曾经幻想的明天，所以请为这个今天而努力。",
+        @"活在当下，别在怀念过去或者憧憬未来中浪费掉你现在的生活。",
+        @"在世如莲，净心素雅，不污不垢，淡看浮华。",
+        @"随光阴流转的是岁月，随岁月流逝的是人生，而随人生流动的是风景。",
+        @"出路出路，走出去才有路",
+        @"吃饭，睡觉，打豆豆",
+        @"像小黄人一样开心。",
+        @"做一只幸福的小黄人。",
+        @"和朋友在一起最开心。",
+        @"友情弥足珍贵。",
+        @"我们本该满足，再多便是贪婪。",
+        @"猫咪老师一天的生活",
+        @"梦想这种东西啊，只有能持续最初冲动的人才能实现。",
+        @"人生就如同一辆列车，我们在这趟列车上碰上形形色色的人，他们来来往往，在我们的身边来了又去，但终究会成为过客；所以，请善待身边的人。",
+        @"不能僭越的是生死边界，可以融合的是心灵体温 。纵有疾风起，人生不言弃。——《起风了》",
+        @"生活还是很美好的!加油呀少年！",
+        @"优点和缺点的分界未必很明显，关键在于心态。",
+        @"你是不是也有这样一个萌萌的好朋友~有什么不开心的可以告诉它~",
+        @"勤运动，坏心情就随着汗水消失啦！",
+        @"可爱妞妞阿格尼丝Agnes表情集，嘟嘟的小脸蛋很萌很治愈"
+    };
+    
+    KCDbManager *manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    int loop;
+    NSString* pictureName;
+    
+    int type;
+    for(loop = 1; loop <= SUM_OF_ITEM; loop ++){
+
+        if (loop == 12 || loop > 50 || loop == 31) {
+            type = 2;
+        }else{
+            type = 1;
+        }
+        if (loop <= 50) {
+            pictureName = [NSString stringWithFormat:@"%i.jpg",loop];
+        }else{
+            pictureName = [NSString stringWithFormat:@"%i.gif",loop];
+        }
+        NSString * sql = [NSString stringWithFormat:@"INSERT INTO PictureList (sentence, pictureName, type) VALUES ('%@','%@','%@')",sentence[loop-1],pictureName,[NSNumber numberWithInt:type]];
+        [manager executeNonQuery:sql];
+    }
+    
+    [manager close];
+}
 @end

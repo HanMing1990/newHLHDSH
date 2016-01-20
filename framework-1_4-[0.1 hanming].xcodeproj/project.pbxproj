@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101C1B581C4F6D1400FDE506 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 101C1B571C4F6D1400FDE506 /* 1.jpg */; };
 		104A8FD11C4348EE005E40D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD01C4348EE005E40D4 /* QuartzCore.framework */; };
 		104A8FD31C4348FD005E40D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD21C4348FD005E40D4 /* Foundation.framework */; };
 		104A8FD51C434913005E40D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD41C434913005E40D4 /* CoreGraphics.framework */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		1003837A1C4BCD6700181713 /* static.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = static.h; sourceTree = "<group>"; };
+		101C1B571C4F6D1400FDE506 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		104A8FD01C4348EE005E40D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		104A8FD21C4348FD005E40D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		104A8FD41C434913005E40D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -196,6 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101C1B561C4F6CEE00FDE506 /* pictures */ = {
+			isa = PBXGroup;
+			children = (
+				101C1B571C4F6D1400FDE506 /* 1.jpg */,
+			);
+			name = pictures;
+			sourceTree = "<group>";
+		};
 		2E36BD531C4F3619004416AC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +367,7 @@
 		2EFBE3441C3A8392009BCDED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				101C1B561C4F6CEE00FDE506 /* pictures */,
 				2EFBE3451C3A8392009BCDED /* main.m */,
 			);
 			name = "Supporting Files";
@@ -420,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E36BD411C4F2642004416AC /* Main.storyboard in Resources */,
+				101C1B581C4F6D1400FDE506 /* 1.jpg in Resources */,
 				2EFBE3541C3A8392009BCDED /* LaunchScreen.storyboard in Resources */,
 				2EFBE3511C3A8392009BCDED /* Assets.xcassets in Resources */,
 			);
