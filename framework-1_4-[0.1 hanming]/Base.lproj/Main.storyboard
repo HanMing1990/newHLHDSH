@@ -749,7 +749,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="返回"/>
                                 <connections>
-                                    <action selector="backBtnClicked:" destination="Kak-Th-o9d" eventType="touchUpInside" id="nte-3C-fY4"/>
+                                    <action selector="backBtnClicked:" destination="Kak-Th-o9d" eventType="touchUpInside" id="Kv6-yW-pLh"/>
                                 </connections>
                             </button>
                         </subviews>

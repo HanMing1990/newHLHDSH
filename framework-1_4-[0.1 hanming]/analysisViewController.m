@@ -7,6 +7,7 @@
 //
 
 #import "analysisViewController.h"
+#import "mainViewController.h"
 
 @interface analysisViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lineChartView;
@@ -103,6 +104,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)backBtnClicked:(id)sender {
+    
+
+    UIStoryboard *mainStoryboard = self.storyboard;
+    mainViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainViewController"];
+    //设置翻页效果
+    
+    [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController: SVC animated:NO completion:nil];
+}
 
 
 

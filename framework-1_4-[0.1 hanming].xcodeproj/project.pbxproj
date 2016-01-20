@@ -19,6 +19,7 @@
 		105F14381C42475C0039B8E7 /* KCDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14311C42475C0039B8E7 /* KCDbManager.m */; };
 		105F14391C42475C0039B8E7 /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14331C42475C0039B8E7 /* Plan.m */; };
 		2E36BD411C4F2642004416AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E36BD3F1C4F2642004416AC /* Main.storyboard */; };
+		2E36BD441C4F2ABB004416AC /* HMNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BD431C4F2ABB004416AC /* HMNetwork.m */; };
 		2E55F2001C3F97AE0027AC6F /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DD1C3F97AE0027AC6F /* PNBar.m */; };
 		2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DF1C3F97AE0027AC6F /* PNBarChart.m */; };
 		2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E31C3F97AE0027AC6F /* PNChartLabel.m */; };
@@ -75,6 +76,8 @@
 		105F14321C42475C0039B8E7 /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
 		105F14331C42475C0039B8E7 /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
 		2E36BD401C4F2642004416AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E36BD421C4F2AA4004416AC /* HMNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMNetwork.h; sourceTree = "<group>"; };
+		2E36BD431C4F2ABB004416AC /* HMNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNetwork.m; sourceTree = "<group>"; };
 		2E55F1DC1C3F97AE0027AC6F /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
 		2E55F1DD1C3F97AE0027AC6F /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
 		2E55F1DE1C3F97AE0027AC6F /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				2E7A14711C4CC5DF0066CBBA /* exe6ViewController.m */,
 				2E7A14731C4CC6950066CBBA /* exe5ViewController.h */,
 				2E7A14741C4CC6950066CBBA /* exe5ViewController.m */,
+				2E36BD421C4F2AA4004416AC /* HMNetwork.h */,
+				2E36BD431C4F2ABB004416AC /* HMNetwork.m */,
 			);
 			path = "framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				2E55F2051C3F97AE0027AC6F /* PNGenericChart.m in Sources */,
 				2E55F20C1C3F97AE0027AC6F /* PNRadarChartDataItem.m in Sources */,
 				105F14391C42475C0039B8E7 /* Plan.m in Sources */,
+				2E36BD441C4F2ABB004416AC /* HMNetwork.m in Sources */,
 				2E8E064F1C3BB37E0034A854 /* analysisViewController.m in Sources */,
 				2E55F20E1C3F97AE0027AC6F /* PNScatterChartData.m in Sources */,
 				2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */,
