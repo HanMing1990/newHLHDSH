@@ -7,18 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MKNetworkKit.h"
 
 #ifndef HMNetwork_h
 #define HMNetwork_h
-
+@interface HMNetwork : NSObject{
+}
+//@property(retain,nonatomic) NSNumber* ID;
+@property(retain, nonatomic) MKNetworkHost* engine;
+-(id) init;
+-(void) sendData: (NSMutableDictionary *)param;
+@end
 
 #endif /* HMNetwork_h */
-
-@interface HMNetwork: NSObject{
-    NSNumber* ID;          // id
-
-}
-@property(retain,nonatomic)    NSNumber* ID;
-
-
-@end
