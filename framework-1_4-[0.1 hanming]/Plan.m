@@ -399,4 +399,32 @@
     }
     [plan save];
 }
+- (NSString* )getJokeItemRandomly{
+    srandom(time(NULL));
+    int  rand = random() % SUM_OF_JOKE + 1;
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM JokeList WHERE id = %i",rand];
+    NSArray * array = [manager executeQuery:sql];
+    if(array.count){
+        NSLog(@"get joke: %@",[array[0] objectForKey:@"sentence"]);
+        return [array[0] objectForKey:@"sentence"];
+    }else{
+        return [self getJokeItemRandomly];
+    }
+}
+- (NSString* )getPictureItemRandomly{
+    srandom(time(NULL));
+    int  rand = random() % SUM_OF_PICTURE + 1;
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PictureList WHERE id = %i",rand];
+    NSArray * array = [manager executeQuery:sql];
+    if(array.count){
+        NSLog(@"get picture: %@",[array[0] objectForKey:@"sentence"]);
+        return [NSString stringWithFormat:@"@@%@@@%@@@%@@@",[array[0] objectForKey:@"sentence"],[array[0] objectForKey:@"pictureName"],[array[0] objectForKey:@"type"]];
+    }else{
+        return [self getPictureItemRandomly];
+    }
+}
 @end

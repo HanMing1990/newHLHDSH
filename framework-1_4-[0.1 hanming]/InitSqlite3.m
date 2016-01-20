@@ -76,7 +76,7 @@
       @"唱一首自己喜欢的歌曲",
       @"看一则笑话段子开心一下",        /* class 3 */
       @"试着做三件好事并记录下来",
-      @"做做家务",
+      @"看一些轻松的图片",
       @"给家人打个问候电话",
       @"给朋友发张电子贺卡",
       @"给最近要过生日的朋友准备一份礼物",
@@ -188,7 +188,7 @@
                                                       @"用歌声释放自己",
                                                       @"来看一则笑话吧",
                                                       @"做三件好事",       /* class 3 */
-                                                      @"动手做家务",
+                                                      @"看轻松的图片",
                                                       @"电话问候家人",
                                                       @"给朋友发电子贺卡",
                                                       @"给要过生日的朋友准备礼物",
@@ -305,7 +305,7 @@
     NSArray * inte = [[NSArray alloc] initWithObjects:
       @"2",@"1",@"1",@"1",@"1",@"1",@"2",@"2",@"2",@"3",
       @"4",@"2",@"1",@"4",@"1",@"2",@"1",@"1",@"1",@"1",
-      @"2",@"1",@"0",@"4",@"1",@"1",@"1",@"1",@"1",@"1",
+      @"2",@"1",@"6",@"4",@"7",@"1",@"1",@"1",@"1",@"1",
       @"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",
       @"1",@"1",@"1",@"1",@"1",@"1",@"1",@"1",@"5",@"1",
       
@@ -368,6 +368,12 @@
     [manager openDb:sqlFileName];
     int loop;
     for(loop = 0; loop < SUM_OF_ITEM; loop ++){
+        //给笑话和图片加上比较大的权重
+        if (loop == 22 || loop == 24) {
+            effe = @"20";
+        }else{
+            effe = @"1";
+        }
         NSArray* array = [[NSArray alloc] initWithObjects:content1[loop], content2[loop], content3[loop], info[loop], pref, effe, diff[loop], inte[loop], chan[loop], sour[loop], numb, clus[loop], nil];
         NSString * sql = [NSString stringWithFormat:@"INSERT INTO PlanList (\
                           content1 ,content2 , content3 ,info ,pref , effe ,\

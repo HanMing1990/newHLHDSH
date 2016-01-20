@@ -28,6 +28,7 @@
 @property Item* currentItem;
 @property NSNumber* currentId;
 @property NSNumber* currentPlanState;
+@property NSNumber* showType; //这个是此viewcontrol独有滴，1，2，3分别表示图片的大小
 
 @end
 
@@ -48,12 +49,19 @@
         self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
     }
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
-    self.showTextView1.text    = [defaults valueForKey:PLANTEXT];
     
-    //显示搞笑的图片，xxx
-    NSString *showImageViewName = @"sun";
-    self.showImageView.image =[UIImage imageNamed: showImageViewName];
+    //从数据库中得到文字和图片的名称
+    Plan * plan = [Plan new];
     
+    //self.showTextView1.text    = [defaults valueForKey:PLANTEXT];
+    NSArray * array = [[plan getPictureItemRandomly] componentsSeparatedByString:@"@@"];
+    NSLog(@" separated by string %@ ",array);
+    if (array.count > 2){
+        self.showTextView1.text = array[1];
+        self.showImageView.image =[UIImage imageNamed: array[2]];
+        self.showType = array[3];
+    }
+
     self.currentPlanType      = [defaults valueForKey:PLANTYPE];
     self.currentPlanState     = [defaults valueForKey:PLANSTATE];
     

@@ -472,7 +472,6 @@
     NSLog(@"to %i", planType);
 
     switch (planType) {
-        case 0:
         case 1:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
             NSLog(@"jump to page: exe1 ");
@@ -498,7 +497,7 @@
             NSLog(@"jump to page: exe6 ");
         case 7:
             SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe7ViewController"];
-            NSLog(@"jump to page: exe6 ");
+            NSLog(@"jump to page: exe7 ");
             break;
     }
     //设置翻页效果
