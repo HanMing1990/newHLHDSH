@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *infoTyepImage;
 @property (weak, nonatomic) IBOutlet UILabel *infoTypeText;
 @property (weak, nonatomic) IBOutlet UILabel *infoTypeNum;
+@property (weak, nonatomic) IBOutlet UIView *barChartView;
 
 @end
 
@@ -32,7 +33,7 @@
     }
     
     //修改柱状图的位置
-    self.barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 350.0, SCREEN_WIDTH, 200.0)];
+    self.barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, self.barChartView.frame.size.width, self.barChartView.frame.size.height)];
     //        self.barChart.showLabel = NO;
     self.barChart.backgroundColor = [UIColor clearColor];
     
@@ -60,7 +61,7 @@
     
     //[self.barChart strokeChart];
     
-    [self.view addSubview:self.barChart];
+    [self.barChartView addSubview:self.barChart];
     
 }
 - (void)viewDidAppear:(BOOL)animated{

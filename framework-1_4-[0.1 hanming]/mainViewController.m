@@ -14,7 +14,7 @@
 #import "PNChart.h"
 #import "CurrentLevel.h"
 #import "HMNetwork.h"
-
+#import "stdlib.h"
 
 @interface mainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
@@ -277,6 +277,19 @@
     [dataToSend setValue:@"世界" forKey:@"p2"];
     //3. 传输数据
     [hmnetwork sendData:dataToSend];
+}
+- (IBAction)generateSensorData:(id)sender {
+    
+    float stressValueRandom = arc4random()%100;
+    float sleepValueRandom = arc4random()%100;
+    float stepValueRandom = arc4random()%100;
+    float calorieValueRandom = arc4random()%100;
+    
+    //1. 记录到数据库里， xxx
+    NSLog(@"stress %f", stressValueRandom);
+    NSLog(@"sleep %f", sleepValueRandom);
+    NSLog(@"step %f", stepValueRandom);
+    NSLog(@"calorie %f", calorieValueRandom);
 }
 
 
