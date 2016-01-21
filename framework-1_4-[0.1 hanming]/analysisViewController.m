@@ -8,6 +8,8 @@
 
 #import "analysisViewController.h"
 #import "mainViewController.h"
+#import "static.h"
+#import "Plan.h"
 
 @interface analysisViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lineChartView;
@@ -16,11 +18,19 @@
 @end
 
 @implementation analysisViewController
-
+@synthesize currentId;
 
 
 //显示第三方库
 - (void) showLineChart:inputYValues{
+    //1. 从HISTORY里面的到currentID
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.currentId            = [defaults valueForKey:HISTORYID];
+    //2. 用id得到对应的字典
+    NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
+    NSLog(@"getPlanHistoryItemByID %@",dic);
+    
+    
     
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
     self.lineChart.yLabelFormat = @"%1.1f";

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PNChart.h" //数据可视化, old
 
-@interface analysisViewController : UIViewController
-
+@interface analysisViewController : UIViewController{
+    NSNumber* currentId;
+}
 @property (nonatomic) PNLineChart * lineChart;//数据可视化,old
+@property (retain,nonatomic) NSNumber* currentId;
 @end

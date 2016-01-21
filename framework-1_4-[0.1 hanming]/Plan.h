@@ -35,5 +35,5 @@
 - (NSArray* )getCalorieLevel;
 - (void) calculateFlowerLevel;
 - (NSArray* )getPlanHistory;
-- (NSArray* )getPlanHistoryItemByID:(NSNumber* )ID;
+- (NSMutableDictionary* )getPlanHistoryItemByID:(NSNumber* )ID;
 @end

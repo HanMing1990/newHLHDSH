@@ -42,6 +42,8 @@
 #define PLANOUTPUT @"currentPlanOutput"
 #define PLANFIN @"currentPlanFin"
 
+#define HISTORYID @"currentHistoryID"
+
 #define IP   @"166.111.69.70"
 #define PORT @"5000"
 

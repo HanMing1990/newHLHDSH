@@ -814,7 +814,6 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="1" backgroundImage="envelope"/>
                                 <connections>
-                                    <action selector="history1BtnClick:" destination="dHq-fn-AcU" eventType="touchUpInside" id="PF2-si-rtx"/>
                                     <action selector="history1BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="tQc-mu-9kF"/>
                                 </connections>
                             </button>

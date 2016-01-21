@@ -46,6 +46,9 @@
 - (IBAction)history1BtnClicked:(id)sender {
     if (count.intValue > 0) {
         //页面跳转
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: ID[0]     forKey:HISTORYID];
+        [defaults synchronize];
         UIStoryboard *mainStoryboard = self.storyboard;
         analysisViewController *SVC;
         SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
@@ -55,29 +58,42 @@
 
 
 - (IBAction)history2BtnClicked:(id)sender {
-    //页面跳转
-    UIStoryboard *mainStoryboard = self.storyboard;
-    analysisViewController *SVC;
-    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
-    [self presentViewController: SVC animated:YES completion:nil];
-    
+    if (count.intValue > 1) {
+        //页面跳转
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: ID[1]     forKey:HISTORYID];
+        [defaults synchronize];
+        UIStoryboard *mainStoryboard = self.storyboard;
+        analysisViewController *SVC;
+        SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
+        [self presentViewController: SVC animated:YES completion:nil];
+    }
 }
 
 - (IBAction)history3BtnClicked:(id)sender {
-    //页面跳转
-    UIStoryboard *mainStoryboard = self.storyboard;
-    analysisViewController *SVC;
-    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
-    [self presentViewController: SVC animated:YES completion:nil];
-    
+    if (count.intValue > 2) {
+        //页面跳转
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: ID[2]     forKey:HISTORYID];
+        [defaults synchronize];
+        UIStoryboard *mainStoryboard = self.storyboard;
+        analysisViewController *SVC;
+        SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
+        [self presentViewController: SVC animated:YES completion:nil];
+    }
 }
 
 - (IBAction)history4BtnClicked:(id)sender {
-    //页面跳转
-    UIStoryboard *mainStoryboard = self.storyboard;
-    analysisViewController *SVC;
-    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
-    [self presentViewController: SVC animated:YES completion:nil];
+    if (count.intValue > 3) {
+        //页面跳转
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: ID[3]     forKey:HISTORYID];
+        [defaults synchronize];
+        UIStoryboard *mainStoryboard = self.storyboard;
+        analysisViewController *SVC;
+        SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
+        [self presentViewController: SVC animated:YES completion:nil];
+    }
 }
 
 @end
