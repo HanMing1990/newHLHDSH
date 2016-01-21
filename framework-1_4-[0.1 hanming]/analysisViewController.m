@@ -27,8 +27,71 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentId            = [defaults valueForKey:HISTORYID];
     //2. 用id得到对应的字典
+    /*
+     {
+     NSDateFormatedFintime1 = "2016-01-21 08:10:34 +0000";
+     NSDateFormatedFintime2 = "2016-01-19 08:51:16 +0000";
+     NSDateFormatedFintime3 = "2016-01-19 08:51:16 +0000";
+     NSDateFormatedFintime4 = "2016-01-19 08:51:16 +0000";
+     NSDateFormatedTime0 = "2016-01-21 08:10:45 +0000";
+     NSDateFormatedTime1 = "2016-01-22 08:00:00 +0000";
+     NSDateFormatedTime2 = "2016-01-25 12:00:00 +0000";
+     NSDateFormatedTime3 = "2016-01-27 18:00:00 +0000";
+     NSDateFormatedTime4 = "2016-01-19 08:51:16 +0000";
+     currentNumber = 0;
+     done = 0;
+     effect = "26.000000";
+     fin1 = 0;
+     fin2 = 0;
+     fin3 = 0;
+     fin4 = 0;
+     fintime1 = "2016-01-21 16:10:34";
+     fintime2 = "2016-01-19 16:51:16";
+     fintime3 = "2016-01-19 16:51:16";
+     fintime4 = "2016-01-19 16:51:16";
+     flowerState = 0;
+     have = 1;
+     id = 3;
+     id1 = 23;
+     id2 = 75;
+     id3 = 25;
+     id4 = 0;
+     number = 3;
+     output1 = "";
+     output2 = "";
+     output3 = "";
+     output4 = default;
+     stress0 = "25.000000";
+     stress1 = "25.000000";
+     stress2 = 0;
+     stress3 = "1.1";
+     stress4 = 0;
+     stress5 = "2.000000";
+     time0 = "2016-01-21 16:10:45";
+     time1 = "2016-01-22 16:00:00";
+     time2 = "2016-01-25 20:00:00";
+     time3 = "2016-01-28 02:00:00";
+     time4 = "2016-01-19 16:51:16";
+     type1 = 6;
+     type2 = 1;
+     type3 = 7;
+     type4 = 0;
+     }
+     */
     NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
     NSLog(@"getPlanHistoryItemByID %@",dic);
+    //3. 得到上一周的压力情况，array每一个item是一个字典
+    /*
+    {
+        NSDateFormatedTime = "2016-01-21 06:34:02 +0000";
+        id = 5;
+        level = "25.000000";
+        time = "2016-01-21 14:34:02";
+        type = 1;
+    }
+     */
+    NSArray* array = [[Plan new] getStressLevel];
+    NSLog(@"get array %@",array);
     
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
     self.lineChart.yLabelFormat = @"%1.1f";
@@ -44,14 +107,14 @@
     //y轴labels
     /*
     [self.lineChart setYLabels:@[
-                                 @"0",
-                                 @"50",
-                                 @"100",
-                                 @"150",
-                                 @"200",
-                                 @"250",
-                                 @"300",
-                                 ]
+         @"0",
+         @"50",
+         @"100",
+         @"150",
+         @"200",
+         @"250",
+         @"300",
+         ]
      ];
      */
     
