@@ -27,7 +27,8 @@
     NSEnumerator *enumerator = [theData keyEnumerator];
     id key;
     while ((key = [enumerator nextObject])) {
-        [convertedData setObject:<#(nonnull id)#> forKey:<#(nonnull id<NSCopying>)#>]
+        NSString * strData;
+        [convertedData setObject:(nonnull id) forKey:key]
     }
 }
 
