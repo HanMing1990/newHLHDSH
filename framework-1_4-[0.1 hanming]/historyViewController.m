@@ -22,7 +22,6 @@
     // Do any additional setup after loading the view.
     NSArray * array = [[Plan new] getPlanHistory];
     int historyNum = 4;
-    [NSNumber ];
     for (int i=(int)array.count-1; i >= 0 && i >= (int)array.count - historyNum; i++) {
         NSDate * time1 = [array[i] objectForKey:@"NSDateFormatedFintime4"];
         NSString* flowerState = [array[i] objectForKey:@"NSDateFormatedFintime4"];
@@ -33,7 +32,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 /*
 #pragma mark - Navigation
