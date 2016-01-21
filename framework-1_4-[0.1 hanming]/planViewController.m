@@ -85,7 +85,7 @@
     //设置日期格式啦
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     //fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    fmt.dateFormat = @"MM月dd日HH点";
+    fmt.dateFormat = @"MM月dd日";
     //NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
     //NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"America/New_York"];
     //[fmt setTimeZone:timeZone];

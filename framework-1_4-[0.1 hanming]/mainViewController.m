@@ -112,7 +112,9 @@
     self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
                                                       total:@10
                                                     current:stressValue
-                                                  clockwise:YES];
+                                                  clockwise:YES
+                                                   shadow:YES
+                                                shadowColor:[UIColor blueColor]];
     self.circleChartStress.backgroundColor = [UIColor clearColor];
     [self.circleChartStress setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever

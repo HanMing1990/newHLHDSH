@@ -40,7 +40,7 @@
     NSArray * array = [manager executeQuery:sql];
     NSLog(@"get all sendPlanHistory %@",array);
     for (int i=0; i<array.count; i++) {
-               [self sendData:array[i]];
+        [self sendData:array[i]];
     }
 }
 - (void)sendPlanItem{
