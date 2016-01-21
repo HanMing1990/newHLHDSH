@@ -34,4 +34,6 @@
 - (NSArray* )getSleepLevel;
 - (NSArray* )getCalorieLevel;
 - (void) calculateFlowerLevel;
+- (NSArray* )getPlanHistory;
+- (NSArray* )getPlanHistoryItemByID:(NSNumber* )ID;
 @end

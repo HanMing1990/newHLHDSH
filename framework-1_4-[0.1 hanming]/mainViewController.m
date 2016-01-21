@@ -318,6 +318,6 @@
     Plan *plan = [Plan new];
     [plan createNewPlan];
     
-    [plan getStepLevel];
+    [plan getPlanHistoryItemByID:[NSNumber numberWithInt:1]];
 }
 @end
