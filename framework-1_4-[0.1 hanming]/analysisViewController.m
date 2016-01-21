@@ -23,7 +23,7 @@
 
 //显示第三方库
 - (void) showLineChart:inputYValues{
-    //1. 从HISTORY里面的到currentID
+    //1. 从HISTORY里面的到currentID(这个是计划的历史完成情况的planlist中的id)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentId            = [defaults valueForKey:HISTORYID];
     //2. 用id得到对应的字典
