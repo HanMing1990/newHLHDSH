@@ -457,7 +457,7 @@
 }
 - (void) createLevelItemTable{
     NSString *sql=      @"CREATE TABLE LevelList (id integer PRIMARY KEY AUTOINCREMENT,\
-    level text,type integer, time text)";
+    level text,type integer, time text)";//如果用浮点数表示时间的话就用integer
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     [manager executeNonQuery:sql];

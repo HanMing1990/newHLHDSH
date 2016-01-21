@@ -33,4 +33,5 @@
 - (NSArray* )getStepLevel;
 - (NSArray* )getSleepLevel;
 - (NSArray* )getCalorieLevel;
+- (void) calculateFlowerLevel;
 @end
