@@ -8,7 +8,7 @@
 
 #import "infoViewController.h"
 #import "CurrentLevel.h"
-
+#import "Plan.h"
 
 @interface infoViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *infoTyepImage;
@@ -82,6 +82,8 @@
     
     NSArray *showValues;
     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"infoType"];
+    Plan *currentPlan = [[Plan alloc]init];
+    
     if ([infoType isEqualToString:@"sleep"]) {
         NSLog(@"sleep");
         //修改info显示的信息
@@ -90,6 +92,14 @@
         self.infoTypeNum.text = @"999999";
         
         //xxx 取出最近一周的数据进行显示
+        NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
+        NSLog(@"Iam here %@", originalSleepArrayFromDB);
+        for (int i=0; i<originalSleepArrayFromDB.count; i++) {
+            NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"];
+            NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"];
+            NSLog(@"detail:%@ and %@", time, level);
+        }
+        
         showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
         
         [self showBarChart:showValues];
@@ -106,6 +116,15 @@
         self.infoTypeNum.text = @"999999";
         
         //xxx 取出最近一周的数据进行显示
+        NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
+        NSLog(@"Iam here %@", originalSleepArrayFromDB);
+        for (int i=0; i<originalSleepArrayFromDB.count; i++) {
+            NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"];
+            NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"];
+            NSLog(@"detail:%@ and %@", time, level);
+        }
+        
+        
         showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
         
         

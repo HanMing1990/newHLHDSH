@@ -90,10 +90,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
     //得到历史数据xxx
     NSArray *showValues;
     showValues = [[NSArray alloc] initWithObjects: @60., @60.1, @26.4, @20.0, @86.2, @27.2, @76.2, nil];
     [self showLineChart:showValues];
+    
     
 }
 

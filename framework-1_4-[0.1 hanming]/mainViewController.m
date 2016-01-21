@@ -277,6 +277,9 @@
     [dataToSend setValue:@"世界" forKey:@"p2"];
     //3. 传输数据
     [hmnetwork sendData:dataToSend];
+    
+    
+    
 }
 - (IBAction)generateSensorData:(id)sender {
     
