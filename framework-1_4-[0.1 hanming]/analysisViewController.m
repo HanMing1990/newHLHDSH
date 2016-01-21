@@ -33,7 +33,8 @@
     self.lineChart.yFixedValueMax = 100.0;//Y的最大值
     self.lineChart.yFixedValueMin = 0.0;  //Y的最小值
     
-    //y轴值
+    //y轴labels
+    /*
     [self.lineChart setYLabels:@[
                                  @"0",
                                  @"50",
@@ -44,6 +45,7 @@
                                  @"300",
                                  ]
      ];
+     */
     
     // Line Chart #1
     NSArray * data01Array = inputYValues;
@@ -97,10 +99,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     //得到历史数据xxx
     NSArray *showValues;
     showValues = [[NSArray alloc] initWithObjects: @60., @60.1, @26.4, @20.0, @86.2, @27.2, @76.2, nil];
+    
+    
+    
     [self showLineChart:showValues];
     
     

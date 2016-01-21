@@ -7,6 +7,7 @@
 //
 
 #import "historyViewController.h"
+#import "Plan.h"
 
 @interface historyViewController ()
 
@@ -19,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSArray * array = [[Plan new] getPlanHistory];
+    int historyNum = 4;
+    [NSNumber ];
+    for (int i=(int)array.count-1; i >= 0 && i >= (int)array.count - historyNum; i++) {
+        NSDate * time1 = [array[i] objectForKey:@"NSDateFormatedFintime4"];
+        NSString* flowerState = [array[i] objectForKey:@"NSDateFormatedFintime4"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +60,6 @@
 }
 
 - (IBAction)history4BtnClicked:(id)sender {
-    
     
 }
 
