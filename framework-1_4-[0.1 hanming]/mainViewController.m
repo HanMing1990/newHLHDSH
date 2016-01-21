@@ -158,12 +158,12 @@
     
     
     //3. 显示当前花的状态
-    //3.1 根据历史完成情况获取花的状态名字 xxx
+    //3.1 根据历史完成情况获取花的状态名字
     int flowerState;
-    flowerState = 0;
+    flowerState = [currentLevel.flowerLevel intValue];//0~6
 
     
-    //3.2 获取花的名字
+    //3.2 获取花的名字(这是只找了5种花的图片，还缺俩)
     NSString *flowerImageName;
     switch (flowerState) {
         case 0:
@@ -178,15 +178,23 @@
         case 3:
             flowerImageName = @"dahua";
             break;
+        case 4:
+            flowerImageName = @"dahua";
+            break;
+        case 5:
+            flowerImageName = @"dahua";
+            break;
+        case 6:
+            flowerImageName = @"guoshi";
+            break;
         default:
             flowerImageName = @"guoshi";
             break;
     }
     [self.flowerBtn setImage:[UIImage imageNamed:flowerImageName] forState:UIControlStateNormal];
     
-    
     NSString *flowerStateStr = [NSString stringWithFormat:@"%d", flowerState];
-    //存花的状态以备后面页面使用
+    //存花的状态以备后面页面使用(这有个潜在的问题：就是可能执行完了计划以后花的状态不变)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: flowerStateStr forKey:@"flowerState"];
     [defaults synchronize];
