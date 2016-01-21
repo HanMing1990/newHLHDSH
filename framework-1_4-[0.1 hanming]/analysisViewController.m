@@ -25,29 +25,31 @@
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
     self.lineChart.yLabelFormat = @"%1.1f";
     self.lineChart.backgroundColor = [UIColor clearColor];
-    [self.lineChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5",@"SEP 6",@"SEP 7"]];
+    [self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"]]; //x坐标值
     self.lineChart.showCoordinateAxis = YES;
     
     //Use yFixedValueMax and yFixedValueMin to Fix the Max and Min Y Value
     //Only if you needed
-    self.lineChart.yFixedValueMax = 300.0;
-    self.lineChart.yFixedValueMin = 0.0;
+    self.lineChart.yFixedValueMax = 100.0;//Y的最大值
+    self.lineChart.yFixedValueMin = 0.0;  //Y的最小值
     
+    //y轴值
     [self.lineChart setYLabels:@[
-                                 @"0 min",
-                                 @"50 min",
-                                 @"100 min",
-                                 @"150 min",
-                                 @"200 min",
-                                 @"250 min",
-                                 @"300 min",
+                                 @"0",
+                                 @"50",
+                                 @"100",
+                                 @"150",
+                                 @"200",
+                                 @"250",
+                                 @"300",
                                  ]
      ];
+    
     // Line Chart #1
     NSArray * data01Array = inputYValues;
     PNLineChartData *data01 = [PNLineChartData new];
-    data01.dataTitle = @"Alpha";
-    data01.color = PNFreshGreen;
+    data01.dataTitle = @"压力值";
+    data01.color = [UIColor blueColor];//曲线的颜色
     data01.alpha = 0.3f;
     data01.itemCount = data01Array.count;
     data01.inflexionPointStyle = PNLineChartPointStyleTriangle;
@@ -56,6 +58,7 @@
         return [PNLineChartDataItem dataItemWithY:yValue];
     };
     
+    /*
     // Line Chart #2
     NSArray * data02Array = @[@0.0, @180.1, @26.4, @202.2, @126.2, @167.2, @276.2];
     PNLineChartData *data02 = [PNLineChartData new];
@@ -68,17 +71,21 @@
         CGFloat yValue = [data02Array[index] floatValue];
         return [PNLineChartDataItem dataItemWithY:yValue];
     };
+    self.lineChart.chartData = @[data01, data02];//显示两条线
+     */
     
-    self.lineChart.chartData = @[data01, data02];
+    
+    self.lineChart.chartData = @[data01];//显示一条线
     //[self.lineChart strokeChart];
     //self.lineChart.delegate = self;
     
     
     [self.lineChartView addSubview:self.lineChart];
     
+    
     self.lineChart.legendStyle = PNLegendItemStyleStacked;
     self.lineChart.legendFont = [UIFont boldSystemFontOfSize:12.0f];
-    self.lineChart.legendFontColor = [UIColor redColor];
+    self.lineChart.legendFontColor = [UIColor blueColor];
     
     UIView *legend = [self.lineChart getLegendWithMaxWidth:320];
     [legend setFrame:CGRectMake(40,5 , legend.frame.size.width, legend.frame.size.width)];
@@ -90,7 +97,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     
     //得到历史数据xxx
     NSArray *showValues;

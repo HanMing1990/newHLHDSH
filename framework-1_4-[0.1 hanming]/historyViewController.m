@@ -36,5 +36,24 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)history1BtnClicked:(id)sender {
+  
+}
+
+
+- (IBAction)history2BtnClicked:(id)sender {
+    
+    
+}
+
+- (IBAction)history3BtnClicked:(id)sender {
+    
+    
+}
+
+- (IBAction)history4BtnClicked:(id)sender {
+    
+    
+}
 
 @end

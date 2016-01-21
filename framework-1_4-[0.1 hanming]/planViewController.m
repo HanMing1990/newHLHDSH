@@ -312,6 +312,15 @@
         case 3:
             flowerImageName = @"dahua";
             break;
+        case 4:
+            flowerImageName = @"dahua";
+            break;
+        case 5:
+            flowerImageName = @"dahua";
+            break;
+        case 6:
+            flowerImageName = @"dahua";
+            break;
         default:
             flowerImageName = @"guoshi";
             break;

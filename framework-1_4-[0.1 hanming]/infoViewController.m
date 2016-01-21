@@ -72,14 +72,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
     //0. 获取当前的info 信息
     CurrentLevel * currentLevel = [CurrentLevel new];
     NSLog(@"sleepLevel : %@",currentLevel.sleepLevel);
     
-    
     //1. 判断是由哪个按钮跳转过来的
-    
     NSArray *showValues;
     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"infoType"];
     Plan *currentPlan = [[Plan alloc]init];
@@ -161,7 +158,6 @@
         
         //xxx 取出最近一周的数据进行显示
         showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
-        
         
         [self showBarChart:showValues];
 
