@@ -26,16 +26,74 @@
     (done, have, number, currentNumber, id1, id2, id3, id4, type1, type2, type3, \
     type4, time0, time1, time2, time3 ,time4 ,fintime1 ,fintime2, fintime3, fintime4,\
     fin1, fin2, fin3, fin4,output1 ,output2 ,output3 ,output4 ,stress0 ,stress1, stress2, \
-    stress3, stress4, stress5, effect) VALUES \
+    stress3, stress4, stress5, effect,flowerState) VALUES \
     ('%@',  '%@','%@',   '%@',         '%@', '%@','%@','%@','%@',  '%@',  '%@', \
     '%@', '%@',  '%@',  '%@',   '%@',  '%@',  '%@',    '%@',      '%@',    '%@', \
     '%@', '%@', '%@', '%@','%@',    '%@',    '%@',    '%@',    '%@',    '%@',    '%@'\
-    ,'%@',   '%@',    '%@',    '%@');",
-     currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.currentNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, [dateFormatter stringFromDate:currentPlan.time0], [dateFormatter stringFromDate:currentPlan.time1],[dateFormatter stringFromDate: currentPlan.time2],[dateFormatter stringFromDate: currentPlan.time3] ,[dateFormatter stringFromDate:currentPlan.time4] ,[dateFormatter stringFromDate:currentPlan.fintime1],[dateFormatter stringFromDate:currentPlan.fintime2],[dateFormatter stringFromDate:currentPlan.fintime3],[dateFormatter stringFromDate:currentPlan.fintime4],currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4, currentPlan.output1, currentPlan.output2, currentPlan.output3, currentPlan.output4,currentPlan.stress0,currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect];
+    ,'%@',   '%@',    '%@',    '%@',    '%@');",
+     currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.currentNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, [dateFormatter stringFromDate:currentPlan.time0], [dateFormatter stringFromDate:currentPlan.time1],[dateFormatter stringFromDate: currentPlan.time2],[dateFormatter stringFromDate: currentPlan.time3] ,[dateFormatter stringFromDate:currentPlan.time4] ,[dateFormatter stringFromDate:currentPlan.fintime1],[dateFormatter stringFromDate:currentPlan.fintime2],[dateFormatter stringFromDate:currentPlan.fintime3],[dateFormatter stringFromDate:currentPlan.fintime4],currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4, currentPlan.output1, currentPlan.output2, currentPlan.output3, currentPlan.output4,currentPlan.stress0,currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect,[[CurrentLevel new] flowerLevel]];
     KCDbManager *manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     [manager executeNonQuery:sql];
     [manager close];
+}
+- (NSArray* )getPlanHistory{
+    NSLog(@"inter function getPlanHistory");
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT id,time0,fintime4,flowerstate FROM History"];
+    NSArray * array = [manager executeQuery:sql];
+    NSMutableArray * newArray = [NSMutableArray new];
+    NSDate *time0, *fintime4;
+    NSLog(@"get all PlanHistory %@",array);
+    for (int i=0; i<array.count; i++) {
+        time0 = [dateFormatter dateFromString:[array[i] objectForKey:@"time0"]];
+        fintime4 = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime4"]];
+        [array[i] setObject:fintime4 forKey:@"NSDateFormatedFintime4"];
+        [array[i] setObject:time0 forKey:@"NSDateFormatedtime0"];
+        [newArray addObject:array[i]];
+    }
+    NSLog(@"get fit getPlanHistory %@",newArray);
+    return newArray;
+
+}
+- (NSArray* )getPlanHistoryItemByID:(NSNumber* )ID{
+    NSLog(@"inter function getPlanHistoryItem");
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM History WHERE id = %@",ID];
+    NSArray * array = [manager executeQuery:sql];
+    NSMutableArray * newArray = [NSMutableArray new];
+    NSDate *time0, *time1, *time2, *time3, *time4, *fintime1, *fintime2, *fintime3, *fintime4;
+    NSLog(@"get all getPlanHistoryItem %@",array);
+    for (int i=0; i<array.count; i++) {
+        time0 = [dateFormatter dateFromString:[array[i] objectForKey:@"time0"]];
+        time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time1"]];
+        time2 = [dateFormatter dateFromString:[array[i] objectForKey:@"time2"]];
+        time3 = [dateFormatter dateFromString:[array[i] objectForKey:@"time3"]];
+        time4 = [dateFormatter dateFromString:[array[i] objectForKey:@"time4"]];
+        fintime1 = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime1"]];
+        fintime2 = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime2"]];
+        fintime3 = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime3"]];
+        fintime4 = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime4"]];
+        [array[i] setObject:time0 forKey:@"NSDateFormatedTime0"];
+        [array[i] setObject:time1 forKey:@"NSDateFormatedTime1"];
+        [array[i] setObject:time2 forKey:@"NSDateFormatedTime2"];
+        [array[i] setObject:time3 forKey:@"NSDateFormatedTime3"];
+        [array[i] setObject:time4 forKey:@"NSDateFormatedTime4"];
+        [array[i] setObject:fintime1 forKey:@"NSDateFormatedFintime1"];
+        [array[i] setObject:fintime2 forKey:@"NSDateFormatedFintime2"];
+        [array[i] setObject:fintime3 forKey:@"NSDateFormatedFintime3"];
+        [array[i] setObject:fintime4 forKey:@"NSDateFormatedFintime4"];
+        [newArray addObject:array[i]];
+    }
+    NSLog(@"get fit getPlanHistoryItem %@",newArray);
+    return newArray;
 }
 - (void) recordStress5{
     //记录这个计划完成的时候的情况
@@ -480,7 +538,7 @@
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 2"];
     NSArray * array = [manager executeQuery:sql];
-    
+    [manager close];
     NSMutableArray * newArray = [NSMutableArray new];
     NSLog(@"get all SleepLevel %@",array);
     for (int i=0; i<array.count; i++) {
@@ -504,7 +562,7 @@
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 3"];
     NSArray * array = [manager executeQuery:sql];
-
+    [manager close];
     NSMutableArray * newArray = [NSMutableArray new];
     NSLog(@"get all StepLevel %@",array);
     for (int i=0; i<array.count; i++) {
@@ -528,7 +586,7 @@
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 4"];
     NSArray * array = [manager executeQuery:sql];
-    
+    [manager close];
     NSMutableArray * newArray = [NSMutableArray new];
     NSLog(@"get all CalorieLevel %@",array);
     for (int i=0; i<array.count; i++) {

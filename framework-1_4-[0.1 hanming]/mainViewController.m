@@ -284,7 +284,8 @@
     [dataToSend setValue:@"你好" forKey:@"p1"];
     [dataToSend setValue:@"世界" forKey:@"p2"];
     //3. 传输数据
-    [hmnetwork sendData:dataToSend];
+    //[hmnetwork sendData:dataToSend];
+    [hmnetwork sendPlanHistory];
     
     
     
@@ -329,6 +330,6 @@
     Plan *plan = [Plan new];
     [plan createNewPlan];
     
-    [plan getStepLevel];
+    [plan getPlanHistoryItemByID:[NSNumber numberWithInt:1]];
 }
 @end

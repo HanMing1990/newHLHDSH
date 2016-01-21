@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "HMNetwork.h"
 #import "static.h"
+#import "KCDbManager.h"
 
 @implementation HMNetwork
 //@synthesize ID;
@@ -31,5 +32,26 @@
     //开始网络传输
     [engine startRequest:request];
 }
-
+- (void)sendPlanHistory{
+    NSLog(@"inter function sendPlanHistory");
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM History"];
+    NSArray * array = [manager executeQuery:sql];
+    NSLog(@"get all sendPlanHistory %@",array);
+    for (int i=0; i<array.count; i++) {
+               [self sendData:array[i]];
+    }
+}
+- (void)sendPlanItemByID{
+    NSLog(@"inter function sendPlanItemByID");
+    KCDbManager* manager = [KCDbManager new];
+    [manager openDb:sqlFileName];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PlanList"];
+    NSArray * array = [manager executeQuery:sql];
+    NSLog(@"get all sendPlanItemByID %@",array);
+    for (int i=0; i<array.count; i++) {
+        [self sendData:array[i]];
+    }
+}
 @end
