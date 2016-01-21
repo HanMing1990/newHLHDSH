@@ -76,7 +76,6 @@
 		104A8FD31C4348FD005E40D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD21C4348FD005E40D4 /* Foundation.framework */; };
 		104A8FD51C434913005E40D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD41C434913005E40D4 /* CoreGraphics.framework */; };
 		104A8FD71C43491C005E40D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A8FD61C43491C005E40D4 /* UIKit.framework */; };
-		104A8FDA1C4A62E0005E40D4 /* LogicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104A8FD91C4A62E0005E40D4 /* LogicController.m */; };
 		105F14341C42475C0039B8E7 /* CurrentLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14291C42475C0039B8E7 /* CurrentLevel.m */; };
 		105F14351C42475C0039B8E7 /* CurrentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142B1C42475C0039B8E7 /* CurrentPlan.m */; };
 		105F14361C42475C0039B8E7 /* InitSqlite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142D1C42475C0039B8E7 /* InitSqlite3.m */; };
@@ -206,8 +205,6 @@
 		104A8FD21C4348FD005E40D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		104A8FD41C434913005E40D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		104A8FD61C43491C005E40D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		104A8FD81C4A62BF005E40D4 /* LogicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogicController.h; sourceTree = "<group>"; };
-		104A8FD91C4A62E0005E40D4 /* LogicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogicController.m; sourceTree = "<group>"; };
 		105F14281C42475C0039B8E7 /* CurrentLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentLevel.h; sourceTree = "<group>"; };
 		105F14291C42475C0039B8E7 /* CurrentLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLevel.m; sourceTree = "<group>"; };
 		105F142A1C42475C0039B8E7 /* CurrentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPlan.h; sourceTree = "<group>"; };
@@ -520,8 +517,6 @@
 		2EFBE3431C3A8392009BCDED /* framework-1_4-[0.1 hanming] */ = {
 			isa = PBXGroup;
 			children = (
-				104A8FD81C4A62BF005E40D4 /* LogicController.h */,
-				104A8FD91C4A62E0005E40D4 /* LogicController.m */,
 				105F14281C42475C0039B8E7 /* CurrentLevel.h */,
 				105F14291C42475C0039B8E7 /* CurrentLevel.m */,
 				1003837A1C4BCD6700181713 /* static.h */,
@@ -731,7 +726,6 @@
 				2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */,
 				2EFBE3601C3BA545009BCDED /* mainViewController.m in Sources */,
 				2E55F2071C3F97AE0027AC6F /* PNLineChartData.m in Sources */,
-				104A8FDA1C4A62E0005E40D4 /* LogicController.m in Sources */,
 				2E7A14721C4CC5DF0066CBBA /* exe6ViewController.m in Sources */,
 				2E913D771C451A6A008CE648 /* exe2ViewController.m in Sources */,
 				2E36BE011C4F3B14004416AC /* UIAlertView+MKNKAdditions.m in Sources */,
