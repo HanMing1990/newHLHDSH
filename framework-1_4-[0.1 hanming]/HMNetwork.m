@@ -21,9 +21,21 @@
     }
     return self;
 }
+
+- (NSData *)convertDataToBeSend:(NSMutableDictionary *)theData{
+    NSMutableDictionary * convertedData;
+    NSEnumerator *enumerator = [theData keyEnumerator];
+    id key;
+    while ((key = [enumerator nextObject])) {
+        [convertedData setObject:<#(nonnull id)#> forKey:<#(nonnull id<NSCopying>)#>]
+    }
+}
+
 -(void) sendData: (NSMutableDictionary *)param{
+    //0. 处理下param
+    NSMutableDictionary *dataToBeSend = [self convertDataToBeSend:param];
     //1. 初始化request
-    MKNetworkRequest *request = [engine requestWithPath: @"/" params:param httpMethod:@"POST"];
+    MKNetworkRequest *request = [engine requestWithPath: @"/" params: dataToBeSend httpMethod:@"POST"];
     //回调函数
     [request addCompletionHandler:^(MKNetworkRequest *operation){
         NSString *data = [operation responseAsString];
@@ -82,9 +94,12 @@
     NSLog(@"get all sendPlanHistory %@",array);
     for (int i=0; i<array.count; i++) {
         [self sendData:array[i]];
-        break;
     }
 }
+
+
+
+
 - (void)sendPlanItem{//计划具体是啥内容
     /* item.h里有写
      chan = 1;
