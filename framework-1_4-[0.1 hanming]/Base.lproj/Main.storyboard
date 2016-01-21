@@ -810,17 +810,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zsT-ZZ-xkq">
-                                <rect key="frame" x="52" y="98" width="99" height="94"/>
+                                <rect key="frame" x="11" y="75" width="141" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="1" backgroundImage="envelope"/>
                                 <connections>
                                     <action selector="history1BtnClick:" destination="dHq-fn-AcU" eventType="touchUpInside" id="PF2-si-rtx"/>
-                                    <action selector="history1BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="dfc-Nf-5Pq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zZz-1t-q4k">
-                                <rect key="frame" x="174" y="98" width="99" height="94"/>
+                                <rect key="frame" x="160" y="77" width="140" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="2" backgroundImage="envelope"/>
@@ -828,17 +827,8 @@
                                     <action selector="history2BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="Fjp-oY-dV6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x3O-P1-9bQ">
-                                <rect key="frame" x="52" y="215" width="99" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="3" backgroundImage="envelope"/>
-                                <connections>
-                                    <action selector="history3BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="x4c-jy-6jk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R6M-vG-yf9">
-                                <rect key="frame" x="174" y="215" width="99" height="94"/>
+                                <rect key="frame" x="160" y="228" width="140" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="4" backgroundImage="envelope"/>
@@ -852,6 +842,15 @@
                                 <state key="normal" title="返回主界面"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="modal" id="VR3-LI-lW1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x3O-P1-9bQ">
+                                <rect key="frame" x="13" y="228" width="136" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="3" backgroundImage="envelope"/>
+                                <connections>
+                                    <action selector="history3BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="x4c-jy-6jk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1586,6 +1585,6 @@
         <image name="zhuce" width="870" height="630"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PWq-aC-OYG"/>
+        <segue reference="VR3-LI-lW1"/>
     </inferredMetricsTieBreakers>
 </document>
