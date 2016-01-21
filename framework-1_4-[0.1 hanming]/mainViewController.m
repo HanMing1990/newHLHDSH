@@ -312,7 +312,7 @@
     [currentLevel save];
     
     Plan *plan = [Plan new];
-    [plan calculateFlowerLevel];
+    [plan calculateFlowerLevel];//如果压力值变化了，要重新调用这个还是，计算花的状态值
     [plan insertLevelItem];
 }
 
@@ -330,6 +330,6 @@
     Plan *plan = [Plan new];
     [plan createNewPlan];
     
-    [plan getPlanHistoryItemByID:[NSNumber numberWithInt:1]];
+    [plan getPlanHistory];
 }
 @end
