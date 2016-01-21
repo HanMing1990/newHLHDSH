@@ -223,7 +223,6 @@
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
         NSLog(@"你在往左面滑动～！");
         
-        
         //切换页面，记得先修修改要切换的页面的storyboard id
         UIStoryboard *mainStoryboard = self.storyboard;
         historyViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyViewController"];
@@ -238,7 +237,6 @@
         NSLog(@"你在往右面滑动～！");
     }
 }
-
 
 
 
@@ -287,7 +285,8 @@
     [dataToSend setValue:@"世界" forKey:@"p2"];
     //3. 传输数据
     //[hmnetwork sendData:dataToSend];
-    [hmnetwork sendPlanHistory];
+    //[hmnetwork sendPlanHistory];
+    [hmnetwork sendPlanItem];
     
     
     
