@@ -18,7 +18,7 @@
 -(id) init;
 -(void) sendData: (NSMutableDictionary *)param;
 - (void)sendPlanHistory;
-- (void)sendPlanItemByID;
+- (void)sendPlanItem;
 @end
 
 #endif /* HMNetwork_h */

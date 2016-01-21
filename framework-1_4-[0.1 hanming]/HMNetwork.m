@@ -43,7 +43,7 @@
                [self sendData:array[i]];
     }
 }
-- (void)sendPlanItemByID{
+- (void)sendPlanItem{
     NSLog(@"inter function sendPlanItemByID");
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
