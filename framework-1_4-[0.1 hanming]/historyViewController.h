@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "static.h"
 
-@interface historyViewController : UIViewController
-
+@interface historyViewController : UIViewController{
+    NSNumber* ID[HISTORY_NUM];
+    NSString* startTime[HISTORY_NUM];
+    NSString* finishTime[HISTORY_NUM];
+    NSString* flowerState[HISTORY_NUM];
+    NSNumber* count;
+}
+@property (retain,nonatomic) NSNumber* count;
 @end

@@ -13,7 +13,7 @@
 #import "exe4ViewController.h"
 #import "exe5ViewController.h"
 #import "exe6ViewController.h"
-
+#import "analysisViewController.h"
 
 #import "CurrentPlan.h"
 
@@ -524,11 +524,10 @@
     [plan store];
     
     UIStoryboard *mainStoryboard = self.storyboard;
-    exe1ViewController *SVC;
-    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe1ViewController"];
+    analysisViewController *SVC;
+    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
+    [self presentViewController: SVC animated:YES completion:nil];
     
-    
-
 }
 
 /*

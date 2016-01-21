@@ -8,23 +8,24 @@
 
 #import "historyViewController.h"
 #import "Plan.h"
-
-@interface historyViewController ()
-
-@end
+#import "analysisViewController.h"
 
 @implementation historyViewController
-
-
+@synthesize count;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSArray * array = [[Plan new] getPlanHistory];
-    int historyNum = 4;
-    for (int i=(int)array.count-1; i >= 0 && i >= (int)array.count - historyNum; i++) {
-        NSDate * time1 = [array[i] objectForKey:@"NSDateFormatedFintime4"];
-        NSString* flowerState = [array[i] objectForKey:@"NSDateFormatedFintime4"];
+    for (int i=(int)array.count-1; i >= 0 && i >= (int)array.count - HISTORY_NUM; i--) {
+        finishTime[self.count.intValue] = [array[i] objectForKey:@"NSDateFormatedFintime4"];
+        startTime[self.count.intValue] = [array[i] objectForKey:@"NSDateFormatedtime0"];
+        ID[self.count.intValue] = [array[i] objectForKey:@"id"];
+        flowerState[self.count.intValue] = [array[i] objectForKey:@"flowerState"];
+        count = [NSNumber numberWithInt:count.intValue + 1];
+    }
+    for (int i=0; i<self.count.intValue; i++) {
+        NSLog(@"history item: %@ %@ %@ %@",finishTime[i],startTime[i],ID[i],flowerState[i]);
     }
 }
 
@@ -43,22 +44,40 @@
 }
 */
 - (IBAction)history1BtnClicked:(id)sender {
-  
+    if (count.intValue > 0) {
+        //页面跳转
+        UIStoryboard *mainStoryboard = self.storyboard;
+        analysisViewController *SVC;
+        SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
+        [self presentViewController: SVC animated:YES completion:nil];
+    }
 }
 
 
 - (IBAction)history2BtnClicked:(id)sender {
-    
+    //页面跳转
+    UIStoryboard *mainStoryboard = self.storyboard;
+    analysisViewController *SVC;
+    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
+    [self presentViewController: SVC animated:YES completion:nil];
     
 }
 
 - (IBAction)history3BtnClicked:(id)sender {
-    
+    //页面跳转
+    UIStoryboard *mainStoryboard = self.storyboard;
+    analysisViewController *SVC;
+    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
+    [self presentViewController: SVC animated:YES completion:nil];
     
 }
 
 - (IBAction)history4BtnClicked:(id)sender {
-    
+    //页面跳转
+    UIStoryboard *mainStoryboard = self.storyboard;
+    analysisViewController *SVC;
+    SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
+    [self presentViewController: SVC animated:YES completion:nil];
 }
 
 @end

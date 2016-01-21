@@ -44,4 +44,6 @@
 
 #define IP   @"166.111.69.70"
 #define PORT @"5000"
+
+#define HISTORY_NUM 4
 #endif /* static_h */
