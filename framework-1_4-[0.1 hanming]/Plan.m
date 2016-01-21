@@ -18,7 +18,8 @@
     NSLog(@"inter function store");
     //用currentplan的值给这个类赋值
     currentPlan = [CurrentPlan new];
-    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     [self recordStress5];
     [self update];
     NSString *sql=[NSString stringWithFormat:@"INSERT INTO History \
@@ -30,7 +31,7 @@
     '%@', '%@',  '%@',  '%@',   '%@',  '%@',  '%@',    '%@',      '%@',    '%@', \
     '%@', '%@', '%@', '%@','%@',    '%@',    '%@',    '%@',    '%@',    '%@',    '%@'\
     ,'%@',   '%@',    '%@',    '%@');",
-     currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.currentNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, currentPlan.time0, currentPlan.time1, currentPlan.time2, currentPlan.time3 ,currentPlan.time4 ,currentPlan.fintime1,currentPlan.fintime2,currentPlan.fintime3,currentPlan.fintime4,currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4, currentPlan.output1, currentPlan.output2, currentPlan.output3, currentPlan.output4,currentPlan.stress0,currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect];
+     currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.currentNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, [dateFormatter stringFromDate:currentPlan.time0], [dateFormatter stringFromDate:currentPlan.time1],[dateFormatter stringFromDate: currentPlan.time2],[dateFormatter stringFromDate: currentPlan.time3] ,[dateFormatter stringFromDate:currentPlan.time4] ,[dateFormatter stringFromDate:currentPlan.fintime1],[dateFormatter stringFromDate:currentPlan.fintime2],[dateFormatter stringFromDate:currentPlan.fintime3],[dateFormatter stringFromDate:currentPlan.fintime4],currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4, currentPlan.output1, currentPlan.output2, currentPlan.output3, currentPlan.output4,currentPlan.stress0,currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect];
     KCDbManager *manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     [manager executeNonQuery:sql];
@@ -398,6 +399,7 @@
         plan.fintime4 = [NSDate date];
     }
     [plan save];
+    [self calculateFlowerLevel];
 }
 - (NSString* )getJokeItemRandomly{
     srandom(time(NULL));
@@ -428,11 +430,17 @@
     }
 }
 - (void) insertLevelItem{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     CurrentLevel * currentLevel = [CurrentLevel new];
-    NSString * sql1 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stressLevel,[NSNumber numberWithInt:1],currentLevel.stressTime];
-    NSString * sql2 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.sleepLevel,[NSNumber numberWithInt:2],currentLevel.sleepTime];
-    NSString * sql3 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stepLevel,[NSNumber numberWithInt:3],currentLevel.stepTime];
-    NSString * sql4 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.calorieLevel,[NSNumber numberWithInt:4],currentLevel.calorieTime];
+    NSString * sql1 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stressLevel,[NSNumber numberWithInt:1],[dateFormatter stringFromDate:currentLevel.stressTime]];
+    NSString * sql2 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.sleepLevel,[NSNumber numberWithInt:2],[dateFormatter stringFromDate:currentLevel.sleepTime]];
+    NSString * sql3 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stepLevel,[NSNumber numberWithInt:3],[dateFormatter stringFromDate:currentLevel.stepTime]];
+    NSString * sql4 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.calorieLevel,[NSNumber numberWithInt:4],[dateFormatter stringFromDate:currentLevel.calorieTime]];
+    //NSString * sql1 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stressLevel,[NSNumber numberWithInt:1],[NSNumber numberWithDouble:[currentLevel.stressTime timeIntervalSince1970]]];
+    //NSString * sql2 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.sleepLevel,[NSNumber numberWithInt:2],[NSNumber numberWithDouble:[currentLevel.sleepTime timeIntervalSince1970]]];
+    //NSString * sql3 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.stepLevel,[NSNumber numberWithInt:3],[NSNumber numberWithDouble:[currentLevel.stepTime timeIntervalSince1970]]];
+    //NSString * sql4 = [NSString stringWithFormat:@"INSERT INTO LevelList (level, type, time) VALUES ('%@','%@','%@')",currentLevel.calorieLevel,[NSNumber numberWithInt:4],[NSNumber numberWithDouble:[currentLevel.calorieTime timeIntervalSince1970]]];
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     [manager executeNonQuery:sql1];
@@ -442,51 +450,112 @@
     [manager close];
 }
 - (NSArray* )getStressLevel{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 1"];
     NSArray * array = [manager executeQuery:sql];
-    NSLog(@"getStressLevel %@",array);
-    return array;
+    
+    NSMutableArray * newArray = [NSMutableArray new];
+    NSLog(@"get all StressLevel %@",array);
+    for (int i=0; i<array.count; i++) {
+        NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
+        //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
+        //NSLog(@"get time %@",time1);
+        if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
+            [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
+            [newArray addObject:array[i]];
+        }
+    }
+    NSLog(@"get fit StressLevel %@",newArray);
+    return newArray;
 }
 - (NSArray* )getSleepLevel{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 2"];
     NSArray * array = [manager executeQuery:sql];
-    NSLog(@"getSleepLevel %@",array);
-    return array;
+    
+    NSMutableArray * newArray = [NSMutableArray new];
+    NSLog(@"get all SleepLevel %@",array);
+    for (int i=0; i<array.count; i++) {
+         NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
+        //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
+        //NSLog(@"get time %@",time1);
+        if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
+            [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
+            [newArray addObject:array[i]];
+        }
+    }
+    
+    NSLog(@"get fit SleepLevel %@",newArray);
+    return newArray;
 }
 - (NSArray* )getStepLevel{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 3"];
     NSArray * array = [manager executeQuery:sql];
-    /*
+
     NSMutableArray * newArray = [NSMutableArray new];
     NSLog(@"get all StepLevel %@",array);
     for (int i=0; i<array.count; i++) {
-        NSDate * time1 = [array[i] objectForKey:@"time"];
-        NSLog(@"get time %@",time1);
+         NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
+        //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
+        //NSLog(@"get time %@",time1);
         if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
+            [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
             [newArray addObject:array[i]];
         }
     }
     
     NSLog(@"get fit StepLevel %@",newArray);
-      */
-    return array;
+    return newArray;
 }
 - (NSArray* )getCalorieLevel{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 4"];
     NSArray * array = [manager executeQuery:sql];
-    NSLog(@"getCalorieLevel %@",array);
-    return array;
+    
+    NSMutableArray * newArray = [NSMutableArray new];
+    NSLog(@"get all CalorieLevel %@",array);
+    for (int i=0; i<array.count; i++) {
+         NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
+        //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
+        //NSLog(@"get time %@",time1);
+        if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
+            [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
+            [newArray addObject:array[i]];
+        }
+    }
+    
+    NSLog(@"get fit CalorieLevel %@",newArray);
+    return newArray;
+
+}
+- (void) calculateFlowerLevel{
+    CurrentLevel * currentLevel = [CurrentLevel new];
+    currentPlan = [CurrentPlan new];
+    int flowerLevel = (6 - currentLevel.stressLevel.intValue + currentPlan.fin1.intValue+ currentPlan.fin2.intValue + currentPlan.fin3.intValue);
+    if (flowerLevel > 6) {
+        flowerLevel = 6;
+    }
+    if (flowerLevel < 0) {
+        flowerLevel = 0;
+    }
+    currentLevel.flowerLevel = [NSString stringWithFormat:@"%i",flowerLevel];
+    [currentLevel save];
 }
 @end

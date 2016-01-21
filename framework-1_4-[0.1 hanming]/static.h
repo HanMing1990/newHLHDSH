@@ -42,4 +42,6 @@
 #define PLANOUTPUT @"currentPlanOutput"
 #define PLANFIN @"currentPlanFin"
 
+#define IP   @"166.111.69.70"
+#define PORT @"5000"
 #endif /* static_h */

@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "HMNetwork.h"
+#import "static.h"
+
 @implementation HMNetwork
 //@synthesize ID;
 @synthesize engine;
 -(id)init {
     if(self = [super init]){
         //1. 初始化engine
-        self.engine = [[MKNetworkHost alloc] initWithHostName:@"166.111.69.70:5000"];
+        self.engine = [[MKNetworkHost alloc] initWithHostName:[NSString stringWithFormat:@"%@:%@",IP,PORT]];
     }
     return self;
 }

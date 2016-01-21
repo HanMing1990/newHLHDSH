@@ -283,7 +283,7 @@
 }
 - (IBAction)generateSensorData:(id)sender {
     
-    float stressValueRandom = arc4random()%100;
+    float stressValueRandom = arc4random()%6;
     float sleepValueRandom = arc4random()%100;
     float stepValueRandom = arc4random()%100;
     float calorieValueRandom = arc4random()%100;
@@ -301,7 +301,9 @@
     currentLevel.calorieLevel = [NSString stringWithFormat:@"%f",calorieValueRandom];
     currentLevel.stressTime = currentLevel.sleepTime = currentLevel.stepTime = currentLevel.calorieTime = [NSDate date];
     [currentLevel save];
+    
     Plan *plan = [Plan new];
+    [plan calculateFlowerLevel];
     [plan insertLevelItem];
 }
 
