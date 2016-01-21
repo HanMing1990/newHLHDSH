@@ -20,7 +20,7 @@
     NSString *key=@"IsCreatedDb";
     NSUserDefaults *defaults=[[NSUserDefaults alloc]init];
     
-    [defaults setValue:@0 forKey:key];
+    [defaults setValue:@0 forKey:key]; //数据库不变了就删了这个条目
     
     if ([[defaults valueForKey:key] intValue]!=1) {
         NSLog(@"we create the world!!!");

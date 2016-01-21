@@ -82,6 +82,7 @@
     NSLog(@"get all sendPlanHistory %@",array);
     for (int i=0; i<array.count; i++) {
         [self sendData:array[i]];
+        break;
     }
 }
 - (void)sendPlanItem{//计划具体是啥内容

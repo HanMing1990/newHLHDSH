@@ -285,8 +285,8 @@
     [dataToSend setValue:@"世界" forKey:@"p2"];
     //3. 传输数据
     //[hmnetwork sendData:dataToSend];
-    //[hmnetwork sendPlanHistory];
-    [hmnetwork sendPlanItem];
+    [hmnetwork sendPlanHistory];
+    //[hmnetwork sendPlanItem];
     
     
     
