@@ -30,8 +30,6 @@
     NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
     NSLog(@"getPlanHistoryItemByID %@",dic);
     
-    
-    
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
     self.lineChart.yLabelFormat = @"%1.1f";
     self.lineChart.backgroundColor = [UIColor clearColor];

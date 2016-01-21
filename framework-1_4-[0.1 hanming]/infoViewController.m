@@ -92,8 +92,8 @@
         NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
         NSLog(@"Iam here %@", originalSleepArrayFromDB);
         for (int i=0; i<originalSleepArrayFromDB.count; i++) {
-            NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"];
-            NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"];
+            NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"]; //X轴
+            NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"]; //y轴
             NSLog(@"detail:%@ and %@", time, level);
         }
         
