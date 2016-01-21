@@ -17,6 +17,8 @@
 @property(retain, nonatomic) MKNetworkHost* engine;
 -(id) init;
 -(void) sendData: (NSMutableDictionary *)param;
+- (void)sendPlanHistory;
+- (void)sendPlanItemByID;
 @end
 
 #endif /* HMNetwork_h */
