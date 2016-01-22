@@ -79,7 +79,7 @@
      }
      */
     NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
-    NSLog(@"getPlanHistoryItemByID %@",dic);
+    NSLog(@"xxxxxxxxxgetPlanHistoryItemByID %@",dic);
     //3. 得到上一周的压力情况，array每一个item是一个字典
     /*
     {
