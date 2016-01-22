@@ -284,7 +284,7 @@
     [dataToSend setValue:@"你好" forKey:@"p1"];
     [dataToSend setValue:@"世界" forKey:@"p2"];
     //3. 传输数据
-    //[hmnetwork sendData:dataToSend];
+    //[hmnetwork sendData:dataToSend];//用来测试是否
     [hmnetwork sendPlanHistory];
     //[hmnetwork sendPlanItem];
     

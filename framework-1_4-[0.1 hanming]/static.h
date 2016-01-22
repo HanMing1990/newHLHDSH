@@ -44,7 +44,7 @@
 
 #define HISTORYID @"currentHistoryID"
 
-#define IP   @"166.111.69.70"
+#define IP   @"166.111.69.137"
 #define PORT @"5000"
 
 #define HISTORY_NUM 4

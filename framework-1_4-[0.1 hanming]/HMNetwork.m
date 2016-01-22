@@ -22,21 +22,29 @@
     return self;
 }
 
-- (NSData *)convertDataToBeSend:(NSMutableDictionary *)theData{
-    NSMutableDictionary * convertedData;
+- (NSMutableDictionary *)convertDataToBeSend:(NSMutableDictionary *)theData{
+    NSMutableDictionary * convertedData = [NSMutableDictionary new];
     NSEnumerator *enumerator = [theData keyEnumerator];
     id key;
     while ((key = [enumerator nextObject])) {
-        NSString * strData;
-        [convertedData setObject:(nonnull id) forKey:key]
+        NSString *strData = @"sss";
+        [convertedData setObject: strData forKey:key];
     }
+    return convertedData;
 }
+
 
 -(void) sendData: (NSMutableDictionary *)param{
     //0. 处理下param
-    NSMutableDictionary *dataToBeSend = [self convertDataToBeSend:param];
+    NSLog(@"param:  %@", param);
+    //NSMutableDictionary *dataToBeSend = [self convertDataToBeSend:param];
+    
+    //NSMutableDictionary *dataToBeSend = [NSMutableDictionary new];
+    //[dataToBeSend setObject:@"xxx" forKey:@"yyy"];
+
+    
     //1. 初始化request
-    MKNetworkRequest *request = [engine requestWithPath: @"/" params: dataToBeSend httpMethod:@"POST"];
+    MKNetworkRequest *request = [engine requestWithPath: @"/" params: param httpMethod:@"POST"];
     //回调函数
     [request addCompletionHandler:^(MKNetworkRequest *operation){
         NSString *data = [operation responseAsString];
@@ -45,6 +53,10 @@
     //开始网络传输
     [engine startRequest:request];
 }
+
+
+
+
 - (void)sendPlanHistory{
     
     /* 计划的完成情况
@@ -93,13 +105,16 @@
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM History"];
     NSArray * array = [manager executeQuery:sql];
     NSLog(@"get all sendPlanHistory %@",array);
+    [self sendData:array[0]];
+    /*
     for (int i=0; i<array.count; i++) {
         [self sendData:array[i]];
+        NSLog(@"have sent data");
+        break;
+        
     }
+     */
 }
-
-
-
 
 - (void)sendPlanItem{//计划具体是啥内容
     /* item.h里有写
