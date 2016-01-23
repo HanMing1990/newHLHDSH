@@ -44,8 +44,9 @@
 
 #define HISTORYID  @"currentHistoryID"       //作为historyviewcontroller到analysisviewcontroller的参数
 
-#define IP         @"166.111.69.70"
+#define IP         @"166.111.69.137"
 #define PORT       @"5000"
+
 
 #define HISTORY_NUM 4
 #endif /* static_h */
