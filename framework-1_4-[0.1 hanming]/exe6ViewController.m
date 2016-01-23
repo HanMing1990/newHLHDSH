@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"I'm in viewcontroller 6");
     // Do any additional setup after loading the view.
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     //fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
@@ -49,7 +50,7 @@
         self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
     }
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
-    self.showTextView1.text    = [defaults valueForKey:PLANTEXT];
+    self.showTextView1.text   = [defaults valueForKey:PLANTEXT];
     // 笑话的内容需要从数据库里拿
     Plan *plan = [Plan new];
     self.showTextView2.text = [plan getJokeItemRandomly];

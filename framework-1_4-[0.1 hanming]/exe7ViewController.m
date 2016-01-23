@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"I'm in viewcontroller 7");
     // Do any additional setup after loading the view.
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     //fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
