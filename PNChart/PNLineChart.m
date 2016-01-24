@@ -500,7 +500,7 @@
                 [pointPath addLineToPoint:middlePoint];
                 [pointPath addLineToPoint:endPoint];
                 [pointPath closePath];
-                
+                //yangj 设置文本，当然，如果需要的话也可以设置其他的比如做了什么事情什么的
                 // text display text
                 if (chartData.showPointLabel == YES) {
                     [gradePathArray addObject:[self createPointLabelFor:chartData.getData(i).rawY pointCenter:middlePoint width:inflexionWidth withChartData:chartData]];

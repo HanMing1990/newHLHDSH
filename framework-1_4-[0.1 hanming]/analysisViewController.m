@@ -93,6 +93,9 @@
     NSArray* array = [[Plan new] getStressLevel];
     NSLog(@"get array %@",array);
     
+    Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];
+    //  item.info；//要显示的值
+    
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
     self.lineChart.yLabelFormat = @"%1.1f";
     self.lineChart.backgroundColor = [UIColor clearColor];
@@ -126,6 +129,11 @@
     data01.alpha = 0.3f;
     data01.itemCount = data01Array.count;
     data01.inflexionPointStyle = PNLineChartPointStyleTriangle;
+    // 这句话的作用是设置pointlabel的文本
+    data01.showPointLabel = YES;
+    //这个文本的格式可在createPointLabelFor函数中重写，当然可以设置如下的字段
+    //data01.pointLabelFont =
+    //data01.pointLabelFormat =
     data01.getData = ^(NSUInteger index) {
         CGFloat yValue = [data01Array[index] floatValue];
         return [PNLineChartDataItem dataItemWithY:yValue];

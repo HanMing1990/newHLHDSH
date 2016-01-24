@@ -227,8 +227,8 @@
             NSLog(@"jump to page: exe6 ");
             break;
         case 7:
-            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe6ViewController"];
-            NSLog(@"jump to page: exe6 ");
+            SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"exe7ViewController"];
+            NSLog(@"jump to page: exe7 ");
             break;
     }
     //设置翻页效果

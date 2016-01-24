@@ -314,13 +314,11 @@
         currentPlan.output4 = @"";
     }
     currentPlan.currentNumber = [NSNumber numberWithInt:0];
-    NSLog(@"debug flag 1");
     // 4. 但是这个时间就需要精心策划啦
     currentPlan.time0 = [NSDate date];
     NSTimeInterval interval = [NSDate timeIntervalSinceReferenceDate];
     int day_since_2000 = (int) (interval / 3600 /24);
     //interval(second format) to the o'clock of next day
-    NSLog(@"debug flag 2");
     int interval_second = (int) ((day_since_2000 + 1) * 3600 * 24 - interval + 1);
     if (plan_item_number == 1) {
         currentPlan.time1 = [[NSDate alloc] initWithTimeInterval: (8)*60*60+interval_second sinceDate:currentPlan.time0];
@@ -339,12 +337,12 @@
     }
     //5. 赋值到currentplan中去
     [currentPlan save];
-     NSLog(@"debug flag 3");
 }
 
 - (BOOL) judge:(int)newId round:(int) newRound{
     NSLog(@"inter function judge");
-    //就是判断这个取的条目合不合适
+    //就是判断这个取的条目合不合适，还未实现
+    
     return YES;
 }
 - (Item *) selectItemRandomly{
@@ -360,6 +358,9 @@
     }
 }
 - (Item *) changeItemById:(NSNumber* )newId{
+    //for debug  (yangj)
+    //return [self getItemById:[NSNumber numberWithInt:newId.intValue + 1]];
+    
     NSLog(@"inter function changeItemById");
     /*
      
