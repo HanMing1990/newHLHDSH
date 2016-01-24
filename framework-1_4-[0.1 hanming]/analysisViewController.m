@@ -10,6 +10,7 @@
 #import "mainViewController.h"
 #import "static.h"
 #import "Plan.h"
+#import "CurrentPlan.h"
 
 @interface analysisViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lineChartView;
@@ -51,8 +52,8 @@
      fintime4 = "2016-01-19 16:51:16";
      flowerState = 0;
      have = 1;
-     id = 3;
-     id1 = 23;
+     id = 3; //plan的id
+     id1 = 23; //item的id
      id2 = 75;
      id3 = 25;
      id4 = 0;
@@ -93,7 +94,7 @@
     NSArray* array = [[Plan new] getStressLevel];
     NSLog(@"get array %@",array);
     
-    Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];
+    Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];//plan中取id, 根据id取item,根据item取info
     //  item.info；//要显示的值
     
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
@@ -129,6 +130,8 @@
     data01.alpha = 0.3f;
     data01.itemCount = data01Array.count;
     data01.inflexionPointStyle = PNLineChartPointStyleTriangle;
+    
+    // 在线上显示文字（默认显示数字，显示文字的话要修改PNLineChart的类函数）
     // 这句话的作用是设置pointlabel的文本
     data01.showPointLabel = YES;
     //这个文本的格式可在createPointLabelFor函数中重写，当然可以设置如下的字段
@@ -136,8 +139,9 @@
     //data01.pointLabelFormat =
     data01.getData = ^(NSUInteger index) {
         CGFloat yValue = [data01Array[index] floatValue];
-        return [PNLineChartDataItem dataItemWithY:yValue];
+        return [PNLineChartDataItem dataItemWithY: yValue];
     };
+    
     
     /*
     // Line Chart #2

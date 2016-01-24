@@ -13,6 +13,11 @@
 #import "CurrentPlan.h"
 #import "static.h"
 
+
+// plan的集合类
+
+
+
 @interface Plan : NSObject{
     CurrentPlan* currentPlan;
 }

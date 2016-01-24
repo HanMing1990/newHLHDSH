@@ -310,6 +310,8 @@
     }
 }
 
+
+
 #pragma mark - Draw Chart
 
 - (void)strokeChart
@@ -368,7 +370,7 @@
     NSLog(@"end animatation of charline");
 }
 
-
+#pragma mark- 杨俊改的函数
 - (void)calculateChartPath:(NSMutableArray *)chartPath andPointsPath:(NSMutableArray *)pointsPath andPathKeyPoints:(NSMutableArray *)pathPoints andPathStartEndPoints:(NSMutableArray *)pointsOfPath
 {
     

@@ -56,8 +56,7 @@
     [initsqlite3 createDataBase];
 
     //0. 获取用户的属性
-    CurrentLevel * currentLevel = [CurrentLevel new];
-    
+    CurrentLevel * currentLevel = [CurrentLevel new];//获取当前的数值，比如睡眠、压力、卡路里等
     
     //1. 左上角天气，取决于用户当前的压力值，压力小天气好
     //2. 右上角的提示文字,如今天情绪很好哦，花也格外旺盛呢

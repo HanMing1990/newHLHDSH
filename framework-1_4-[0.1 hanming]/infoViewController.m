@@ -74,7 +74,7 @@
     
     //0. 获取当前的info 信息
     CurrentLevel * currentLevel = [CurrentLevel new];
-    NSLog(@"sleepLevel : %@",currentLevel.sleepLevel);
+    //NSlog(@"sleepLevel : %@",currentLevel.sleepLevel);
     
     //1. 判断是由哪个按钮跳转过来的
     NSArray *showValues;
@@ -82,19 +82,20 @@
     Plan *currentPlan = [[Plan alloc]init];
     
     if ([infoType isEqualToString:@"sleep"]) {
-        NSLog(@"sleep");
+        //NSlog(@"sleep");
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"zhe"];
         self.infoTypeText.text = @"睡眠：";
-        self.infoTypeNum.text = @"999999";
+        self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.sleepLevel.floatValue];
+        
         
         //xxx 取出最近一周的数据进行显示
         NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
-        NSLog(@"Iam here %@", originalSleepArrayFromDB);
+        //NSlog(@"Iam here %@", originalSleepArrayFromDB);
         for (int i=0; i<originalSleepArrayFromDB.count; i++) {
             NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"]; //X轴
             NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"]; //y轴
-            NSLog(@"detail:%@ and %@", time, level);
+            //NSlog(@"detail:%@ and %@", time, level);
         }
         
         showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
@@ -104,21 +105,21 @@
     }
     else if ([infoType isEqualToString:@"pressure"])
     {
-        NSLog(@"pressure");
+        //NSlog(@"pressure");
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"image"];
         self.infoTypeText.text = @"压力值：";
         
         //xxx
-        self.infoTypeNum.text = @"999999";
+        self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.stressLevel.floatValue];
         
         //xxx 取出最近一周的数据进行显示
         NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
-        NSLog(@"Iam here %@", originalSleepArrayFromDB);
+        //NSlog(@"Iam here %@", originalSleepArrayFromDB);
         for (int i=0; i<originalSleepArrayFromDB.count; i++) {
             NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"];
             NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"];
-            NSLog(@"detail:%@ and %@", time, level);
+            //NSlog(@"detail:%@ and %@", time, level);
         }
         
         
@@ -130,13 +131,13 @@
     }
     else if ([infoType isEqualToString:@"step"])
     {
-        NSLog(@"step");
+        //NSlog(@"step");
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"zhe"];
         self.infoTypeText.text = @"步数：";
         
         //xxx
-        self.infoTypeNum.text = @"009099";
+        self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.stepLevel.floatValue];
         
         //xxx 取出最近一周的数据进行显示
         showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
@@ -148,13 +149,13 @@
     }
     else if ([infoType isEqualToString:@"kaluli"])
     {
-        NSLog(@"kaluli");
+        //NSlog(@"kaluli");
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"zhe"];
         self.infoTypeText.text = @"卡路里：";
         
         //xxx
-        self.infoTypeNum.text = @"009099";
+        self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.calorieLevel.floatValue];
         
         //xxx 取出最近一周的数据进行显示
         showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
@@ -162,10 +163,6 @@
         [self showBarChart:showValues];
 
     }
-}
-
-- (IBAction)backBtn:(id)sender {
-
 }
 
 - (void)didReceiveMemoryWarning {
