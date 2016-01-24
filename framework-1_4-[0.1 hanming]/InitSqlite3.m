@@ -23,7 +23,7 @@
     [defaults setValue:@0 forKey:key]; //数据库不变了就删了这个条目
     
     if ([[defaults valueForKey:key] intValue]!=1) {
-        NSLog(@"we create the world!!!");
+        //NSlog(@"we create the world!!!");
         [self createPlanItemTable];
         [self createPlanHistoryTable];
         [self createJokeItemTable];
@@ -391,7 +391,7 @@
     [manager openDb:sqlFileName];
     NSArray * all = [manager executeQuery:sql];
     for(int i=0;i<all.count;i++){
-        NSLog(@"output item %i ",i);
+        //NSlog(@"output item %i ",i);
         Item *item = [Item new];
         item.content1 = [all[i] objectForKey:@"content1"];
         item.content2 = [all[i] objectForKey:@"content2"];
@@ -405,8 +405,8 @@
         item.sour = [all[i] objectForKey:@"sour"];
         item.numb = [all[i] objectForKey:@"numb"];
         item.clus = [all[i] objectForKey:@"clus"];
-        NSLog(@"succeed output a value:");
-        NSLog(@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@",item.content1,item.content2,item.content3,item.info, item.pref, item.effe, item.diff, item.inte, item.chan, item.sour, item.numb, item.clus);
+        //NSlog(@"succeed output a value:");
+        //NSlog(@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@",item.content1,item.content2,item.content3,item.info, item.pref, item.effe, item.diff, item.inte, item.chan, item.sour, item.numb, item.clus);
     }
     [manager close];
 }

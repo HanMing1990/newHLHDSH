@@ -92,8 +92,8 @@
         //取出最近一周的数据进行显示
         NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
         //NSlog(@"Iam here %@", originalSleepArrayFromDB);
-        
-        
+        NSMutableArray *showValues = [NSMutableArray new];
+        showValues = [self getArrayToDisplayinInfoVC:originalSleepArrayFromDB];
         
         [self showBarChart:showValues];
         
@@ -111,6 +111,8 @@
         //xxx 取出最近一周的数据进行显示
         NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
         //NSlog(@"Iam here %@", originalSleepArrayFromDB);
+        
+        
         for (int i=0; i<originalSleepArrayFromDB.count; i++) {
             NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"];
             NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"];
@@ -166,17 +168,66 @@
 }
 
 
-- (void) getArrayToDisplayinInfoVC:(NSArray *)originalArrayFromDB{
+- (NSMutableArray *) getArrayToDisplayinInfoVC:(NSArray *)originalArrayFromDB{
     //把 从数据库中取出近一周的数据 转化成要显示的x,y序列
-    NSMutableArray *newArray = [NSMutableArray new];
+    NSMutableArray *yArray = [NSMutableArray new];//要显示的y轴坐标序列
+    NSMutableArray *xArray = [NSMutableArray new];
+    
+    //NSDate *currentDate = [NSDate new];
+    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
+    
+    /*
+    NSCalendar * calender = [NSCalendar currentCalendar];
+    unsigned units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSDateComponents * components1 = [calender components: units fromDate:currentDate];
+    NSInteger currentDay = [components1 day];
+     */
+    
+    
     for (int i=0; i<originalArrayFromDB.count; i++) {
+        //这里有问题，time
+        /*
         NSDate * time = [originalArrayFromDB[i] objectForKey:@"time"]; //X轴
-        NSString * level = [originalArrayFromDB[i] objectForKey:@"level"]; //y轴
-        newArray addObject:[originalArrayFromDB[i] objectForKey:@"level"];
+        
+        NSDateComponents * components2 = [calender components: units fromDate:time];
+        NSInteger timeDay = [components2 day];
+         */
+        
+        //NSLog(@"this time is%@ and day is%d, current time is%@ and day is %d", time, timeDay, currentDate, currentDay);
+        
+        NSDate * time = [originalArrayFromDB[i] objectForKey:@"time"]; //X轴
+        NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:time]; //这样写有问题，但不知道为啥，
+        NSLog(@"时间间距 %f", timeInterval);
+        //NSString * level = [originalArrayFromDB[i] objectForKey:@"level"]; //y轴
+        
+        
+        /*
+        NSDate * time = [originalArrayFromDB[i] objectForKey:@"time"];
+        
+        NSLog(@"%@", time);
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        NSString *stringFromDate = [dateFormatter stringFromDate:time];
+        
+        NSLog(@"%@", stringFromDate);
+         */
+        
+        
+        
+        [yArray addObject:[originalArrayFromDB[i] objectForKey:@"level"]];
+        [xArray addObject:[originalArrayFromDB[i] objectForKey:@"time"]];
+        
+
     }
+    NSLog(@"要显示的y坐标：%@",yArray);
+    NSLog(@"要显示的x坐标：%@",xArray);
     
-    showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
     
+    NSLog(@"当前时刻：%@",currentDate);
+    return yArray;
+    //showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
     
 }
 /*

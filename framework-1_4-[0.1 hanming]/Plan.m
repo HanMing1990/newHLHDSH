@@ -531,6 +531,7 @@
     return newArray;
 }
 - (NSArray* )getSleepLevel{
+    //感觉取得时间有问题
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
