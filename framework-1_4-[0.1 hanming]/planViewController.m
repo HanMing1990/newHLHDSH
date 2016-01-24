@@ -58,6 +58,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //-------------------------------------------------------------------------
     //-1. 使用实现滚动
     [self.myScrollView addSubview:self.planCellView];
     // 设置UIScrollView的滚动范围（内容大小）
@@ -551,7 +552,6 @@
     [self presentViewController: SVC animated:YES completion:nil];
 }
 */
-
 
 
 /*

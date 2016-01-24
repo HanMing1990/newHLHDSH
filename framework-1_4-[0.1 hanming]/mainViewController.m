@@ -35,12 +35,14 @@
 
 @implementation mainViewController
 
-//滑动手势
-@synthesize leftSwipeGestureRecognizer, rightSwipeGestureRecognizer;
 
+@synthesize leftSwipeGestureRecognizer, rightSwipeGestureRecognizer;
+#pragma mark- 显示函数
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //滑动手势f
+    //滑动手势
+    //
+
     self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -48,12 +50,11 @@
     [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     
-    
+    //----------------------------------------------
     //初始化数据库
     InitSqlite3 *initsqlite3 = [InitSqlite3 new];
     [initsqlite3 createDataBase];
-    
-    
+
     //0. 获取用户的属性
     CurrentLevel * currentLevel = [CurrentLevel new];
     
@@ -196,6 +197,7 @@
     [self.flowerBtn setImage:[UIImage imageNamed:flowerImageName] forState:UIControlStateNormal];
     
     NSString *flowerStateStr = [NSString stringWithFormat:@"%d", flowerState];
+    
     //存花的状态以备后面页面使用(这有个潜在的问题：就是可能执行完了计划以后花的状态不变)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: flowerStateStr forKey:@"flowerState"];
@@ -216,6 +218,7 @@
 }
 
 
+#pragma mark- 辅助函数
 
 //滑动手势
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
@@ -239,7 +242,23 @@
 }
 
 
+//记录点击的按钮信息和翻页到info页面
+- (void)recordBtnTypeAndPresentNewInfoVC:(NSString *) BtnType{
+    //1.记录点击的按钮类型
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: BtnType forKey:@"infoType"];
+    [defaults synchronize];
+    //2.切换页面，记得先修修改要切换的页面的storyboard id
+    UIStoryboard *mainStoryboard = self.storyboard;
+    historyViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"infoViewController"];
+    //设置翻页效果
+    
+    [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController: SVC animated:NO completion:nil];
+}
 
+
+#pragma mark- 事件响应函数
 //点击压力值按钮
 - (IBAction)pressureBtn:(id)sender {
     [self recordBtnTypeAndPresentNewInfoVC:@"pressure"];
@@ -260,21 +279,6 @@
 }
 
 
-
-//记录点击的按钮信息和翻页到info页面
-- (void)recordBtnTypeAndPresentNewInfoVC:(NSString *) BtnType{
-    //1.记录点击的按钮类型
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: BtnType forKey:@"infoType"];
-    [defaults synchronize];
-    //2.切换页面，记得先修修改要切换的页面的storyboard id
-    UIStoryboard *mainStoryboard = self.storyboard;
-    historyViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"infoViewController"];
-    //设置翻页效果
-   
-    [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-    [self presentViewController: SVC animated:NO completion:nil];
-}
 
 - (IBAction)sendDataToServerBtnClicked:(id)sender {
     //1. 初始化网络对象
@@ -317,6 +321,12 @@
     [plan insertLevelItem];
 }
 
+- (IBAction)createPlan:(id)sender {
+    Plan *plan = [Plan new];
+    [plan createNewPlan];
+    
+    [plan getPlanHistory];
+}
 
 /*
 #pragma mark - Navigation
@@ -327,10 +337,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)createPlan:(id)sender {
-    Plan *plan = [Plan new];
-    [plan createNewPlan];
-    
-    [plan getPlanHistory];
-}
+
 @end
