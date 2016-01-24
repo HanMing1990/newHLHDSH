@@ -15,7 +15,7 @@
 
 @synthesize currentPlan;
 - (void) store{
-    NSLog(@"inter function store");
+    //NSlog(@"inter function store");
     //用currentplan的值给这个类赋值
     currentPlan = [CurrentPlan new];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -38,7 +38,7 @@
     [manager close];
 }
 - (NSArray* )getPlanHistory{
-    NSLog(@"inter function getPlanHistory");
+    //NSlog(@"inter function getPlanHistory");
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     KCDbManager* manager = [KCDbManager new];
@@ -47,7 +47,7 @@
     NSArray * array = [manager executeQuery:sql];
     NSMutableArray * newArray = [NSMutableArray new];
     NSDate *time0, *fintime4;
-    NSLog(@"get all PlanHistory %@",array);
+    //NSlog(@"get all PlanHistory %@",array);
     for (int i=0; i<array.count; i++) {
         time0 = [dateFormatter dateFromString:[array[i] objectForKey:@"time0"]];
         fintime4 = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime4"]];
@@ -55,12 +55,12 @@
         [array[i] setObject:time0 forKey:@"NSDateFormatedtime0"];
         [newArray addObject:array[i]];
     }
-    NSLog(@"get fit getPlanHistory %@",newArray);
+    //NSlog(@"get fit getPlanHistory %@",newArray);
     return newArray;
 
 }
 - (NSMutableDictionary* )getPlanHistoryItemByID:(NSNumber* )ID{
-    NSLog(@"inter function getPlanHistoryItem");
+    //NSlog(@"inter function getPlanHistoryItem");
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
@@ -69,7 +69,7 @@
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM History WHERE id = %@",ID];
     NSArray * array = [manager executeQuery:sql];
     NSDate *time0, *time1, *time2, *time3, *time4, *fintime1, *fintime2, *fintime3, *fintime4;
-    NSLog(@"get all getPlanHistoryItem %@",array);
+    //NSlog(@"get all getPlanHistoryItem %@",array);
     NSMutableDictionary* dic=[NSMutableDictionary new];
     if(array.count > 0) {
         time0 = [dateFormatter dateFromString:[array[0] objectForKey:@"time0"]];
@@ -99,7 +99,7 @@
     currentPlan.stress5 = [NSString stringWithFormat:@"%f",2.0];
 }
 - (void) update{
-    NSLog(@"inter function update weight of pref and effe and so on");
+    //NSlog(@"inter function update weight of pref and effe and so on");
     //先计算一下这个压力的效果啦
     //有两种思路，一种是计算整个计划的减压效果，另外一种呢是计划每个计划中单个的减压时间的效果呢
     //假如就很简单啦 就算整个计划的减压效果 stress0-stress5
@@ -172,13 +172,13 @@
     
 }
 - (Item *) getItemById:(NSNumber* )newId{
-    NSLog(@"in the get item by id %i",newId.intValue);
+    //NSlog(@"in the get item by id %i",newId.intValue);
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PlanList WHERE id = %i;",newId.intValue];
     NSArray * array = [manager executeQuery:sql];
     Item * item = nil;
-    //NSLog(@"get item by id %@ OUTPUT is %@",newId,array);
+    ////NSlog(@"get item by id %@ OUTPUT is %@",newId,array);
     if(array.count){
            item  = [[Item alloc] initWithcontent1:[array[0] objectForKey:@"content1"]
                                         content2:[array[0] objectForKey:@"content2"]
@@ -194,15 +194,15 @@
                                             clus:[array[0] objectForKey:@"clus"]
                                               ID:[array[0] objectForKey:@"id"]
                            ];
-        NSLog(@"get item by id %i succeed!",newId.intValue);
+        //NSlog(@"get item by id %i succeed!",newId.intValue);
     }else{
-        NSLog(@"get item by id %i failed!",newId.intValue);
+        //NSlog(@"get item by id %i failed!",newId.intValue);
     }
 
     return item;
 }
 - (void) createNewPlan{
-    NSLog(@"inter function createNewPlan");
+    //NSlog(@"inter function createNewPlan");
     //0.来，搞个随机数种子
     srandom(time(NULL));
     //0.1 准备实例化currentplan
@@ -237,9 +237,9 @@
     // 1.5 item累计权重分布计算
     for (int i=1; i<all.count; i++) {
         item_weight[i] = item_weight[i-1] + item_weight[i];
-        NSLog(@"weight: %f",item_weight[i]);
+        //NSlog(@"weight: %f",item_weight[i]);
     }
-    NSLog(@"fit number: %i",all.count);
+    //NSlog(@"fit number: %i",all.count);
     // 2 根据item的权重分布选择item
     int plan_item_number = 3;
     int selected_id[4] = {0};
@@ -248,7 +248,7 @@
         for (int k=0; k<3; k++) {
             float  rand = random() % 10000;
             rand = item_weight[all.count - 1] * rand / 10000.0;
-            NSLog(@"random %f",rand);
+            //NSlog(@"random %f",rand);
             for (int j=0; j < all.count; j++) {
                 if (item_weight[j] > rand) {
                     flag = j;
@@ -257,12 +257,12 @@
             }
             if ([self judge:flag round:k] == YES) {
                 //fit, just break
-                NSLog(@"select id: %i",flag);
+                //NSlog(@"select id: %i",flag);
                 break;
             }else if(k == 2){
                 // not fit, select another one
                 flag = random() % all.count;
-                NSLog(@"select id: %i",flag);
+                //NSlog(@"select id: %i",flag);
             }
             
         }
@@ -340,7 +340,7 @@
 }
 
 - (BOOL) judge:(int)newId round:(int) newRound{
-    NSLog(@"inter function judge");
+    //NSlog(@"inter function judge");
     //就是判断这个取的条目合不合适，还未实现
     
     return YES;
@@ -349,9 +349,9 @@
     srandom(time(NULL));
     int  rand = random() % SUM_OF_ITEM;
     Item *item = [self getItemById:[[NSNumber alloc] initWithInt:rand]];
-    NSLog(@"RANDOM select item id %i",rand);
+    //NSlog(@"RANDOM select item id %i",rand);
     if (item == nil) {
-        NSLog(@"FUCK ME ! 竟然没有random到，次处应有自我调用，历史证明，它不会是死循环滴");
+        //NSlog(@"FUCK ME ! 竟然没有random到，次处应有自我调用，历史证明，它不会是死循环滴");
         return [self selectItemRandomly];
     }else{
         return item;
@@ -361,7 +361,7 @@
     //for debug  (yangj)
     //return [self getItemById:[NSNumber numberWithInt:newId.intValue + 1]];
     
-    NSLog(@"inter function changeItemById");
+    //NSlog(@"inter function changeItemById");
     /*
      
      以旧换新啦
@@ -376,10 +376,10 @@
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PlanList WHERE clus = %@;",oldItem.clus];
     NSArray * array = [manager executeQuery:sql];
     Item * item = nil;
-    NSLog(@"change item by id %@",newId);
+    //NSlog(@"change item by id %@",newId);
     if(array.count){
         int  rand = random() % array.count;
-        NSLog(@"random select row %i form the all sum %i",rand,array.count);
+        //NSlog(@"random select row %i form the all sum %i",rand,array.count);
         item  = [[Item alloc] initWithcontent1:[array[rand] objectForKey:@"content1"]
                                       content2:[array[rand] objectForKey:@"content2"]
                                       content3:[array[rand] objectForKey:@"content3"]
@@ -394,10 +394,10 @@
                                           clus:[array[rand] objectForKey:@"clus"]
                                             ID:[array[rand] objectForKey:@"id"]
                  ];
-        NSLog(@"select similar item by  id %i succeed!",newId.intValue);
+        //NSlog(@"select similar item by  id %i succeed!",newId.intValue);
     }else{
-        NSLog(@"select similar item by  id %i failed!",newId.intValue);
-        NSLog(@"let's just select it randomly!");
+        //NSlog(@"select similar item by  id %i failed!",newId.intValue);
+        //NSlog(@"let's just select it randomly!");
         item = [self selectItemRandomly];
     }
     CurrentPlan * plan = [CurrentPlan new];
@@ -467,7 +467,7 @@
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM JokeList WHERE id = %i",rand];
     NSArray * array = [manager executeQuery:sql];
     if(array.count){
-        NSLog(@"get joke: %@",[array[0] objectForKey:@"sentence"]);
+        //NSlog(@"get joke: %@",[array[0] objectForKey:@"sentence"]);
         return [array[0] objectForKey:@"sentence"];
     }else{
         return [self getJokeItemRandomly];
@@ -481,7 +481,7 @@
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM PictureList WHERE id = %i",rand];
     NSArray * array = [manager executeQuery:sql];
     if(array.count){
-        NSLog(@"get picture: %@",[array[0] objectForKey:@"sentence"]);
+        //NSlog(@"get picture: %@",[array[0] objectForKey:@"sentence"]);
         return [NSString stringWithFormat:@"@@%@@@%@@@%@@@",[array[0] objectForKey:@"sentence"],[array[0] objectForKey:@"pictureName"],[array[0] objectForKey:@"type"]];
     }else{
         return [self getPictureItemRandomly];
@@ -517,17 +517,17 @@
     NSArray * array = [manager executeQuery:sql];
     
     NSMutableArray * newArray = [NSMutableArray new];
-    NSLog(@"get all StressLevel %@",array);
+    //NSlog(@"get all StressLevel %@",array);
     for (int i=0; i<array.count; i++) {
         NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
         //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
-        //NSLog(@"get time %@",time1);
+        ////NSlog(@"get time %@",time1);
         if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
             [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
             [newArray addObject:array[i]];
         }
     }
-    NSLog(@"get fit StressLevel %@",newArray);
+    //NSlog(@"get fit StressLevel %@",newArray);
     return newArray;
 }
 - (NSArray* )getSleepLevel{
@@ -540,18 +540,18 @@
     NSArray * array = [manager executeQuery:sql];
     [manager close];
     NSMutableArray * newArray = [NSMutableArray new];
-    NSLog(@"get all SleepLevel %@",array);
+    //NSlog(@"get all SleepLevel %@",array);
     for (int i=0; i<array.count; i++) {
          NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
         //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
-        //NSLog(@"get time %@",time1);
+        ////NSlog(@"get time %@",time1);
         if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
             [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
             [newArray addObject:array[i]];
         }
     }
     
-    NSLog(@"get fit SleepLevel %@",newArray);
+    //NSlog(@"get fit SleepLevel %@",newArray);
     return newArray;
 }
 - (NSArray* )getStepLevel{
@@ -564,18 +564,18 @@
     NSArray * array = [manager executeQuery:sql];
     [manager close];
     NSMutableArray * newArray = [NSMutableArray new];
-    NSLog(@"get all StepLevel %@",array);
+    //NSlog(@"get all StepLevel %@",array);
     for (int i=0; i<array.count; i++) {
          NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
         //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
-        //NSLog(@"get time %@",time1);
+        ////NSlog(@"get time %@",time1);
         if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
             [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
             [newArray addObject:array[i]];
         }
     }
     
-    NSLog(@"get fit StepLevel %@",newArray);
+    //NSlog(@"get fit StepLevel %@",newArray);
     return newArray;
 }
 - (NSArray* )getCalorieLevel{
@@ -588,18 +588,18 @@
     NSArray * array = [manager executeQuery:sql];
     [manager close];
     NSMutableArray * newArray = [NSMutableArray new];
-    NSLog(@"get all CalorieLevel %@",array);
+    //NSlog(@"get all CalorieLevel %@",array);
     for (int i=0; i<array.count; i++) {
          NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
         //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
-        //NSLog(@"get time %@",time1);
+        ////NSlog(@"get time %@",time1);
         if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
             [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
             [newArray addObject:array[i]];
         }
     }
     
-    NSLog(@"get fit CalorieLevel %@",newArray);
+    //NSlog(@"get fit CalorieLevel %@",newArray);
     return newArray;
 
 }

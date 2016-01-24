@@ -64,7 +64,7 @@
     NSString * topLabelText;
     //streeLevel还没确定时int还是float，如果时float，则需要将float映射成0～2再进行显示
     //yangj
-    NSLog(@"current level %i", currentLevel.stressLevel.intValue);
+    //NSlog(@"current level %i", currentLevel.stressLevel.intValue);
     switch (currentLevel.stressLevel.intValue) {
         case 0:
             weatherImgeName = @"sun";
@@ -87,16 +87,16 @@
     self.mainTopLabel.text = topLabelText;
     
     //压力值赋值 不一定是int
-    NSLog(@"current level %f", currentLevel.stressLevel.floatValue);
+    //NSlog(@"current level %f", currentLevel.stressLevel.floatValue);
     self.label1.text = currentLevel.stressLevel;
     //睡眠赋值 不一定是int
-    NSLog(@"current level %f", currentLevel.sleepLevel.floatValue);
+    //NSlog(@"current level %f", currentLevel.sleepLevel.floatValue);
     self.label2.text = currentLevel.sleepLevel;
     //计步赋值 不一定是int
-    NSLog(@"current level %f", currentLevel.stepLevel.floatValue);
+    //NSlog(@"current level %f", currentLevel.stepLevel.floatValue);
     self.label3.text = currentLevel.stepLevel;
     //卡路里赋值 不一定是int
-    NSLog(@"current level %f", currentLevel.calorieLevel.floatValue);
+    //NSlog(@"current level %f", currentLevel.calorieLevel.floatValue);
     self.label4.text = currentLevel.calorieLevel;
     
     
@@ -223,7 +223,7 @@
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        NSLog(@"你在往左面滑动～！");
+        //NSlog(@"你在往左面滑动～！");
         
         //切换页面，记得先修修改要切换的页面的storyboard id
         UIStoryboard *mainStoryboard = self.storyboard;
@@ -236,7 +236,7 @@
     }
     
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-        NSLog(@"你在往右面滑动～！");
+        //NSlog(@"你在往右面滑动～！");
     }
 }
 
@@ -302,10 +302,10 @@
     float calorieValueRandom = arc4random()%100;
     
     //1. 记录到数据库里， xxx
-    NSLog(@"stress %f", stressValueRandom);
-    NSLog(@"sleep %f", sleepValueRandom);
-    NSLog(@"step %f", stepValueRandom);
-    NSLog(@"calorie %f", calorieValueRandom);
+    //NSlog(@"stress %f", stressValueRandom);
+    //NSlog(@"sleep %f", sleepValueRandom);
+    //NSlog(@"step %f", stepValueRandom);
+    //NSlog(@"calorie %f", calorieValueRandom);
     
     CurrentLevel * currentLevel = [CurrentLevel new];
     currentLevel.stressLevel = [NSString stringWithFormat:@"%f",stressValueRandom];

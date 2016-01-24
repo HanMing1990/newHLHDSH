@@ -121,9 +121,9 @@
 
 - (id) init{
     if(self = [super init]){
-        NSLog(@"init at currentplan.m");
+        //NSlog(@"init at currentplan.m");
         if(![[NSFileManager defaultManager] fileExistsAtPath:[self filePath]]) {
-            NSLog(@"no such file at currentplan.m");
+            //NSlog(@"no such file at currentplan.m");
             do{
                 NSMutableDictionary * dic = [NSMutableDictionary dictionary];
                 have = [NSNumber numberWithBool:1];
@@ -223,12 +223,12 @@
                 [dic setObject:stress5 forKey:STRESS5];
                 [dic setObject:effect forKey:EFFECT];
                 if([dic writeToFile:[self filePath] atomically:YES]){
-                    NSLog(@"save succeed at currentplan.m");
+                    //NSlog(@"save succeed at currentplan.m");
                 }else{
-                    NSLog(@"save failed at currentplan.m");
+                    //NSlog(@"save failed at currentplan.m");
                 }
                 
-                NSLog(@"flag1 at currentplan.m");
+                //NSlog(@"flag1 at currentplan.m");
                 
             }while(0);
         }
@@ -341,17 +341,17 @@
         if([dic writeToFile:[self filePath] atomically:YES]){
             
             
-            NSLog(@"save succeed at currentplan.m");
+            //NSlog(@"save succeed at currentplan.m");
             
-            NSLog(@"%@",have);
-            NSLog(@"%@",done);
-            NSLog(@"%@",currentNumber);
-            NSLog(@"%@",id1);
-            NSLog(@"%@",id2);
-            NSLog(@"%@",id3);
-            NSLog(@"%@",id4);
+            //NSlog(@"%@",have);
+            //NSlog(@"%@",done);
+            //NSlog(@"%@",currentNumber);
+            //NSlog(@"%@",id1);
+            //NSlog(@"%@",id2);
+            //NSlog(@"%@",id3);
+            //NSlog(@"%@",id4);
         }else{
-            NSLog(@"save failed at currentplan.m");
+            //NSlog(@"save failed at currentplan.m");
         }
         
     }while(0);

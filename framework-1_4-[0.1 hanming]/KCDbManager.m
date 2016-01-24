@@ -17,13 +17,13 @@
 -(void)openDb:(NSString *)dbname{
     //取得数据库保存路径，通常保存沙盒Documents目录
     NSString *directory=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSLog(@"%@",directory);
+    //NSlog(@"%@",directory);
     NSString *filePath=[directory stringByAppendingPathComponent:dbname];
     //如果有数据库则直接打开，否则创建并打开（注意filePath是ObjC中的字符串，需要转化为C语言字符串类型）
     if (SQLITE_OK ==sqlite3_open(filePath.UTF8String, &_database)) {
-        NSLog(@"数据库打开成功!");
+        //NSlog(@"数据库打开成功!");
     }else{
-        NSLog(@"数据库打开失败!");
+        //NSlog(@"数据库打开失败!");
     }
 }
 
@@ -31,9 +31,9 @@
     char *error;
     //单步执行sql语句，用于插入、修改、删除
     if (SQLITE_OK!=sqlite3_exec(_database, sql.UTF8String, NULL, NULL,&error)) {
-        NSLog(@"执行SQL语句过程中发生错误！错误信息：%s",error);
+        //NSlog(@"执行SQL语句过程中发生错误！错误信息：%s",error);
     }else{
-        NSLog(@"执行SQL语句过程成功");
+        //NSlog(@"执行SQL语句过程成功");
     }
 }
 
@@ -55,7 +55,7 @@
             [rows addObject:dic];
         }
     }else{
-        NSLog(@"sql sentence is not right, reason: %s",sqlite3_errmsg(_database));
+        //NSlog(@"sql sentence is not right, reason: %s",sqlite3_errmsg(_database));
     }
     //释放句柄
     sqlite3_finalize(stmt);

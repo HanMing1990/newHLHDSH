@@ -45,9 +45,9 @@
 
 - (id) init{
     if(self = [super init]){
-        NSLog(@"init at currentplan.m");
+        //NSlog(@"init at currentplan.m");
         if(![[NSFileManager defaultManager] fileExistsAtPath:[self filePath]]) {
-            NSLog(@"no such file at currentplan.m");
+            //NSlog(@"no such file at currentplan.m");
             do{
                 NSMutableDictionary * dic = [NSMutableDictionary dictionary];
                 
@@ -74,12 +74,12 @@
                 [dic setObject:flowerLevel forKey:FLOWERLEVEL];
                 
                 if([dic writeToFile:[self filePath] atomically:YES]){
-                    NSLog(@"save succeed at currentplan.m");
+                    //NSlog(@"save succeed at currentplan.m");
                 }else{
-                    NSLog(@"save failed at currentplan.m");
+                    //NSlog(@"save failed at currentplan.m");
                 }
                 
-                NSLog(@"flag1 at currentplan.m");
+                //NSlog(@"flag1 at currentplan.m");
                 
             }while(0);
         }
@@ -117,20 +117,20 @@
         if([dic writeToFile:[self filePath] atomically:YES]){
             
             
-            NSLog(@"save succeed at currentplan.m");
+            //NSlog(@"save succeed at currentplan.m");
             
-            NSLog(@"%@",stressLevel);
-            NSLog(@"%@",stressTime);
-            NSLog(@"%@",stepLevel);
-            NSLog(@"%@",stepTime);
-            NSLog(@"%@",sleepLevel);
-            NSLog(@"%@",sleepTime);
-            NSLog(@"%@",calorieLevel);
-            NSLog(@"%@",calorieTime);
-            NSLog(@"%@",flowerLevel);
-            NSLog(@"%@",flowerTime);
+            //NSlog(@"%@",stressLevel);
+            //NSlog(@"%@",stressTime);
+            //NSlog(@"%@",stepLevel);
+            //NSlog(@"%@",stepTime);
+            //NSlog(@"%@",sleepLevel);
+            //NSlog(@"%@",sleepTime);
+            //NSlog(@"%@",calorieLevel);
+            //NSlog(@"%@",calorieTime);
+            //NSlog(@"%@",flowerLevel);
+            //NSlog(@"%@",flowerTime);
         }else{
-            NSLog(@"save failed at currentplan.m");
+            //NSlog(@"save failed at currentplan.m");
         }
         
     }while(0);
