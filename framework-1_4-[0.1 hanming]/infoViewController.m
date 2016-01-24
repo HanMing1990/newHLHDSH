@@ -89,16 +89,11 @@
         self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.sleepLevel.floatValue];
         
         
-        //xxx 取出最近一周的数据进行显示
+        //取出最近一周的数据进行显示
         NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
         //NSlog(@"Iam here %@", originalSleepArrayFromDB);
-        for (int i=0; i<originalSleepArrayFromDB.count; i++) {
-            NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"]; //X轴
-            NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"]; //y轴
-            //NSlog(@"detail:%@ and %@", time, level);
-        }
         
-        showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
+        
         
         [self showBarChart:showValues];
         
@@ -170,6 +165,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void) getArrayToDisplayinInfoVC:(NSArray *)originalArrayFromDB{
+    //把 从数据库中取出近一周的数据 转化成要显示的x,y序列
+    NSMutableArray *newArray = [NSMutableArray new];
+    for (int i=0; i<originalArrayFromDB.count; i++) {
+        NSDate * time = [originalArrayFromDB[i] objectForKey:@"time"]; //X轴
+        NSString * level = [originalArrayFromDB[i] objectForKey:@"level"]; //y轴
+        newArray addObject:[originalArrayFromDB[i] objectForKey:@"level"];
+    }
+    
+    showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
+    
+    
+}
 /*
 #pragma mark - Navigation
 
