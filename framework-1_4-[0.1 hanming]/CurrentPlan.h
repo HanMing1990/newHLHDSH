@@ -11,7 +11,7 @@
 @interface  CurrentPlan : NSObject{
     NSNumber* done;
     NSNumber* have;
-    NSNumber* number;
+    NSNumber* number; // 有多少个item
     NSNumber* currentNumber;
     NSNumber* id1;
     NSNumber* id2;
@@ -50,12 +50,12 @@
     NSString* output2;
     NSString* output3;
     NSString* output4;
-    NSString* stress0;
+    NSString* stress0; //初始的压力值
     NSString* stress1;
     NSString* stress2;
     NSString* stress3;
     NSString* stress4;
-    NSString* stress5;  //3 day after last day
+    NSString* stress5;  //3 day after last day plan结束时候的压力值
     NSString* effect;   //
 }
 @property(retain,nonatomic)    NSNumber* done;

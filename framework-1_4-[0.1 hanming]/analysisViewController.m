@@ -23,64 +23,11 @@
 
 
 //显示第三方库
-- (void) showLineChart:inputYValues{
+- (void) showLineChart{
     //1. 从HISTORY里面的到currentID(这个是计划的历史完成情况的planlist中的id)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentId            = [defaults valueForKey:HISTORYID];
     //2. 用id得到对应的字典
-    /*
-     {
-     NSDateFormatedFintime1 = "2016-01-21 08:10:34 +0000";
-     NSDateFormatedFintime2 = "2016-01-19 08:51:16 +0000";
-     NSDateFormatedFintime3 = "2016-01-19 08:51:16 +0000";
-     NSDateFormatedFintime4 = "2016-01-19 08:51:16 +0000";
-     NSDateFormatedTime0 = "2016-01-21 08:10:45 +0000";
-     NSDateFormatedTime1 = "2016-01-22 08:00:00 +0000";
-     NSDateFormatedTime2 = "2016-01-25 12:00:00 +0000";
-     NSDateFormatedTime3 = "2016-01-27 18:00:00 +0000";
-     NSDateFormatedTime4 = "2016-01-19 08:51:16 +0000";
-     currentNumber = 0;
-     done = 0;
-     effect = "26.000000";
-     fin1 = 0;
-     fin2 = 0;
-     fin3 = 0;
-     fin4 = 0;
-     fintime1 = "2016-01-21 16:10:34";
-     fintime2 = "2016-01-19 16:51:16";
-     fintime3 = "2016-01-19 16:51:16";
-     fintime4 = "2016-01-19 16:51:16";
-     flowerState = 0;
-     have = 1;
-     id = 3; //plan的id
-     id1 = 23; //item的id
-     id2 = 75;
-     id3 = 25;
-     id4 = 0;
-     number = 3;
-     output1 = "";
-     output2 = "";
-     output3 = "";
-     output4 = default;
-     stress0 = "25.000000";
-     stress1 = "25.000000";
-     stress2 = 0;
-     stress3 = "1.1";
-     stress4 = 0;
-     stress5 = "2.000000";
-     time0 = "2016-01-21 16:10:45";
-     time1 = "2016-01-22 16:00:00";
-     time2 = "2016-01-25 20:00:00";
-     time3 = "2016-01-28 02:00:00";
-     time4 = "2016-01-19 16:51:16";
-     type1 = 6;
-     type2 = 1;
-     type3 = 7;
-     type4 = 0;
-     }
-     */
-    
-    
     NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
     NSLog(@"xxxxxxxxxgetPlanHistoryItemByID %@",dic);
     //3. 得到上一周的压力情况，array每一个item是一个字典
@@ -93,11 +40,9 @@
         type = 1;
     }
      */
-    NSArray* array = [[Plan new] getStressLevel];
-    NSLog(@"get array for linechart%@",array);
     
     //准备显示在折线上的文字
-    Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];//plan中取id, 根据id取item,根据item取info
+    //Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];//plan中取id, 根据id取item,根据item取info
     //  item.info；//要显示的值
     
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
@@ -105,7 +50,7 @@
     self.lineChart.backgroundColor = [UIColor clearColor];
     
     
-    [self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"]]; //x坐标值
+    [self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]]; //x坐标值
     self.lineChart.showCoordinateAxis = YES;
     
     //Use yFixedValueMax and yFixedValueMin to Fix the Max and Min Y Value
@@ -128,7 +73,8 @@
      */
     
     // Line Chart #1
-    NSArray * data01Array = inputYValues;
+    NSMutableArray * data01Array = [self getYvaluesForLineChart:dic];
+    
     PNLineChartData *data01 = [PNLineChartData new];
     data01.dataTitle = @"压力值";
     data01.color = [UIColor blueColor];//曲线的颜色
@@ -188,14 +134,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //得到历史数据xxx
-    NSArray *showValues;
-    showValues = [[NSArray alloc] initWithObjects: @60., @60.1, @26.4, @20.0, @86.2, @27.2, @76.2, nil];
+    //NSArray *showValues;
+    //showValues = [[NSArray alloc] initWithObjects: @60., @60.1, @26.4, @20.0, @86.2, @27.2, @76.2, nil];
     
+    //得到一周的压力历史数据（舍弃）
+    /*
+    NSArray* originalArrayFromDB = [[Plan new] getStressLevel];
+    NSMutableArray *showValues = [NSMutableArray new];
+    showValues = [self getArrayToDisplayinInfoVC: originalArrayFromDB];
+    */
     
-    
-    [self showLineChart:showValues];
-    
-    
+    [self showLineChart];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -217,63 +166,106 @@
     [self presentViewController: SVC animated:NO completion:nil];
 }
 
+/*
+ {
+ NSDateFormatedFintime1 = "2016-01-21 08:10:34 +0000";
+ NSDateFormatedFintime2 = "2016-01-19 08:51:16 +0000";
+ NSDateFormatedFintime3 = "2016-01-19 08:51:16 +0000";
+ NSDateFormatedFintime4 = "2016-01-19 08:51:16 +0000";
+ 
+ NSDateFormatedTime0 = "2016-01-21 08:10:45 +0000";
+ NSDateFormatedTime1 = "2016-01-22 08:00:00 +0000";
+ NSDateFormatedTime2 = "2016-01-25 12:00:00 +0000";
+ NSDateFormatedTime3 = "2016-01-27 18:00:00 +0000";
+ NSDateFormatedTime4 = "2016-01-19 08:51:16 +0000";
+ 
+ currentNumber = 0;
+ done = 0;
+ effect = "26.000000";
+ fin1 = 0;
+ fin2 = 0;
+ fin3 = 0;
+ fin4 = 0;
+ 
+ fintime1 = "2016-01-21 16:10:34";
+ fintime2 = "2016-01-19 16:51:16";
+ fintime3 = "2016-01-19 16:51:16";
+ fintime4 = "2016-01-19 16:51:16";
+ 
+ flowerState = 0;
+ have = 1;
+ id = 3; //plan的id
+ 
+ id1 = 23; //item的id
+ id2 = 75;
+ id3 = 25;
+ id4 = 0;
+ 
+ number = 3;
+ output1 = "";
+ output2 = "";
+ output3 = "";
+ output4 = default;
+ 
+ stress0 = "25.000000";
+ stress1 = "25.000000";
+ stress2 = 0;
+ stress3 = "1.1";
+ stress4 = 0;
+ stress5 = "2.000000";
+ 
+ time0 = "2016-01-21 16:10:45";
+ time1 = "2016-01-22 16:00:00";
+ time2 = "2016-01-25 20:00:00";
+ time3 = "2016-01-28 02:00:00";
+ time4 = "2016-01-19 16:51:16";
+ 
+ type1 = 6;
+ type2 = 1;
+ type3 = 7;
+ type4 = 0;
+ }
+ */
 
-- (NSMutableArray *) getArrayToDisplayinInfoVC:(NSArray *)originalArrayFromDB{
-    //把 从数据库中取出近一周的数据 转化成要显示的x,y序列
-    //一天有多个数据取得是和
+
+
+- (NSMutableArray *) getYvaluesForLineChart: (NSMutableDictionary*) planHistoryDict{
+    //0. 得到一共有几个item
+    NSNumber* number = [planHistoryDict objectForKey:@"number"];
     
+    //1. 得到时间
+    NSDate *time0 = [planHistoryDict objectForKey:@"time0"];
+    NSDate *time1 = [planHistoryDict objectForKey:@"time1"];
+    NSDate *time2 = [planHistoryDict objectForKey:@"time2"];
+    NSDate *time3 = [planHistoryDict objectForKey:@"time3"];
+    NSDate *time4 = [planHistoryDict objectForKey:@"time4"];
     
-    //NSLog(@"original data %@", originalArrayFromDB);
+    //2. 得到stress的值
+    NSString *stress0 = [planHistoryDict objectForKey:@"stress0"];
+    NSString *stress1 = [planHistoryDict objectForKey:@"stress1"];
+    NSString *stress2 = [planHistoryDict objectForKey:@"stress2"];
+    NSString *stress3 = [planHistoryDict objectForKey:@"stress3"];
+    NSString *stress4 = [planHistoryDict objectForKey:@"stress4"];
+    NSString *stress5 = [planHistoryDict objectForKey:@"stress5"];
     
+    //3. 将stress转化成fLoat
+    NSNumber *stressFloat0 = [NSNumber numberWithFloat:[stress0 floatValue]];
+    NSNumber *stressFloat1 = [NSNumber numberWithFloat:[stress1 floatValue]];
+    NSNumber *stressFloat2 = [NSNumber numberWithFloat:[stress2 floatValue]];
+    NSNumber *stressFloat3 = [NSNumber numberWithFloat:[stress3 floatValue]];
+    NSNumber *stressFloat4 = [NSNumber numberWithFloat:[stress4 floatValue]];
+    NSNumber *stressFloat5 = [NSNumber numberWithFloat:[stress5 floatValue]];
     
-    NSMutableArray *yArray = [NSMutableArray new];//要显示的y轴坐标序列
+    //4. 截取一部分,0 5肯定在，一个是其实压力值，一个是结束压力值
+    NSArray *YValuesOrigin = [[NSArray alloc]initWithObjects:stressFloat0, stressFloat1, stressFloat2, stressFloat3, stressFloat4, nil];
+    NSMutableArray *YValues = [NSMutableArray arrayWithArray: [YValuesOrigin subarrayWithRange:NSMakeRange(0, [number intValue]+1)]];
+    [YValues addObject:stressFloat5];
     
-    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
-    
-    //如果字典需要修改要用mutable 而不是用NSDictionary
-    NSMutableDictionary * sumDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:@0, @1, @0, @2, @0, @3, @0, @4, @0, @5, @0, @6, @0, @7, nil];//用来收集同一天的时间
-    
-    //NSLog(@"sumDict%@", sumDict);
-    for (int i=0; i<originalArrayFromDB.count; i++) {
-        //这里有问题，time
-        NSDate * time = [originalArrayFromDB[i] objectForKey:@"NSDateFormatedTime"]; //X轴
-        NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:time];
-        //NSLog(@"时间间距 %f", timeInterval);
-        
-        int daysNumFromToday;
-        daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
-        
-        NSNumber *myKey  = [NSNumber numberWithInt:(7-daysNumFromToday)];
-        NSNumber *v1 = [sumDict objectForKey: myKey];
-        NSNumber *v2 = [originalArrayFromDB[i] objectForKey:@"level"];
-        NSNumber *sum = [NSNumber numberWithFloat:([v1 floatValue]+[v2 floatValue])];
-        
-        
-        [sumDict setObject:sum forKey:myKey];
-        
-        //NSString * level = [originalArrayFromDB[i] objectForKey:@"level"]; //y轴
-        //[yArray addObject:[originalArrayFromDB[i] objectForKey:@"level"]];
-        //[xArray addObject:[originalArrayFromDB[i] objectForKey:@"time"]];
-        
-        //NSLog(@"current sumDict, %@", sumDict);
-        
-    }
-    
-    //NSLog(@"要显示的x坐标：%@",xArray);
-    //NSLog(@"当前时刻：%@",currentDate);
-    
-    NSArray *allMyKeys = [[NSArray alloc]initWithObjects:@1, @2, @3, @4 ,@5, @6, @7, nil];
-    
-    for(NSNumber *currentKey in allMyKeys)
-    {
-        [yArray addObject:[sumDict objectForKey:currentKey]];
-    }
-    
-    //NSLog(@"要显示的y坐标：%@",yArray);
-    return yArray;
-    //showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
-    
+    return YValues;
 }
+
+
+
 
 /*
 #pragma mark - Navigation
