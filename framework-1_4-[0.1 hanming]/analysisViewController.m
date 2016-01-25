@@ -50,7 +50,10 @@
     self.lineChart.backgroundColor = [UIColor clearColor];
     
     
-    [self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]]; //x坐标值
+    //[self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]]; //x坐标值
+    NSMutableArray * XLabels = [self getXvaluesForLineChart:dic];
+    [self.lineChart setXLabels:XLabels];
+    
     self.lineChart.showCoordinateAxis = YES;
     
     //Use yFixedValueMax and yFixedValueMin to Fix the Max and Min Y Value
@@ -233,13 +236,6 @@
     //0. 得到一共有几个item
     NSNumber* number = [planHistoryDict objectForKey:@"number"];
     
-    //1. 得到时间
-    NSDate *time0 = [planHistoryDict objectForKey:@"time0"];
-    NSDate *time1 = [planHistoryDict objectForKey:@"time1"];
-    NSDate *time2 = [planHistoryDict objectForKey:@"time2"];
-    NSDate *time3 = [planHistoryDict objectForKey:@"time3"];
-    NSDate *time4 = [planHistoryDict objectForKey:@"time4"];
-    
     //2. 得到stress的值
     NSString *stress0 = [planHistoryDict objectForKey:@"stress0"];
     NSString *stress1 = [planHistoryDict objectForKey:@"stress1"];
@@ -264,6 +260,34 @@
     return YValues;
 }
 
+
+- (NSMutableArray *) getXvaluesForLineChart: (NSMutableDictionary*) planHistoryDict{
+    //0. 得到一共有几个item
+    NSNumber* number = [planHistoryDict objectForKey:@"number"];
+    
+    //1. 得到时间
+    NSDate *time0d = [planHistoryDict objectForKey:@"NSDateFormatedTime0"];
+    NSDate *time1d = [planHistoryDict objectForKey:@"NSDateFormatedTime1"];
+    NSDate *time2d = [planHistoryDict objectForKey:@"NSDateFormatedTime2"];
+    NSDate *time3d = [planHistoryDict objectForKey:@"NSDateFormatedTime3"];
+    NSDate *time4d = [planHistoryDict objectForKey:@"NSDateFormatedTime4"];
+    NSString *lasttimename = [NSString stringWithFormat:@"NSDateFormatedTime%@", number];
+    NSDate *time5d =[[planHistoryDict objectForKey:lasttimename] dateByAddingTimeInterval:3*60*60*24];
+    
+    //2. 转换成字符串类型
+    NSString * time0 = [NSString stringWithFormat:@"%@", time0d];
+    NSString * time1 = [NSString stringWithFormat:@"%@", time1d];
+    NSString * time2 = [NSString stringWithFormat:@"%@", time2d];
+    NSString * time3 = [NSString stringWithFormat:@"%@", time3d];
+    NSString * time4 = [NSString stringWithFormat:@"%@", time4d];
+    NSString * time5 = [NSString stringWithFormat:@"%@", time5d];
+    
+    //4. 截取一部分,0 5肯定在，一个是其实压力值，一个是结束压力值
+    NSArray *XValuesOrigin = [[NSArray alloc]initWithObjects:time0, time1, time2, time3, time4, nil];
+    NSMutableArray *XValues = [NSMutableArray arrayWithArray: [XValuesOrigin subarrayWithRange:NSMakeRange(0, [number intValue]+1)]];
+    [XValues addObject:time5];
+    return XValues;
+}
 
 
 
