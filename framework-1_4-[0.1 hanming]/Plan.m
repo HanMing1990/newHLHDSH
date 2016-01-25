@@ -534,7 +534,7 @@
     //感觉取得时间有问题
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];
+    NSDate* sevenDaysBefore = [[NSDate alloc] initWithTimeIntervalSinceNow:-3600 * 24 * 7];//如果不是一周就改这里
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM LevelList WHERE type = 2"];
@@ -546,7 +546,7 @@
          NSDate * time1 = [dateFormatter dateFromString:[array[i] objectForKey:@"time"]];
         //NSDate * time1 = [NSDate dateWithTimeIntervalSince1970:[[array[i] objectForKey:@"time"] doubleValue]];
         ////NSlog(@"get time %@",time1);
-        if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {
+        if ([time1 compare:sevenDaysBefore] == NSOrderedDescending) {//比较大小
             [array[i] setObject:time1 forKey:@"NSDateFormatedTime"];
             [newArray addObject:array[i]];
         }

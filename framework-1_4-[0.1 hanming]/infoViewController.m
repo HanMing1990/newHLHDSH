@@ -194,8 +194,8 @@
          */
         
         //NSLog(@"this time is%@ and day is%d, current time is%@ and day is %d", time, timeDay, currentDate, currentDay);
-        
-        NSDate * time = [originalArrayFromDB[i] objectForKey:@"time"]; //X轴
+        NSLog(@"%@", originalArrayFromDB[i]);
+        NSDate * time = [originalArrayFromDB[i] objectForKey:@"NSDateFormatedTime"]; //X轴
         NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:time]; //这样写有问题，但不知道为啥，
         NSLog(@"时间间距 %f", timeInterval);
         //NSString * level = [originalArrayFromDB[i] objectForKey:@"level"]; //y轴
