@@ -77,7 +77,6 @@
     //NSlog(@"sleepLevel : %@",currentLevel.sleepLevel);
     
     //1. 判断是由哪个按钮跳转过来的
-    NSArray *showValues;
     NSString *infoType = [[NSUserDefaults standardUserDefaults] valueForKey:@"infoType"];
     Plan *currentPlan = [[Plan alloc]init];
     
@@ -88,12 +87,11 @@
         self.infoTypeText.text = @"睡眠：";
         self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.sleepLevel.floatValue];
         
-        
         //取出最近一周的数据进行显示
         NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
         //NSlog(@"Iam here %@", originalSleepArrayFromDB);
         NSMutableArray *showValues = [NSMutableArray new];
-        showValues = [self getArrayToDisplayinInfoVC:originalSleepArrayFromDB];
+        showValues = [self getArrayToDisplayinInfoVC: originalSleepArrayFromDB];
         
         [self showBarChart:showValues];
         
@@ -104,24 +102,13 @@
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"image"];
         self.infoTypeText.text = @"压力值：";
-        
-        //xxx
         self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.stressLevel.floatValue];
         
-        //xxx 取出最近一周的数据进行显示
-        NSArray *originalSleepArrayFromDB = [currentPlan getSleepLevel];
+        //取出最近一周的数据进行显示
+        NSArray *originalStressArrayFromDB = [currentPlan getStressLevel];
         //NSlog(@"Iam here %@", originalSleepArrayFromDB);
-        
-        
-        for (int i=0; i<originalSleepArrayFromDB.count; i++) {
-            NSDate * time = [originalSleepArrayFromDB[i] objectForKey:@"time"];
-            NSString * level = [originalSleepArrayFromDB[i] objectForKey:@"level"];
-            //NSlog(@"detail:%@ and %@", time, level);
-        }
-        
-        
-        showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
-        
+        NSMutableArray *showValues = [NSMutableArray new];
+        showValues = [self getArrayToDisplayinInfoVC:originalStressArrayFromDB];
         
         [self showBarChart:showValues];
 
@@ -132,13 +119,12 @@
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"zhe"];
         self.infoTypeText.text = @"步数：";
-        
-        //xxx
         self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.stepLevel.floatValue];
         
-        //xxx 取出最近一周的数据进行显示
-        showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
-        
+        //取出最近一周的数据进行显示
+        NSArray *originalSteprrayFromDB = [currentPlan getStepLevel];
+        NSMutableArray *showValues = [NSMutableArray new];
+        showValues = [self getArrayToDisplayinInfoVC: originalSteprrayFromDB];
         
         [self showBarChart:showValues];
         
@@ -150,12 +136,12 @@
         //修改info显示的信息
         self.infoTyepImage.image = [UIImage imageNamed:@"zhe"];
         self.infoTypeText.text = @"卡路里：";
-        
-        //xxx
         self.infoTypeNum.text = [NSString stringWithFormat:@"%f", currentLevel.calorieLevel.floatValue];
         
-        //xxx 取出最近一周的数据进行显示
-        showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
+        //取出最近一周的数据进行显示
+        NSArray *originalCalorieArrayFromDB = [currentPlan getCalorieLevel];
+        NSMutableArray *showValues = [NSMutableArray new];
+        showValues = [self getArrayToDisplayinInfoVC: originalCalorieArrayFromDB];
         
         [self showBarChart:showValues];
 
@@ -170,62 +156,56 @@
 
 - (NSMutableArray *) getArrayToDisplayinInfoVC:(NSArray *)originalArrayFromDB{
     //把 从数据库中取出近一周的数据 转化成要显示的x,y序列
-    NSMutableArray *yArray = [NSMutableArray new];//要显示的y轴坐标序列
-    NSMutableArray *xArray = [NSMutableArray new];
+    //一天有多个数据取得是和
     
-    //NSDate *currentDate = [NSDate new];
+    
+    //NSLog(@"original data %@", originalArrayFromDB);
+    
+    
+    NSMutableArray *yArray = [NSMutableArray new];//要显示的y轴坐标序列
+    
     NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
     
-    /*
-    NSCalendar * calender = [NSCalendar currentCalendar];
-    unsigned units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-    NSDateComponents * components1 = [calender components: units fromDate:currentDate];
-    NSInteger currentDay = [components1 day];
-     */
+    //如果字典需要修改要用mutable 而不是用NSDictionary
+    NSMutableDictionary * sumDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:@0, @1, @0, @2, @0, @3, @0, @4, @0, @5, @0, @6, @0, @7, nil];//用来收集同一天的时间
     
-    
+    //NSLog(@"sumDict%@", sumDict);
     for (int i=0; i<originalArrayFromDB.count; i++) {
         //这里有问题，time
-        /*
-        NSDate * time = [originalArrayFromDB[i] objectForKey:@"time"]; //X轴
-        
-        NSDateComponents * components2 = [calender components: units fromDate:time];
-        NSInteger timeDay = [components2 day];
-         */
-        
-        //NSLog(@"this time is%@ and day is%d, current time is%@ and day is %d", time, timeDay, currentDate, currentDay);
-        NSLog(@"%@", originalArrayFromDB[i]);
         NSDate * time = [originalArrayFromDB[i] objectForKey:@"NSDateFormatedTime"]; //X轴
-        NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:time]; //这样写有问题，但不知道为啥，
-        NSLog(@"时间间距 %f", timeInterval);
+        NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:time];
+        //NSLog(@"时间间距 %f", timeInterval);
+        
+        int daysNumFromToday;
+        daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
+        
+        NSNumber *myKey  = [NSNumber numberWithInt:(7-daysNumFromToday)];
+        NSNumber *v1 = [sumDict objectForKey: myKey];
+        NSNumber *v2 = [originalArrayFromDB[i] objectForKey:@"level"];
+        NSNumber *sum = [NSNumber numberWithFloat:([v1 floatValue]+[v2 floatValue])];
+        
+    
+        [sumDict setObject:sum forKey:myKey];
+        
         //NSString * level = [originalArrayFromDB[i] objectForKey:@"level"]; //y轴
+        //[yArray addObject:[originalArrayFromDB[i] objectForKey:@"level"]];
+        //[xArray addObject:[originalArrayFromDB[i] objectForKey:@"time"]];
         
-        
-        /*
-        NSDate * time = [originalArrayFromDB[i] objectForKey:@"time"];
-        
-        NSLog(@"%@", time);
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        
-        NSString *stringFromDate = [dateFormatter stringFromDate:time];
-        
-        NSLog(@"%@", stringFromDate);
-         */
-        
-        
-        
-        [yArray addObject:[originalArrayFromDB[i] objectForKey:@"level"]];
-        [xArray addObject:[originalArrayFromDB[i] objectForKey:@"time"]];
-        
+        //NSLog(@"current sumDict, %@", sumDict);
 
     }
-    NSLog(@"要显示的y坐标：%@",yArray);
-    NSLog(@"要显示的x坐标：%@",xArray);
     
+    //NSLog(@"要显示的x坐标：%@",xArray);
+    //NSLog(@"当前时刻：%@",currentDate);
     
-    NSLog(@"当前时刻：%@",currentDate);
+    NSArray *allMyKeys = [[NSArray alloc]initWithObjects:@1, @2, @3, @4 ,@5, @6, @7, nil];
+    
+    for(NSNumber *currentKey in allMyKeys)
+    {
+        [yArray addObject:[sumDict objectForKey:currentKey]];
+    }
+    
+    //NSLog(@"要显示的y坐标：%@",yArray);
     return yArray;
     //showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
     

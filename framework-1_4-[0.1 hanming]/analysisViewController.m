@@ -79,6 +79,8 @@
      type4 = 0;
      }
      */
+    
+    
     NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
     NSLog(@"xxxxxxxxxgetPlanHistoryItemByID %@",dic);
     //3. 得到上一周的压力情况，array每一个item是一个字典
@@ -92,14 +94,17 @@
     }
      */
     NSArray* array = [[Plan new] getStressLevel];
-    NSLog(@"get array %@",array);
+    NSLog(@"get array for linechart%@",array);
     
+    //准备显示在折线上的文字
     Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];//plan中取id, 根据id取item,根据item取info
     //  item.info；//要显示的值
     
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
     self.lineChart.yLabelFormat = @"%1.1f";
     self.lineChart.backgroundColor = [UIColor clearColor];
+    
+    
     [self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"]]; //x坐标值
     self.lineChart.showCoordinateAxis = YES;
     
@@ -212,6 +217,63 @@
     [self presentViewController: SVC animated:NO completion:nil];
 }
 
+
+- (NSMutableArray *) getArrayToDisplayinInfoVC:(NSArray *)originalArrayFromDB{
+    //把 从数据库中取出近一周的数据 转化成要显示的x,y序列
+    //一天有多个数据取得是和
+    
+    
+    //NSLog(@"original data %@", originalArrayFromDB);
+    
+    
+    NSMutableArray *yArray = [NSMutableArray new];//要显示的y轴坐标序列
+    
+    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
+    
+    //如果字典需要修改要用mutable 而不是用NSDictionary
+    NSMutableDictionary * sumDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:@0, @1, @0, @2, @0, @3, @0, @4, @0, @5, @0, @6, @0, @7, nil];//用来收集同一天的时间
+    
+    //NSLog(@"sumDict%@", sumDict);
+    for (int i=0; i<originalArrayFromDB.count; i++) {
+        //这里有问题，time
+        NSDate * time = [originalArrayFromDB[i] objectForKey:@"NSDateFormatedTime"]; //X轴
+        NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:time];
+        //NSLog(@"时间间距 %f", timeInterval);
+        
+        int daysNumFromToday;
+        daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
+        
+        NSNumber *myKey  = [NSNumber numberWithInt:(7-daysNumFromToday)];
+        NSNumber *v1 = [sumDict objectForKey: myKey];
+        NSNumber *v2 = [originalArrayFromDB[i] objectForKey:@"level"];
+        NSNumber *sum = [NSNumber numberWithFloat:([v1 floatValue]+[v2 floatValue])];
+        
+        
+        [sumDict setObject:sum forKey:myKey];
+        
+        //NSString * level = [originalArrayFromDB[i] objectForKey:@"level"]; //y轴
+        //[yArray addObject:[originalArrayFromDB[i] objectForKey:@"level"]];
+        //[xArray addObject:[originalArrayFromDB[i] objectForKey:@"time"]];
+        
+        //NSLog(@"current sumDict, %@", sumDict);
+        
+    }
+    
+    //NSLog(@"要显示的x坐标：%@",xArray);
+    //NSLog(@"当前时刻：%@",currentDate);
+    
+    NSArray *allMyKeys = [[NSArray alloc]initWithObjects:@1, @2, @3, @4 ,@5, @6, @7, nil];
+    
+    for(NSNumber *currentKey in allMyKeys)
+    {
+        [yArray addObject:[sumDict objectForKey:currentKey]];
+    }
+    
+    //NSLog(@"要显示的y坐标：%@",yArray);
+    return yArray;
+    //showValues = [[NSArray alloc] initWithObjects: @"1",@"2",@"3",@"4",@"1",@"1",@"2", nil];
+    
+}
 
 /*
 #pragma mark - Navigation
