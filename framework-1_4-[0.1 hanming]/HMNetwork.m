@@ -35,13 +35,17 @@
 
 
 -(void) sendData: (NSMutableDictionary *)param{
-    //0. 处理下param
-    NSLog(@"param:  %@", param);
-    //NSMutableDictionary *dataToBeSend = [self convertDataToBeSend:param];
     
-    //NSMutableDictionary *dataToBeSend = [NSMutableDictionary new];
-    //[dataToBeSend setObject:@"xxx" forKey:@"yyy"];
-
+    //0. 加上account和上传的时间
+    //0.1 取出用户的账号(存在静态变量里)
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *account = [defaults valueForKey:@"account"];
+    
+    //0.2 取出上传的时间
+    NSDate * now = [NSDate new];
+    [param setObject:account forKey:@"userAccount"];
+    [param setObject:now forKey:@"updateTime"];
+    
     
     //1. 初始化request
     MKNetworkRequest *request = [engine requestWithPath: @"/" params: param httpMethod:@"POST"];
@@ -50,6 +54,7 @@
         NSString *data = [operation responseAsString];
         NSLog(@"content is %@",data);
     }];
+    
     //开始网络传输
     [engine startRequest:request];
 }

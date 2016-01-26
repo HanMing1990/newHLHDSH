@@ -287,8 +287,6 @@
     [hmnetwork sendPlanHistory];
     //[hmnetwork sendPlanItem];
     
-    
-    
 }
 - (IBAction)generateSensorData:(id)sender {
     
