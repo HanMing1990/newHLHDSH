@@ -505,7 +505,9 @@
                 //yangj 设置文本，当然，如果需要的话也可以设置其他的比如做了什么事情什么的
                 // text display text
                 if (chartData.showPointLabel == YES) {
-                    [gradePathArray addObject:[self createPointLabelFor:chartData.getData(i).rawY pointCenter:middlePoint width:inflexionWidth withChartData:chartData]];
+                    //[gradePathArray addObject:[self createPointLabelFor:chartData.getData(i).rawY pointCenter:middlePoint width:inflexionWidth withChartData:chartData]];
+                    [gradePathArray addObject:[self createNSStringPointLabelFor:[self.textArraySideLine objectAtIndex:i] pointCenter:middlePoint width:inflexionWidth withChartData:chartData]];
+                    
                 }
                 
                 if ( i != 0 ) {
@@ -1045,6 +1047,42 @@
 
     return textLayer;
 }
+
+//hanming韩明 修改显示label的函数使他能够接受string类型
+-(CATextLayer*) createNSStringPointLabelFor:(NSString*)grade pointCenter:(CGPoint)pointCenter width:(CGFloat)width withChartData:(PNLineChartData*)chartData
+{
+    CATextLayer *textLayer = [[CATextLayer alloc]init];
+    [textLayer setAlignmentMode:kCAAlignmentCenter];
+    [textLayer setForegroundColor:[chartData.pointLabelColor CGColor]];
+    [textLayer setBackgroundColor:[[[UIColor whiteColor] colorWithAlphaComponent:0.8] CGColor]];
+    [textLayer setCornerRadius:textLayer.fontSize/8.0];
+    
+    if (chartData.pointLabelFont != nil) {
+        [textLayer setFont:(__bridge CFTypeRef)(chartData.pointLabelFont)];
+        textLayer.fontSize = [chartData.pointLabelFont pointSize];
+    }
+    
+    CGFloat textHeight = textLayer.fontSize * 1.1;
+    CGFloat textWidth = width*8;
+    CGFloat textStartPosY;
+    
+    textStartPosY = pointCenter.y - textLayer.fontSize;
+    
+    [self.layer addSublayer:textLayer];
+    
+    if (chartData.pointLabelFormat != nil) {
+        [textLayer setString: grade];
+    } else {
+        [textLayer setString: grade];
+    }
+    
+    [textLayer setFrame:CGRectMake(0, 0, textWidth,  textHeight)];
+    [textLayer setPosition:CGPointMake(pointCenter.x, textStartPosY)];
+    textLayer.contentsScale = [UIScreen mainScreen].scale;
+    
+    return textLayer;
+}
+
 
 -(CABasicAnimation*)fadeAnimation
 {
