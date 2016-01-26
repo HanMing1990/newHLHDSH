@@ -22,6 +22,8 @@
 
 @property (nonatomic) NSArray *xLabels;
 @property (nonatomic) NSArray *yLabels;
+@property (nonatomic) NSMutableArray *textArraySideLine; //这个存计划的文本内容
+
 
 /**
  * Array of `LineChartData` objects, one for each line.

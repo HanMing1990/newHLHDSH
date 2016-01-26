@@ -86,8 +86,19 @@
     data01.inflexionPointStyle = PNLineChartPointStyleTriangle;
     
     // 在线上显示文字（默认显示数字，显示文字的话要修改PNLineChart的类函数）
+    NSMutableArray * textArraySideLine = [NSMutableArray new];
+    [textArraySideLine addObject: @"计划一"];
+    [textArraySideLine addObject: @"计划2"];
+    [textArraySideLine addObject: @"计划一33"];
+    [textArraySideLine addObject: @"计划4一"];
+    [textArraySideLine addObject: @"计划一5"];
+    self.lineChart.textArraySideLine = textArraySideLine;
+    
     // 这句话的作用是设置pointlabel的文本
     data01.showPointLabel = YES;
+    
+    
+    
     //这个文本的格式可在createPointLabelFor函数中重写，当然可以设置如下的字段
     //data01.pointLabelFont =
     //data01.pointLabelFormat =
