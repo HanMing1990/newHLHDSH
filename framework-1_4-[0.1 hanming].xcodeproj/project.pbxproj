@@ -124,6 +124,8 @@
 		2E913D771C451A6A008CE648 /* exe2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D761C451A6A008CE648 /* exe2ViewController.m */; };
 		2E913D7A1C451A7A008CE648 /* exe3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D791C451A7A008CE648 /* exe3ViewController.m */; };
 		2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D7C1C451A89008CE648 /* exe4ViewController.m */; };
+		2EA59A731C570B1F003D0FAC /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA59A721C570B1F003D0FAC /* loginViewController.m */; };
+		2EA59A761C570C6E003D0FAC /* signinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA59A751C570C6E003D0FAC /* signinViewController.m */; };
 		2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9D6B81C3D47570076381A /* infoViewController.m */; };
 		2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB9D7031C3F5C580076381A /* libsqlite3.tbd */; };
 		2EFBE3461C3A8392009BCDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3451C3A8392009BCDED /* main.m */; };
@@ -300,6 +302,10 @@
 		2E913D791C451A7A008CE648 /* exe3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe3ViewController.m; sourceTree = "<group>"; };
 		2E913D7B1C451A89008CE648 /* exe4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe4ViewController.h; sourceTree = "<group>"; };
 		2E913D7C1C451A89008CE648 /* exe4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe4ViewController.m; sourceTree = "<group>"; };
+		2EA59A711C570B1F003D0FAC /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
+		2EA59A721C570B1F003D0FAC /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		2EA59A741C570C6E003D0FAC /* signinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signinViewController.h; sourceTree = "<group>"; };
+		2EA59A751C570C6E003D0FAC /* signinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signinViewController.m; sourceTree = "<group>"; };
 		2EB9D6B71C3D47570076381A /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		2EB9D6B81C3D47570076381A /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
 		2EB9D7031C3F5C580076381A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -563,6 +569,10 @@
 				2E36BD431C4F2ABB004416AC /* HMNetwork.m */,
 				2E36BE371C4F7610004416AC /* exe7ViewController.h */,
 				2E36BE381C4F7610004416AC /* exe7ViewController.m */,
+				2EA59A711C570B1F003D0FAC /* loginViewController.h */,
+				2EA59A721C570B1F003D0FAC /* loginViewController.m */,
+				2EA59A741C570C6E003D0FAC /* signinViewController.h */,
+				2EA59A751C570C6E003D0FAC /* signinViewController.m */,
 			);
 			path = "framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
@@ -737,6 +747,7 @@
 				2E36BDFC1C4F3B14004416AC /* NSDate+RFC1123.m in Sources */,
 				2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */,
 				2E36BE031C4F3B14004416AC /* MKCache.m in Sources */,
+				2EA59A731C570B1F003D0FAC /* loginViewController.m in Sources */,
 				2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */,
 				2E36BE001C4F3B14004416AC /* NSString+MKNKAdditions.m in Sources */,
 				2E55F2101C3F97AE0027AC6F /* UICountingLabel.m in Sources */,
@@ -757,6 +768,7 @@
 				2E55F20F1C3F97AE0027AC6F /* PNScatterChartDataItem.m in Sources */,
 				2E36BDFF1C4F3B14004416AC /* NSMutableDictionary+MKNKAdditions.m in Sources */,
 				2E36BE061C4F3B14004416AC /* MKObject.m in Sources */,
+				2EA59A761C570C6E003D0FAC /* signinViewController.m in Sources */,
 				105F14341C42475C0039B8E7 /* CurrentLevel.m in Sources */,
 				2EFBE3461C3A8392009BCDED /* main.m in Sources */,
 				2E913D7A1C451A7A008CE648 /* exe3ViewController.m in Sources */,

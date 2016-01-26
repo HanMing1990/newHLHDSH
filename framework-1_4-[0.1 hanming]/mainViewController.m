@@ -251,7 +251,6 @@
     UIStoryboard *mainStoryboard = self.storyboard;
     historyViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"infoViewController"];
     //设置翻页效果
-    
     [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentViewController: SVC animated:NO completion:nil];
 }
@@ -282,10 +281,7 @@
 - (IBAction)sendDataToServerBtnClicked:(id)sender {
     //1. 初始化网络对象
     HMNetwork *hmnetwork = [[HMNetwork alloc]init];
-    //2. 准备好要传输的数据, xxx以下是个栗子
-    NSMutableDictionary *dataToSend = [[NSMutableDictionary alloc] init];
-    [dataToSend setValue:@"你好" forKey:@"p1"];
-    [dataToSend setValue:@"世界" forKey:@"p2"];
+    
     //3. 传输数据
     //[hmnetwork sendData:dataToSend];//用来测试是否
     [hmnetwork sendPlanHistory];

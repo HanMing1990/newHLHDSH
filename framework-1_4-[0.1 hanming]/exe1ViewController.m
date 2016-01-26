@@ -132,7 +132,7 @@
     }
 }
 - (IBAction)laterBtnClicked:(id)sender {
-    //1. 这人取消了当前的计划，记录到数据库里 xxx
+    //1. 这人取消了当前的计划，记录到数据库里 xxxƒ
     NSLog(@"later Btn clicked");
     //2. 跳转到planVC中
     UIStoryboard *mainStoryboard = self.storyboard;

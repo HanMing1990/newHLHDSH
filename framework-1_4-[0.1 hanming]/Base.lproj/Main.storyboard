@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="WFN-BJ-WmX">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Signin View Controller-->
         <scene sceneID="NTJ-p0-Dba">
             <objects>
-                <viewController id="uUJ-XL-q5f" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signinViewController" id="uUJ-XL-q5f" customClass="signinViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gBF-lo-ayo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,6 +73,9 @@
                                 <rect key="frame" x="90" y="463" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="提交"/>
+                                <connections>
+                                    <action selector="submitBtnClicked:" destination="uUJ-XL-q5f" eventType="touchUpInside" id="GDK-TF-ZEw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MQ3-L7-AXv">
                                 <rect key="frame" x="208" y="463" width="30" height="30"/>
@@ -82,9 +85,23 @@
                                     <segue destination="WFN-BJ-WmX" kind="modal" id="Rt3-cd-Gp5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册提示语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vTQ-Cd-486">
+                                <rect key="frame" x="88" y="514" width="192" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="account" destination="6LJ-ez-nf7" id="QYh-0d-UKS"/>
+                        <outlet property="name" destination="ZQz-Pb-SFc" id="7GL-E6-CXO"/>
+                        <outlet property="passwd" destination="sQ8-Lj-9LJ" id="UwA-3e-kaN"/>
+                        <outlet property="sex" destination="nlt-aj-Snl" id="FEa-Kt-gCq"/>
+                        <outlet property="signinAidText" destination="vTQ-Cd-486" id="B7x-V6-8WL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbr-c4-0O6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="-118" y="-268"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="3jz-Ff-1Oo">
             <objects>
-                <viewController id="WFN-BJ-WmX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WFN-BJ-WmX" customClass="loginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tdk-6K-xl5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +181,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="登陆"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="cb3-Iu-1Zj"/>
+                                    <action selector="loginBtnClicked:" destination="WFN-BJ-WmX" eventType="touchUpInside" id="Phm-lp-ImQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="44F-BN-SYs">
@@ -206,7 +223,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录提示语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pqf-Yg-fBt">
-                                <rect key="frame" x="85" y="496" width="85" height="21"/>
+                                <rect key="frame" x="45" y="496" width="231" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -215,10 +232,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="account" destination="58z-tK-npq" id="Lvh-sO-hAL"/>
+                        <outlet property="loginAidText" destination="pqf-Yg-fBt" id="GYB-Bt-rxb"/>
+                        <outlet property="passwd" destination="ZJ3-yG-Apl" id="qLy-qS-VIv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBt-NG-qKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-698" y="440"/>
+            <point key="canvasLocation" x="-698" y="424"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1583,6 +1605,6 @@
         <image name="zhuce" width="870" height="630"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rie-22-lf9"/>
+        <segue reference="PWq-aC-OYG"/>
     </inferredMetricsTieBreakers>
 </document>
