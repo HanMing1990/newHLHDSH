@@ -115,12 +115,16 @@
                                                   clockwise:YES
                                                    shadow:YES
                                                 shadowColor:[UIColor blueColor]];
+    
     self.circleChartStress.backgroundColor = [UIColor clearColor];
     [self.circleChartStress setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
     [self.circleChartStress setStrokeColorGradientStart:[UIColor blueColor]];
     //[self.circleChartStress strokeChart];
     [self.stressCircleView addSubview:self.circleChartStress];
+    
+    
+    
     
     // sleep
     self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
@@ -133,6 +137,10 @@
     [self.circleChartSleep setStrokeColorGradientStart:[UIColor redColor]];
     //[self.circleChartSleep strokeChart];
     [self.sleepCircleView addSubview:self.circleChartSleep];
+    
+    
+    
+    
     
     // step
     self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
