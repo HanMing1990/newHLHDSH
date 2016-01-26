@@ -35,7 +35,7 @@
 
 @implementation mainViewController
 
-
+//nothing
 @synthesize leftSwipeGestureRecognizer, rightSwipeGestureRecognizer;
 #pragma mark- 显示函数
 - (void)viewDidLoad {
