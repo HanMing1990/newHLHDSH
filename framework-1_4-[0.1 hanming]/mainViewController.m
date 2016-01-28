@@ -109,17 +109,18 @@
 
     // 以下是杨俊写的圆圈显示数值的代码
     // stress
-    self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
+    self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
                                                       total:@10
                                                     current:stressValue
                                                   clockwise:YES
-                                                   shadow:YES
-                                                shadowColor:[UIColor blueColor]];
+                                                  shadow:YES
+                                                  shadowColor:[UIColor colorWithRed:255.0f/255.0f green:185.0f/255.0f blue:15.0f/255.0f alpha:0.8]];
+                                                //shadowColor:[UIColor blueColor]];
     
     self.circleChartStress.backgroundColor = [UIColor clearColor];
     [self.circleChartStress setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
-    [self.circleChartStress setStrokeColorGradientStart:[UIColor blueColor]];
+    [self.circleChartStress setStrokeColorGradientStart:[UIColor colorWithRed:255.0f/255.0f green:185.0f/255.0f blue:15.0f/255.0f alpha:0.5]];
     //[self.circleChartStress strokeChart];
     [self.stressCircleView addSubview:self.circleChartStress];
     
@@ -127,14 +128,14 @@
     
     
     // sleep
-    self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
+    self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
                                                             total:@100
                                                           current:sleepValue
                                                         clockwise:YES];
     self.circleChartSleep.backgroundColor = [UIColor clearColor];
     [self.circleChartSleep setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
-    [self.circleChartSleep setStrokeColorGradientStart:[UIColor redColor]];
+    [self.circleChartSleep setStrokeColorGradientStart:[UIColor colorWithRed:127.0f/255.0f green:255.0f/255.0f blue:212.0f/255.0f alpha:0.8]];
     //[self.circleChartSleep strokeChart];
     [self.sleepCircleView addSubview:self.circleChartSleep];
     
@@ -143,26 +144,26 @@
     
     
     // step
-    self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
+    self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
                                                            total:@8000
                                                          current:stepValue
                                                        clockwise:YES];
     self.circleChartStep.backgroundColor = [UIColor clearColor];
     [self.circleChartStep setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
-    [self.circleChartStep setStrokeColorGradientStart:[UIColor redColor]];
+    [self.circleChartStep setStrokeColorGradientStart:[UIColor colorWithRed:178.0f/255.0f green:34.0f/255.0f blue:34.0f/255.0f alpha:0.8]];
     //[self.circleChartStep strokeChart];
     [self.stepCircleView addSubview:self.circleChartStep];
     
     // calorie
-    self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,0, 40, 40.0)
+    self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
                                                            total:@100
                                                          current:calorieValue
                                                        clockwise:YES];
     self.circleChartCalorie.backgroundColor = [UIColor clearColor];
     [self.circleChartCalorie setStrokeColor:[UIColor clearColor]];
     // change color according to the stress lever
-    [self.circleChartCalorie setStrokeColorGradientStart:[UIColor redColor]];
+    [self.circleChartCalorie setStrokeColorGradientStart:[UIColor colorWithRed:153.0f/255.0f green:51.0f/255.0f blue:250.0f/255.0f alpha:0.8]];
     //[self.circleChartCalorie strokeChart];
     [self.calorieCircleView addSubview:self.circleChartCalorie];
     
