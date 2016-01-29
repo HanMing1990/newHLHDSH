@@ -373,6 +373,7 @@
         [self presentExeVC:self.plan1Type];
     }else{
         //do nothing because don't have this item
+        NSLog(@"hello~~~~");
     }
 }
 
