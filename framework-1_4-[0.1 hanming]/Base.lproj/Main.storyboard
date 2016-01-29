@@ -914,54 +914,55 @@
                                 <color key="backgroundColor" red="0.2784313725" green="0.72549019609999998" blue="0.61176470589999998" alpha="0.71848060339999997" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="EZ0-VH-lPN">
-                                <rect key="frame" x="0.0" y="58" width="320" height="279"/>
+                                <rect key="frame" x="0.0" y="58" width="320" height="327"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x3O-P1-9bQ">
-                                        <rect key="frame" x="30" y="139" width="130" height="130"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" id="QwG-wq-GTE">
+                                        <rect key="frame" x="21" y="11" width="281" height="299"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" backgroundImage="envelope"/>
-                                        <connections>
-                                            <action selector="history3BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="x4c-jy-6jk"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zsT-ZZ-xkq">
-                                        <rect key="frame" x="30" y="10" width="130" height="130"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" backgroundImage="envelope"/>
-                                        <connections>
-                                            <action selector="history1BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="tQc-mu-9kF"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zZz-1t-q4k">
-                                        <rect key="frame" x="159" y="10" width="130" height="130"/>
+                                        <rect key="frame" x="171" y="11" width="111" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" backgroundImage="envelope3"/>
                                         <connections>
                                             <action selector="history2BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="Fjp-oY-dV6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R6M-vG-yf9">
-                                        <rect key="frame" x="159" y="139" width="130" height="130"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x3O-P1-9bQ">
+                                        <rect key="frame" x="21" y="129" width="113" height="113"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" backgroundImage="envelope"/>
+                                        <connections>
+                                            <action selector="history3BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="x4c-jy-6jk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R6M-vG-yf9">
+                                        <rect key="frame" x="162" y="140" width="111" height="111"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="envelope"/>
                                         <connections>
                                             <action selector="history4BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="Yyp-K7-Z7H"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zsT-ZZ-xkq">
+                                        <rect key="frame" x="41" y="12" width="115" height="111"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="envelope"/>
+                                        <connections>
+                                            <action selector="history1BtnClicked:" destination="dHq-fn-AcU" eventType="touchUpInside" id="tQc-mu-9kF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.20086206896551725" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.21395474137931034" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="aIt-BX-dy3">
-                                <rect key="frame" x="0.0" y="458" width="320" height="110"/>
+                                <rect key="frame" x="0.0" y="469" width="320" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happiness is a way station between too much and too little." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pl3-2V-mMl">
-                                        <rect key="frame" x="28" y="20" width="264" height="71"/>
+                                        <rect key="frame" x="28" y="17" width="264" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -1695,6 +1696,7 @@
         <image name="envelope" width="300" height="300"/>
         <image name="envelope3" width="300" height="300"/>
         <image name="flower" width="250" height="250"/>
+        <image name="line" width="320" height="320"/>
         <image name="main5" width="336" height="331"/>
         <image name="plansource0" width="555" height="545"/>
         <image name="plansource1" width="555" height="545"/>
