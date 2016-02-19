@@ -20,12 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.account.delegate = self;
+    self.passwd.delegate = self;
 }
 
 //woshizhuzhi
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    
+    
 }
 - (IBAction)loginBtnClicked:(id)sender {
     //1. 取出用户的账号和密码(存在静态变量里)
@@ -46,6 +51,13 @@
         self.loginAidText.text = @"账号或密码输入错误";
     }
     
+}
+
+
+//#实现协议,这样键盘就会撤回了
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 /*

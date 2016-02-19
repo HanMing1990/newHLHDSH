@@ -1048,7 +1048,8 @@
     return textLayer;
 }
 
-//hanming韩明 修改显示label的函数使他能够接受string类型
+//hanming韩明 显示label的函数使他能够接受string类型
+//显示一个label
 -(CATextLayer*) createNSStringPointLabelFor:(NSString*)grade pointCenter:(CGPoint)pointCenter width:(CGFloat)width withChartData:(PNLineChartData*)chartData
 {
     CATextLayer *textLayer = [[CATextLayer alloc]init];
@@ -1059,11 +1060,11 @@
     
     if (chartData.pointLabelFont != nil) {
         [textLayer setFont:(__bridge CFTypeRef)(chartData.pointLabelFont)];
-        textLayer.fontSize = [chartData.pointLabelFont pointSize];
+        //textLayer.fontSize = [chartData.pointLabelFont pointSize];
     }
-    
-    CGFloat textHeight = textLayer.fontSize * 1.1;
-    CGFloat textWidth = width*8;
+    textLayer.fontSize = 10;//文字大小
+    CGFloat textHeight = textLayer.fontSize*1.1;//文本框高度
+    CGFloat textWidth = width*10;//文本框宽度
     CGFloat textStartPosY;
     
     textStartPosY = pointCenter.y - textLayer.fontSize;

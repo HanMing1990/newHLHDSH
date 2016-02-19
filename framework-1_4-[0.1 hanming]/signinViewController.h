@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface signinViewController : UIViewController
+@interface signinViewController : UIViewController<UITextFieldDelegate>//#添加委托
 
 @end

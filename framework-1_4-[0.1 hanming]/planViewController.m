@@ -345,6 +345,7 @@
 
 //4个button的点击
 - (IBAction)plan1BtnClicked:(id)sender {
+    NSLog(@"what??");
     if (self.currentPlan.number.intValue > 0) {
         //记录当前plan的信息，以备后面执行界面显示
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -23,6 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //# 设立委托
+    self.account.delegate = self;
+    self.passwd.delegate = self;
+    self.name.delegate = self;
+    self.sex.delegate = self;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +63,14 @@
      }
     
 }
+
+//#实现协议,这样键盘就会撤回了
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
 
 /*
 #pragma mark - Navigation

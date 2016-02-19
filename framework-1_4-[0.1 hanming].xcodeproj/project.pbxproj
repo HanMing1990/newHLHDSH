@@ -99,13 +99,15 @@
 		2E36BE311C4F6723004416AC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E36BE301C4F6723004416AC /* Security.framework */; };
 		2E36BE331C4F672A004416AC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E36BE321C4F672A004416AC /* ImageIO.framework */; };
 		2E36BE391C4F7610004416AC /* exe7ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BE381C4F7610004416AC /* exe7ViewController.m */; };
+		2E409DD41C76AEFC00933BEE /* analysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E409DD31C76AEFC00933BEE /* analysisViewController.m */; };
+		2E409DD81C76B61600933BEE /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E409DD71C76B61600933BEE /* loginViewController.m */; };
+		2E409DDB1C76B6F000933BEE /* signinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E409DDA1C76B6F000933BEE /* signinViewController.m */; };
 		2E55F2001C3F97AE0027AC6F /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DD1C3F97AE0027AC6F /* PNBar.m */; };
 		2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DF1C3F97AE0027AC6F /* PNBarChart.m */; };
 		2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E31C3F97AE0027AC6F /* PNChartLabel.m */; };
 		2E55F2031C3F97AE0027AC6F /* PNCircleChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E51C3F97AE0027AC6F /* PNCircleChart.m */; };
 		2E55F2041C3F97AE0027AC6F /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E71C3F97AE0027AC6F /* PNColor.m */; };
 		2E55F2051C3F97AE0027AC6F /* PNGenericChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E91C3F97AE0027AC6F /* PNGenericChart.m */; };
-		2E55F2061C3F97AE0027AC6F /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1EB1C3F97AE0027AC6F /* PNLineChart.m */; };
 		2E55F2071C3F97AE0027AC6F /* PNLineChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1ED1C3F97AE0027AC6F /* PNLineChartData.m */; };
 		2E55F2081C3F97AE0027AC6F /* PNLineChartDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1EF1C3F97AE0027AC6F /* PNLineChartDataItem.m */; };
 		2E55F2091C3F97AE0027AC6F /* PNPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1F11C3F97AE0027AC6F /* PNPieChart.m */; };
@@ -118,14 +120,12 @@
 		2E55F2101C3F97AE0027AC6F /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1FF1C3F97AE0027AC6F /* UICountingLabel.m */; };
 		2E7A14721C4CC5DF0066CBBA /* exe6ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7A14711C4CC5DF0066CBBA /* exe6ViewController.m */; };
 		2E7A14751C4CC6950066CBBA /* exe5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7A14741C4CC6950066CBBA /* exe5ViewController.m */; };
+		2E7CD1311C76ADBE00CF9C68 /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD1301C76ADBE00CF9C68 /* PNLineChart.m */; };
 		2E8E064C1C3BB3390034A854 /* historyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8E064B1C3BB3390034A854 /* historyViewController.m */; };
-		2E8E064F1C3BB37E0034A854 /* analysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8E064E1C3BB37E0034A854 /* analysisViewController.m */; };
 		2E913D741C451A44008CE648 /* exe1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D731C451A44008CE648 /* exe1ViewController.m */; };
 		2E913D771C451A6A008CE648 /* exe2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D761C451A6A008CE648 /* exe2ViewController.m */; };
 		2E913D7A1C451A7A008CE648 /* exe3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D791C451A7A008CE648 /* exe3ViewController.m */; };
 		2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D7C1C451A89008CE648 /* exe4ViewController.m */; };
-		2EA59A731C570B1F003D0FAC /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA59A721C570B1F003D0FAC /* loginViewController.m */; };
-		2EA59A761C570C6E003D0FAC /* signinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA59A751C570C6E003D0FAC /* signinViewController.m */; };
 		2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9D6B81C3D47570076381A /* infoViewController.m */; };
 		2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB9D7031C3F5C580076381A /* libsqlite3.tbd */; };
 		2EFBE3461C3A8392009BCDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3451C3A8392009BCDED /* main.m */; };
@@ -250,6 +250,10 @@
 		2E36BE321C4F672A004416AC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		2E36BE371C4F7610004416AC /* exe7ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe7ViewController.h; sourceTree = "<group>"; };
 		2E36BE381C4F7610004416AC /* exe7ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe7ViewController.m; sourceTree = "<group>"; };
+		2E409DD31C76AEFC00933BEE /* analysisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = analysisViewController.m; sourceTree = "<group>"; };
+		2E409DD71C76B61600933BEE /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		2E409DD91C76B6F000933BEE /* signinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signinViewController.h; sourceTree = "<group>"; };
+		2E409DDA1C76B6F000933BEE /* signinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signinViewController.m; sourceTree = "<group>"; };
 		2E55F1DC1C3F97AE0027AC6F /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
 		2E55F1DD1C3F97AE0027AC6F /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
 		2E55F1DE1C3F97AE0027AC6F /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
@@ -265,7 +269,6 @@
 		2E55F1E81C3F97AE0027AC6F /* PNGenericChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNGenericChart.h; sourceTree = "<group>"; };
 		2E55F1E91C3F97AE0027AC6F /* PNGenericChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNGenericChart.m; sourceTree = "<group>"; };
 		2E55F1EA1C3F97AE0027AC6F /* PNLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChart.h; sourceTree = "<group>"; };
-		2E55F1EB1C3F97AE0027AC6F /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
 		2E55F1EC1C3F97AE0027AC6F /* PNLineChartData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChartData.h; sourceTree = "<group>"; };
 		2E55F1ED1C3F97AE0027AC6F /* PNLineChartData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChartData.m; sourceTree = "<group>"; };
 		2E55F1EE1C3F97AE0027AC6F /* PNLineChartDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChartDataItem.h; sourceTree = "<group>"; };
@@ -290,10 +293,10 @@
 		2E7A14711C4CC5DF0066CBBA /* exe6ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe6ViewController.m; sourceTree = "<group>"; };
 		2E7A14731C4CC6950066CBBA /* exe5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe5ViewController.h; sourceTree = "<group>"; };
 		2E7A14741C4CC6950066CBBA /* exe5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe5ViewController.m; sourceTree = "<group>"; };
+		2E7CD1301C76ADBE00CF9C68 /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
 		2E8E064A1C3BB3390034A854 /* historyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyViewController.h; sourceTree = "<group>"; };
 		2E8E064B1C3BB3390034A854 /* historyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = historyViewController.m; sourceTree = "<group>"; };
 		2E8E064D1C3BB37E0034A854 /* analysisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = analysisViewController.h; sourceTree = "<group>"; };
-		2E8E064E1C3BB37E0034A854 /* analysisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = analysisViewController.m; sourceTree = "<group>"; };
 		2E913D721C451A44008CE648 /* exe1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe1ViewController.h; sourceTree = "<group>"; };
 		2E913D731C451A44008CE648 /* exe1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe1ViewController.m; sourceTree = "<group>"; };
 		2E913D751C451A6A008CE648 /* exe2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe2ViewController.h; sourceTree = "<group>"; };
@@ -303,9 +306,6 @@
 		2E913D7B1C451A89008CE648 /* exe4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe4ViewController.h; sourceTree = "<group>"; };
 		2E913D7C1C451A89008CE648 /* exe4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe4ViewController.m; sourceTree = "<group>"; };
 		2EA59A711C570B1F003D0FAC /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
-		2EA59A721C570B1F003D0FAC /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
-		2EA59A741C570C6E003D0FAC /* signinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signinViewController.h; sourceTree = "<group>"; };
-		2EA59A751C570C6E003D0FAC /* signinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signinViewController.m; sourceTree = "<group>"; };
 		2EB9D6B71C3D47570076381A /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		2EB9D6B81C3D47570076381A /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
 		2EB9D7031C3F5C580076381A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -469,7 +469,7 @@
 				2E55F1E81C3F97AE0027AC6F /* PNGenericChart.h */,
 				2E55F1E91C3F97AE0027AC6F /* PNGenericChart.m */,
 				2E55F1EA1C3F97AE0027AC6F /* PNLineChart.h */,
-				2E55F1EB1C3F97AE0027AC6F /* PNLineChart.m */,
+				2E7CD1301C76ADBE00CF9C68 /* PNLineChart.m */,
 				2E55F1EC1C3F97AE0027AC6F /* PNLineChartData.h */,
 				2E55F1ED1C3F97AE0027AC6F /* PNLineChartData.m */,
 				2E55F1EE1C3F97AE0027AC6F /* PNLineChartDataItem.h */,
@@ -550,7 +550,7 @@
 				2E8E064A1C3BB3390034A854 /* historyViewController.h */,
 				2E8E064B1C3BB3390034A854 /* historyViewController.m */,
 				2E8E064D1C3BB37E0034A854 /* analysisViewController.h */,
-				2E8E064E1C3BB37E0034A854 /* analysisViewController.m */,
+				2E409DD31C76AEFC00933BEE /* analysisViewController.m */,
 				2EB9D6B71C3D47570076381A /* infoViewController.h */,
 				2EB9D6B81C3D47570076381A /* infoViewController.m */,
 				2E913D721C451A44008CE648 /* exe1ViewController.h */,
@@ -570,9 +570,9 @@
 				2E36BE371C4F7610004416AC /* exe7ViewController.h */,
 				2E36BE381C4F7610004416AC /* exe7ViewController.m */,
 				2EA59A711C570B1F003D0FAC /* loginViewController.h */,
-				2EA59A721C570B1F003D0FAC /* loginViewController.m */,
-				2EA59A741C570C6E003D0FAC /* signinViewController.h */,
-				2EA59A751C570C6E003D0FAC /* signinViewController.m */,
+				2E409DD71C76B61600933BEE /* loginViewController.m */,
+				2E409DD91C76B6F000933BEE /* signinViewController.h */,
+				2E409DDA1C76B6F000933BEE /* signinViewController.m */,
 			);
 			path = "framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
@@ -729,7 +729,6 @@
 				2E55F20C1C3F97AE0027AC6F /* PNRadarChartDataItem.m in Sources */,
 				105F14391C42475C0039B8E7 /* Plan.m in Sources */,
 				2E36BD441C4F2ABB004416AC /* HMNetwork.m in Sources */,
-				2E8E064F1C3BB37E0034A854 /* analysisViewController.m in Sources */,
 				2E36BE051C4F3B14004416AC /* MKNetworkRequest.m in Sources */,
 				2E55F20E1C3F97AE0027AC6F /* PNScatterChartData.m in Sources */,
 				2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */,
@@ -740,14 +739,13 @@
 				2E913D771C451A6A008CE648 /* exe2ViewController.m in Sources */,
 				2E36BE011C4F3B14004416AC /* UIAlertView+MKNKAdditions.m in Sources */,
 				105F14371C42475C0039B8E7 /* Item.m in Sources */,
-				2E55F2061C3F97AE0027AC6F /* PNLineChart.m in Sources */,
 				2E7A14751C4CC6950066CBBA /* exe5ViewController.m in Sources */,
 				2EFBE3631C3BA56E009BCDED /* planViewController.m in Sources */,
 				2E55F20A1C3F97AE0027AC6F /* PNPieChartDataItem.m in Sources */,
 				2E36BDFC1C4F3B14004416AC /* NSDate+RFC1123.m in Sources */,
+				2E409DD81C76B61600933BEE /* loginViewController.m in Sources */,
 				2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */,
 				2E36BE031C4F3B14004416AC /* MKCache.m in Sources */,
-				2EA59A731C570B1F003D0FAC /* loginViewController.m in Sources */,
 				2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */,
 				2E36BE001C4F3B14004416AC /* NSString+MKNKAdditions.m in Sources */,
 				2E55F2101C3F97AE0027AC6F /* UICountingLabel.m in Sources */,
@@ -768,9 +766,11 @@
 				2E55F20F1C3F97AE0027AC6F /* PNScatterChartDataItem.m in Sources */,
 				2E36BDFF1C4F3B14004416AC /* NSMutableDictionary+MKNKAdditions.m in Sources */,
 				2E36BE061C4F3B14004416AC /* MKObject.m in Sources */,
-				2EA59A761C570C6E003D0FAC /* signinViewController.m in Sources */,
 				105F14341C42475C0039B8E7 /* CurrentLevel.m in Sources */,
+				2E7CD1311C76ADBE00CF9C68 /* PNLineChart.m in Sources */,
+				2E409DDB1C76B6F000933BEE /* signinViewController.m in Sources */,
 				2EFBE3461C3A8392009BCDED /* main.m in Sources */,
+				2E409DD41C76AEFC00933BEE /* analysisViewController.m in Sources */,
 				2E913D7A1C451A7A008CE648 /* exe3ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

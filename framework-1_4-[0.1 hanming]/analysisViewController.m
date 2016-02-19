@@ -40,9 +40,6 @@
     }
      */
     
-    //准备显示在折线上的文字
-    //Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];//plan中取id, 根据id取item,根据item取info
-    //  item.info；//要显示的值
     
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
     self.lineChart.yLabelFormat = @"%1.1f";
@@ -84,14 +81,67 @@
     data01.itemCount = data01Array.count;
     data01.inflexionPointStyle = PNLineChartPointStyleTriangle;
     
+    
+    
+    //准备显示在折线上的文字
+    //Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];//plan中取id, 根据id取item,根据item取info
+    //item.info；//要显示的值
+    
+    
     // 在线上显示文字（默认显示数字，显示文字的话要修改PNLineChart的类函数）
     NSMutableArray * textArraySideLine = [NSMutableArray new];
-    [textArraySideLine addObject: @"计划一"];
-    [textArraySideLine addObject: @"计划2"];
-    [textArraySideLine addObject: @"计划一33"];
-    [textArraySideLine addObject: @"计划4一"];
-    [textArraySideLine addObject: @"计划一5"];
+    NSMutableArray * textArrayOriginal = [NSMutableArray new];
+    
+    NSNumber* id1 = [dic objectForKey:@"id1"];
+    NSNumber* id2 = [dic objectForKey:@"id2"];
+    NSNumber* id3 = [dic objectForKey:@"id3"];
+    NSNumber* id4 = [dic objectForKey:@"id4"];
+    Plan *plan = [Plan new];
+    Item *item1 =[plan getItemById:id1];
+    Item *item2 =[plan getItemById:id2];
+    Item *item3 =[plan getItemById:id3];
+    Item *item4 =[plan getItemById:id4];
+    if (item1.info) {
+        [textArrayOriginal addObject:item1.info];
+    }
+    else{
+        [textArrayOriginal addObject: @""];
+    }
+    
+    if (item2.info) {
+        [textArrayOriginal addObject:item2.info];
+    }
+    else{
+        [textArrayOriginal addObject: @""];
+    }
+    
+    if (item3.info) {
+        [textArrayOriginal addObject:item3.info];
+    }
+    else{
+        [textArrayOriginal addObject: @""];
+    }
+    
+    if (item4.info) {
+        [textArrayOriginal addObject:item4.info];
+    }
+    else{
+        [textArrayOriginal addObject: @""];
+    }
+
+    
+    [textArraySideLine addObject: @"计划开始前"];//计划开始前的状态
+    
+    for (int i=0; i<[[dic objectForKey:@"number"] intValue]; i++) {
+        NSString *currentString = [textArrayOriginal objectAtIndex:i];
+        [textArraySideLine addObject:currentString];
+ 
+    }
+
+    [textArraySideLine addObject: @"计划结束3天后"];//计划结束3天后的状况
+
     self.lineChart.textArraySideLine = textArraySideLine;
+    
     
     // 这句话的作用是设置pointlabel的文本
     data01.showPointLabel = YES;
@@ -123,14 +173,11 @@
     self.lineChart.chartData = @[data01, data02];//显示两条线
      */
     
-    
     self.lineChart.chartData = @[data01];//显示一条线
     //[self.lineChart strokeChart];
     //self.lineChart.delegate = self;
     
-    
     [self.lineChartView addSubview:self.lineChart];
-    
     
     self.lineChart.legendStyle = PNLegendItemStyleStacked;
     self.lineChart.legendFont = [UIFont boldSystemFontOfSize:12.0f];
@@ -285,12 +332,12 @@
     NSDate *time5d =[[planHistoryDict objectForKey:lasttimename] dateByAddingTimeInterval:3*60*60*24];
     
     //2. 转换成字符串类型
-    NSString * time0 = [NSString stringWithFormat:@"%@", time0d];
-    NSString * time1 = [NSString stringWithFormat:@"%@", time1d];
-    NSString * time2 = [NSString stringWithFormat:@"%@", time2d];
-    NSString * time3 = [NSString stringWithFormat:@"%@", time3d];
-    NSString * time4 = [NSString stringWithFormat:@"%@", time4d];
-    NSString * time5 = [NSString stringWithFormat:@"%@", time5d];
+    NSString * time0 = [[NSString stringWithFormat:@"%@", time0d] substringWithRange:NSMakeRange(5, 5)];//截取月日
+    NSString * time1 = [[NSString stringWithFormat:@"%@", time1d]substringWithRange:NSMakeRange(5, 5)];
+    NSString * time2 = [[NSString stringWithFormat:@"%@", time2d]substringWithRange:NSMakeRange(5, 5)];
+    NSString * time3 = [[NSString stringWithFormat:@"%@", time3d]substringWithRange:NSMakeRange(5, 5)];
+    NSString * time4 = [[NSString stringWithFormat:@"%@", time4d]substringWithRange:NSMakeRange(5, 5)];
+    NSString * time5 = [[NSString stringWithFormat:@"%@", time5d]substringWithRange:NSMakeRange(5, 5)];
     
     //4. 截取一部分,0 5肯定在，一个是其实压力值，一个是结束压力值
     NSArray *XValuesOrigin = [[NSArray alloc]initWithObjects:time0, time1, time2, time3, time4, nil];
