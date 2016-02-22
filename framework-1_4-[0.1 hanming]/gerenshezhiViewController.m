@@ -25,14 +25,6 @@
 }
 - (IBAction)saveBtnClicked:(id)sender {
     
-    // 保存设置的目标
-    //1.记录点击的按钮类型
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: @([self.kaluliTarget.text floatValue]) forKey:@"kaluliTarget"];
-    [defaults setObject: @([self.stepTarget.text floatValue]) forKey:@"stepTarget"];
-    [defaults setObject: @([self.sleepTarget.text floatValue]) forKey:@"sleepTarget"];
-    [defaults setObject: @([self.distanceTarget.text floatValue]) forKey:@"distanceTarget"];
-    [defaults synchronize];
 }
 
 /*
