@@ -102,6 +102,8 @@
 		2E409DD41C76AEFC00933BEE /* analysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E409DD31C76AEFC00933BEE /* analysisViewController.m */; };
 		2E409DD81C76B61600933BEE /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E409DD71C76B61600933BEE /* loginViewController.m */; };
 		2E409DDB1C76B6F000933BEE /* signinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E409DDA1C76B6F000933BEE /* signinViewController.m */; };
+		2E409E011C7A99E100933BEE /* gerenshezhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E409E001C7A99E100933BEE /* gerenshezhiViewController.m */; };
+		2E409E041C7A99FA00933BEE /* mubiaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E409E031C7A99FA00933BEE /* mubiaoViewController.m */; };
 		2E55F2001C3F97AE0027AC6F /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DD1C3F97AE0027AC6F /* PNBar.m */; };
 		2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1DF1C3F97AE0027AC6F /* PNBarChart.m */; };
 		2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55F1E31C3F97AE0027AC6F /* PNChartLabel.m */; };
@@ -254,6 +256,10 @@
 		2E409DD71C76B61600933BEE /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		2E409DD91C76B6F000933BEE /* signinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signinViewController.h; sourceTree = "<group>"; };
 		2E409DDA1C76B6F000933BEE /* signinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signinViewController.m; sourceTree = "<group>"; };
+		2E409DFF1C7A99E100933BEE /* gerenshezhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gerenshezhiViewController.h; sourceTree = "<group>"; };
+		2E409E001C7A99E100933BEE /* gerenshezhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gerenshezhiViewController.m; sourceTree = "<group>"; };
+		2E409E021C7A99FA00933BEE /* mubiaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mubiaoViewController.h; sourceTree = "<group>"; };
+		2E409E031C7A99FA00933BEE /* mubiaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mubiaoViewController.m; sourceTree = "<group>"; };
 		2E55F1DC1C3F97AE0027AC6F /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
 		2E55F1DD1C3F97AE0027AC6F /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
 		2E55F1DE1C3F97AE0027AC6F /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
@@ -573,6 +579,10 @@
 				2E409DD71C76B61600933BEE /* loginViewController.m */,
 				2E409DD91C76B6F000933BEE /* signinViewController.h */,
 				2E409DDA1C76B6F000933BEE /* signinViewController.m */,
+				2E409DFF1C7A99E100933BEE /* gerenshezhiViewController.h */,
+				2E409E001C7A99E100933BEE /* gerenshezhiViewController.m */,
+				2E409E021C7A99FA00933BEE /* mubiaoViewController.h */,
+				2E409E031C7A99FA00933BEE /* mubiaoViewController.m */,
 			);
 			path = "framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
@@ -730,6 +740,7 @@
 				105F14391C42475C0039B8E7 /* Plan.m in Sources */,
 				2E36BD441C4F2ABB004416AC /* HMNetwork.m in Sources */,
 				2E36BE051C4F3B14004416AC /* MKNetworkRequest.m in Sources */,
+				2E409E041C7A99FA00933BEE /* mubiaoViewController.m in Sources */,
 				2E55F20E1C3F97AE0027AC6F /* PNScatterChartData.m in Sources */,
 				2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */,
 				2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */,
@@ -754,6 +765,7 @@
 				2E36BE021C4F3B14004416AC /* UIImageView+MKNKAdditions.m in Sources */,
 				105F14351C42475C0039B8E7 /* CurrentPlan.m in Sources */,
 				2E55F2091C3F97AE0027AC6F /* PNPieChart.m in Sources */,
+				2E409E011C7A99E100933BEE /* gerenshezhiViewController.m in Sources */,
 				2E36BE391C4F7610004416AC /* exe7ViewController.m in Sources */,
 				2EFBE3491C3A8392009BCDED /* AppDelegate.m in Sources */,
 				2E36BDFE1C4F3B14004416AC /* NSHTTPURLResponse+MKNKAdditions.m in Sources */,

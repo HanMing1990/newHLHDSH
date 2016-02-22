@@ -286,7 +286,6 @@
 }
 
 
-
 - (IBAction)sendDataToServerBtnClicked:(id)sender {
     //1. 初始化网络对象
     HMNetwork *hmnetwork = [[HMNetwork alloc]init];
@@ -325,7 +324,7 @@
 
 - (IBAction)createPlan:(id)sender {
     Plan *plan = [Plan new];
-    [plan createNewPlan];
+    [plan createNewPlan]; //生成一个新的计划
     
     [plan getPlanHistory];
 }
