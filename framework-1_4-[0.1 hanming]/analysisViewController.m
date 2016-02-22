@@ -14,6 +14,7 @@
 
 @interface analysisViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lineChartView;
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 @end
 
@@ -40,7 +41,7 @@
     }
      */
     
-    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
+    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width*0.8, self.lineChartView.frame.size.height*0.8)];
     self.lineChart.yLabelFormat = @"%1.1f";
     self.lineChart.backgroundColor = [UIColor clearColor];
     
@@ -202,6 +203,21 @@
     NSMutableArray *showValues = [NSMutableArray new];
     showValues = [self getArrayToDisplayinInfoVC: originalArrayFromDB];
     */
+    
+    //-------------------------------------------------------------------------
+    //-1. 使用实现滚动
+    [self.myScrollView addSubview:self.lineChartView];
+    // 设置UIScrollView的滚动范围（内容大小）
+    self.myScrollView.contentSize = CGSizeMake(1500, 0);//只设置宽度，这样就只能左右滑
+    
+    // 隐藏水平滚动条
+    self.myScrollView.showsHorizontalScrollIndicator = NO;
+    self.myScrollView.showsVerticalScrollIndicator = NO;
+    
+    // 增加额外的滚动区域（逆时针，上、左、下、右）
+    // top  left  bottom  right
+    self.myScrollView.contentInset = UIEdgeInsetsMake(40, 40, 100, 100);
+    
     
     [self showLineChart];
 }
