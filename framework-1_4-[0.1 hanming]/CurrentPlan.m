@@ -128,7 +128,7 @@
                 NSMutableDictionary * dic = [NSMutableDictionary dictionary];
                 have = [NSNumber numberWithBool:1];
                 done = [NSNumber numberWithBool:0];
-                number = [NSNumber numberWithInt:3];
+                number = [NSNumber numberWithInt:PLAN_NUM];
                 currentNumber = [NSNumber numberWithInt:0];
                 id1 = [NSNumber numberWithInt:3];
                 id2 = [NSNumber numberWithInt:5];

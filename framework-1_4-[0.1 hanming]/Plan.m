@@ -241,7 +241,7 @@
     }
     //NSlog(@"fit number: %i",all.count);
     // 2 根据item的权重分布选择item
-    int plan_item_number = 3;
+    int plan_item_number = 4;
     int selected_id[4] = {0};
     for (int i=0; i < plan_item_number; i++) {
         int flag = random() % all.count;
@@ -271,6 +271,7 @@
     // 3. 根据item制订计划, done,id,type 字段首先很容易确定
     currentPlan.done = [NSNumber numberWithBool:NO];
     currentPlan.have = [NSNumber numberWithBool:YES];
+    currentPlan.number = [NSNumber numberWithInt:plan_item_number];
     currentPlan.stress0 = [[CurrentLevel new] stressLevel];
     Item *selected_item[4];
     if (plan_item_number > 0) {

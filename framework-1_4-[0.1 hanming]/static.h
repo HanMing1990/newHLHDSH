@@ -48,5 +48,6 @@
 #define PORT       @"5000"
 
 
-#define HISTORY_NUM 4
+#define HISTORY_NUM 4     //显示history的页面显示的数量
+#define PLAN_NUM 3   //显示一个plan有多少个item，并在currentplan.h初始化时初始化currentplan.number,后来的每个plan的数量都要在createplan中进行设置
 #endif /* static_h */

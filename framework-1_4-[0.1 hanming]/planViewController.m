@@ -140,6 +140,9 @@
         [self.plan1Btn setImage:[UIImage imageNamed:plan1BtnImageName] forState:UIControlStateNormal];
     }else{
        //不显示
+        self.plan1Btn.hidden = YES;
+        self.plan1Date.hidden = YES;
+        self.plan1Text.hidden = YES;
     }
     //1.2 plan2
     if(self.currentPlan.number.intValue > 1){
@@ -189,6 +192,9 @@
         [self.plan2Btn setImage:[UIImage imageNamed:plan2BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
+        self.plan2Btn.hidden = YES;
+        self.plan2Date.hidden = YES;
+        self.plan2Text.hidden = YES;
     }
     //1.3 plan3
     if(self.currentPlan.number.intValue > 2){
@@ -239,6 +245,9 @@
         [self.plan3Btn setImage:[UIImage imageNamed:plan3BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
+        self.plan3Btn.hidden = YES;
+        self.plan3Date.hidden = YES;
+        self.plan3Text.hidden = YES;
     }
     //1.4 plan4
     if(self.currentPlan.number.intValue > 3){
