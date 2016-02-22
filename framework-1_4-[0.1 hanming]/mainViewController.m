@@ -101,13 +101,23 @@
     
     
     
+    
+    
+
+    // 以下是杨俊写的圆圈显示数值的代码
+    // 先取得当前的显示的数值
     NSNumber *stressValue = @([currentLevel.stressLevel floatValue]);
     NSNumber *sleepValue = @([currentLevel.sleepLevel floatValue]);
     NSNumber *stepValue = @([currentLevel.stepLevel floatValue]);
     NSNumber *calorieValue = @([currentLevel.calorieLevel floatValue]);
     
-
-    // 以下是杨俊写的圆圈显示数值的代码
+    //取目标值
+    
+    //设置目标的默认值，按理说这里应该再写一个界面来让用户输入
+    NSNumber *kaluliTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"kaluliTarget"];
+    NSNumber *stepTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"stepTarget"];
+    NSNumber *sleepTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"sleepTarget"];
+    //NSNumber *distanceTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"distanceTarget"];
     // stress
     self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
                                                       total:@10
@@ -126,10 +136,9 @@
     
     
     
-    
     // sleep
     self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
-                                                            total:@100
+                                                            total:sleepTarget
                                                           current:sleepValue
                                                         clockwise:YES];
     self.circleChartSleep.backgroundColor = [UIColor clearColor];
@@ -145,7 +154,7 @@
     
     // step
     self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
-                                                           total:@8000
+                                                           total:stepTarget
                                                          current:stepValue
                                                        clockwise:YES];
     self.circleChartStep.backgroundColor = [UIColor clearColor];
@@ -157,7 +166,7 @@
     
     // calorie
     self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
-                                                           total:@100
+                                                           total:kaluliTarget
                                                          current:calorieValue
                                                        clockwise:YES];
     self.circleChartCalorie.backgroundColor = [UIColor clearColor];
@@ -173,7 +182,6 @@
     int flowerState;
     flowerState = [currentLevel.flowerLevel intValue];//0~6
 
-    
     //3.2 获取花的名字(这是只找了5种花的图片，还缺俩)
     NSString *flowerImageName;
     switch (flowerState) {

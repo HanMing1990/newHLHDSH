@@ -823,10 +823,10 @@
             </objects>
             <point key="canvasLocation" x="-1083" y="1217"/>
         </scene>
-        <!--View Controller-->
+        <!--Mubiao View Controller-->
         <scene sceneID="Yzi-tt-GJw">
             <objects>
-                <viewController id="17t-Hl-6Jr" sceneMemberID="viewController">
+                <viewController id="17t-Hl-6Jr" customClass="mubiaoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cwt-vS-Kyc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -892,8 +892,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="back2"/>
                                         <connections>
-                                            <action selector="backBtnClicked:" destination="Kak-Th-o9d" eventType="touchUpInside" id="edO-pb-19X"/>
-                                            <segue destination="aNe-dc-Sos" kind="modal" id="tD4-xS-Z68"/>
+                                            <segue destination="aNe-dc-Sos" kind="modal" id="JAt-ca-eQv"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目标设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ogr-5x-KO9">
@@ -906,18 +905,32 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.2784313725" green="0.72549019609999998" blue="0.61176470589999998" alpha="0.71848060339999997" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E8T-tU-8Am">
+                                <rect key="frame" x="135" y="358" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="saveBtnClicked:" destination="17t-Hl-6Jr" eventType="touchUpInside" id="Kzc-Jc-26W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="distanceTarget" destination="U3B-As-SmC" id="NzF-U5-HLR"/>
+                        <outlet property="kaluliTarget" destination="1Ge-rg-OaM" id="bIH-eb-Jya"/>
+                        <outlet property="sleepTarget" destination="QBM-OA-E8x" id="hc3-xw-PWc"/>
+                        <outlet property="stepTarget" destination="CKr-dF-JYN" id="HU1-Rn-Xco"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHp-qS-gcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1078" y="1956"/>
+            <point key="canvasLocation" x="-1121" y="2220"/>
         </scene>
-        <!--View Controller-->
+        <!--Gerenshezhi View Controller-->
         <scene sceneID="Tvg-Td-pU0">
             <objects>
-                <viewController id="9Ne-ol-czd" sceneMemberID="viewController">
+                <viewController id="9Ne-ol-czd" customClass="gerenshezhiViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f6p-hR-XoN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1010,6 +1023,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1GR-qX-hAM">
+                                <rect key="frame" x="138" y="338" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="saveBtnClicked:" destination="9Ne-ol-czd" eventType="touchUpInside" id="FCq-EO-sc2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1523,7 +1544,7 @@
                                 <rect key="frame" x="20" y="276" width="280" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.20460668103448276" colorSpace="calibratedRGB"/>
-                                <color key="textColor" patternImage="BAD11C3F-739E-4368-B167-ADAE978478BD" colorSpace="pattern"/>
+                                <color key="textColor" patternImage="156A5855-2240-4FCA-965B-8F7B406A6BA1" colorSpace="pattern"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2533,11 +2554,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVX-i4-Lf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1088" y="533"/>
+            <point key="canvasLocation" x="-1152" y="533"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BAD11C3F-739E-4368-B167-ADAE978478BD" width="256" height="256">
+        <image name="156A5855-2240-4FCA-965B-8F7B406A6BA1" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6997,7 +7018,7 @@ AAAAAAAEDtA
         <image name="youmiao" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="EFP-j9-cEQ"/>
         <segue reference="jst-ka-6r8"/>
-        <segue reference="cQ4-2H-egV"/>
     </inferredMetricsTieBreakers>
 </document>
