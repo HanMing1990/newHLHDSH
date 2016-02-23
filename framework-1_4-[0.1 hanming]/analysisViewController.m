@@ -347,7 +347,7 @@
     NSDate *time5d =[[planHistoryDict objectForKey:lasttimename] dateByAddingTimeInterval:3*60*60*24];
     
     //2. 转换成字符串类型
-    NSString * time0 = [[NSString stringWithFormat:@"%@", time0d] substringWithRange:NSMakeRange(5, 5)];//截取月日
+    NSString * time0 = [[NSString stringWithFormat:@"%@", time0d]substringWithRange:NSMakeRange(5, 5)];//截取月日
     NSString * time1 = [[NSString stringWithFormat:@"%@", time1d]substringWithRange:NSMakeRange(5, 5)];
     NSString * time2 = [[NSString stringWithFormat:@"%@", time2d]substringWithRange:NSMakeRange(5, 5)];
     NSString * time3 = [[NSString stringWithFormat:@"%@", time3d]substringWithRange:NSMakeRange(5, 5)];
