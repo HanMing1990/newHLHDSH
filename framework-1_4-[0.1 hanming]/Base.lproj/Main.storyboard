@@ -689,7 +689,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5f-kO-dAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="464"/>
+            <point key="canvasLocation" x="465" y="455"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KP3-rE-BET">
@@ -968,7 +968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHp-qS-gcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1121" y="2220"/>
+            <point key="canvasLocation" x="-1083" y="1956"/>
         </scene>
         <!--Gerenshezhi View Controller-->
         <scene sceneID="Tvg-Td-pU0">
@@ -1549,7 +1549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyl-ch-13p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="969" y="447"/>
+            <point key="canvasLocation" x="969" y="455"/>
         </scene>
         <!--Exe3 View Controller-->
         <scene sceneID="h4Q-8g-p3P">
@@ -1594,7 +1594,7 @@
                                 <rect key="frame" x="20" y="276" width="280" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.20460668103448276" colorSpace="calibratedRGB"/>
-                                <color key="textColor" patternImage="0CAF5B26-E947-4102-86F8-FE110B7F1F49" colorSpace="pattern"/>
+                                <color key="textColor" patternImage="E64B6379-AD50-43CB-8D26-D4B0A2156706" colorSpace="pattern"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1693,7 +1693,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOc-L0-feQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1417" y="447"/>
+            <point key="canvasLocation" x="1417" y="455"/>
         </scene>
         <!--Exe4 View Controller-->
         <scene sceneID="DYm-yX-k5e">
@@ -2386,7 +2386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oW-xf-uKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-676" y="1966"/>
+            <point key="canvasLocation" x="-676" y="1956"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="26a-zS-Sx2">
@@ -2608,7 +2608,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0CAF5B26-E947-4102-86F8-FE110B7F1F49" width="256" height="256">
+        <image name="E64B6379-AD50-43CB-8D26-D4B0A2156706" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7068,7 +7068,7 @@ AAAAAAAEDtA
         <image name="youmiao" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rie-22-lf9"/>
-        <segue reference="EFP-j9-cEQ"/>
+        <segue reference="CrV-E8-5Xg"/>
+        <segue reference="PWq-aC-OYG"/>
     </inferredMetricsTieBreakers>
 </document>

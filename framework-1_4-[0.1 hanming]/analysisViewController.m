@@ -46,9 +46,16 @@
     self.lineChart.backgroundColor = [UIColor clearColor];
     
     
-    //[self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]]; //x坐标值
+    //[self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]];
+    
+    
+    //-----------------------------------------------------------------
+    //x坐标值
     NSMutableArray * XLabels = [self getXvaluesForLineChart:dic];
     [self.lineChart setXLabels:XLabels];
+    //-----------------------------------------------------------------
+    
+    
     
     self.lineChart.showCoordinateAxis = YES;
     
@@ -72,7 +79,12 @@
      */
     
     // Line Chart #1
+    //-----------------------------------------------------------------
+    //y坐标值
     NSMutableArray * data01Array = [self getYvaluesForLineChart:dic];
+    //-----------------------------------------------------------------
+    
+    
     
     PNLineChartData *data01 = [PNLineChartData new];
     data01.dataTitle = @"压力值";
@@ -88,6 +100,7 @@
     //item.info；//要显示的值
     
     
+    //-----------------------------------------------------------------
     // 在线上显示文字（默认显示数字，显示文字的话要修改PNLineChart的类函数）
     NSMutableArray * textArraySideLine = [NSMutableArray new];
     NSMutableArray * textArrayOriginal = [NSMutableArray new];
@@ -107,41 +120,33 @@
     else{
         [textArrayOriginal addObject: @""];
     }
-    
     if (item2.info) {
         [textArrayOriginal addObject:item2.info];
     }
     else{
         [textArrayOriginal addObject: @""];
     }
-    
     if (item3.info) {
         [textArrayOriginal addObject:item3.info];
     }
     else{
         [textArrayOriginal addObject: @""];
     }
-    
     if (item4.info) {
         [textArrayOriginal addObject:item4.info];
     }
     else{
         [textArrayOriginal addObject: @""];
     }
-
-    
     [textArraySideLine addObject: @"计划开始前"];//计划开始前的状态
     
     for (int i=0; i<[[dic objectForKey:@"number"] intValue]; i++) {
         NSString *currentString = [textArrayOriginal objectAtIndex:i];
         [textArraySideLine addObject:currentString];
- 
     }
-
     [textArraySideLine addObject: @"计划结束3天后"];//计划结束3天后的状况
-
     self.lineChart.textArraySideLine = textArraySideLine;
-    
+    //-----------------------------------------------------------------
     
     // 这句话的作用是设置pointlabel的文本
     data01.showPointLabel = YES;
@@ -360,6 +365,8 @@
     [XValues addObject:time5];
     return XValues;
 }
+
+
 
 
 
