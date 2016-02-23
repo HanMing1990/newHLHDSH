@@ -12,7 +12,7 @@
     NSNumber* done;
     NSNumber* have;
     NSNumber* number; // 有多少个item
-    NSNumber* currentNumber;
+    NSNumber* sickNumber;
     NSNumber* id1;
     NSNumber* id2;
     NSNumber* id3;
@@ -61,7 +61,7 @@
 @property(retain,nonatomic)    NSNumber* done;
 @property(retain,nonatomic)    NSNumber* have;
 @property(retain,nonatomic)    NSNumber* number;
-@property(retain,nonatomic)    NSNumber* currentNumber;
+@property(retain,nonatomic)    NSNumber* sickNumber;
 @property(retain,nonatomic)    NSNumber* id1;
 @property(retain,nonatomic)    NSNumber* id2;
 @property(retain,nonatomic)    NSNumber* id3;
