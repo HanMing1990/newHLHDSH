@@ -21,7 +21,6 @@
 
 @implementation infoViewController
 
-
 //显示第三方库
 - (void) showBarChart:(NSArray *) inputYValues{
     static NSNumberFormatter *barChartFormatter;

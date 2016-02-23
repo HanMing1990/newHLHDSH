@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "framework-1_4-[0.1 hanming]/mainViewController.m"
-            timestampString = "477803537.465401"
+            timestampString = "477840270.161203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>

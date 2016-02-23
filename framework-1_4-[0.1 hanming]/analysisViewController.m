@@ -14,6 +14,7 @@
 
 @interface analysisViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lineChartView;
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 @end
 
@@ -40,14 +41,21 @@
     }
      */
     
-    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
+    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width*0.8, self.lineChartView.frame.size.height*0.8)];
     self.lineChart.yLabelFormat = @"%1.1f";
     self.lineChart.backgroundColor = [UIColor clearColor];
     
     
-    //[self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]]; //x坐标值
+    //[self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]];
+    
+    
+    //-----------------------------------------------------------------
+    //x坐标值
     NSMutableArray * XLabels = [self getXvaluesForLineChart:dic];
     [self.lineChart setXLabels:XLabels];
+    //-----------------------------------------------------------------
+    
+    
     
     self.lineChart.showCoordinateAxis = YES;
     
@@ -71,7 +79,12 @@
      */
     
     // Line Chart #1
+    //-----------------------------------------------------------------
+    //y坐标值
     NSMutableArray * data01Array = [self getYvaluesForLineChart:dic];
+    //-----------------------------------------------------------------
+    
+    
     
     PNLineChartData *data01 = [PNLineChartData new];
     data01.dataTitle = @"压力值";
@@ -87,6 +100,7 @@
     //item.info；//要显示的值
     
     
+    //-----------------------------------------------------------------
     // 在线上显示文字（默认显示数字，显示文字的话要修改PNLineChart的类函数）
     NSMutableArray * textArraySideLine = [NSMutableArray new];
     NSMutableArray * textArrayOriginal = [NSMutableArray new];
@@ -106,41 +120,33 @@
     else{
         [textArrayOriginal addObject: @""];
     }
-    
     if (item2.info) {
         [textArrayOriginal addObject:item2.info];
     }
     else{
         [textArrayOriginal addObject: @""];
     }
-    
     if (item3.info) {
         [textArrayOriginal addObject:item3.info];
     }
     else{
         [textArrayOriginal addObject: @""];
     }
-    
     if (item4.info) {
         [textArrayOriginal addObject:item4.info];
     }
     else{
         [textArrayOriginal addObject: @""];
     }
-
-    
     [textArraySideLine addObject: @"计划开始前"];//计划开始前的状态
     
     for (int i=0; i<[[dic objectForKey:@"number"] intValue]; i++) {
         NSString *currentString = [textArrayOriginal objectAtIndex:i];
         [textArraySideLine addObject:currentString];
- 
     }
-
     [textArraySideLine addObject: @"计划结束3天后"];//计划结束3天后的状况
-
     self.lineChart.textArraySideLine = textArraySideLine;
-    
+    //-----------------------------------------------------------------
     
     // 这句话的作用是设置pointlabel的文本
     data01.showPointLabel = YES;
@@ -202,6 +208,21 @@
     NSMutableArray *showValues = [NSMutableArray new];
     showValues = [self getArrayToDisplayinInfoVC: originalArrayFromDB];
     */
+    
+    //-------------------------------------------------------------------------
+    //-1. 使用实现滚动
+    [self.myScrollView addSubview:self.lineChartView];
+    // 设置UIScrollView的滚动范围（内容大小）
+    self.myScrollView.contentSize = CGSizeMake(1500, 0);//只设置宽度，这样就只能左右滑
+    
+    // 隐藏水平滚动条
+    self.myScrollView.showsHorizontalScrollIndicator = NO;
+    self.myScrollView.showsVerticalScrollIndicator = NO;
+    
+    // 增加额外的滚动区域（逆时针，上、左、下、右）
+    // top  left  bottom  right
+    self.myScrollView.contentInset = UIEdgeInsetsMake(40, 40, 100, 100);
+    
     
     [self showLineChart];
 }
@@ -331,7 +352,7 @@
     NSDate *time5d =[[planHistoryDict objectForKey:lasttimename] dateByAddingTimeInterval:3*60*60*24];
     
     //2. 转换成字符串类型
-    NSString * time0 = [[NSString stringWithFormat:@"%@", time0d] substringWithRange:NSMakeRange(5, 5)];//截取月日
+    NSString * time0 = [[NSString stringWithFormat:@"%@", time0d]substringWithRange:NSMakeRange(5, 5)];//截取月日
     NSString * time1 = [[NSString stringWithFormat:@"%@", time1d]substringWithRange:NSMakeRange(5, 5)];
     NSString * time2 = [[NSString stringWithFormat:@"%@", time2d]substringWithRange:NSMakeRange(5, 5)];
     NSString * time3 = [[NSString stringWithFormat:@"%@", time3d]substringWithRange:NSMakeRange(5, 5)];
@@ -344,6 +365,8 @@
     [XValues addObject:time5];
     return XValues;
 }
+
+
 
 
 

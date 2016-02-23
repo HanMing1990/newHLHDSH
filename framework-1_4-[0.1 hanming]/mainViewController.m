@@ -100,7 +100,27 @@
     self.label4.text = currentLevel.calorieLevel;
     
     
+    //
+    /*
     
+    self.titleLabel.text = @"Circle Chart";
+    
+    
+    self.circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,150.0, SCREEN_WIDTH, 100.0)
+                                                      total:@100
+                                                    current:@60
+                                                  clockwise:YES];
+    
+    self.circleChart.backgroundColor = [UIColor clearColor];
+    
+    [self.circleChart setStrokeColor:[UIColor clearColor]];
+    [self.circleChart setStrokeColorGradientStart:[UIColor blueColor]];
+    [self.circleChart strokeChart];
+    
+    [self.view addSubview:self.circleChart];
+    
+    */
+    //
     
     
 
@@ -124,7 +144,9 @@
                                                     current:stressValue
                                                   clockwise:YES
                                                   shadow:YES
-                                                  shadowColor:[UIColor colorWithRed:255.0f/255.0f green:185.0f/255.0f blue:15.0f/255.0f alpha:0.8]];
+                                                    shadowColor:PNLightGrey];//调颜色留着以后再扣
+                                                  //shadowColor:[UIColor colorWithRed:255.0f/255.0f green:185.0f/255.0f blue:15.0f/255.0f alpha:0.8]];
+                               
                                                 //shadowColor:[UIColor blueColor]];
     
     self.circleChartStress.backgroundColor = [UIColor clearColor];
