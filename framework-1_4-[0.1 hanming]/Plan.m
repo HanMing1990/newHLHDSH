@@ -59,8 +59,9 @@
     return newArray;
 
 }
-- (NSMutableDictionary* )getPlanHistoryItemByID:(NSNumber* )ID{
+- (NSMutableArray* )getPlanHistoryItemByID:(NSNumber* )ID{
     //NSlog(@"inter function getPlanHistoryItem");
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
@@ -68,10 +69,45 @@
     [manager openDb:sqlFileName];
     NSString * sql = [NSString stringWithFormat:@"SELECT * FROM History WHERE sickNumber = %@",ID];
     NSArray * array = [manager executeQuery:sql];
-    NSDate *time0, *time1, *time2, *time3, *time4, *fintime1, *fintime2, *fintime3, *fintime4;
-    //NSlog(@"get all getPlanHistoryItem %@",array);
-    NSMutableDictionary* dic=[NSMutableDictionary new];
+    NSLog(@"get all getPlanHistoryItem %@",array);
+    NSMutableArray * nsMutableArray = [NSMutableArray new];
+    long int count = [array count];
+    for (int i=0; i < count; i++) {
+        NSMutableDictionary * mutableDictionary = [NSMutableDictionary new];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"id1"] forKey:@"id"];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"stress1"] forKey:@"level"];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"type1"] forKey:@"type"];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"fin1"] forKey:@"fin"];
+        [mutableDictionary setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];
+        [nsMutableArray addObject:mutableDictionary];
+        
+        NSMutableDictionary * mutableDictionary1 = [NSMutableDictionary new];
+        [mutableDictionary1 setObject:[[array objectAtIndex:i] objectForKey:@"id2"] forKey:@"id"];
+        [mutableDictionary1 setObject:[[array objectAtIndex:i] objectForKey:@"stress2"] forKey:@"level"];
+        [mutableDictionary1 setObject:[[array objectAtIndex:i] objectForKey:@"type2"] forKey:@"type"];
+        [mutableDictionary1 setObject:[[array objectAtIndex:i] objectForKey:@"fin2"] forKey:@"fin"];
+        [mutableDictionary1 setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];
+        [nsMutableArray addObject:mutableDictionary1];
+        
+        NSMutableDictionary * mutableDictionary2 = [NSMutableDictionary new];
+        [mutableDictionary2 setObject:[[array objectAtIndex:i] objectForKey:@"id3"] forKey:@"id"];
+        [mutableDictionary2 setObject:[[array objectAtIndex:i] objectForKey:@"stress3"] forKey:@"level"];
+        [mutableDictionary2 setObject:[[array objectAtIndex:i] objectForKey:@"type3"] forKey:@"type"];
+        [mutableDictionary2 setObject:[[array objectAtIndex:i] objectForKey:@"fin3"] forKey:@"fin"];
+        [mutableDictionary2 setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];
+        [nsMutableArray addObject:mutableDictionary2];
+        
+        NSMutableDictionary * mutableDictionary3 = [NSMutableDictionary new];
+        [mutableDictionary3 setObject:[[array objectAtIndex:i] objectForKey:@"id4"] forKey:@"id"];
+        [mutableDictionary3 setObject:[[array objectAtIndex:i] objectForKey:@"stress4"] forKey:@"level"];
+        [mutableDictionary3 setObject:[[array objectAtIndex:i] objectForKey:@"type4"] forKey:@"type"];
+        [mutableDictionary3 setObject:[[array objectAtIndex:i] objectForKey:@"fin4"] forKey:@"fin"];
+        [mutableDictionary3 setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];
+        [nsMutableArray addObject:mutableDictionary3];
+    }
+    /*
     if(array.count > 0) {
+        NSMutableDictionary* dic=[NSMutableDictionary new];
         time0 = [dateFormatter dateFromString:[array[0] objectForKey:@"time0"]];
         time1 = [dateFormatter dateFromString:[array[0] objectForKey:@"time1"]];
         time2 = [dateFormatter dateFromString:[array[0] objectForKey:@"time2"]];
@@ -92,7 +128,8 @@
         [array[0] setObject:fintime4 forKey:@"NSDateFormatedFintime4"];
         dic = array[0];
     }
-    return dic;
+     */
+    return nsMutableArray;
 }
 - (void) recordStress5{
     //记录这个计划完成的时候的情况

@@ -20,10 +20,10 @@
     NSString *key=@"IsCreatedDb";
     NSUserDefaults *defaults=[[NSUserDefaults alloc]init];
     
-    [defaults setValue:@0 forKey:key]; //数据库不变了就删了这个条目
+    //[defaults setValue:@0 forKey:key]; //发布版需要删除这行代码
     
     if ([[defaults valueForKey:key] intValue]!=1) {
-        //NSlog(@"we create the world!!!");
+        NSLog(@"we create the world!!!");
         [self createPlanItemTable];
         [self createPlanHistoryTable];
         [self createJokeItemTable];
@@ -33,8 +33,10 @@
         [self insertJokeItem];
         [self insertPictureItem];
         [defaults setValue:@1 forKey:key];
+    } else {
+        NSLog(@"init already");
     }
-    [self outputTable];
+    //[self outputTable];
 }
 - (void) insertPlanItem{
     //NSString* content1 = @"hello";
