@@ -1594,7 +1594,7 @@
                                 <rect key="frame" x="20" y="276" width="280" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.20460668103448276" colorSpace="calibratedRGB"/>
-                                <color key="textColor" patternImage="C99D811F-E7D3-468E-9380-2F5AD0077A4B" colorSpace="pattern"/>
+                                <color key="textColor" patternImage="332B8D75-3683-458F-9C86-723B402224A3" colorSpace="pattern"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2608,7 +2608,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C99D811F-E7D3-468E-9380-2F5AD0077A4B" width="256" height="256">
+        <image name="332B8D75-3683-458F-9C86-723B402224A3" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
