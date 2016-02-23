@@ -139,7 +139,7 @@
     NSNumber *sleepTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"sleepTarget"];
     //NSNumber *distanceTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"distanceTarget"];
     // stress
-    self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
+    self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
                                                       total:@10
                                                     current:stressValue
                                                   clockwise:YES
@@ -159,7 +159,7 @@
     
     
     // sleep
-    self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
+    self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
                                                             total:sleepTarget
                                                           current:sleepValue
                                                         clockwise:YES];
@@ -175,7 +175,7 @@
     
     
     // step
-    self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
+    self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
                                                            total:stepTarget
                                                          current:stepValue
                                                        clockwise:YES];
@@ -187,7 +187,7 @@
     [self.stepCircleView addSubview:self.circleChartStep];
     
     // calorie
-    self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 127, 115.0)
+    self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
                                                            total:kaluliTarget
                                                          current:calorieValue
                                                        clockwise:YES];
