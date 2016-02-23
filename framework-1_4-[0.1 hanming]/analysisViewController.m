@@ -29,7 +29,10 @@
     self.currentId            = [defaults valueForKey:HISTORYID];
     //2. 用id得到对应的字典
     NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
-    NSLog(@"xxxxxxxxxgetPlanHistoryItemByID %@",dic);
+    NSLog(@"xxxxxxxxxgetPlanHistoryItemByID %@",dic);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    
+    
+    
     //3. 得到这个病的压力变化情况，array每一个item是一个字典
     /*
     {
