@@ -30,13 +30,13 @@
     //2. 用id得到对应的字典
     NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
     NSLog(@"xxxxxxxxxgetPlanHistoryItemByID %@",dic);
-    //3. 得到上一周的压力情况，array每一个item是一个字典
+    //3. 得到这个病的压力变化情况，array每一个item是一个字典
     /*
     {
         NSDateFormatedTime = "2016-01-21 06:34:02 +0000";
+        fin = 0;  //只有在fin为1的时候显示此点
         id = 5;
         level = "25.000000";
-        time = "2016-01-21 14:34:02";
         type = 1;
     }
      */

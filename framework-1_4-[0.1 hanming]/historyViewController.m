@@ -21,11 +21,10 @@
         finishTime[self.count.intValue] = [array[i] objectForKey:@"NSDateFormatedFintime4"];
         startTime[self.count.intValue] = [array[i] objectForKey:@"NSDateFormatedtime0"];
         ID[self.count.intValue] = [array[i] objectForKey:@"id"];
-        flowerState[self.count.intValue] = [array[i] objectForKey:@"flowerState"];
         count = [NSNumber numberWithInt:count.intValue + 1];
     }
     for (int i=0; i<self.count.intValue; i++) {
-        NSLog(@"history item: %@ %@ %@ %@",finishTime[i],startTime[i],ID[i],flowerState[i]);
+        NSLog(@"history item: %@ %@ %@",finishTime[i],startTime[i],ID[i]);
     }
 }
 

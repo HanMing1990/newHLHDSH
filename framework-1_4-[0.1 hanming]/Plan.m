@@ -23,7 +23,7 @@
     [self recordStress5];
     [self update];
     NSString *sql=[NSString stringWithFormat:@"INSERT INTO History \
-    (done, have, number, currentNumber, id1, id2, id3, id4, type1, type2, type3, \
+    (done, have, number, sickNumber, id1, id2, id3, id4, type1, type2, type3, \
     type4, time0, time1, time2, time3 ,time4 ,fintime1 ,fintime2, fintime3, fintime4,\
     fin1, fin2, fin3, fin4,output1 ,output2 ,output3 ,output4 ,stress0 ,stress1, stress2, \
     stress3, stress4, stress5, effect,flowerState) VALUES \
@@ -31,7 +31,7 @@
     '%@', '%@',  '%@',  '%@',   '%@',  '%@',  '%@',    '%@',      '%@',    '%@', \
     '%@', '%@', '%@', '%@','%@',    '%@',    '%@',    '%@',    '%@',    '%@',    '%@'\
     ,'%@',   '%@',    '%@',    '%@',    '%@');",
-     currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.currentNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, [dateFormatter stringFromDate:currentPlan.time0], [dateFormatter stringFromDate:currentPlan.time1],[dateFormatter stringFromDate: currentPlan.time2],[dateFormatter stringFromDate: currentPlan.time3] ,[dateFormatter stringFromDate:currentPlan.time4] ,[dateFormatter stringFromDate:currentPlan.fintime1],[dateFormatter stringFromDate:currentPlan.fintime2],[dateFormatter stringFromDate:currentPlan.fintime3],[dateFormatter stringFromDate:currentPlan.fintime4],currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4, currentPlan.output1, currentPlan.output2, currentPlan.output3, currentPlan.output4,currentPlan.stress0,currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect,[[CurrentLevel new] flowerLevel]];
+     currentPlan.done, currentPlan.have, currentPlan.number, currentPlan.sickNumber, currentPlan.id1, currentPlan.id2, currentPlan.id3, currentPlan.id4, currentPlan.type1, currentPlan.type2, currentPlan.type3, currentPlan.type4, [dateFormatter stringFromDate:currentPlan.time0], [dateFormatter stringFromDate:currentPlan.time1],[dateFormatter stringFromDate: currentPlan.time2],[dateFormatter stringFromDate: currentPlan.time3] ,[dateFormatter stringFromDate:currentPlan.time4] ,[dateFormatter stringFromDate:currentPlan.fintime1],[dateFormatter stringFromDate:currentPlan.fintime2],[dateFormatter stringFromDate:currentPlan.fintime3],[dateFormatter stringFromDate:currentPlan.fintime4],currentPlan.fin1, currentPlan.fin2, currentPlan.fin3, currentPlan.fin4, currentPlan.output1, currentPlan.output2, currentPlan.output3, currentPlan.output4,currentPlan.stress0,currentPlan.stress1, currentPlan.stress2, currentPlan.stress3, currentPlan.stress4, currentPlan.stress5, currentPlan.effect,[[CurrentLevel new] flowerLevel]];
     KCDbManager *manager = [KCDbManager new];
     [manager openDb:sqlFileName];
     [manager executeNonQuery:sql];
@@ -43,35 +43,78 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
-    NSString * sql = [NSString stringWithFormat:@"SELECT id,time0,fintime4,flowerstate FROM History"];
+    NSString * sql = [NSString stringWithFormat:@"SELECT sickNumber,time0,fintime4 FROM History"];
     NSArray * array = [manager executeQuery:sql];
     NSMutableArray * newArray = [NSMutableArray new];
-    NSDate *time0, *fintime4;
+    NSMutableDictionary * dic = [NSMutableDictionary new];
     //NSlog(@"get all PlanHistory %@",array);
-    for (int i=0; i<array.count; i++) {
-        time0 = [dateFormatter dateFromString:[array[i] objectForKey:@"time0"]];
-        fintime4 = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime4"]];
-        [array[i] setObject:fintime4 forKey:@"NSDateFormatedFintime4"];
-        [array[i] setObject:time0 forKey:@"NSDateFormatedtime0"];
+    int i = 1;
+    NSDate * left, * right;
+    while (i < array.count) {
+        left = [dateFormatter dateFromString:[array[i-1] objectForKey:@"time0"]];
+        while (i < array.count && [[array[i] objectForKey:@"sickNumber"] isEqualToNumber:[array[i-1] objectForKey:@"sickNumber"]]) {
+            right = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime4"]];
+            i++;
+        }
+        NSMutableDictionary * dictionary = [NSMutableDictionary new];
+        [dictionary setObject:left forKey:@"NSDateFormatedtime0"];
+        [dictionary setObject:right forKey:@"NSDateFormatedtime4"];
+        
         [newArray addObject:array[i]];
     }
     //NSlog(@"get fit getPlanHistory %@",newArray);
     return newArray;
 
 }
-- (NSMutableDictionary* )getPlanHistoryItemByID:(NSNumber* )ID{
+- (NSMutableArray* )getPlanHistoryItemByID:(NSNumber* )ID{
     //NSlog(@"inter function getPlanHistoryItem");
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     KCDbManager* manager = [KCDbManager new];
     [manager openDb:sqlFileName];
-    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM History WHERE id = %@",ID];
+    NSString * sql = [NSString stringWithFormat:@"SELECT * FROM History WHERE sickNumber = %@",ID];
     NSArray * array = [manager executeQuery:sql];
-    NSDate *time0, *time1, *time2, *time3, *time4, *fintime1, *fintime2, *fintime3, *fintime4;
-    //NSlog(@"get all getPlanHistoryItem %@",array);
-    NSMutableDictionary* dic=[NSMutableDictionary new];
+    NSLog(@"get all getPlanHistoryItem %@",array);
+    NSMutableArray * nsMutableArray = [NSMutableArray new];
+    long int count = [array count];
+    for (int i=0; i < count; i++) {
+        NSMutableDictionary * mutableDictionary = [NSMutableDictionary new];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"id1"] forKey:@"id"];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"stress1"] forKey:@"level"];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"type1"] forKey:@"type"];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"fin1"] forKey:@"fin"];
+        [mutableDictionary setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];
+        [nsMutableArray addObject:mutableDictionary];
+        
+        NSMutableDictionary * mutableDictionary1 = [NSMutableDictionary new];
+        [mutableDictionary1 setObject:[[array objectAtIndex:i] objectForKey:@"id2"] forKey:@"id"];
+        [mutableDictionary1 setObject:[[array objectAtIndex:i] objectForKey:@"stress2"] forKey:@"level"];
+        [mutableDictionary1 setObject:[[array objectAtIndex:i] objectForKey:@"type2"] forKey:@"type"];
+        [mutableDictionary1 setObject:[[array objectAtIndex:i] objectForKey:@"fin2"] forKey:@"fin"];
+        [mutableDictionary1 setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];
+        [nsMutableArray addObject:mutableDictionary1];
+        
+        NSMutableDictionary * mutableDictionary2 = [NSMutableDictionary new];
+        [mutableDictionary2 setObject:[[array objectAtIndex:i] objectForKey:@"id3"] forKey:@"id"];
+        [mutableDictionary2 setObject:[[array objectAtIndex:i] objectForKey:@"stress3"] forKey:@"level"];
+        [mutableDictionary2 setObject:[[array objectAtIndex:i] objectForKey:@"type3"] forKey:@"type"];
+        [mutableDictionary2 setObject:[[array objectAtIndex:i] objectForKey:@"fin3"] forKey:@"fin"];
+        [mutableDictionary2 setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];
+        [nsMutableArray addObject:mutableDictionary2];
+        
+        NSMutableDictionary * mutableDictionary3 = [NSMutableDictionary new];
+        [mutableDictionary3 setObject:[[array objectAtIndex:i] objectForKey:@"id4"] forKey:@"id"];
+        [mutableDictionary3 setObject:[[array objectAtIndex:i] objectForKey:@"stress4"] forKey:@"level"];
+        [mutableDictionary3 setObject:[[array objectAtIndex:i] objectForKey:@"type4"] forKey:@"type"];
+        [mutableDictionary3 setObject:[[array objectAtIndex:i] objectForKey:@"fin4"] forKey:@"fin"];
+        [mutableDictionary3 setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];
+        [nsMutableArray addObject:mutableDictionary3];
+    }
+    /*
     if(array.count > 0) {
+        NSMutableDictionary* dic=[NSMutableDictionary new];
         time0 = [dateFormatter dateFromString:[array[0] objectForKey:@"time0"]];
         time1 = [dateFormatter dateFromString:[array[0] objectForKey:@"time1"]];
         time2 = [dateFormatter dateFromString:[array[0] objectForKey:@"time2"]];
@@ -92,7 +135,8 @@
         [array[0] setObject:fintime4 forKey:@"NSDateFormatedFintime4"];
         dic = array[0];
     }
-    return dic;
+     */
+    return nsMutableArray;
 }
 - (void) recordStress5{
     //记录这个计划完成的时候的情况
@@ -272,6 +316,7 @@
     currentPlan.done = [NSNumber numberWithBool:NO];
     currentPlan.have = [NSNumber numberWithBool:YES];
     currentPlan.number = [NSNumber numberWithInt:plan_item_number];
+    //currentPlan.sickNumber = ; //根据上一个病的情况或者是
     currentPlan.stress0 = [[CurrentLevel new] stressLevel];
     Item *selected_item[4];
     if (plan_item_number > 0) {
@@ -314,7 +359,7 @@
         currentPlan.fin4 = [NSNumber numberWithBool:NO];
         currentPlan.output4 = @"";
     }
-    currentPlan.currentNumber = [NSNumber numberWithInt:0];
+    currentPlan.sickNumber = [NSNumber numberWithInt:0];
     // 4. 但是这个时间就需要精心策划啦
     currentPlan.time0 = [NSDate date];
     NSTimeInterval interval = [NSDate timeIntervalSinceReferenceDate];

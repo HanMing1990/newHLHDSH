@@ -533,13 +533,24 @@
 }
 - (IBAction)finishBtnClicked:(id)sender {
     
+    //以下三行代码是当这个疗程不属于这个病时，需要自增
+    CurrentPlan * currentPlan = [CurrentPlan new];
+    currentPlan.sickNumber = [NSNumber numberWithInt:currentPlan.sickNumber.intValue + 1];
+    [currentPlan save];
+    
     Plan * plan = [Plan new];
     [plan store];
-    
+    /*
+    NSMutableArray * array = [NSMutableArray new];
+    array = [plan getPlanHistoryItemByID:[NSNumber numberWithInt:0]];
+    NSLog(@" the array we find is%@",array);
+     */
+   
     UIStoryboard *mainStoryboard = self.storyboard;
     analysisViewController *SVC;
     SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
     [self presentViewController: SVC animated:YES completion:nil];
+  
     
 }
 

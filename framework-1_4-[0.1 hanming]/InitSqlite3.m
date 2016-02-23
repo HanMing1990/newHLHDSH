@@ -20,10 +20,10 @@
     NSString *key=@"IsCreatedDb";
     NSUserDefaults *defaults=[[NSUserDefaults alloc]init];
     
-    [defaults setValue:@0 forKey:key]; //数据库不变了就删了这个条目
+    //[defaults setValue:@0 forKey:key]; //发布版需要删除这行代码
     
     if ([[defaults valueForKey:key] intValue]!=1) {
-        //NSlog(@"we create the world!!!");
+        NSLog(@"we create the world!!!");
         [self createPlanItemTable];
         [self createPlanHistoryTable];
         [self createJokeItemTable];
@@ -33,8 +33,10 @@
         [self insertJokeItem];
         [self insertPictureItem];
         [defaults setValue:@1 forKey:key];
+    } else {
+        NSLog(@"init already");
     }
-    [self outputTable];
+    //[self outputTable];
 }
 - (void) insertPlanItem{
     //NSString* content1 = @"hello";
@@ -425,7 +427,7 @@
 }
 - (void) createPlanHistoryTable{
     NSString *sql=@"CREATE TABLE History (id integer PRIMARY KEY AUTOINCREMENT,\
-    done integer,have integer,number integer, currentNumber integer, id1 integer, id2 integer,id3 integer,\
+    done integer,have integer,number integer, sickNumber integer, id1 integer, id2 integer,id3 integer,\
     id4 integer, type1 integer, type2 integer, type3 integer, type4 integer,time0 text, time1 text,time2 \
     text,time3 text,time4 text,fintime1 text, fintime2 text, fintime3 text, fintime4 text, fin1 integer,\
     fin2 integer,fin3 integer, fin4 integer, output1 text, output2 text, output3 text, output4 text, \
@@ -627,7 +629,6 @@
     
     int type;
     for(loop = 1; loop <= SUM_OF_PICTURE; loop ++){
-
         if (loop == 12 || loop > 50 || loop == 31) {
             type = 2;
         }else{

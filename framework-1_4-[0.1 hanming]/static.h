@@ -42,7 +42,7 @@
 #define PLANOUTPUT @"currentPlanOutput"      //对应currentPlan.h中的output
 #define PLANFIN    @"currentPlanFin"         //对应currentPlan.h中的fin
 
-#define HISTORYID  @"currentHistoryID"       //作为historyviewcontroller到analysisviewcontroller的参数
+#define HISTORYID  @"currentHistoryID"       //作为historyviewcontroller/planviewcontroller到analysisviewcontroller的参数,这个参数的含义为一个病的序号，可以多个计划对应一个病
 
 #define IP         @"166.111.69.137"
 #define PORT       @"5000"

@@ -15,7 +15,7 @@
 #define DONE           @"DONE"
 #define HAVE           @"HAVE"
 #define NUMBER         @"NUMBER"
-#define CURRENTNUMBER  @"CURRENTNUMBER"
+#define SICKNUMBER  @"SICKNUMBER"
 #define ID1            @"ID1"
 #define ID2            @"ID2"
 #define ID3            @"ID3"
@@ -67,7 +67,7 @@
 @synthesize done;
 @synthesize have;
 @synthesize number;
-@synthesize currentNumber;
+@synthesize sickNumber;
 @synthesize id1;
 @synthesize id2;
 @synthesize id3;
@@ -129,7 +129,7 @@
                 have = [NSNumber numberWithBool:1];
                 done = [NSNumber numberWithBool:0];
                 number = [NSNumber numberWithInt:PLAN_NUM];
-                currentNumber = [NSNumber numberWithInt:0];
+                sickNumber = [NSNumber numberWithInt:0];
                 id1 = [NSNumber numberWithInt:3];
                 id2 = [NSNumber numberWithInt:5];
                 id3 = [NSNumber numberWithInt:6];
@@ -177,7 +177,7 @@
                 [dic setObject:have forKey:HAVE];
                 [dic setObject:done forKey:DONE];
                 [dic setObject:number forKey:NUMBER];
-                [dic setObject:currentNumber forKey:CURRENTNUMBER];
+                [dic setObject:sickNumber forKey:SICKNUMBER];
                 [dic setObject:id1  forKey:ID1];
                 [dic setObject:id2 forKey:ID2];
                 [dic setObject:id3 forKey:ID3];
@@ -237,7 +237,7 @@
         done = [dictionary objectForKey:DONE];
         have  = [dictionary objectForKey:HAVE];
         number = [dictionary objectForKey:NUMBER];
-        currentNumber   = [dictionary objectForKey:CURRENTNUMBER];
+        sickNumber   = [dictionary objectForKey:SICKNUMBER];
         id1    = [dictionary objectForKey:ID1];
         id2  = [dictionary objectForKey:ID2];
         id3   = [dictionary objectForKey:ID3];
@@ -291,7 +291,7 @@
         [dic setObject:have forKey:HAVE];
         [dic setObject:done forKey:DONE];
         [dic setObject:number forKey:NUMBER];
-        [dic setObject:currentNumber forKey:CURRENTNUMBER];
+        [dic setObject:sickNumber forKey:SICKNUMBER];
         [dic setObject:id1  forKey:ID1];
         [dic setObject:id2 forKey:ID2];
         [dic setObject:id3 forKey:ID3];
