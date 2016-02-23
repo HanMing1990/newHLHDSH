@@ -46,13 +46,20 @@
     NSString * sql = [NSString stringWithFormat:@"SELECT sickNumber,time0,fintime4 FROM History"];
     NSArray * array = [manager executeQuery:sql];
     NSMutableArray * newArray = [NSMutableArray new];
-    NSDate *time0, *fintime4;
+    NSMutableDictionary * dic = [NSMutableDictionary new];
     //NSlog(@"get all PlanHistory %@",array);
-    for (int i=0; i<array.count; i++) {
-        time0 = [dateFormatter dateFromString:[array[i] objectForKey:@"time0"]];
-        fintime4 = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime4"]];
-        [array[i] setObject:fintime4 forKey:@"NSDateFormatedFintime4"];
-        [array[i] setObject:time0 forKey:@"NSDateFormatedtime0"];
+    int i = 1;
+    NSDate * left, * right;
+    while (i < array.count) {
+        left = [dateFormatter dateFromString:[array[i-1] objectForKey:@"time0"]];
+        while (i < array.count && [[array[i] objectForKey:@"sickNumber"] isEqualToNumber:[array[i-1] objectForKey:@"sickNumber"]]) {
+            right = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime4"]];
+            i++;
+        }
+        NSMutableDictionary * dictionary = [NSMutableDictionary new];
+        [dictionary setObject:left forKey:@"NSDateFormatedtime0"];
+        [dictionary setObject:right forKey:@"NSDateFormatedtime4"];
+        
         [newArray addObject:array[i]];
     }
     //NSlog(@"get fit getPlanHistory %@",newArray);

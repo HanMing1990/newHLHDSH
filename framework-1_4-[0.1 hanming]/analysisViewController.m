@@ -34,7 +34,7 @@
     /*
     {
         NSDateFormatedTime = "2016-01-21 06:34:02 +0000";
-        fin = 0;
+        fin = 0;  //只有在fin为1的时候显示此点
         id = 5;
         level = "25.000000";
         type = 1;
