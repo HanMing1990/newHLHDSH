@@ -26,7 +26,7 @@
 - (void) showLineChart{
     //1. 从HhaodatISTORY里面的到currentID(这个是计划的历史完成情况的planlist中的id)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.currentId = [defaults valueForKey:HISTORYID];
+    self.currentId            = [defaults valueForKey:HISTORYID];
     //self.currentId = [NSNumber numberWithInt:1];//调试的时候用这个id
     NSLog(@"current id is %@", self.currentId);
     //2. 用id得到对应的字典

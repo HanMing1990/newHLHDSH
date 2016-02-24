@@ -82,6 +82,7 @@
 		105F14371C42475C0039B8E7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F142F1C42475C0039B8E7 /* Item.m */; };
 		105F14381C42475C0039B8E7 /* KCDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14311C42475C0039B8E7 /* KCDbManager.m */; };
 		105F14391C42475C0039B8E7 /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14331C42475C0039B8E7 /* Plan.m */; };
+		1073ED071C7DCB9C00DD9327 /* sleepStress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073ED061C7DCB9C00DD9327 /* sleepStress.m */; };
 		2E36BD411C4F2642004416AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E36BD3F1C4F2642004416AC /* Main.storyboard */; };
 		2E36BD441C4F2ABB004416AC /* HMNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BD431C4F2ABB004416AC /* HMNetwork.m */; };
 		2E36BDFC1C4F3B14004416AC /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BDE51C4F3B14004416AC /* NSDate+RFC1123.m */; };
@@ -222,6 +223,8 @@
 		105F14311C42475C0039B8E7 /* KCDbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCDbManager.m; sourceTree = "<group>"; };
 		105F14321C42475C0039B8E7 /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
 		105F14331C42475C0039B8E7 /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
+		1073ED051C7DCB9C00DD9327 /* sleepStress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sleepStress.h; sourceTree = "<group>"; };
+		1073ED061C7DCB9C00DD9327 /* sleepStress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sleepStress.m; sourceTree = "<group>"; };
 		2E36BD401C4F2642004416AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E36BD421C4F2AA4004416AC /* HMNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMNetwork.h; sourceTree = "<group>"; };
 		2E36BD431C4F2ABB004416AC /* HMNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNetwork.m; sourceTree = "<group>"; };
@@ -532,6 +535,8 @@
 		2EFBE3431C3A8392009BCDED /* framework-1_4-[0.1 hanming] */ = {
 			isa = PBXGroup;
 			children = (
+				1073ED051C7DCB9C00DD9327 /* sleepStress.h */,
+				1073ED061C7DCB9C00DD9327 /* sleepStress.m */,
 				105F14281C42475C0039B8E7 /* CurrentLevel.h */,
 				105F14291C42475C0039B8E7 /* CurrentLevel.m */,
 				1003837A1C4BCD6700181713 /* static.h */,
@@ -738,6 +743,7 @@
 			files = (
 				2E55F2081C3F97AE0027AC6F /* PNLineChartDataItem.m in Sources */,
 				2E913D741C451A44008CE648 /* exe1ViewController.m in Sources */,
+				1073ED071C7DCB9C00DD9327 /* sleepStress.m in Sources */,
 				105F14361C42475C0039B8E7 /* InitSqlite3.m in Sources */,
 				2E55F2041C3F97AE0027AC6F /* PNColor.m in Sources */,
 				2E55F2051C3F97AE0027AC6F /* PNGenericChart.m in Sources */,
