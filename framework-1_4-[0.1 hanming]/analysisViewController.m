@@ -62,8 +62,6 @@
     [self.lineChart setXLabels:XLabels];
     //-----------------------------------------------------------------
     
-    
-    
     self.lineChart.showCoordinateAxis = YES;
     
     //Use yFixedValueMax and yFixedValueMin to Fix the Max and Min Y Value
@@ -92,8 +90,6 @@
     NSLog(@"ok the y is: %@",data01Array);
     //-----------------------------------------------------------------
     
-    
-    
     PNLineChartData *data01 = [PNLineChartData new];
     data01.dataTitle = @"压力值";
     data01.color = [UIColor blueColor];//曲线的颜色
@@ -115,6 +111,7 @@
     Plan *plan = [Plan new];
     for (int i=0; i<number; i++) {
         NSMutableDictionary *currentDict = showDataArray[i];
+        if([[currentDict objectForKey:@"fin"] integerValue]==1){
         NSNumber* idx = [currentDict objectForKey:@"id"];
         Item *itemx = [plan getItemById:idx];
         if(itemx.info){
@@ -122,6 +119,7 @@
         }
         else{
             [textArrayOriginal addObject:@""];
+        }
         }
     }
     /*以下是老版本，一个疗程的
@@ -401,11 +399,13 @@
     unsigned long number =  planHistoryArray.count;
     for (int i=0; i<number; i++) {
         NSMutableDictionary *currentDict = planHistoryArray[i];
+        if([[currentDict objectForKey:@"fin"] integerValue]==1){
         //2. 得到stress的值
         NSString *currentStress = [currentDict objectForKey: @"level"];
         //3. 将stress转化成fLoat
         NSNumber *stressFloat = [NSNumber numberWithFloat:[currentStress floatValue]];
         [YValues addObject: stressFloat];
+        }
     }
     return YValues;
     
@@ -482,12 +482,15 @@
     unsigned long number =  planHistoryArray.count;
     for (int i=0; i<number; i++) {
         NSMutableDictionary *currentDict = planHistoryArray[i];
+        if([[currentDict objectForKey:@"fin"] integerValue]==1){
         //1. 得到时间
         NSDate *currentTime = [currentDict objectForKey:@"NSDateFormatedTime"];
+        
         //2. 转换成字符串类型
         NSString * currentTimeString = [[NSString stringWithFormat:@"%@", currentTime]substringWithRange:NSMakeRange(5, 5)];
         
         [XValues addObject:currentTimeString];
+        }
     }
     return XValues;
 }

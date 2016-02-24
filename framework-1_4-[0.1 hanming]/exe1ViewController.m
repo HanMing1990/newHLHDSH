@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *laterBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
-
-
 @property NSNumber* currentPlanType;
 @property Item* currentItem;
 @property NSNumber* currentId;
@@ -143,6 +141,7 @@
     [self presentViewController: SVC animated:YES completion:nil];
 }
 
+
 - (IBAction)finishBtnClicked:(id)sender {
     //1. 这人完成了当前的计划，记录到数据库里 xxx
     Plan *plan = [Plan new];
@@ -219,9 +218,6 @@
     [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentViewController: SVC animated:YES completion:nil];
 }
-
-
-
 
 
 - (void)didReceiveMemoryWarning {

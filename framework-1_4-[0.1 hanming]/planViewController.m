@@ -550,14 +550,12 @@
     NSArray * array = [NSMutableArray new];
     array = [plan getPlanHistory];
     
-   /*
+   
     UIStoryboard *mainStoryboard = self.storyboard;
     analysisViewController *SVC;
     SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
     [self presentViewController: SVC animated:YES completion:nil];
-   */
-
-    
+   
 }
 
 /*
