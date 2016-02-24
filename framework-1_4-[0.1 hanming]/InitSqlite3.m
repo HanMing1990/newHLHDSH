@@ -20,7 +20,7 @@
     NSString *key=@"IsCreatedDb";
     NSUserDefaults *defaults=[[NSUserDefaults alloc]init];
     
-    //[defaults setValue:@0 forKey:key]; //发布版需要删除这行代码
+    [defaults setValue:@0 forKey:key]; //发布版需要删除这行代码
     
     if ([[defaults valueForKey:key] intValue]!=1) {
         NSLog(@"we create the world!!!");

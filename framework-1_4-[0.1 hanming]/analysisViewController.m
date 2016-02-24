@@ -26,14 +26,13 @@
 - (void) showLineChart{
     //1. 从HhaodatISTORY里面的到currentID(这个是计划的历史完成情况的planlist中的id)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.currentId            = [defaults valueForKey:HISTORYID];
+    //self.currentId            = [defaults valueForKey:HISTORYID];
+    self.currentId = [NSNumber numberWithInt:1];//调试的时候用这个id
     //2. 用id得到对应的字典
-    NSMutableDictionary* dic = [[Plan new] getPlanHistoryItemByID:self.currentId];
-    NSLog(@"xxxxxxxxxgetPlanHistoryItemByID %@",dic);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    NSMutableArray* showDataArray = [[Plan new] getPlanHistoryItemByID:self.currentId];
+    NSLog(@"xxxxxxxxxgetPlanHistoryItemByID %@",showDataArray);
     
-    
-    
-    //3. 得到这个病的压力变化情况，array每一个item是一个字典
+    //3. 得到这个病的压力变化情况，array每一个item是一个字典，以下是个栗子
     /*
     {
         NSDateFormatedTime = "2016-01-21 06:34:02 +0000";
@@ -43,6 +42,8 @@
         type = 1;
     }
      */
+    
+    
     
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width*0.8, self.lineChartView.frame.size.height*0.8)];
     self.lineChart.yLabelFormat = @"%1.1f";
@@ -54,7 +55,10 @@
     
     //-----------------------------------------------------------------
     //x坐标值
-    NSMutableArray * XLabels = [self getXvaluesForLineChart:dic];
+    NSMutableArray * XLabels = [self getXvaluesForLineChart:showDataArray];
+    NSLog(@"ok the x is: %@", XLabels);
+    
+    
     [self.lineChart setXLabels:XLabels];
     //-----------------------------------------------------------------
     
@@ -84,7 +88,8 @@
     // Line Chart #1
     //-----------------------------------------------------------------
     //y坐标值
-    NSMutableArray * data01Array = [self getYvaluesForLineChart:dic];
+    NSMutableArray * data01Array = [self getYvaluesForLineChart:showDataArray];
+    NSLog(@"ok the y is: %@",data01Array);
     //-----------------------------------------------------------------
     
     
@@ -96,8 +101,6 @@
     data01.itemCount = data01Array.count;
     data01.inflexionPointStyle = PNLineChartPointStyleTriangle;
     
-    
-    
     //准备显示在折线上的文字
     //Item * item = [[Plan new] getItemById:[NSNumber numberWithInt:1]];//plan中取id, 根据id取item,根据item取info
     //item.info；//要显示的值
@@ -105,13 +108,28 @@
     
     //-----------------------------------------------------------------
     // 在线上显示文字（默认显示数字，显示文字的话要修改PNLineChart的类函数）
-    NSMutableArray * textArraySideLine = [NSMutableArray new];
+    //NSMutableArray * textArraySideLine = [NSMutableArray new];
     NSMutableArray * textArrayOriginal = [NSMutableArray new];
     
+    unsigned long number = showDataArray.count;
+    Plan *plan = [Plan new];
+    for (int i=0; i<number; i++) {
+        NSMutableDictionary *currentDict = showDataArray[i];
+        NSNumber* idx = [currentDict objectForKey:@"id"];
+        Item *itemx = [plan getItemById:idx];
+        if(itemx.info){
+            [textArrayOriginal addObject:itemx.info];
+        }
+        else{
+            [textArrayOriginal addObject:@""];
+        }
+    }
+    /*以下是老版本，一个疗程的
     NSNumber* id1 = [dic objectForKey:@"id1"];
     NSNumber* id2 = [dic objectForKey:@"id2"];
     NSNumber* id3 = [dic objectForKey:@"id3"];
     NSNumber* id4 = [dic objectForKey:@"id4"];
+    
     Plan *plan = [Plan new];
     Item *item1 =[plan getItemById:id1];
     Item *item2 =[plan getItemById:id2];
@@ -143,18 +161,21 @@
     }
     [textArraySideLine addObject: @"计划开始前"];//计划开始前的状态
     
+    
     for (int i=0; i<[[dic objectForKey:@"number"] intValue]; i++) {
         NSString *currentString = [textArrayOriginal objectAtIndex:i];
         [textArraySideLine addObject:currentString];
     }
     [textArraySideLine addObject: @"计划结束3天后"];//计划结束3天后的状况
     self.lineChart.textArraySideLine = textArraySideLine;
+     
+     */
+    
+    self.lineChart.textArraySideLine = textArrayOriginal;
     //-----------------------------------------------------------------
     
     // 这句话的作用是设置pointlabel的文本
     data01.showPointLabel = YES;
-    
-    
     
     //这个文本的格式可在createPointLabelFor函数中重写，当然可以设置如下的字段
     //data01.pointLabelFont =
@@ -310,8 +331,7 @@
  }
  */
 
-
-
+/*这个版本是输出一个疗程的
 - (NSMutableArray *) getYvaluesForLineChart: (NSMutableDictionary*) planHistoryDict{
     //0. 得到一共有几个item
     NSNumber* number = [planHistoryDict objectForKey:@"number"];
@@ -339,8 +359,60 @@
     
     return YValues;
 }
+ */
 
 
+- (NSMutableArray *) getYvaluesForLineChart: (NSMutableArray*) planHistoryArray{
+    /*以下是一个输入的栗子
+     (
+     {
+     NSDateFormatedTime = "2016-02-24 02:10:46 +0000";
+     fin = 0;
+     id = 13;
+     level = 0;
+     type = 1;
+     },
+     {
+     NSDateFormatedTime = "2016-02-24 02:10:46 +0000";
+     fin = 0;
+     id = 54;
+     level = 0;
+     type = 1;
+     },
+     {
+     NSDateFormatedTime = "2016-02-24 02:10:46 +0000";
+     fin = 0;
+     id = 25;
+     level = 0;
+     type = 7;
+     },
+     {
+     NSDateFormatedTime = "2016-02-24 02:10:46 +0000";
+     fin = 0;
+     id = 23;
+     level = 0;//
+     type = 6;
+     }
+     )
+     */
+    
+    NSMutableArray *YValues = [NSMutableArray new];
+    //0. 得到一共有几个item
+    unsigned long number =  planHistoryArray.count;
+    for (int i=0; i<number; i++) {
+        NSMutableDictionary *currentDict = planHistoryArray[i];
+        //2. 得到stress的值
+        NSString *currentStress = [currentDict objectForKey: @"level"];
+        //3. 将stress转化成fLoat
+        NSNumber *stressFloat = [NSNumber numberWithFloat:[currentStress floatValue]];
+        [YValues addObject: stressFloat];
+    }
+    return YValues;
+    
+}
+
+
+/*这个版本是输出一个疗程的
 - (NSMutableArray *) getXvaluesForLineChart: (NSMutableDictionary*) planHistoryDict{
     //0. 得到一共有几个item
     NSNumber* number = [planHistoryDict objectForKey:@"number"];
@@ -367,8 +439,58 @@
     NSMutableArray *XValues = [NSMutableArray arrayWithArray: [XValuesOrigin subarrayWithRange:NSMakeRange(0, [number intValue]+1)]];
     [XValues addObject:time5];
     return XValues;
-}
+}*/
 
+
+- (NSMutableArray *) getXvaluesForLineChart: (NSMutableArray*) planHistoryArray{
+    /*以下是一个输入的栗子
+     (
+     {
+     NSDateFormatedTime = "2016-02-24 02:10:46 +0000";
+     fin = 0;
+     id = 13;
+     level = 0;
+     type = 1;
+     },
+     {
+     NSDateFormatedTime = "2016-02-24 02:10:46 +0000";
+     fin = 0;
+     id = 54;
+     level = 0;
+     type = 1;
+     },
+     {
+     NSDateFormatedTime = "2016-02-24 02:10:46 +0000";
+     fin = 0;
+     id = 25;
+     level = 0;
+     type = 7;
+     },
+     {
+     NSDateFormatedTime = "2016-02-24 02:10:46 +0000";
+     fin = 0;
+     id = 23;
+     level = 0;
+     type = 6;
+     }
+     )
+     */
+    
+    NSMutableArray *XValues = [NSMutableArray new];
+    
+    //0. 得到一共有几个item
+    unsigned long number =  planHistoryArray.count;
+    for (int i=0; i<number; i++) {
+        NSMutableDictionary *currentDict = planHistoryArray[i];
+        //1. 得到时间
+        NSDate *currentTime = [currentDict objectForKey:@"NSDateFormatedTime"];
+        //2. 转换成字符串类型
+        NSString * currentTimeString = [[NSString stringWithFormat:@"%@", currentTime]substringWithRange:NSMakeRange(5, 5)];
+        
+        [XValues addObject:currentTimeString];
+    }
+    return XValues;
+}
 
 
 

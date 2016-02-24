@@ -82,7 +82,7 @@
     for (int i=0; i < count; i++) {
         NSMutableDictionary * mutableDictionary = [NSMutableDictionary new];
         [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"id1"] forKey:@"id"];
-        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"stress1"] forKey:@"level"];
+        [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"stress1"] forKey:@"level"];//现在的level对应于以前的stress
         [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"type1"] forKey:@"type"];
         [mutableDictionary setObject:[[array objectAtIndex:i] objectForKey:@"fin1"] forKey:@"fin"];
         [mutableDictionary setObject:[dateFormatter dateFromString:[[array objectAtIndex:i] objectForKey:@"fintime1"]]forKey:@"NSDateFormatedTime"];

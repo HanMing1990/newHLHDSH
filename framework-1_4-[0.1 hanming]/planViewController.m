@@ -545,12 +545,12 @@
     array = [plan getPlanHistoryItemByID:[NSNumber numberWithInt:0]];
     NSLog(@" the array we find is%@",array);
      */
-   
+    
     UIStoryboard *mainStoryboard = self.storyboard;
     analysisViewController *SVC;
     SVC= [mainStoryboard instantiateViewControllerWithIdentifier:@"analysisViewController"];
     [self presentViewController: SVC animated:YES completion:nil];
-  
+     
     
 }
 
