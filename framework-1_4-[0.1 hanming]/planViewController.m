@@ -23,16 +23,39 @@
 @property (weak, nonatomic) IBOutlet UIButton *plan2Btn;
 @property (weak, nonatomic) IBOutlet UIButton *plan3Btn;
 @property (weak, nonatomic) IBOutlet UIButton *plan4Btn;
+@property (weak, nonatomic) IBOutlet UIButton *plan5Btn;
+@property (weak, nonatomic) IBOutlet UIButton *plan6Btn;
+@property (weak, nonatomic) IBOutlet UIButton *plan7Btn;
+@property (weak, nonatomic) IBOutlet UIButton *plan8Btn;
+@property (weak, nonatomic) IBOutlet UIButton *plan9Btn;
+
+
 
 @property (weak, nonatomic) IBOutlet UILabel *plan1Date;
 @property (weak, nonatomic) IBOutlet UILabel *plan2Date;
 @property (weak, nonatomic) IBOutlet UILabel *plan3Date;
 @property (weak, nonatomic) IBOutlet UILabel *plan4Date;
+@property (weak, nonatomic) IBOutlet UILabel *plan5Date;
+@property (weak, nonatomic) IBOutlet UILabel *plan6Date;
+@property (weak, nonatomic) IBOutlet UILabel *plan7Date;
+@property (weak, nonatomic) IBOutlet UILabel *plan8Date;
+@property (weak, nonatomic) IBOutlet UILabel *plan9Date;
+
+
+
+
 
 @property (weak, nonatomic) IBOutlet UILabel *plan1Text;
 @property (weak, nonatomic) IBOutlet UILabel *plan2Text;
 @property (weak, nonatomic) IBOutlet UILabel *plan4Text;
 @property (weak, nonatomic) IBOutlet UILabel *plan3Text;
+@property (weak, nonatomic) IBOutlet UILabel *plan5Text;
+@property (weak, nonatomic) IBOutlet UILabel *plan6Text;
+@property (weak, nonatomic) IBOutlet UILabel *plan7Text;
+@property (weak, nonatomic) IBOutlet UILabel *plan8Text;
+@property (weak, nonatomic) IBOutlet UILabel *plan9Text;
+
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *flowerImage;
 
@@ -91,11 +114,48 @@
     //NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
     //NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"America/New_York"];
     //[fmt setTimeZone:timeZone];
+    
+    
+    //0. 计算这九个图标中哪些需要显示计划，哪些显示普通的日期
+    //得到系统当前的时间
+    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
+    NSLog(@"current date is %@", currentDate);
+    //用来记录该图标是否已经被用来显示计划，False是没有，True是已用作显示计划
+    bool flags[9];
+    for (int i=0; i<9; i++) {
+        flags[i] = false;
+    }
+    
+    //NSMutableArray *showFlags = [[NSArray alloc] initWithObjects:false, false, false, false, false, false, false, false, false, nil];
+    
+    NSArray *planxDate = [[NSArray alloc] initWithObjects: self.plan1Date, self.plan2Date, self.plan3Date, self.plan4Date, self.plan5Date, self.plan6Date, self.plan7Date, self.plan8Date, self.plan9Date, nil];
+    
+    NSArray *planxText = [[NSArray alloc] initWithObjects:self.plan1Text, self.plan2Text, self.plan3Text, self.plan4Text, self.plan5Text, self.plan6Text, self.plan7Text, self.plan8Text, self.plan9Text, nil];
+    
+    NSArray *planxBtn = [[NSArray alloc] initWithObjects:self.plan1Btn, self.plan2Btn,self.plan3Btn,self.plan4Btn,self.plan5Btn,self.plan6Btn,self.plan7Btn,self.plan8Btn,self.plan9Btn,nil];
+    
+    
+    //NSArray *planxType = [[NSArray alloc] initWithaObjects:self.plan1Type, false, false, false, false, false, false, false, false, nil];
+    //NSArray *planxSour = [[NSArray alloc] initWithObjects:false, false, false, false, false, false, false, false, false, nil];
     //1. 修改四个plan的显示信息
     //1.1 plan1
     if(self.currentPlan.number > 0){
-        self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
-        self.plan1Text.text = self.currentPlan.info1;
+        //计算应该放在哪个格子中
+        NSTimeInterval timeInterval = [self.currentPlan.time1 timeIntervalSinceDate:currentDate];
+        int daysNumFromToday;
+        daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
+        NSLog(@"cell is filled in:%i", daysNumFromToday);
+        
+        //self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
+        //self.plan1Text.text = self.currentPlan.info1;
+        flags[daysNumFromToday] = true;//这个格子被占用了
+        
+        UILabel *currentPlanDate = planxDate[daysNumFromToday];
+        UILabel *currentPlanText = planxText[daysNumFromToday];
+        UIButton *currentBtn = planxBtn[daysNumFromToday];
+        currentPlanDate.text = [fmt stringFromDate:self.currentPlan.time1];
+        currentPlanText.text = self.currentPlan.info1;
+        
         self.plan1Type = self.currentPlan.type1.intValue;
         self.plan1Sour = self.currentPlan.sour1.intValue;
         NSString *plan1BtnImageName;
@@ -137,171 +197,235 @@
                 plan1BtnImageName = PLANSOURCE0;
                 break;
         }
-        [self.plan1Btn setImage:[UIImage imageNamed:plan1BtnImageName] forState:UIControlStateNormal];
+        [currentBtn setImage:[UIImage imageNamed:plan1BtnImageName] forState:UIControlStateNormal];
+        
     }else{
        //不显示
+        /*
         self.plan1Btn.hidden = YES;
         self.plan1Date.hidden = YES;
         self.plan1Text.hidden = YES;
+         */
+        
     }
     //1.2 plan2
     if(self.currentPlan.number.intValue > 1){
-        self.plan2Date.text = [fmt stringFromDate:self.currentPlan.time2];
-        self.plan2Text.text = self.currentPlan.info2;
-        self.plan2Type = self.currentPlan.type2.intValue;
-        self.plan2Sour = self.currentPlan.sour2.intValue;
-        NSString *plan2BtnImageName;
+        //计算应该放在哪个格子中
+        NSTimeInterval timeInterval = [self.currentPlan.time2 timeIntervalSinceDate:currentDate];//XXXXXXXXX
+        int daysNumFromToday;
+        daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
+        NSLog(@"cell is filled in:%i", daysNumFromToday);
+        
+        //self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
+        //self.plan1Text.text = self.currentPlan.info1;
+        flags[daysNumFromToday] = true;//这个格子被占用了
+        
+        UILabel *currentPlanDate = planxDate[daysNumFromToday];
+        UILabel *currentPlanText = planxText[daysNumFromToday];
+        UIButton *currentBtn = planxBtn[daysNumFromToday];
+        currentPlanDate.text = [fmt stringFromDate:self.currentPlan.time2];//XXXXXXXXX
+        currentPlanText.text = self.currentPlan.info2;//XXXXXXXXX
+        
+        self.plan2Type = self.currentPlan.type2.intValue;//XXXXXXXXX
+        self.plan2Sour = self.currentPlan.sour2.intValue;//XXXXXXXXX
+        NSString *plan1BtnImageName;
         switch (self.plan2Sour) {
             case 0:
-                plan2BtnImageName = PLANSOURCE0;
+                plan1BtnImageName = PLANSOURCE0;
                 break;
             case 1:
-                plan2BtnImageName = PLANSOURCE1;
+                plan1BtnImageName = PLANSOURCE1;
                 break;
             case 2:
-                plan2BtnImageName = PLANSOURCE2;
+                plan1BtnImageName = PLANSOURCE2;
                 break;
             case 3:
-                plan2BtnImageName = PLANSOURCE3;
+                plan1BtnImageName = PLANSOURCE3;
                 break;
             case 4:
-                plan2BtnImageName = PLANSOURCE4;
+                plan1BtnImageName = PLANSOURCE4;
                 break;
             case 5:
-                plan2BtnImageName = PLANSOURCE5;
+                plan1BtnImageName = PLANSOURCE5;
                 break;
             case 6:
-                plan2BtnImageName = PLANSOURCE6;
+                plan1BtnImageName = PLANSOURCE6;
                 break;
             case 7:
-                plan2BtnImageName = PLANSOURCE7;
+                plan1BtnImageName = PLANSOURCE7;
                 break;
             case 8:
-                plan2BtnImageName = PLANSOURCE8;
+                plan1BtnImageName = PLANSOURCE8;
                 break;
             case 9:
-                plan2BtnImageName = PLANSOURCE9;
+                plan1BtnImageName = PLANSOURCE9;
                 break;
             case 10:
-                plan2BtnImageName = PLANSOURCE10;
+                plan1BtnImageName = PLANSOURCE10;
                 break;
             default:
-                plan2BtnImageName = PLANSOURCE0;
+                plan1BtnImageName = PLANSOURCE0;
                 break;
         }
-        [self.plan2Btn setImage:[UIImage imageNamed:plan2BtnImageName] forState:UIControlStateNormal];
+        [currentBtn setImage:[UIImage imageNamed:plan1BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
+        /*
         self.plan2Btn.hidden = YES;
         self.plan2Date.hidden = YES;
         self.plan2Text.hidden = YES;
+         */
     }
     //1.3 plan3
     if(self.currentPlan.number.intValue > 2){
-        self.plan3Date.text = [fmt stringFromDate:self.currentPlan.time3];
-        self.plan3Text.text = self.currentPlan.info3;
-        self.plan3Type = self.currentPlan.type3.intValue;
-        self.plan3Sour = self.currentPlan.sour3.intValue;
-        NSString *plan3BtnImageName;
+        //计算应该放在哪个格子中
+        NSTimeInterval timeInterval = [self.currentPlan.time3 timeIntervalSinceDate:currentDate];//XXXXXXXXX
+        int daysNumFromToday;
+        daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
+        NSLog(@"cell is filled in:%i", daysNumFromToday);
+        
+        //self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
+        //self.plan1Text.text = self.currentPlan.info1;
+        flags[daysNumFromToday] = true;//这个格子被占用了
+        
+        UILabel *currentPlanDate = planxDate[daysNumFromToday];
+        UILabel *currentPlanText = planxText[daysNumFromToday];
+        UIButton *currentBtn = planxBtn[daysNumFromToday];
+        currentPlanDate.text = [fmt stringFromDate:self.currentPlan.time3];//XXXXXXXXX
+        currentPlanText.text = self.currentPlan.info3;//XXXXXXXXX
+        
+        self.plan3Type = self.currentPlan.type3.intValue;//XXXXXXXXX
+        self.plan3Sour = self.currentPlan.sour3.intValue;//XXXXXXXXX
+        NSString *plan1BtnImageName;
         switch (self.plan3Sour) {
             case 0:
-                plan3BtnImageName = PLANSOURCE0;
+                plan1BtnImageName = PLANSOURCE0;
                 break;
             case 1:
-                plan3BtnImageName = PLANSOURCE1;
+                plan1BtnImageName = PLANSOURCE1;
                 break;
             case 2:
-                plan3BtnImageName = PLANSOURCE2;
+                plan1BtnImageName = PLANSOURCE2;
                 break;
             case 3:
-                plan3BtnImageName = PLANSOURCE3;
+                plan1BtnImageName = PLANSOURCE3;
                 break;
             case 4:
-                plan3BtnImageName = PLANSOURCE4;
+                plan1BtnImageName = PLANSOURCE4;
                 break;
             case 5:
-                plan3BtnImageName = PLANSOURCE5;
+                plan1BtnImageName = PLANSOURCE5;
                 break;
             case 6:
-                plan3BtnImageName = PLANSOURCE6;
+                plan1BtnImageName = PLANSOURCE6;
                 break;
             case 7:
-                plan3BtnImageName = PLANSOURCE7;
+                plan1BtnImageName = PLANSOURCE7;
                 break;
             case 8:
-                plan3BtnImageName = PLANSOURCE8;
+                plan1BtnImageName = PLANSOURCE8;
                 break;
             case 9:
-                plan3BtnImageName = PLANSOURCE9;
+                plan1BtnImageName = PLANSOURCE9;
                 break;
             case 10:
-                plan3BtnImageName = PLANSOURCE10;
+                plan1BtnImageName = PLANSOURCE10;
                 break;
             default:
-                plan3BtnImageName = PLANSOURCE0;
+                plan1BtnImageName = PLANSOURCE0;
                 break;
-
         }
-        [self.plan3Btn setImage:[UIImage imageNamed:plan3BtnImageName] forState:UIControlStateNormal];
+        [currentBtn setImage:[UIImage imageNamed:plan1BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
+        /*
         self.plan3Btn.hidden = YES;
         self.plan3Date.hidden = YES;
         self.plan3Text.hidden = YES;
+         */
     }
     //1.4 plan4
     if(self.currentPlan.number.intValue > 3){
-        self.plan4Date.text =  [fmt stringFromDate:self.currentPlan.time4];
-        self.plan4Text.text = self.currentPlan.info1;
-        self.plan4Type = self.currentPlan.type4.intValue;
-        self.plan4Sour = self.currentPlan.sour4.intValue;
-        NSString *plan4BtnImageName;
+        //计算应该放在哪个格子中
+        NSTimeInterval timeInterval = [self.currentPlan.time4 timeIntervalSinceDate:currentDate];//XXXXXXXXX
+        int daysNumFromToday;
+        daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
+        NSLog(@"cell is filled in:%i", daysNumFromToday);
+        
+        //self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
+        //self.plan1Text.text = self.currentPlan.info1;
+        flags[daysNumFromToday] = true;//这个格子被占用了
+        
+        UILabel *currentPlanDate = planxDate[daysNumFromToday];
+        UILabel *currentPlanText = planxText[daysNumFromToday];
+        UIButton *currentBtn = planxBtn[daysNumFromToday];
+        currentPlanDate.text = [fmt stringFromDate:self.currentPlan.time4];//XXXXXXXXX
+        currentPlanText.text = self.currentPlan.info4;//XXXXXXXXX
+        
+        self.plan4Type = self.currentPlan.type4.intValue;//XXXXXXXXX
+        self.plan4Sour = self.currentPlan.sour4.intValue;//XXXXXXXXX
+        NSString *plan1BtnImageName;
         switch (self.plan4Sour) {
             case 0:
-                plan4BtnImageName = PLANSOURCE0;
+                plan1BtnImageName = PLANSOURCE0;
                 break;
             case 1:
-                plan4BtnImageName = PLANSOURCE1;
+                plan1BtnImageName = PLANSOURCE1;
                 break;
             case 2:
-                plan4BtnImageName = PLANSOURCE2;
+                plan1BtnImageName = PLANSOURCE2;
                 break;
             case 3:
-                plan4BtnImageName = PLANSOURCE3;
+                plan1BtnImageName = PLANSOURCE3;
                 break;
             case 4:
-                plan4BtnImageName = PLANSOURCE4;
+                plan1BtnImageName = PLANSOURCE4;
                 break;
             case 5:
-                plan4BtnImageName = PLANSOURCE5;
+                plan1BtnImageName = PLANSOURCE5;
                 break;
             case 6:
-                plan4BtnImageName = PLANSOURCE6;
+                plan1BtnImageName = PLANSOURCE6;
                 break;
             case 7:
-                plan4BtnImageName = PLANSOURCE7;
+                plan1BtnImageName = PLANSOURCE7;
                 break;
             case 8:
-                plan4BtnImageName = PLANSOURCE8;
+                plan1BtnImageName = PLANSOURCE8;
                 break;
             case 9:
-                plan4BtnImageName = PLANSOURCE9;
+                plan1BtnImageName = PLANSOURCE9;
                 break;
             case 10:
-                plan4BtnImageName = PLANSOURCE10;
+                plan1BtnImageName = PLANSOURCE10;
                 break;
             default:
-                plan4BtnImageName = PLANSOURCE0;
+                plan1BtnImageName = PLANSOURCE0;
                 break;
-
         }
-        [self.plan4Btn setImage:[UIImage imageNamed:plan4BtnImageName] forState:UIControlStateNormal];
+        [currentBtn setImage:[UIImage imageNamed:plan1BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
+        /*
         self.plan4Btn.hidden = YES;
         self.plan4Date.hidden = YES;
         self.plan4Text.hidden = YES;
+         */
     }
+    
+    //其余的不显示
+    for (int i=0; i<9; i++) {
+        if (!flags[i]) {
+            UILabel *currentPlanDate = planxDate[i];
+            UILabel *currentPlanText = planxText[i];
+            UIButton *currentBtn = planxBtn[i];
+            
+            //currentPlanText.hidden = YES;
+            
+        }
+    }
+    
+    
     
     //2. 右上角花的状态（同mainVC中的花的状态）
     //2.1 根据历史完成情况获取花的状态名字
@@ -351,6 +475,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 
 //4个button的点击

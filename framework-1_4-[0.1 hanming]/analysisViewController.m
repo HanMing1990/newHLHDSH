@@ -44,12 +44,9 @@
     }
      */
     
-    
-    
     self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.lineChartView.frame.size.width*0.8, self.lineChartView.frame.size.height*0.8)];
     self.lineChart.yLabelFormat = @"%1.1f";
     self.lineChart.backgroundColor = [UIColor clearColor];
-    
     
     //[self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]];
     
