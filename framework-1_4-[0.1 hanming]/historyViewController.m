@@ -17,10 +17,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSArray * array = [[Plan new] getPlanHistory];
+    /*
+     NSDateFormatedtime0 = "2016-02-23 06:03:17 +0000";
+     NSDateFormatedtime4 = "2016-02-23 06:01:35 +0000";
+     sickNumber = 25;
+     */
     for (int i=(int)array.count-1; i >= 0 && i >= (int)array.count - HISTORY_NUM; i--) {
-        finishTime[self.count.intValue] = [array[i] objectForKey:@"NSDateFormatedFintime4"];
+        finishTime[self.count.intValue] = [array[i] objectForKey:@"NSDateFormatedtime4"];
         startTime[self.count.intValue] = [array[i] objectForKey:@"NSDateFormatedtime0"];
-        ID[self.count.intValue] = [array[i] objectForKey:@"id"];
+        ID[self.count.intValue] = [array[i] objectForKey:@"sickNumber"];
         count = [NSNumber numberWithInt:count.intValue + 1];
     }
     for (int i=0; i<self.count.intValue; i++) {
