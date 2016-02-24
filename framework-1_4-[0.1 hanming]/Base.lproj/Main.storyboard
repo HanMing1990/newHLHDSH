@@ -548,7 +548,7 @@
                                 <rect key="frame" x="20" y="276" width="280" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.20460668103448276" colorSpace="calibratedRGB"/>
-                                <color key="textColor" patternImage="405FFA89-DC12-4911-88BF-2680FED11E74" colorSpace="pattern"/>
+                                <color key="textColor" patternImage="A17297A7-20DE-4F83-BAFD-930C3DF711D3" colorSpace="pattern"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -3140,7 +3140,7 @@ All Rights Reserved</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJi-OQ-8fA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471" y="455"/>
+            <point key="canvasLocation" x="461" y="329"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="AMF-CE-bdO">
@@ -3240,7 +3240,7 @@ All Rights Reserved</string>
         </scene>
     </scenes>
     <resources>
-        <image name="405FFA89-DC12-4911-88BF-2680FED11E74" width="256" height="256">
+        <image name="A17297A7-20DE-4F83-BAFD-930C3DF711D3" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7709,6 +7709,6 @@ AAAAAAAEDtA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="d1L-Fq-9e4"/>
-        <segue reference="uf8-vp-sVe"/>
+        <segue reference="O8V-1w-05I"/>
     </inferredMetricsTieBreakers>
 </document>

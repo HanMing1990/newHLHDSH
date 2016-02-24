@@ -16,7 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSArray * array = [[Plan new] getPlanHistory];
+    NSArray * array = [[Plan new] getPlanHistory];//这里包含着所有的历史“病”
     /*
      NSDateFormatedtime0 = "2016-02-23 06:03:17 +0000";
      NSDateFormatedtime4 = "2016-02-23 06:01:35 +0000";
