@@ -47,22 +47,26 @@
     NSArray * array = [manager executeQuery:sql];
     NSMutableArray * newArray = [NSMutableArray new];
     NSMutableDictionary * dic = [NSMutableDictionary new];
-    //NSlog(@"get all PlanHistory %@",array);
+    //NSLog(@"get all PlanHistory %@",array);
     int i = 1;
     NSDate * left, * right;
     while (i < array.count) {
+        NSMutableDictionary * dictionary = [NSMutableDictionary new];
         left = [dateFormatter dateFromString:[array[i-1] objectForKey:@"time0"]];
-        while (i < array.count && [[array[i] objectForKey:@"sickNumber"] isEqualToNumber:[array[i-1] objectForKey:@"sickNumber"]]) {
+        NSLog(@"%@",[array[i] objectForKey:@"sickNumber"]);
+        NSLog(@"%@",[array[i-1] objectForKey:@"sickNumber"]);
+        while ([[array[i-1] objectForKey:@"sickNumber"] compare:[array[i] objectForKey:@"sickNumber"]] == NSOrderedSame) {
             right = [dateFormatter dateFromString:[array[i] objectForKey:@"fintime4"]];
             i++;
         }
-        NSMutableDictionary * dictionary = [NSMutableDictionary new];
+        [dictionary setObject:[array[i-1] objectForKey:@"sickNumber"] forKey:@"id"];
         [dictionary setObject:left forKey:@"NSDateFormatedtime0"];
         [dictionary setObject:right forKey:@"NSDateFormatedtime4"];
+        [newArray addObject:dictionary];
         
-        [newArray addObject:array[i]];
+        i++;
     }
-    //NSlog(@"get fit getPlanHistory %@",newArray);
+    NSLog(@"get fit getPlanHistory %@",newArray);
     return newArray;
 
 }
