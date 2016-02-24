@@ -546,7 +546,10 @@
     array = [plan getPlanHistoryItemByID:[NSNumber numberWithInt:0]];
     NSLog(@" the array we find is%@",array);
      */
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:currentPlan.sickNumber forKey:HISTORYID];
+    [defaults synchronize];
+    
     NSArray * array = [NSMutableArray new];
     array = [plan getPlanHistory];
     
