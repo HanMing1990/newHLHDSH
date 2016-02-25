@@ -50,7 +50,7 @@
         self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
     }
     self.currentPlanText.text = [defaults valueForKey:PLANINFO];
-    
+
     //从数据库中得到文字和图片的名称
     Plan * plan = [Plan new];
     //self.showTextView1.text    = [defaults valueForKey:PLANTEXT];

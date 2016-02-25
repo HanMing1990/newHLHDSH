@@ -78,6 +78,7 @@
 @implementation planViewController
 
 bool flags[9];
+int positions[9];
 
 
 - (void)viewDidLoad {
@@ -125,9 +126,12 @@ bool flags[9];
     NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
     NSLog(@"current date is %@", currentDate);
     //用来记录该图标是否已经被用来显示计划，False是没有，True是已用作显示计划
-    
     for (int i=0; i<9; i++) {
         flags[i] = false;
+    }
+    //用来记录当前的格子存的是第几个计划
+    for (int i=0; i<9; i++) {
+        positions[i] = -1;
     }
     
     //NSMutableArray *showFlags = [[NSArray alloc] initWithObjects:false, false, false, false, false, false, false, false, false, nil];
@@ -143,12 +147,15 @@ bool flags[9];
     //NSArray *planxSour = [[NSArray alloc] initWithObjects:false, false, false, false, false, false, false, false, false, nil];
     //1. 修改四个plan的显示信息
     //1.1 plan1
+    
+    NSLog(@"plan num:%i", self.currentPlan.number.intValue);
     if(self.currentPlan.number > 0){
         //计算应该放在哪个格子中
         NSTimeInterval timeInterval = [self.currentPlan.time1 timeIntervalSinceDate:currentDate];
         int daysNumFromToday;
         daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
         NSLog(@"cell is filled in:%i", daysNumFromToday);
+        positions[daysNumFromToday] = 1;
         
         //self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
         //self.plan1Text.text = self.currentPlan.info1;
@@ -211,6 +218,7 @@ bool flags[9];
         self.plan1Text.hidden = YES;
          */
         
+        
     }
     //1.2 plan2
     if(self.currentPlan.number.intValue > 1){
@@ -219,7 +227,7 @@ bool flags[9];
         int daysNumFromToday;
         daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
         NSLog(@"cell is filled in:%i", daysNumFromToday);
-        
+        positions[daysNumFromToday] = 2;
         //self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
         //self.plan1Text.text = self.currentPlan.info1;
         flags[daysNumFromToday] = true;//这个格子被占用了
@@ -287,7 +295,7 @@ bool flags[9];
         int daysNumFromToday;
         daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
         NSLog(@"cell is filled in:%i", daysNumFromToday);
-        
+        positions[daysNumFromToday] = 3;
         //self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
         //self.plan1Text.text = self.currentPlan.info1;
         flags[daysNumFromToday] = true;//这个格子被占用了
@@ -355,7 +363,7 @@ bool flags[9];
         int daysNumFromToday;
         daysNumFromToday= (int)timeInterval/(60*60*24); //距离今天多久
         NSLog(@"cell is filled in:%i", daysNumFromToday);
-        
+        positions[daysNumFromToday] = 4;
         //self.plan1Date.text = [fmt stringFromDate:self.currentPlan.time1];
         //self.plan1Text.text = self.currentPlan.info1;
         flags[daysNumFromToday] = true;//这个格子被占用了
@@ -483,9 +491,222 @@ bool flags[9];
 
 
 - (IBAction)plan1BtnClicked:(id)sender {
-    if(flags[0]){
-        NSLog(@"yes");
+    if(flags[0]){//该按钮关联一个计划
+        int currentPosition = positions[0];
+        NSLog(@"plan order is %i", currentPosition);
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
     }
+}
+
+- (IBAction)plan2BtnClicked:(id)sender {
+    if(flags[1]){
+        //该按钮关联一个计划
+        int currentPosition = positions[1];
+        NSLog(@"plan order is %i", currentPosition);
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
+    }
+}
+- (IBAction)plan3BtnClicked:(id)sender {
+    if(flags[2]){
+        //该按钮关联一个计划
+        int currentPosition = positions[2];
+        NSLog(@"plan order is %i", currentPosition);
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
+    }
+}
+- (IBAction)plan4BtnClicked:(id)sender {
+    if(flags[3]){
+        //该按钮关联一个计划
+        int currentPosition = positions[3];
+        NSLog(@"plan order is %i", currentPosition);
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
+        
+    }
+}
+
+- (IBAction)plan5BtnClicked:(id)sender {
+    if(flags[4]){
+        //该按钮关联一个计划
+        int currentPosition = positions[4];
+        NSLog(@"plan order is %i", currentPosition);
+        
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+- (IBAction)plan6BtnClicked:(id)sender {
+    if(flags[5]){
+        //该按钮关联一个计划
+        int currentPosition = positions[5];
+        NSLog(@"plan order is %i", currentPosition);
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
+        
+    }
+}
+- (IBAction)plan7BtnClicked:(id)sender {
+    if(flags[6]){
+        //该按钮关联一个计划
+        int currentPosition = positions[6];
+        NSLog(@"plan order is %i", currentPosition);
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
+        
+    }
+}
+- (IBAction)plan8BtnClicked:(id)sender {
+    if(flags[7]){
+        //该按钮关联一个计划
+        int currentPosition = positions[7];
+        NSLog(@"plan order is %i", currentPosition);
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
+        
+    }
+}
+- (IBAction)plan9BtnClicked:(id)sender {
+    if(flags[8]){
+        //该按钮关联一个计划
+        int currentPosition = positions[8];
+        NSLog(@"plan order is %i", currentPosition);
+        switch (currentPosition) {
+            case 1:
+                [self clickInnerFunc1];
+                break;
+            case 2:
+                [self clickInnerFunc2];
+                break;
+            case 3:
+                [self clickInnerFunc3];
+                break;
+            case 4:
+                [self clickInnerFunc4];
+                break;
+            default:
+                break;
+        }
+        
+    }
+}
+
+- (void) clickInnerFunc1{
     NSLog(@"what??");
     if (self.currentPlan.number.intValue > 0) {
         //记录当前plan的信息，以备后面执行界面显示
@@ -516,6 +737,103 @@ bool flags[9];
     }else{
         //do nothing because don't have this item
         NSLog(@"hello~~~~");
+    }
+}
+
+- (void) clickInnerFunc2{
+    if (self.currentPlan.number.intValue > 1) {
+        //记录当前plan的信息，以备后面执行界面显示
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSTimeInterval interval = [self.currentPlan.time2 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
+        if (interval > 24*3600) {          //一天以后
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else{                             //一天之前
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
+        if (self.currentPlan.fin2.boolValue == YES) {
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
+        [defaults setObject: self.currentPlan.id2      forKey:PLANID];
+        [defaults setObject: self.currentPlan.time2    forKey:PLANDATE];
+        [defaults setObject: self.currentPlan.content2 forKey:PLANTEXT];
+        [defaults setObject: self.currentPlan.info2    forKey:PLANINFO];
+        [defaults setObject: self.currentPlan.sour2    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.fintime2 forKey:PLANFINTIME];
+        [defaults setObject: self.currentPlan.output2  forKey:PLANOUTPUT];
+        [defaults setObject: self.currentPlan.fin2     forKey:PLANFIN];
+        [defaults synchronize];
+        //跳转到执行页面
+        [self presentExeVC:self.plan2Type];
+    }else{
+        //do nothing because don't have this item
+    }
+}
+
+- (void) clickInnerFunc3{
+    if (self.currentPlan.number.intValue > 2) {
+        //记录当前plan的信息，以备后面执行界面显示
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSTimeInterval interval = [self.currentPlan.time3 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
+        if (interval > 24*3600) {          //一天以后
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else{                             //一天之前
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
+        if (self.currentPlan.fin3.boolValue == YES) {
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
+        [defaults setObject: self.currentPlan.id3      forKey:PLANID];
+        [defaults setObject: self.currentPlan.time3    forKey:PLANDATE];
+        [defaults setObject: self.currentPlan.content3 forKey:PLANTEXT];
+        [defaults setObject: self.currentPlan.info3    forKey:PLANINFO];
+        [defaults setObject: self.currentPlan.sour3    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.fintime3 forKey:PLANFINTIME];
+        [defaults setObject: self.currentPlan.output3  forKey:PLANOUTPUT];
+        [defaults setObject: self.currentPlan.fin3     forKey:PLANFIN];
+        [defaults synchronize];
+        //跳转到执行页面
+        [self presentExeVC:self.plan3Type];
+    }else{
+        //do nothing because don't have this item
+    }
+}
+
+- (void) clickInnerFunc4{
+    if (self.currentPlan.number.intValue > 3) {
+        //记录当前plan的信息，以备后面执行界面显示
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSTimeInterval interval = [self.currentPlan.time4 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
+        if (interval > 24*3600) {          //一天以后
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else{                             //一天之前
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
+        if (self.currentPlan.fin4.boolValue == YES) {
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
+        [defaults setObject: self.currentPlan.id4      forKey:PLANID];
+        [defaults setObject: self.currentPlan.time4    forKey:PLANDATE];
+        [defaults setObject: self.currentPlan.content4 forKey:PLANTEXT];
+        [defaults setObject: self.currentPlan.info4    forKey:PLANINFO];
+        [defaults setObject: self.currentPlan.sour4    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.fintime4 forKey:PLANFINTIME];
+        [defaults setObject: self.currentPlan.output4  forKey:PLANOUTPUT];
+        [defaults setObject: self.currentPlan.fin4     forKey:PLANFIN];
+        [defaults synchronize];
+        //跳转到执行页面
+        [self presentExeVC:self.plan4Type];
+    }else{
+        //do nothing because don't have this item
+        
     }
 }
 
