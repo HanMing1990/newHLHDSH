@@ -548,7 +548,7 @@
                                 <rect key="frame" x="20" y="276" width="280" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.20460668103448276" colorSpace="calibratedRGB"/>
-                                <color key="textColor" patternImage="58D2101A-1958-43AC-B693-4B50A9949722" colorSpace="pattern"/>
+                                <color key="textColor" patternImage="3EC060F0-BBA0-42D5-92C4-890AF02CFA6B" colorSpace="pattern"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -3252,7 +3252,7 @@ All Rights Reserved</string>
                         <outlet property="plan6Btn" destination="4Xt-zH-jxZ" id="Iks-R6-llC"/>
                         <outlet property="plan6Date" destination="56p-Ty-XNu" id="ssy-mm-fmf"/>
                         <outlet property="plan6Text" destination="YbC-D7-HWI" id="VTf-2U-gTF"/>
-                        <outlet property="plan7Btn" destination="Fp4-DA-off" id="DUJ-dx-FfF"/>
+                        <outlet property="plan7Btn" destination="gXS-t0-we4" id="KbU-Pl-wdA"/>
                         <outlet property="plan7Date" destination="Fp4-DA-off" id="x8f-3I-AWx"/>
                         <outlet property="plan7Text" destination="pSl-zz-21j" id="lU4-UC-ii1"/>
                         <outlet property="plan8Btn" destination="l6m-oj-t0q" id="zcH-Y6-oOE"/>
@@ -3365,7 +3365,7 @@ All Rights Reserved</string>
         </scene>
     </scenes>
     <resources>
-        <image name="58D2101A-1958-43AC-B693-4B50A9949722" width="256" height="256">
+        <image name="3EC060F0-BBA0-42D5-92C4-890AF02CFA6B" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7744,7 +7744,7 @@ ohscgAWABoAJEADSIAohIl8QFE5TVElGRlJlcHJlc2VudGF0aW9ugAeACE8SAAQNHk1NACoABAAIdXiB
 AgAAAREABAAAAAIABADGARIAAwAAAAEAAQAAARUAAwAAAAEABAAAARYAAwAAAAEAgAAAARcABAAAAAIA
 BAC+ARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAQABADOh3MABwAADEgABADWAAAAAAAIAAgA
 CAAIAAIAAAACAAAAAAAIAAIACAABAAEAAQABAAAMSExpbm8CEAAAbW50clJHQiBYWVogB84AAgAJAAYA
-MQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1IUCAgAAAAAAAAAAAA
+MQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAEAAPbWAAEAAAAA0y1IUCAgAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARY3BydAAAAVAAAAAzZGVzYwAAAYQA
 AABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAUZ1hZWgAAAiwAAAAUYlhZWgAAAkAA
 AAAUZG1uZAAAAlQAAABwZG1kZAAAAsQAAACIdnVlZAAAA0wAAACGdmlldwAAA9QAAAAkbHVtaQAAA/gA

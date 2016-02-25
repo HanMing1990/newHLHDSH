@@ -77,6 +77,9 @@
 
 @implementation planViewController
 
+bool flags[9];
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -107,8 +110,7 @@
         
     }
     
-    
-    
+
     //设置日期格式啦
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     //fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
@@ -123,7 +125,7 @@
     NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];
     NSLog(@"current date is %@", currentDate);
     //用来记录该图标是否已经被用来显示计划，False是没有，True是已用作显示计划
-    bool flags[9];
+    
     for (int i=0; i<9; i++) {
         flags[i] = false;
     }
@@ -405,6 +407,7 @@
                 plan1BtnImageName = PLANSOURCE0;
                 break;
         }
+        NSLog(@"ok the image is:%@", plan1BtnImageName);
         [currentBtn setImage:[UIImage imageNamed:plan1BtnImageName] forState:UIControlStateNormal];
     }else{
         //不显示
@@ -479,8 +482,47 @@
 }
 
 
+- (IBAction)plan1BtnClicked:(id)sender {
+    if(flags[0]){
+        NSLog(@"yes");
+    }
+    NSLog(@"what??");
+    if (self.currentPlan.number.intValue > 0) {
+        //记录当前plan的信息，以备后面执行界面显示
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
+        NSLog(@"time interval to be judged: %i",(int)interval / 3600);
+        if (interval > 24*3600) {          //一天以后
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else{                             //一天之前
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
+        if (self.currentPlan.fin1.boolValue == YES) {
+            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }
+        [defaults setObject: self.currentPlan.id1      forKey:PLANID];
+        [defaults setObject: self.currentPlan.time1    forKey:PLANDATE];
+        [defaults setObject: self.currentPlan.content1 forKey:PLANTEXT];
+        [defaults setObject: self.currentPlan.info1    forKey:PLANINFO];
+        [defaults setObject: self.currentPlan.sour1    forKey:PLANTYPE];
+        [defaults setObject: self.currentPlan.fintime1 forKey:PLANFINTIME];
+        [defaults setObject: self.currentPlan.output1  forKey:PLANOUTPUT];
+        [defaults setObject: self.currentPlan.fin1     forKey:PLANFIN];
+        [defaults synchronize];
+        //跳转到执行页面
+        [self presentExeVC:self.plan1Type];
+    }else{
+        //do nothing because don't have this item
+        NSLog(@"hello~~~~");
+    }
+}
 
 
+
+/*
+以下是老版本的点击
 //4个button的点击
 - (IBAction)plan1BtnClicked:(id)sender {
     NSLog(@"what??");
@@ -614,6 +656,7 @@
 
     }
 }
+*/
 
 
 - (void) presentExeVC:(int) planType{
