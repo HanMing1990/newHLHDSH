@@ -126,7 +126,7 @@
             //NSlog(@"no such file at currentplan.m");
             do{
                 NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-                have = [NSNumber numberWithBool:1];
+                have = [NSNumber numberWithBool:0];
                 done = [NSNumber numberWithBool:0];
                 number = [NSNumber numberWithInt:PLAN_NUM];
                 sickNumber = [NSNumber numberWithInt:0];
