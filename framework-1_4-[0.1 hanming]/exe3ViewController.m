@@ -42,6 +42,11 @@
     //0. 获取当前的计划信息(存在静态变量里)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.currentId            = [defaults valueForKey:PLANID];
+    self.currentPlanText.text = [defaults valueForKey:PLANINFO];
+    self.showTextView1.text   = [defaults valueForKey:PLANTEXT];
+    self.showTextView2.text   = [[Plan new] getItemById:self.currentId].content2;
+    self.currentPlanType      = [defaults valueForKey:PLANTYPE];
+    self.currentPlanState     = [defaults valueForKey:PLANSTATE];
     if (self.currentPlanState.intValue == 0) {  //如果是已经完成的，则需要显示完成时间/内容，否则显示计划时间
         self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANFINTIME]];
         NSArray * array = [[defaults valueForKey:PLANOUTPUT] componentsSeparatedByString:@"@@"];
@@ -52,12 +57,6 @@
     }else{
         self.currentPlanDate.text = [fmt stringFromDate:[defaults valueForKey:PLANDATE]];
     }
-    self.currentPlanText.text = [defaults valueForKey:PLANINFO];
-    self.showTextView1.text   = [defaults valueForKey:PLANTEXT];
-    self.showTextView2.text   = [[Plan new] getItemById:self.currentId].content2;
-    self.currentPlanType      = [defaults valueForKey:PLANTYPE];
-    self.currentPlanState     = [defaults valueForKey:PLANSTATE];
-    
     NSString *planImageName;
     switch (self.currentPlanType.intValue) {
         case 0:
