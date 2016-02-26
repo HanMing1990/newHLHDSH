@@ -713,14 +713,17 @@ int positions[9];
         NSTimeInterval interval = [self.currentPlan.time1 timeIntervalSinceNow];
         NSLog(@"time interval to be judged: %i",(int)interval / 3600);
         if (interval > 24*3600) {          //一天以后
-            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
-        }else if (interval > - 24 * 3600){ //前后一天之内
             [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
         }else{                             //一天之前
-            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+            [defaults setObject:[NSNumber numberWithInt:3] forKey:PLANSTATE];
         }
         if (self.currentPlan.fin1.boolValue == YES) {
+            NSLog(@" fin == 1");
             [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }else{
+            NSLog(@" fin == 0");
         }
         [defaults setObject: self.currentPlan.id1      forKey:PLANID];
         [defaults setObject: self.currentPlan.time1    forKey:PLANDATE];
@@ -746,14 +749,17 @@ int positions[9];
         NSTimeInterval interval = [self.currentPlan.time2 timeIntervalSinceNow];
         NSLog(@"time interval to be judged: %i",(int)interval / 3600);
         if (interval > 24*3600) {          //一天以后
-            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
-        }else if (interval > - 24 * 3600){ //前后一天之内
             [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
         }else{                             //一天之前
-            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+            [defaults setObject:[NSNumber numberWithInt:3] forKey:PLANSTATE];
         }
         if (self.currentPlan.fin2.boolValue == YES) {
+            NSLog(@" fin == 1");
             [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }else{
+            NSLog(@" fin == 0");
         }
         [defaults setObject: self.currentPlan.id2      forKey:PLANID];
         [defaults setObject: self.currentPlan.time2    forKey:PLANDATE];
@@ -778,14 +784,17 @@ int positions[9];
         NSTimeInterval interval = [self.currentPlan.time3 timeIntervalSinceNow];
         NSLog(@"time interval to be judged: %i",(int)interval / 3600);
         if (interval > 24*3600) {          //一天以后
-            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
-        }else if (interval > - 24 * 3600){ //前后一天之内
             [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
         }else{                             //一天之前
-            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+            [defaults setObject:[NSNumber numberWithInt:3] forKey:PLANSTATE];
         }
         if (self.currentPlan.fin3.boolValue == YES) {
+            NSLog(@" fin == 1");
             [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }else{
+            NSLog(@" fin == 0");
         }
         [defaults setObject: self.currentPlan.id3      forKey:PLANID];
         [defaults setObject: self.currentPlan.time3    forKey:PLANDATE];
@@ -810,14 +819,17 @@ int positions[9];
         NSTimeInterval interval = [self.currentPlan.time4 timeIntervalSinceNow];
         NSLog(@"time interval to be judged: %i",(int)interval / 3600);
         if (interval > 24*3600) {          //一天以后
-            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
-        }else if (interval > - 24 * 3600){ //前后一天之内
             [defaults setObject:[NSNumber numberWithInt:1] forKey:PLANSTATE];
+        }else if (interval > - 24 * 3600){ //前后一天之内
+            [defaults setObject:[NSNumber numberWithInt:2] forKey:PLANSTATE];
         }else{                             //一天之前
-            [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+            [defaults setObject:[NSNumber numberWithInt:3] forKey:PLANSTATE];
         }
         if (self.currentPlan.fin4.boolValue == YES) {
+            NSLog(@" fin == 1");
             [defaults setObject:[NSNumber numberWithInt:0] forKey:PLANSTATE];
+        }else{
+            NSLog(@" fin == 0");
         }
         [defaults setObject: self.currentPlan.id4      forKey:PLANID];
         [defaults setObject: self.currentPlan.time4    forKey:PLANDATE];
