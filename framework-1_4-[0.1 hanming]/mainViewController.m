@@ -326,6 +326,8 @@
     //[hmnetwork sendPlanItem];
     
 }
+
+
 - (IBAction)generateSensorData:(id)sender {
     
     float stressValueRandom = arc4random()%6;
