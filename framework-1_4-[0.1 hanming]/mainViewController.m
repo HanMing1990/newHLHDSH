@@ -15,6 +15,7 @@
 #import "CurrentLevel.h"
 #import "HMNetwork.h"
 #import "stdlib.h"
+#import "Logic.h"
 
 @interface mainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
@@ -55,6 +56,13 @@
     InitSqlite3 *initsqlite3 = [InitSqlite3 new];
     [initsqlite3 createDataBase];
 
+    //处理逻辑上面的工作
+    Logic * logic = [Logic new];
+    [logic downLoad];
+    [logic detect];
+    [logic judge];
+    
+    
     //0. 获取用户的属性
     CurrentLevel * currentLevel = [CurrentLevel new];//获取当前的数值，比如睡眠、压力、卡路里等
     
