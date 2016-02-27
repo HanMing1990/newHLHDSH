@@ -83,7 +83,6 @@
 		105F14381C42475C0039B8E7 /* KCDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14311C42475C0039B8E7 /* KCDbManager.m */; };
 		105F14391C42475C0039B8E7 /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14331C42475C0039B8E7 /* Plan.m */; };
 		1073ED071C7DCB9C00DD9327 /* sleepStress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073ED061C7DCB9C00DD9327 /* sleepStress.m */; };
-		2E36BD411C4F2642004416AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E36BD3F1C4F2642004416AC /* Main.storyboard */; };
 		2E36BD441C4F2ABB004416AC /* HMNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BD431C4F2ABB004416AC /* HMNetwork.m */; };
 		2E36BDFC1C4F3B14004416AC /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BDE51C4F3B14004416AC /* NSDate+RFC1123.m */; };
 		2E36BDFD1C4F3B14004416AC /* NSDictionary+MKNKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BDE71C4F3B14004416AC /* NSDictionary+MKNKAdditions.m */; };
@@ -130,6 +129,7 @@
 		2E913D771C451A6A008CE648 /* exe2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D761C451A6A008CE648 /* exe2ViewController.m */; };
 		2E913D7A1C451A7A008CE648 /* exe3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D791C451A7A008CE648 /* exe3ViewController.m */; };
 		2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D7C1C451A89008CE648 /* exe4ViewController.m */; };
+		2E9B8FF91C8047BA00866893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9B8FF81C8047BA00866893 /* Main.storyboard */; };
 		2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9D6B81C3D47570076381A /* infoViewController.m */; };
 		2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB9D7031C3F5C580076381A /* libsqlite3.tbd */; };
 		2EFBE3461C3A8392009BCDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3451C3A8392009BCDED /* main.m */; };
@@ -225,7 +225,6 @@
 		105F14331C42475C0039B8E7 /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
 		1073ED051C7DCB9C00DD9327 /* sleepStress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sleepStress.h; sourceTree = "<group>"; };
 		1073ED061C7DCB9C00DD9327 /* sleepStress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sleepStress.m; sourceTree = "<group>"; };
-		2E36BD401C4F2642004416AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E36BD421C4F2AA4004416AC /* HMNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMNetwork.h; sourceTree = "<group>"; };
 		2E36BD431C4F2ABB004416AC /* HMNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNetwork.m; sourceTree = "<group>"; };
 		2E36BDE41C4F3B14004416AC /* NSDate+RFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFC1123.h"; sourceTree = "<group>"; };
@@ -317,6 +316,7 @@
 		2E913D791C451A7A008CE648 /* exe3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe3ViewController.m; sourceTree = "<group>"; };
 		2E913D7B1C451A89008CE648 /* exe4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exe4ViewController.h; sourceTree = "<group>"; };
 		2E913D7C1C451A89008CE648 /* exe4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exe4ViewController.m; sourceTree = "<group>"; };
+		2E9B8FF71C8047BA00866893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EA59A711C570B1F003D0FAC /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		2EB9D6B71C3D47570076381A /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		2EB9D6B81C3D47570076381A /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
@@ -547,10 +547,10 @@
 				105F142E1C42475C0039B8E7 /* Item.h */,
 				105F142F1C42475C0039B8E7 /* Item.m */,
 				105F14301C42475C0039B8E7 /* KCDbManager.h */,
+				2E9B8FF81C8047BA00866893 /* Main.storyboard */,
 				105F14311C42475C0039B8E7 /* KCDbManager.m */,
 				105F14321C42475C0039B8E7 /* Plan.h */,
 				105F14331C42475C0039B8E7 /* Plan.m */,
-				2E36BD3F1C4F2642004416AC /* Main.storyboard */,
 				2EFBE3471C3A8392009BCDED /* AppDelegate.h */,
 				2EFBE3481C3A8392009BCDED /* AppDelegate.m */,
 				2EFBE3521C3A8392009BCDED /* LaunchScreen.storyboard */,
@@ -682,11 +682,11 @@
 				101C1BAF1C4F867000FDE506 /* 20.jpg in Resources */,
 				101C1BA11C4F867000FDE506 /* 6.jpg in Resources */,
 				101C1BD81C4F867000FDE506 /* 61.gif in Resources */,
-				2E36BD411C4F2642004416AC /* Main.storyboard in Resources */,
 				101C1BC81C4F867000FDE506 /* 45.jpg in Resources */,
 				101C1BCF1C4F867000FDE506 /* 52.gif in Resources */,
 				101C1BA01C4F867000FDE506 /* 5.jpg in Resources */,
 				101C1BAD1C4F867000FDE506 /* 18.jpg in Resources */,
+				2E9B8FF91C8047BA00866893 /* Main.storyboard in Resources */,
 				101C1BD01C4F867000FDE506 /* 53.gif in Resources */,
 				101C1BAC1C4F867000FDE506 /* 17.jpg in Resources */,
 				101C1BD21C4F867000FDE506 /* 55.gif in Resources */,
@@ -802,12 +802,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2E36BD3F1C4F2642004416AC /* Main.storyboard */ = {
+		2E9B8FF81C8047BA00866893 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2E36BD401C4F2642004416AC /* Base */,
+				2E9B8FF71C8047BA00866893 /* Base */,
 			);
 			name = Main.storyboard;
+			path = "../../新学期（用来和李琦进行合作的）/newHLHDSH-0.26-李琦改完了所有的界面要合并/framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
 		};
 		2EFBE3521C3A8392009BCDED /* LaunchScreen.storyboard */ = {
