@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import "static.h"
-
+//nothing
 @interface  CurrentPlan : NSObject{
     NSNumber* done;
     NSNumber* have;
