@@ -83,6 +83,7 @@ int positions[9];
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
     //-------------------------------------------------------------------------
@@ -165,6 +166,7 @@ int positions[9];
         UIButton *currentBtn = planxBtn[daysNumFromToday];
         currentPlanDate.text = [fmt stringFromDate:self.currentPlan.time1];
         currentPlanText.text = self.currentPlan.info1;
+        
         
         self.plan1Type = self.currentPlan.type1.intValue;
         self.plan1Sour = self.currentPlan.sour1.intValue;

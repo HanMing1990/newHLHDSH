@@ -133,6 +133,9 @@
 		2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9D6B81C3D47570076381A /* infoViewController.m */; };
 		2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB9D7031C3F5C580076381A /* libsqlite3.tbd */; };
 		2EB9EB471C82EA2600054049 /* shouhuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9EB461C82EA2600054049 /* shouhuanViewController.m */; };
+		2EB9EB4A1C84333500054049 /* bindBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9EB491C84333500054049 /* bindBrandViewController.m */; };
+		2EB9EB4D1C8443C600054049 /* welcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9EB4C1C8443C600054049 /* welcomeViewController.m */; };
+		2EB9EB501C844B3100054049 /* beforeBindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9EB4F1C844B3100054049 /* beforeBindViewController.m */; };
 		2EC8020F1C814E5E0050BCC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC8020E1C814E5E0050BCC1 /* Main.storyboard */; };
 		2EC802151C81918A0050BCC1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC802141C81918A0050BCC1 /* CoreBluetooth.framework */; };
 		2EC803361C8194160050BCC1 /* libAppscommBluetoothSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC803351C8194160050BCC1 /* libAppscommBluetoothSDK.a */; };
@@ -329,6 +332,12 @@
 		2EB9D7031C3F5C580076381A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2EB9EB451C82EA2600054049 /* shouhuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shouhuanViewController.h; sourceTree = "<group>"; };
 		2EB9EB461C82EA2600054049 /* shouhuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shouhuanViewController.m; sourceTree = "<group>"; };
+		2EB9EB481C84333500054049 /* bindBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bindBrandViewController.h; sourceTree = "<group>"; };
+		2EB9EB491C84333500054049 /* bindBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bindBrandViewController.m; sourceTree = "<group>"; };
+		2EB9EB4B1C8443C600054049 /* welcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = welcomeViewController.h; sourceTree = "<group>"; };
+		2EB9EB4C1C8443C600054049 /* welcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = welcomeViewController.m; sourceTree = "<group>"; };
+		2EB9EB4E1C844B3100054049 /* beforeBindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = beforeBindViewController.h; sourceTree = "<group>"; };
+		2EB9EB4F1C844B3100054049 /* beforeBindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = beforeBindViewController.m; sourceTree = "<group>"; };
 		2EC8020E1C814E5E0050BCC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2EC802131C81918A0050BCC1 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2EC802141C81918A0050BCC1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreBluetooth.framework; sourceTree = "<group>"; };
@@ -641,6 +650,12 @@
 				2E8C3EB11C7B07E9006B4334 /* sleepAnalysisViewController.m */,
 				1073ED131C81F06E00DD9327 /* Logic.h */,
 				1073ED141C81F06E00DD9327 /* Logic.m */,
+				2EB9EB481C84333500054049 /* bindBrandViewController.h */,
+				2EB9EB491C84333500054049 /* bindBrandViewController.m */,
+				2EB9EB4B1C8443C600054049 /* welcomeViewController.h */,
+				2EB9EB4C1C8443C600054049 /* welcomeViewController.m */,
+				2EB9EB4E1C844B3100054049 /* beforeBindViewController.h */,
+				2EB9EB4F1C844B3100054049 /* beforeBindViewController.m */,
 			);
 			path = "framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
@@ -799,9 +814,11 @@
 				105F14391C42475C0039B8E7 /* Plan.m in Sources */,
 				2E36BD441C4F2ABB004416AC /* HMNetwork.m in Sources */,
 				2E36BE051C4F3B14004416AC /* MKNetworkRequest.m in Sources */,
+				2EB9EB501C844B3100054049 /* beforeBindViewController.m in Sources */,
 				2E409E041C7A99FA00933BEE /* mubiaoViewController.m in Sources */,
 				2E55F20E1C3F97AE0027AC6F /* PNScatterChartData.m in Sources */,
 				2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */,
+				2EB9EB4D1C8443C600054049 /* welcomeViewController.m in Sources */,
 				2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */,
 				2EFBE3601C3BA545009BCDED /* mainViewController.m in Sources */,
 				2E55F2071C3F97AE0027AC6F /* PNLineChartData.m in Sources */,
@@ -826,6 +843,7 @@
 				1073ED151C81F06E00DD9327 /* Logic.m in Sources */,
 				2E36BE021C4F3B14004416AC /* UIImageView+MKNKAdditions.m in Sources */,
 				105F14351C42475C0039B8E7 /* CurrentPlan.m in Sources */,
+				2EB9EB4A1C84333500054049 /* bindBrandViewController.m in Sources */,
 				2E55F2091C3F97AE0027AC6F /* PNPieChart.m in Sources */,
 				2E409E011C7A99E100933BEE /* gerenshezhiViewController.m in Sources */,
 				2E36BE391C4F7610004416AC /* exe7ViewController.m in Sources */,
