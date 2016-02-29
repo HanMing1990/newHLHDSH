@@ -83,6 +83,7 @@
 		105F14381C42475C0039B8E7 /* KCDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14311C42475C0039B8E7 /* KCDbManager.m */; };
 		105F14391C42475C0039B8E7 /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 105F14331C42475C0039B8E7 /* Plan.m */; };
 		1073ED071C7DCB9C00DD9327 /* sleepStress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073ED061C7DCB9C00DD9327 /* sleepStress.m */; };
+		1073ED151C81F06E00DD9327 /* Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073ED141C81F06E00DD9327 /* Logic.m */; };
 		2E36BD441C4F2ABB004416AC /* HMNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BD431C4F2ABB004416AC /* HMNetwork.m */; };
 		2E36BDFC1C4F3B14004416AC /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BDE51C4F3B14004416AC /* NSDate+RFC1123.m */; };
 		2E36BDFD1C4F3B14004416AC /* NSDictionary+MKNKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36BDE71C4F3B14004416AC /* NSDictionary+MKNKAdditions.m */; };
@@ -229,6 +230,8 @@
 		105F14331C42475C0039B8E7 /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
 		1073ED051C7DCB9C00DD9327 /* sleepStress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sleepStress.h; sourceTree = "<group>"; };
 		1073ED061C7DCB9C00DD9327 /* sleepStress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sleepStress.m; sourceTree = "<group>"; };
+		1073ED131C81F06E00DD9327 /* Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logic.h; sourceTree = "<group>"; };
+		1073ED141C81F06E00DD9327 /* Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logic.m; sourceTree = "<group>"; };
 		2E36BD421C4F2AA4004416AC /* HMNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMNetwork.h; sourceTree = "<group>"; };
 		2E36BD431C4F2ABB004416AC /* HMNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNetwork.m; sourceTree = "<group>"; };
 		2E36BDE41C4F3B14004416AC /* NSDate+RFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFC1123.h"; sourceTree = "<group>"; };
@@ -636,6 +639,8 @@
 				2E409E031C7A99FA00933BEE /* mubiaoViewController.m */,
 				2E8C3EB01C7B07E9006B4334 /* sleepAnalysisViewController.h */,
 				2E8C3EB11C7B07E9006B4334 /* sleepAnalysisViewController.m */,
+				1073ED131C81F06E00DD9327 /* Logic.h */,
+				1073ED141C81F06E00DD9327 /* Logic.m */,
 			);
 			path = "framework-1_4-[0.1 hanming]";
 			sourceTree = "<group>";
@@ -818,6 +823,7 @@
 				2E55F2101C3F97AE0027AC6F /* UICountingLabel.m in Sources */,
 				2E55F20D1C3F97AE0027AC6F /* PNScatterChart.m in Sources */,
 				2E8E064C1C3BB3390034A854 /* historyViewController.m in Sources */,
+				1073ED151C81F06E00DD9327 /* Logic.m in Sources */,
 				2E36BE021C4F3B14004416AC /* UIImageView+MKNKAdditions.m in Sources */,
 				105F14351C42475C0039B8E7 /* CurrentPlan.m in Sources */,
 				2E55F2091C3F97AE0027AC6F /* PNPieChart.m in Sources */,
