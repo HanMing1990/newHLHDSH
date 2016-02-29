@@ -47,8 +47,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *plan1Text;
 @property (weak, nonatomic) IBOutlet UILabel *plan2Text;
-@property (weak, nonatomic) IBOutlet UILabel *plan4Text;
 @property (weak, nonatomic) IBOutlet UILabel *plan3Text;
+@property (weak, nonatomic) IBOutlet UILabel *plan4Text;
 @property (weak, nonatomic) IBOutlet UILabel *plan5Text;
 @property (weak, nonatomic) IBOutlet UILabel *plan6Text;
 @property (weak, nonatomic) IBOutlet UILabel *plan7Text;

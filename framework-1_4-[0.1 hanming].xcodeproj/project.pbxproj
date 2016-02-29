@@ -131,7 +131,11 @@
 		2E913D7D1C451A89008CE648 /* exe4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E913D7C1C451A89008CE648 /* exe4ViewController.m */; };
 		2EB9D6B91C3D47570076381A /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9D6B81C3D47570076381A /* infoViewController.m */; };
 		2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB9D7031C3F5C580076381A /* libsqlite3.tbd */; };
+		2EB9EB471C82EA2600054049 /* shouhuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9EB461C82EA2600054049 /* shouhuanViewController.m */; };
 		2EC8020F1C814E5E0050BCC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC8020E1C814E5E0050BCC1 /* Main.storyboard */; };
+		2EC802151C81918A0050BCC1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC802141C81918A0050BCC1 /* CoreBluetooth.framework */; };
+		2EC803361C8194160050BCC1 /* libAppscommBluetoothSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC803351C8194160050BCC1 /* libAppscommBluetoothSDK.a */; };
+		2EC803481C81A4830050BCC1 /* testShouHuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC803471C81A4830050BCC1 /* testShouHuanViewController.m */; };
 		2EFBE3461C3A8392009BCDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3451C3A8392009BCDED /* main.m */; };
 		2EFBE3491C3A8392009BCDED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBE3481C3A8392009BCDED /* AppDelegate.m */; };
 		2EFBE3511C3A8392009BCDED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EFBE3501C3A8392009BCDED /* Assets.xcassets */; };
@@ -320,7 +324,17 @@
 		2EB9D6B71C3D47570076381A /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		2EB9D6B81C3D47570076381A /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
 		2EB9D7031C3F5C580076381A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2EB9EB451C82EA2600054049 /* shouhuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shouhuanViewController.h; sourceTree = "<group>"; };
+		2EB9EB461C82EA2600054049 /* shouhuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shouhuanViewController.m; sourceTree = "<group>"; };
 		2EC8020E1C814E5E0050BCC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2EC802131C81918A0050BCC1 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2EC802141C81918A0050BCC1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreBluetooth.framework; sourceTree = "<group>"; };
+		2EC803321C8194160050BCC1 /* AppscommBluetoothSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppscommBluetoothSDK.h; sourceTree = "<group>"; };
+		2EC803331C8194160050BCC1 /* AppscommDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppscommDataTypes.h; sourceTree = "<group>"; };
+		2EC803341C8194160050BCC1 /* AppscommDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppscommDevice.h; sourceTree = "<group>"; };
+		2EC803351C8194160050BCC1 /* libAppscommBluetoothSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppscommBluetoothSDK.a; sourceTree = "<group>"; };
+		2EC803461C81A4830050BCC1 /* testShouHuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testShouHuanViewController.h; sourceTree = "<group>"; };
+		2EC803471C81A4830050BCC1 /* testShouHuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testShouHuanViewController.m; sourceTree = "<group>"; };
 		2EFBE3411C3A8392009BCDED /* framework-1_4-[0.1 hanming].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "framework-1_4-[0.1 hanming].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFBE3451C3A8392009BCDED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2EFBE3471C3A8392009BCDED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -340,10 +354,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E36BE331C4F672A004416AC /* ImageIO.framework in Frameworks */,
+				2EC802151C81918A0050BCC1 /* CoreBluetooth.framework in Frameworks */,
 				2E36BE311C4F6723004416AC /* Security.framework in Frameworks */,
 				2E36BE2F1C4F6709004416AC /* CFNetwork.framework in Frameworks */,
 				104A8FD71C43491C005E40D4 /* UIKit.framework in Frameworks */,
 				104A8FD51C434913005E40D4 /* CoreGraphics.framework in Frameworks */,
+				2EC803361C8194160050BCC1 /* libAppscommBluetoothSDK.a in Frameworks */,
 				104A8FD31C4348FD005E40D4 /* Foundation.framework in Frameworks */,
 				104A8FD11C4348EE005E40D4 /* QuartzCore.framework in Frameworks */,
 				2EB9D7041C3F5C580076381A /* libsqlite3.tbd in Frameworks */,
@@ -506,9 +522,30 @@
 			path = PNChart;
 			sourceTree = "<group>";
 		};
+		2EC803301C8194160050BCC1 /* AppscommBluetoothSDK */ = {
+			isa = PBXGroup;
+			children = (
+				2EC803311C8194160050BCC1 /* include */,
+				2EC803351C8194160050BCC1 /* libAppscommBluetoothSDK.a */,
+			);
+			name = AppscommBluetoothSDK;
+			path = "framework-1_4-[0.1 hanming]/AppscommBluetoothSDK";
+			sourceTree = "<group>";
+		};
+		2EC803311C8194160050BCC1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				2EC803321C8194160050BCC1 /* AppscommBluetoothSDK.h */,
+				2EC803331C8194160050BCC1 /* AppscommDataTypes.h */,
+				2EC803341C8194160050BCC1 /* AppscommDevice.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		2EFBE3381C3A8392009BCDED = {
 			isa = PBXGroup;
 			children = (
+				2EC803301C8194160050BCC1 /* AppscommBluetoothSDK */,
 				2E36BE321C4F672A004416AC /* ImageIO.framework */,
 				2E36BE301C4F6723004416AC /* Security.framework */,
 				2E36BE2E1C4F6709004416AC /* CFNetwork.framework */,
@@ -519,6 +556,8 @@
 				104A8FD01C4348EE005E40D4 /* QuartzCore.framework */,
 				2E55F1DB1C3F97AE0027AC6F /* PNChart */,
 				2EB9D7031C3F5C580076381A /* libsqlite3.tbd */,
+				2EC802131C81918A0050BCC1 /* PrefixHeader.pch */,
+				2EC802141C81918A0050BCC1 /* CoreBluetooth.framework */,
 				2EFBE3431C3A8392009BCDED /* framework-1_4-[0.1 hanming] */,
 				2EFBE3421C3A8392009BCDED /* Products */,
 			);
@@ -535,6 +574,10 @@
 		2EFBE3431C3A8392009BCDED /* framework-1_4-[0.1 hanming] */ = {
 			isa = PBXGroup;
 			children = (
+				2EB9EB451C82EA2600054049 /* shouhuanViewController.h */,
+				2EB9EB461C82EA2600054049 /* shouhuanViewController.m */,
+				2EC803461C81A4830050BCC1 /* testShouHuanViewController.h */,
+				2EC803471C81A4830050BCC1 /* testShouHuanViewController.m */,
 				1073ED051C7DCB9C00DD9327 /* sleepStress.h */,
 				1073ED061C7DCB9C00DD9327 /* sleepStress.m */,
 				105F14281C42475C0039B8E7 /* CurrentLevel.h */,
@@ -766,9 +809,11 @@
 				2E55F20A1C3F97AE0027AC6F /* PNPieChartDataItem.m in Sources */,
 				2E36BDFC1C4F3B14004416AC /* NSDate+RFC1123.m in Sources */,
 				2E409DD81C76B61600933BEE /* loginViewController.m in Sources */,
+				2EB9EB471C82EA2600054049 /* shouhuanViewController.m in Sources */,
 				2E55F2021C3F97AE0027AC6F /* PNChartLabel.m in Sources */,
 				2E36BE031C4F3B14004416AC /* MKCache.m in Sources */,
 				2E55F2011C3F97AE0027AC6F /* PNBarChart.m in Sources */,
+				2EC803481C81A4830050BCC1 /* testShouHuanViewController.m in Sources */,
 				2E36BE001C4F3B14004416AC /* NSString+MKNKAdditions.m in Sources */,
 				2E55F2101C3F97AE0027AC6F /* UICountingLabel.m in Sources */,
 				2E55F20D1C3F97AE0027AC6F /* PNScatterChart.m in Sources */,
@@ -899,8 +944,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "framework-1_4-[0.1 hanming]/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/framework-1_4-[0.1",
+					"hanming]/AppscommBluetoothSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "WristBand.framework-1-4--0-1-hanming-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -910,8 +965,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "framework-1_4-[0.1 hanming]/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/framework-1_4-[0.1",
+					"hanming]/AppscommBluetoothSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "WristBand.framework-1-4--0-1-hanming-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
