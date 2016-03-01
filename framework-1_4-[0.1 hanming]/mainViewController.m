@@ -17,6 +17,9 @@
 #import "stdlib.h"
 #import "Logic.h"
 
+#import "AppscommDevice.h"
+#import "AppscommBluetoothSDK.h"
+
 @interface mainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
 @property (weak, nonatomic) IBOutlet UITextView *mainTopLabel;
@@ -32,12 +35,29 @@
 @property (weak, nonatomic) IBOutlet UIView *stepCircleView;
 @property (weak, nonatomic) IBOutlet UIView *calorieCircleView;
 
+
+@property (nonatomic, assign) NSUInteger stepsToShow;
 @end
 
 @implementation mainViewController
 
 //nothing
 @synthesize leftSwipeGestureRecognizer, rightSwipeGestureRecognizer;
+
+#pragma mark - 辅助函数
+
+- (void)showAlertWithString:(NSString *)msg{
+    
+    NSString *newMsg = [NSString stringWithFormat:@"%@",msg];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:newMsg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        [alertController dismissViewControllerAnimated:NO completion:nil];
+    }];
+    [alertController addAction:action];
+    [self presentViewController:alertController animated:NO completion:nil];
+}
+
+
 #pragma mark- 显示函数
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -328,6 +348,7 @@
     //1. 初始化网络对象
     HMNetwork *hmnetwork = [[HMNetwork alloc]init];
     
+    
     //3. 传输数据
     //[hmnetwork sendData:dataToSend];//用来测试是否
     [hmnetwork sendPlanHistory];
@@ -336,19 +357,133 @@
 }
 
 
+- (IBAction)syncDataFromBrand:(id)sender {
+    //1. 读取和处理压力数据
+    
+    //2. 读取和处理睡眠数据
+    
+    /*
+     
+     {
+     awakeCount = 0;
+     awakeDuration = 87;
+     deepDuration = 269;
+     detailData =     (
+     "time:1456729518, type:16",
+     "time:1456729518, type:3",
+     "time:1456734378, type:1",
+     "time:1456735098, type:0",
+     "time:1456746378, type:1",
+     "time:1456747098, type:0",
+     "time:1456751958, type:1",
+     "time:1456753278, type:2",
+     "time:1456753641, type:2",
+     "time:1456753641, type:17",
+     "time:0, type:18"
+     );
+     lightDuration = 46;
+     quality = 99;
+     sleepDate = 1456753641;
+     sleepDuration = 81;
+     totalDuration = 402;
+     }
+     
+     */
+    
+    
+    
+    
+    [[AppscommBluetoothSDK sharedInstance] readSleepData:^(NSArray *data,NSError *error){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [self showAlertWithString:error.description];
+            }else{
+                NSLog(@"sleep original data is %@ xxx", data);//这个数据一旦读完就被擦除了
+                [data enumerateObjectsUsingBlock:^(AppscommSleepTotalData *total, NSUInteger index, BOOL *stop){
+                    NSLog(@"sleep total data is%@", total);
+                    
+                    /*AppscommSleepTotalData
+                     @property (nonatomic, strong) NSArray *detailData;      //详细数据,AppscommSleepDetailData类型
+                     
+                     @property (nonatomic, assign) NSUInteger quality;       //睡眠质量
+                     @property (nonatomic, assign) NSUInteger sleepDuration; //睡眠时长
+                     @property (nonatomic, assign) NSUInteger awakeDuration; //清醒时长
+                     @property (nonatomic, assign) NSUInteger lightDuration; //浅睡时长
+                     @property (nonatomic, assign) NSUInteger deepDuration;  //深睡时长
+                     @property (nonatomic, assign) NSUInteger totalDuration; //总的时间
+                     @property (nonatomic, assign) NSUInteger awakeCount;    //清醒次数
+                     @property (nonatomic, assign) NSUInteger sleepDate;     //睡眠日期(有预设睡眠的设备需要)
+                     */
+                    
+                    /*AppscommSleepDetailData
+                     @property (nonatomic, assign) AppscommSleepType sleepType; //睡眠类型
+                     @property (nonatomic, assign) NSUInteger timeStamp; //时间戳
+                     */
+                    
+                    
+                }];
+                
+            }
+        });
+    }];
+    
+    
+    
+    //3. 读取和处理计步数据
+    [[AppscommBluetoothSDK sharedInstance] readTodaySportTotalData:^(NSUInteger steps, NSUInteger calories,NSError *error){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [self showAlertWithString:error.description];
+            }else{
+                //[self showAlertWithString:[NSString stringWithFormat:@"步数:%ld , 卡路里:%ld", (long)steps, (long)calories]];
+                self.stepsToShow = steps;
+                NSLog(@"step data is: %lu", (unsigned long)steps);
+            }
+        });
+    }];
+    
+    
+    
+}
+
+
 - (IBAction)generateSensorData:(id)sender {
     
+    
+    //以下是读取手环数据的两个例子
+    /*
+    [[AppscommBluetoothSDK sharedInstance] readWatchID:^(NSString *name,NSError *error){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"read watchID:%@", name);
+        });
+        
+    }];
+    
+    
+    [[AppscommBluetoothSDK sharedInstance] readFirmwareInformation:^(NSString *name,NSError *error){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"read firmwareInformation:%@", name);
+        });
+    }];
+     */
+    
+    
+    NSLog(@"read step is %lu", (unsigned long)self.stepsToShow);
+    
+    //4. 读取和处理卡路里数据
     float stressValueRandom = arc4random()%6;
     float sleepValueRandom = arc4random()%100;
     float stepValueRandom = arc4random()%100;
     float calorieValueRandom = arc4random()%100;
     
-    //1. 记录到数据库里， xxx
+    
     //NSlog(@"stress %f", stressValueRandom);
     //NSlog(@"sleep %f", sleepValueRandom);
     //NSlog(@"step %f", stepValueRandom);
     //NSlog(@"calorie %f", calorieValueRandom);
     
+    
+    //记录到数据库里
     CurrentLevel * currentLevel = [CurrentLevel new];
     currentLevel.stressLevel = [NSString stringWithFormat:@"%f",stressValueRandom];
     currentLevel.stepLevel = [NSString stringWithFormat:@"%f",stepValueRandom];
@@ -356,6 +491,7 @@
     currentLevel.calorieLevel = [NSString stringWithFormat:@"%f",calorieValueRandom];
     currentLevel.stressTime = currentLevel.sleepTime = currentLevel.stepTime = currentLevel.calorieTime = [NSDate date];
     [currentLevel save];
+
     
     Plan *plan = [Plan new];
     [plan calculateFlowerLevel];//如果压力值变化了，要重新调用这个还是，计算花的状态值
