@@ -24,10 +24,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
 @property (weak, nonatomic) IBOutlet UITextView *mainTopLabel;
 @property (weak, nonatomic) IBOutlet UIButton *flowerBtn;
-@property (weak, nonatomic) IBOutlet UILabel *label1;
-@property (weak, nonatomic) IBOutlet UILabel *label2;
-@property (weak, nonatomic) IBOutlet UILabel *label3;
-@property (weak, nonatomic) IBOutlet UILabel *label4;
+@property (weak, nonatomic) IBOutlet UILabel *stressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sleepLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stepLabel;
+@property (weak, nonatomic) IBOutlet UILabel *calorieLabel;
 - (IBAction)createPlan:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *stressCircleView;
@@ -35,8 +35,7 @@
 @property (weak, nonatomic) IBOutlet UIView *stepCircleView;
 @property (weak, nonatomic) IBOutlet UIView *calorieCircleView;
 
-
-@property (nonatomic, assign) NSUInteger stepsToShow;
+//@property (nonatomic, assign) NSUInteger stepsToShow;
 @end
 
 @implementation mainViewController
@@ -116,16 +115,16 @@
     
     //压力值赋值 不一定是int
     //NSlog(@"current level %f", currentLevel.stressLevel.floatValue);
-    self.label1.text = currentLevel.stressLevel;
+    self.stressLabel.text = currentLevel.stressLevel;
     //睡眠赋值 不一定是int
     //NSlog(@"current level %f", currentLevel.sleepLevel.floatValue);
-    self.label2.text = currentLevel.sleepLevel;
+    self.sleepLabel.text = currentLevel.sleepLevel;
     //计步赋值 不一定是int
     //NSlog(@"current level %f", currentLevel.stepLevel.floatValue);
-    self.label3.text = currentLevel.stepLevel;
+    self.stepLabel.text = currentLevel.stepLevel;
     //卡路里赋值 不一定是int
     //NSlog(@"current level %f", currentLevel.calorieLevel.floatValue);
-    self.label4.text = currentLevel.calorieLevel;
+    self.calorieLabel.text = currentLevel.calorieLevel;
     
     
     //
@@ -361,9 +360,7 @@
     //1. 读取和处理压力数据
     
     //2. 读取和处理睡眠数据
-    
-    /*
-     
+    /* 睡眠的例子
      {
      awakeCount = 0;
      awakeDuration = 87;
@@ -387,12 +384,9 @@
      sleepDuration = 81;
      totalDuration = 402;
      }
-     
      */
     
-    
-    
-    
+    /*
     [[AppscommBluetoothSDK sharedInstance] readSleepData:^(NSArray *data,NSError *error){
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
@@ -401,10 +395,9 @@
                 NSLog(@"sleep original data is %@ xxx", data);//这个数据一旦读完就被擦除了
                 [data enumerateObjectsUsingBlock:^(AppscommSleepTotalData *total, NSUInteger index, BOOL *stop){
                     NSLog(@"sleep total data is%@", total);
-                    
+                    */
                     /*AppscommSleepTotalData
                      @property (nonatomic, strong) NSArray *detailData;      //详细数据,AppscommSleepDetailData类型
-                     
                      @property (nonatomic, assign) NSUInteger quality;       //睡眠质量
                      @property (nonatomic, assign) NSUInteger sleepDuration; //睡眠时长
                      @property (nonatomic, assign) NSUInteger awakeDuration; //清醒时长
@@ -419,14 +412,12 @@
                      @property (nonatomic, assign) AppscommSleepType sleepType; //睡眠类型
                      @property (nonatomic, assign) NSUInteger timeStamp; //时间戳
                      */
-                    
-                    
+                    /*
                 }];
                 
             }
         });
-    }];
-    
+    }];*/
     
     
     //3. 读取和处理计步数据
@@ -436,8 +427,10 @@
                 [self showAlertWithString:error.description];
             }else{
                 //[self showAlertWithString:[NSString stringWithFormat:@"步数:%ld , 卡路里:%ld", (long)steps, (long)calories]];
-                self.stepsToShow = steps;
-                NSLog(@"step data is: %lu", (unsigned long)steps);
+                //self.stepsToShow = steps;
+                //NSLog(@"step data is: %lu", (unsigned long)steps);
+                self.stepLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)steps];
+                self.calorieLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)calories];
             }
         });
     }];
@@ -448,7 +441,6 @@
 
 
 - (IBAction)generateSensorData:(id)sender {
-    
     
     //以下是读取手环数据的两个例子
     /*
@@ -468,7 +460,7 @@
      */
     
     
-    NSLog(@"read step is %lu", (unsigned long)self.stepsToShow);
+    //NSLog(@"read step is %lu", (unsigned long)self.stepsToShow);
     
     //4. 读取和处理卡路里数据
     float stressValueRandom = arc4random()%6;

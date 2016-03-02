@@ -25,6 +25,8 @@
     
     
 }
+
+
 - (IBAction)enterBtnClicked:(id)sender {
     @try {
         //判断是否绑定了手环
@@ -52,6 +54,8 @@
     }
   
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -105,7 +109,15 @@
                 
                 
             }else{
+                //如果连接不上，跳到绑定的界面进行绑定
                 NSLog(@"connect not ok");
+                //说明连不上手环,跳转到绑定界面，重新绑定
+                UIStoryboard *mainStoryboard = self.storyboard;
+                beforeBindViewController *SVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"beforeBindViewController"];
+                //设置翻页效果
+                [SVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+                [self presentViewController: SVC animated:NO completion:nil];
+                
             }
         });
         
