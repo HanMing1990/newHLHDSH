@@ -357,10 +357,16 @@
 
 
 - (IBAction)syncDataFromBrand:(id)sender {
-    //1. 读取和处理压力数据
     
-    //2. 读取和处理睡眠数据
-    /* 睡眠的例子
+    //为了记录到数据库中
+    //记录到数据库里
+    
+
+    
+    
+    //2. 读取和处理睡眠详细数据
+    // 睡眠的例子
+    /*
      {
      awakeCount = 0;
      awakeDuration = 87;
@@ -386,7 +392,7 @@
      }
      */
     
-    /*
+    
     [[AppscommBluetoothSDK sharedInstance] readSleepData:^(NSArray *data,NSError *error){
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
@@ -395,7 +401,16 @@
                 NSLog(@"sleep original data is %@ xxx", data);//这个数据一旦读完就被擦除了
                 [data enumerateObjectsUsingBlock:^(AppscommSleepTotalData *total, NSUInteger index, BOOL *stop){
                     NSLog(@"sleep total data is%@", total);
-                    */
+                    
+                    //1. 显示
+                    self.sleepLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)total.sleepDuration];
+                    
+                    //2. 存到数据库里
+                    CurrentLevel * currentLevel = [CurrentLevel new];
+                    currentLevel.sleepLevel = [NSString stringWithFormat:@"%lu", (unsigned long)total.sleepDuration];
+                    currentLevel.sleepTime = [NSDate date];
+                    [currentLevel save];
+                    
                     /*AppscommSleepTotalData
                      @property (nonatomic, strong) NSArray *detailData;      //详细数据,AppscommSleepDetailData类型
                      @property (nonatomic, assign) NSUInteger quality;       //睡眠质量
@@ -412,12 +427,14 @@
                      @property (nonatomic, assign) AppscommSleepType sleepType; //睡眠类型
                      @property (nonatomic, assign) NSUInteger timeStamp; //时间戳
                      */
-                    /*
+                    
+        
+                    //计算输出压力数据
+                    
                 }];
-                
             }
         });
-    }];*/
+    }];
     
     
     //3. 读取和处理计步数据
@@ -429,8 +446,18 @@
                 //[self showAlertWithString:[NSString stringWithFormat:@"步数:%ld , 卡路里:%ld", (long)steps, (long)calories]];
                 //self.stepsToShow = steps;
                 //NSLog(@"step data is: %lu", (unsigned long)steps);
+                //1. 显示
                 self.stepLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)steps];
                 self.calorieLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)calories];
+                
+                //2. 存到数据库里
+                CurrentLevel * currentLevel = [CurrentLevel new];
+                currentLevel.stepLevel = [NSString stringWithFormat:@"%lu", (unsigned long)steps];
+                currentLevel.calorieLevel = [NSString stringWithFormat:@"%lu", (unsigned long)calories];
+                currentLevel.stepTime = currentLevel.calorieTime = [NSDate date];
+                [currentLevel save];
+                
+                
             }
         });
     }];
