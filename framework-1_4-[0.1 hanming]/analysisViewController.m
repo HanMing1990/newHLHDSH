@@ -15,6 +15,7 @@
 @interface analysisViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lineChartView;
 @property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *dateRangeText;
 
 @end
 
@@ -49,13 +50,11 @@
     self.lineChart.backgroundColor = [UIColor clearColor];
     
     //[self.lineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5"]];
-    
-    
+
     //-----------------------------------------------------------------
     //x坐标值
     NSMutableArray * XLabels = [self getXvaluesForLineChart:showDataArray];
     NSLog(@"ok the x is: %@", XLabels);
-    
     
     [self.lineChart setXLabels:XLabels];
     //-----------------------------------------------------------------
@@ -473,7 +472,6 @@
      }
      )
      */
-    
     NSMutableArray *XValues = [NSMutableArray new];
     
     //0. 得到一共有几个item

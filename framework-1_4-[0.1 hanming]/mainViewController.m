@@ -167,6 +167,9 @@
     NSNumber *stepTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"stepTarget"];
     NSNumber *sleepTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"sleepTarget"];
     //NSNumber *distanceTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"distanceTarget"];
+    
+    
+    
     // stress
     self.circleChartStress = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
                                                       total:@10
@@ -200,9 +203,6 @@
     [self.sleepCircleView addSubview:self.circleChartSleep];
     
     
-    
-    
-    
     // step
     self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
                                                            total:stepTarget
@@ -214,6 +214,8 @@
     [self.circleChartStep setStrokeColorGradientStart:[UIColor colorWithRed:178.0f/255.0f green:34.0f/255.0f blue:34.0f/255.0f alpha:0.8]];
     //[self.circleChartStep strokeChart];
     [self.stepCircleView addSubview:self.circleChartStep];
+    
+    
     
     // calorie
     self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
@@ -302,7 +304,7 @@
         [self presentViewController: SVC animated:YES completion:nil];
         
     }
-    
+
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         //NSlog(@"你在往右面滑动～！");
     }
@@ -398,14 +400,28 @@
                     NSLog(@"sleep total data is%@", total);
                     //--------------------------------------睡眠---------------------------------------------------
                     //1. 显示
+                    //1.1 修改文本
                     self.sleepLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)total.sleepDuration];
+                    NSNumber *sleepTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"sleepTarget"];
+                    // 1.2 修改显示的圆圈
+                    // sleep
+                    self.circleChartSleep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
+                                                                           total:sleepTarget
+                                                                         current:[NSNumber numberWithInteger: total.sleepDuration]
+                                                                       clockwise:YES];
+                    self.circleChartSleep.backgroundColor = [UIColor clearColor];
+                    [self.circleChartSleep setStrokeColor:[UIColor clearColor]];
+                    // change color according to the stress lever
+                    [self.circleChartSleep setStrokeColorGradientStart:[UIColor colorWithRed:127.0f/255.0f green:255.0f/255.0f blue:212.0f/255.0f alpha:0.8]];
+                    //[self.circleChartSleep strokeChart];
+                    [self.sleepCircleView addSubview:self.circleChartSleep];
+                    
                     
                     //2. 存到数据库里
                     CurrentLevel * currentLevel = [CurrentLevel new];
                     currentLevel.sleepLevel = [NSString stringWithFormat:@"%lu", (unsigned long)total.sleepDuration];
                     currentLevel.sleepTime = [NSDate date];
                     [currentLevel save];
-                    
                     
                     /*AppscommSleepTotalData
                      @property (nonatomic, strong) NSArray *detailData;      //详细数据,AppscommSleepDetailData类型
@@ -443,8 +459,9 @@
                      */
                     
                     //--------------------------------------压力---------------------------------------------------
-                    //3. 把total传给金立师兄~
-                    float stressValueFromJL = arc4random()%6;
+                    //3. 把total传给金力师兄~
+                    float stressValueFromJL = 100;
+
                     //3.1 显示
                     self.stressLabel.text = [NSString stringWithFormat:@"%f", stressValueFromJL];
                     //3.2 存到数据库里
@@ -466,11 +483,41 @@
             }else{
                 //[self showAlertWithString:[NSString stringWithFormat:@"步数:%ld , 卡路里:%ld", (long)steps, (long)calories]];
                 //self.stepsToShow = steps;
-                //NSLog(@"step data is: %lu", (unsigned long)steps);
+                NSLog(@"step data is: %lu", (unsigned long)steps);
                 
                 //1. 显示
                 self.stepLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)steps];
                 self.calorieLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)calories];
+                
+                NSNumber *kaluliTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"kaluliTarget"];
+                NSNumber *stepTarget = [[NSUserDefaults standardUserDefaults] valueForKey:@"stepTarget"];
+                
+                
+                // step
+                self.circleChartStep = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
+                                                                      total:stepTarget
+                                                                    current:[NSNumber numberWithInteger:steps]
+                                                                  clockwise:YES];
+                self.circleChartStep.backgroundColor = [UIColor clearColor];
+                [self.circleChartStep setStrokeColor:[UIColor clearColor]];
+                // change color according to the stress lever
+                [self.circleChartStep setStrokeColorGradientStart:[UIColor colorWithRed:178.0f/255.0f green:34.0f/255.0f blue:34.0f/255.0f alpha:0.8]];
+                //[self.circleChartStep strokeChart];
+                [self.stepCircleView addSubview:self.circleChartStep];
+                
+                
+                // calorie
+                self.circleChartCalorie = [[PNCircleChart alloc] initWithFrame:CGRectMake(17,8, 50, 50)
+                                                                         total:kaluliTarget
+                                                                       current:[NSNumber numberWithInteger:calories]
+                                                                     clockwise:YES];
+                self.circleChartCalorie.backgroundColor = [UIColor clearColor];
+                [self.circleChartCalorie setStrokeColor:[UIColor clearColor]];
+                // change color according to the stress lever
+                [self.circleChartCalorie setStrokeColorGradientStart:[UIColor colorWithRed:153.0f/255.0f green:51.0f/255.0f blue:250.0f/255.0f alpha:0.8]];
+                //[self.circleChartCalorie strokeChart];
+                [self.calorieCircleView addSubview:self.circleChartCalorie];
+                
                 
                 //2. 存到数据库里
                 CurrentLevel * currentLevel = [CurrentLevel new];
@@ -479,11 +526,14 @@
                 currentLevel.stepTime = currentLevel.calorieTime = [NSDate date];
                 [currentLevel save];
                 
+                
             }
         });
     }];
 
 }
+
+
 
 
 - (IBAction)generateSensorData:(id)sender {
@@ -514,12 +564,10 @@
     float stepValueRandom = arc4random()%100;
     float calorieValueRandom = arc4random()%100;
     
-    
     //NSlog(@"stress %f", stressValueRandom);
     //NSlog(@"sleep %f", sleepValueRandom);
     //NSlog(@"step %f", stepValueRandom);
     //NSlog(@"calorie %f", calorieValueRandom);
-    
     
     //记录到数据库里
     CurrentLevel * currentLevel = [CurrentLevel new];

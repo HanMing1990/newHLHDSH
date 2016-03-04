@@ -264,13 +264,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="mrH-G1-eWC"/>
                     <connections>
+                        <outlet property="dateRangeText" destination="8uc-98-UgY" id="VnK-o5-qfm"/>
                         <outlet property="lineChartView" destination="Gx1-Tc-Y0t" id="7a2-rb-1oX"/>
                         <outlet property="myScrollView" destination="5Qp-F5-9Xw" id="3vv-FE-lYe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REJ-iZ-zZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-112" y="1209"/>
+            <point key="canvasLocation" x="-106" y="1246"/>
         </scene>
         <!--Exe1 View Controller-->
         <scene sceneID="46L-aG-xeG">
@@ -617,7 +618,7 @@
                                 <rect key="frame" x="15" y="294" width="293" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" patternImage="FB5CA286-2D08-4299-BF9D-55ED7514AD78" colorSpace="pattern"/>
+                                <color key="textColor" patternImage="CAAA7F05-719E-4390-AF82-A68866C99CED" colorSpace="pattern"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -3027,7 +3028,7 @@ All Rights Reserved</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcS-Rw-7xC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="533"/>
+            <point key="canvasLocation" x="-619" y="455"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="nNX-9E-Qxv">
@@ -3856,7 +3857,7 @@ All Rights Reserved</string>
         </scene>
     </scenes>
     <resources>
-        <image name="FB5CA286-2D08-4299-BF9D-55ED7514AD78" width="256" height="256">
+        <image name="CAAA7F05-719E-4390-AF82-A68866C99CED" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

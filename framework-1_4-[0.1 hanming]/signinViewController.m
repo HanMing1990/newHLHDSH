@@ -65,10 +65,10 @@
     
     //设置目标的默认值，按理说这里应该再写一个界面来让用户输入
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: @1000 forKey:@"kaluliTarget"];
-    [defaults setObject: @1000 forKey:@"stepTarget"];
+    [defaults setObject: @350 forKey:@"kaluliTarget"];
+    [defaults setObject: @7000 forKey:@"stepTarget"];
     [defaults setObject: @8 forKey:@"sleepTarget"];
-    [defaults setObject: @3000 forKey:@"distanceTarget"];
+    [defaults setObject: @5000 forKey:@"distanceTarget"];
     [defaults synchronize];
     
 }
