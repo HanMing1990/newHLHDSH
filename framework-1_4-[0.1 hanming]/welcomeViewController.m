@@ -89,7 +89,7 @@
         dispatch_async(dispatch_get_main_queue(), ^(){
             if (!error) {
                 NSLog(@"connect ok");
-                
+                /*
                 //3. 测试能否读取数据（只有这样才能读到数据）
                 NSLog(@"if read data ok");
                 //获取watchID
@@ -105,7 +105,7 @@
                     });
                     
                 }];
-                
+                */
                 
                 
             }else{

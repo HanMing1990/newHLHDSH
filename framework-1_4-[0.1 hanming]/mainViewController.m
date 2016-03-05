@@ -584,10 +584,14 @@
     [plan insertLevelItem];
 }
 
+
+//从这里给小苏版
 - (IBAction)createPlan:(id)sender {
     Plan *plan = [Plan new];
     [plan createNewPlan]; //生成一个新的计划
 }
+
+
 
 /*
 #pragma mark - Navigation

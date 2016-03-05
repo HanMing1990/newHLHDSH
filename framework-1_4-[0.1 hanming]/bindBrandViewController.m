@@ -116,8 +116,6 @@
 }
 
 
-
-
 - (IBAction)scanDeviceBtnClicked:(id)sender {
     
     [self searchDevices];

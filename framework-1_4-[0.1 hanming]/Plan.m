@@ -248,8 +248,8 @@
 
     return item;
 }
+
 - (void) createNewPlan{
-    //NSlog(@"inter function createNewPlan");
     //0.来，搞个随机数种子
     srandom(time(NULL));
     //0.1 准备实例化currentplan
@@ -394,6 +394,7 @@
     
     return YES;
 }
+
 - (Item *) selectItemRandomly{
     srandom(time(NULL));
     int  rand = random() % SUM_OF_ITEM;
@@ -406,6 +407,7 @@
         return item;
     }
 }
+
 - (Item *) changeItemById:(NSNumber* )newId{
     //for debug  (yangj)
     //return [self getItemById:[NSNumber numberWithInt:newId.intValue + 1]];
